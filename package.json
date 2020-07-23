@@ -1,0 +1,25 @@
+{
+  "name": "type-challenges",
+  "private": true,
+  "version": "0.0.0",
+  "repository": "https://github.com/antfu/type-challenges.git",
+  "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "utils:build": "pnpm -C utils build",
+    "utils:release": "pnpm -C utils release"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config-ts": "^0.2.14",
+    "eslint": "^7.5.0",
+    "rollup": "^2.22.2",
+    "rollup-plugin-dts": "^1.4.9",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "typescript": "^3.9.7",
+    "@type-challenges/utils": "workspace:*"
+  },
+  "eslintConfig": {
+    "extends": "@antfu/eslint-config-ts"
+  }
+}

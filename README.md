@@ -3,7 +3,7 @@
 </p>
 
 <pre align='center'>
-Collection of Typescript typing challenges
+Collection of TypeScript typing challenges
 </pre>
 
 <br>

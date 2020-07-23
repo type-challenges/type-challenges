@@ -1,0 +1,22 @@
+{
+  "name": "@type-challenges/utils",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+	"module": "dist/index.esm.js",
+	"browser": "dist/index.esm.js",
+	"typing": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "release": "pnpx bumpp --commit --tag && pnpm build && pnpm publish"
+  },
+  "devDependencies": {
+    "rollup": "^2.22.2",
+    "rollup-plugin-dts": "^1.4.9",
+    "rollup-plugin-typescript2": "^0.27.1",
+    "typescript": "^3.9.7"
+  }
+}
