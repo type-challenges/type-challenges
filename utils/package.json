@@ -1,11 +1,12 @@
 {
   "name": "@type-challenges/utils",
-  "version": "0.0.1",
+  "version": "0.0.2-beta.1",
   "license": "MIT",
   "main": "dist/index.js",
-	"module": "dist/index.esm.js",
-	"browser": "dist/index.esm.js",
-	"typing": "dist/index.d.ts",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.esm.js",
+  "typing": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
