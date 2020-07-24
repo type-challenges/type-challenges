@@ -1,6 +1,7 @@
 import { Equal, Expect, NotEqual } from './index'
 
 type cases = [
+
   Expect<Equal<true, true>>,
 
   // @ts-expect-error
@@ -15,4 +16,5 @@ type cases = [
 
   // @ts-expect-error
   Expect<Equal<'123', string>>,
+
 ]

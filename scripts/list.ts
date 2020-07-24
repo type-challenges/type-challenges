@@ -30,8 +30,5 @@ export async function loadQuizes(): Promise<Quiz[]> {
     }),
   )
 
-  console.log(quizes)
   return quizes
 }
-
-loadQuizes()

@@ -5,6 +5,7 @@ importers:
     devDependencies:
       '@antfu/eslint-config-ts': 0.2.14_eslint@7.5.0+typescript@3.9.7
       '@type-challenges/utils': 'link:utils'
+      '@types/fs-extra': 9.0.1
       '@types/js-yaml': 3.12.5
       '@types/lz-string': 1.3.34
       '@types/node': 14.0.24
@@ -12,6 +13,7 @@ importers:
       '@typescript-eslint/parser': 3.7.0_eslint@7.5.0+typescript@3.9.7
       eslint: 7.5.0
       fast-glob: 3.2.4
+      fs-extra: 9.0.1
       js-yaml: 3.14.0
       lz-string: 1.4.4
       rollup: 2.22.2
@@ -22,6 +24,7 @@ importers:
     specifiers:
       '@antfu/eslint-config-ts': ^0.2.14
       '@type-challenges/utils': 'workspace:*'
+      '@types/fs-extra': ^9.0.1
       '@types/js-yaml': ^3.12.5
       '@types/lz-string': ^1.3.34
       '@types/node': ^14.0.24
@@ -29,6 +32,7 @@ importers:
       '@typescript-eslint/parser': ^3.7.0
       eslint: ^7.5.0
       fast-glob: ^3.2.4
+      fs-extra: ^9.0.1
       js-yaml: ^3.14.0
       lz-string: ^1.4.4
       rollup: ^2.22.2
@@ -203,6 +207,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==
+  /@types/fs-extra/9.0.1:
+    dependencies:
+      '@types/node': 14.0.25
+    dev: true
+    resolution:
+      integrity: sha512-B42Sxuaz09MhC3DDeW5kubRcQ5by4iuVQ0cRRWM2lggLzAa/KVom0Aft/208NgMvNQQZ86s5rVcqDdn/SH0/mg==
   /@types/js-yaml/3.12.5:
     dev: true
     resolution:
@@ -223,6 +233,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-btt/oNOiDWcSuI721MdL8VQGnjsKjlTMdrKyTcLCKeQp/n4AAMFJ961wMbp+09y8WuGPClDEv07RIItdXKIXAA==
+  /@types/node/14.0.25:
+    dev: true
+    resolution:
+      integrity: sha512-okMqUHqrMlGOxfDZliX1yFX5MV6qcd5PpRz96XYtjkM0Ws/hwg23FMUqt6pETrVRZS+EKUB5HY19mmo54EuQbA==
   /@types/normalize-package-data/2.4.0:
     dev: true
     resolution:
@@ -490,6 +504,12 @@ packages:
       node: '>=4'
     resolution:
       integrity: sha512-+Ryf6g3BKoRc7jfp7ad8tM4TtMiaWvbF/1/sQcZPkkS7ag3D5nMBCe2UfOTONtAkaG0tO0ij3C5Lwmf1EiyjHg==
+  /at-least-node/1.0.0:
+    dev: true
+    engines:
+      node: '>= 4.0.0'
+    resolution:
+      integrity: sha512-+q/t7Ekv1EDY2l6Gda6LLiX14rU9TV20Wa3ofeQmwPFZbOMo9DXrLbOjFaaclkXKWidIaopwAObQDqwWtGUjqg==
   /babel-eslint/10.1.0_eslint@7.5.0:
     dependencies:
       '@babel/code-frame': 7.10.4
@@ -1072,6 +1092,17 @@ packages:
       node: '>=6 <7 || >=8'
     resolution:
       integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==
+  /fs-extra/9.0.1:
+    dependencies:
+      at-least-node: 1.0.0
+      graceful-fs: 4.2.4
+      jsonfile: 6.0.1
+      universalify: 1.0.0
+    dev: true
+    engines:
+      node: '>=10'
+    resolution:
+      integrity: sha512-h2iAoN838FqAFJY2/qVpzFXy+EBxfVE220PalAqQLDVsFOHLJrZvut5puAbCdNv6WJk+B8ihI+k0c7JK5erwqQ==
   /fs.realpath/1.0.0:
     dev: true
     resolution:
@@ -1320,6 +1351,14 @@ packages:
       graceful-fs: 4.2.4
     resolution:
       integrity: sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss=
+  /jsonfile/6.0.1:
+    dependencies:
+      universalify: 1.0.0
+    dev: true
+    optionalDependencies:
+      graceful-fs: 4.2.4
+    resolution:
+      integrity: sha512-jR2b5v7d2vIOust+w3wtFKZIfpC2pnRmFAhAC/BuweZFQR8qZzxH1OyrQ10HmdVYiXWkYUqPVsz91cG7EL2FBg==
   /levn/0.4.1:
     dependencies:
       prelude-ls: 1.2.1
@@ -2050,6 +2089,12 @@ packages:
       node: '>= 4.0.0'
     resolution:
       integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
+  /universalify/1.0.0:
+    dev: true
+    engines:
+      node: '>= 10.0.0'
+    resolution:
+      integrity: sha512-rb6X1W158d7pRQBg5gkR8uPaSfiids68LTJQYOtEUhoJUWBdaQHsuT/EUduxXYxcrt4r5PJ4fuHW1MHT6p0qug==
   /uri-js/4.2.2:
     dependencies:
       punycode: 2.1.1
