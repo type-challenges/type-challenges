@@ -3,13 +3,17 @@
 </p>
 
 <pre align='center'>
-Collection of TypeScript typing challenges
+Collection of TypeScript type challenges
 </pre>
 
 <br>
 <br>
 
 ## Intro
+
+<p align='center'>
+<del><em>by the power of TypeScript's well-known <a href="https://github.com/microsoft/TypeScript/issues/14833">Turing Completed</a> type system</em></del>
+</p>
 
 > TODO
 
@@ -34,6 +38,7 @@ Collection of TypeScript typing challenges
 Inspired by / Ported from
 
 - [piotrwitek/utility-types](https://github.com/piotrwitek/utility-types)
+- [wixplosives/typescript-type-utils](https://github.com/wixplosives/typescript-type-utils)
 - [psmyrdek/typescript-challenges](https://github.com/psmyrdek/typescript-challenges)
 
 Contributors

@@ -7,7 +7,7 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "skipLibCheck": true,
-    "noUnusedLocals": true,
+    "noUnusedLocals": false,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
   },
