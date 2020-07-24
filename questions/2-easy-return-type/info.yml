@@ -5,6 +5,8 @@ author:
   email: hi@antfu.me
   github: antfu
 
+tags: infer, built-in
+
 tsconfig: null
 
 original_issues: null

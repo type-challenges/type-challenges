@@ -18,7 +18,7 @@ function toDivier(text: string) {
 }
 
 function toInfoHeader(quiz: Quiz) {
-  return `#${quiz.no} - ${quiz.info?.title || ''} \nby ${quiz.info?.author?.name} (@${quiz.info?.author?.github}) #${quiz.difficulty}\n------\n\n`
+  return `#${quiz.no} - ${quiz.info?.title || ''} \n-------\nby ${quiz.info?.author?.name} (@${quiz.info?.author?.github}) #${quiz.difficulty}\n\n### Question\n\n`
 }
 
 export async function build() {
@@ -31,7 +31,8 @@ export async function build() {
     const code
       = toCommentBlock(toInfoHeader(quiz) + quiz.readme)
       + toDivier('Your Code Here')
-      + (quiz.template || '')
+      + '\n'
+      + (quiz.template || '').trim()
       + '\n\n'
       + toDivier('Test Cases')
       + (quiz.tests || '')
