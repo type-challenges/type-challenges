@@ -1,0 +1,1 @@
+Implement the built-in `ReturnType<T>` generic without using it.

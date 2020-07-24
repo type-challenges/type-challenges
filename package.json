@@ -2,6 +2,7 @@
   "name": "type-challenges",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "repository": "https://github.com/antfu/type-challenges.git",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
@@ -12,14 +13,28 @@
   },
   "devDependencies": {
     "@antfu/eslint-config-ts": "^0.2.14",
+    "@type-challenges/utils": "workspace:*",
+    "@types/js-yaml": "^3.12.5",
+    "@types/lz-string": "^1.3.34",
+    "@types/node": "^14.0.24",
+    "@typescript-eslint/eslint-plugin": "^3.7.0",
     "eslint": "^7.5.0",
+    "fast-glob": "^3.2.4",
+    "js-yaml": "^3.14.0",
+    "lz-string": "^1.4.4",
     "rollup": "^2.22.2",
     "rollup-plugin-dts": "^1.4.9",
     "rollup-plugin-typescript2": "^0.27.1",
-    "typescript": "^3.9.7",
-    "@type-challenges/utils": "workspace:*"
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
   },
   "eslintConfig": {
-    "extends": "@antfu/eslint-config-ts"
+    "extends": "@antfu/eslint-config-ts",
+    "rules": {
+      "import/first": "off"
+    }
+  },
+  "dependencies": {
+    "utility-types": "^3.10.0"
   }
 }
