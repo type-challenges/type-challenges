@@ -1,4 +1,4 @@
 cd ..
-npx i -g pnpm
+npm i -g pnpm
 pnpm i
 pnpm build
