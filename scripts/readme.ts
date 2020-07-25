@@ -50,6 +50,10 @@ function toDifficultyBadge(difficulty: string, locale: SupportedLocale) {
   return toBadge('', t(locale, `difficulty.${difficulty}`), DifficultyColors[difficulty])
 }
 
+function toDifficultyBadgeInverted(difficulty: string, locale: SupportedLocale) {
+  return toBadge(t(locale, `difficulty.${difficulty}`), ' ', DifficultyColors[difficulty])
+}
+
 async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedLocale) {
   if (!fs.existsSync(filepath))
     return
@@ -100,7 +104,7 @@ export async function build() {
 
     for (const quiz of quizes) {
       if (prev !== quiz.difficulty)
-        challengesREADME += `${prev ? '<br><br>' : ''}${toDifficultyBadge(quiz.difficulty, locale)}<br>`
+        challengesREADME += `${prev ? '<br><br>' : ''}${toDifficultyBadgeInverted(quiz.difficulty, locale)}<br>`
 
       challengesREADME += toBadgeLink(
         toQuizREADME(quiz, locale),
