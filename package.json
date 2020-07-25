@@ -23,6 +23,7 @@
     "eslint": "^7.5.0",
     "fast-glob": "^3.2.4",
     "fs-extra": "^9.0.1",
+    "husky": "^4.2.5",
     "js-yaml": "^3.14.0",
     "lz-string": "^1.4.4",
     "rollup": "^2.22.2",
@@ -30,6 +31,11 @@
     "rollup-plugin-typescript2": "^0.27.1",
     "ts-node": "^8.10.2",
     "typescript": "^3.9.7"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pnpm readme && git add ."
+    }
   },
   "eslintConfig": {
     "extends": "@antfu/eslint-config-ts",
