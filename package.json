@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
+    "readme": "ts-node ./scripts/readme.ts",
     "build": "ts-node ./scripts/build.ts",
     "utils:release": "pnpm -C utils release"
   },

@@ -26,12 +26,10 @@ English | <a href='./README.zh-CN.md'>简体中文</a>
 ## Challenges
 
 <!--challenges-start-->
-> TODO: auto-generated
-
-- Here is a demo: https://type-challenges.netlify.app/case/2/play
-- 支持多语言: https://type-challenges.netlify.app/case/2/play/zh-CN
-
+<a href="https://type-challenges.netlify.app/case/2/play/en"><img src="https://img.shields.io/badge/-%232%20--%20Get%20Return%20Type-green"/></a>
 <!--challenges-end-->
+
+</details>
 
 ## How to Contribute
 

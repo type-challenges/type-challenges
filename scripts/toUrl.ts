@@ -20,3 +20,7 @@ export function toAnswersIssue(no: number) {
 export function toAnswers(no: number) {
   return `${DOMAIN}/case/${no}/answers`
 }
+
+export function toPlay(no: number, locale?: string) {
+  return locale ? `${DOMAIN}/case/${no}/play/${locale}` : `${DOMAIN}/case/${no}/play`
+}

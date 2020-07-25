@@ -26,11 +26,7 @@ TypeScript 类型体操姿势合集
 ## Challenges
 
 <!--challenges-start-->
-> TODO: auto-generated
-
-- Here is a demo: https://type-challenges.netlify.app/case/2/play
-- 支持多语言: https://type-challenges.netlify.app/case/2/play/zh-CN
-
+<a href="https://type-challenges.netlify.app/case/2/play/zh-CN"><img src="https://img.shields.io/badge/-%232%20--%20%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B-green"/></a>
 <!--challenges-end-->
 
 ## How to Contribute
