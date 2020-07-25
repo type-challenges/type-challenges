@@ -1,4 +1,9 @@
 {
+  "difficulty.warm": "warm-up",
+  "difficulty.easy": "easy",
+  "difficulty.medium": "medium",
+  "difficulty.hard": "hard",
+  "difficulty.extreme": "extreme",
   "question": "Question",
   "code-start": "Your Code Here",
   "test-cases": "Test Cases",

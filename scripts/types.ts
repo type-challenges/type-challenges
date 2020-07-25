@@ -10,6 +10,7 @@ export interface QuizMetaInfo {
   tsconfig: any
   original_issues: number[]
   recommended_solutions: number[]
+  tags: string
 }
 
 export type Difficulty = 'warm-up' | 'easy' | 'medium' | 'hard' | 'extreme' | 'pending'

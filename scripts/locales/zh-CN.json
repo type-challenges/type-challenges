@@ -1,4 +1,9 @@
 {
+  "difficulty.warm": "热身",
+  "difficulty.easy": "简单",
+  "difficulty.medium": "中等",
+  "difficulty.hard": "困难",
+  "difficulty.extreme": "地狱",
   "question": "题目",
   "code-start": "你的代码",
   "test-cases": "测试用例",

@@ -1,5 +1,5 @@
 import path from 'path'
-import fs from 'fs-extra'
+import fs, { open } from 'fs-extra'
 import fg from 'fast-glob'
 import YAML from 'js-yaml'
 import { Quiz, QuizMetaInfo } from './types'
@@ -58,4 +58,9 @@ export async function loadQuizes(): Promise<Quiz[]> {
 
 export function resolveInfo(quiz: Quiz, locale: string) {
   return Object.assign({}, quiz.info[defaultLocale], quiz.info[locale])
+}
+
+export function getTags(quiz: Quiz, locale: string) {
+  const info = resolveInfo(quiz, locale)
+  return (info.tags || '').split(',').map(i => i.trim()).filter(Boolean)
 }

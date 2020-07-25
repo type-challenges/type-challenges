@@ -1,17 +1,25 @@
 import path from 'path'
 import fs from 'fs-extra'
 import { supportedLocales, defaultLocale, t, SupportedLocale, f } from './locales'
-import { loadQuizes, resolveInfo } from './list'
+import { loadQuizes, resolveInfo, getTags } from './list'
 import { toPlay, toQuizREADME, toAnswers } from './toUrl'
 import { Quiz, QuizMetaInfo } from './types'
 
 const DifficultyColors: Record<string, string> = {
-  'warm-up': 'teal',
+  warm: 'teal',
   easy: 'green',
-  medium: 'd8af2c',
+  medium: 'f3c746',
   hard: 'red',
   extreme: 'purple',
 }
+
+const DifficultyRank = [
+  'warm',
+  'easy',
+  'medium',
+  'hard',
+  'extreme',
+]
 
 function escapeHtml(unsafe: string) {
   return unsafe
@@ -38,6 +46,10 @@ function toAuthorInfo(author: Partial<QuizMetaInfo['author']> = {}) {
   return `by ${author.name}${author.github ? ` <a href="https://github.com/${author.github}" target="_blank">@${author.github}</a>` : ''}`
 }
 
+function toDifficultyBadge(difficulty: string, locale: SupportedLocale) {
+  return toBadge('', t(locale, `difficulty.${difficulty}`), DifficultyColors[difficulty])
+}
+
 async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedLocale) {
   if (!fs.existsSync(filepath))
     return
@@ -55,8 +67,8 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
     .replace(
       /<!--info-header-start-->[\s\S]*<!--info-header-end-->/,
       '<!--info-header-start-->'
-      + `<h1>${escapeHtml(info.title || '')} ${toBadge('', quiz.difficulty, DifficultyColors[quiz.difficulty])}</h1>`
-      + `<blockquote><p>${toAuthorInfo(info.author)}</p></blockquote><br>`
+      + `<h1>${escapeHtml(info.title || '')} ${toDifficultyBadge(quiz.difficulty, locale)} ${getTags(quiz, locale).map(i => toBadge('', `#${i}`, '999')).join(' ')}</h1>`
+      + `<blockquote><p>${toAuthorInfo(info.author)}</p></blockquote>`
       + toBadgeLink(toPlay(quiz.no, locale), '', t(locale, 'take-the-challenge'), 'blue', '?logo=typescript')
       + '<br><br>'
       + '<!--info-header-end-->',
@@ -76,6 +88,7 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
 
 export async function build() {
   const quizes = await loadQuizes()
+  quizes.sort((a, b) => DifficultyRank.indexOf(a.difficulty) - DifficultyRank.indexOf(b.difficulty))
   const questionsDir = path.resolve(__dirname, '../questions')
 
   // update index README
@@ -83,14 +96,20 @@ export async function build() {
     const filepath = path.resolve(__dirname, '..', f('README', locale, 'md'))
 
     let challengesREADME = ''
+    let prev = ''
 
     for (const quiz of quizes) {
+      if (prev !== quiz.difficulty)
+        challengesREADME += `${prev ? '<br><br>' : ''}${toDifficultyBadge(quiz.difficulty, locale)}<br>`
+
       challengesREADME += toBadgeLink(
         toQuizREADME(quiz, locale),
         '',
         `#${quiz.no}・${quiz.info[locale]?.title || quiz.info[defaultLocale]?.title}`,
         DifficultyColors[quiz.difficulty],
       )
+
+      prev = quiz.difficulty
     }
 
     let readme = await fs.readFile(filepath, 'utf-8')
