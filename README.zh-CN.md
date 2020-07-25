@@ -31,6 +31,24 @@ TypeScript 类型体操姿势合集
 <a href="./questions/2-medium-return-type/README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-%232%E3%83%BB%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B-d8af2c" alt="#2・获取函数返回类型"/></a> <a href="./questions/3-medium-omit/README.md" target="_blank"><img src="https://img.shields.io/badge/-%233%E3%83%BB%E5%AE%9E%E7%8E%B0%20Omit%3CT%2C%20K%3E-d8af2c" alt="#3・实现 Omit<T, K>"/></a> <a href="./questions/4-easy-pick/README.md" target="_blank"><img src="https://img.shields.io/badge/-%234%E3%83%BB%E5%AE%9E%E7%8E%B0%20Pick%3CT%2C%20K%3E-green" alt="#4・实现 Pick<T, K>"/></a> <a href="./questions/5-hard-readonly-keys/README.md" target="_blank"><img src="https://img.shields.io/badge/-%235%E3%83%BB%E8%8E%B7%E5%8F%96%E5%8F%AA%E8%AF%BB%E5%AD%97%E6%AE%B5-red" alt="#5・获取只读字段"/></a> <a href="./questions/6-extreme-simple-vue/README.md" target="_blank"><img src="https://img.shields.io/badge/-%236%E3%83%BB%E7%AE%80%E5%8D%95%E7%9A%84%20Vue%20%E7%B1%BB%E5%9E%8B-purple" alt="#6・简单的 Vue 类型"/></a> <a href="./questions/7-easy-readonly/README.md" target="_blank"><img src="https://img.shields.io/badge/-%237%E3%83%BB%E5%AE%9E%E7%8E%B0%20Readonly%3CT%3E-green" alt="#7・实现 Readonly<T>"/></a> <a href="./questions/8-medium-readonly-2/README.md" target="_blank"><img src="https://img.shields.io/badge/-%238%E3%83%BBReadonly%202-d8af2c" alt="#8・Readonly 2"/></a> 
 <!--challenges-end-->
 
+## 推荐读物
+
+### 官方资源
+
+- [The Typescript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+  - [Unions and Intersection Types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html)
+  - [Literal Types](https://www.typescriptlang.org/docs/handbook/literal-types.html)
+  - [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
+  - [Advanced Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
+
+### 知乎专栏
+
+- [来玩TypeScript啊，机都给你开好了！](https://zhuanlan.zhihu.com/c_206498766)
+
+### 文章
+
+> TODO
+
 ## 参与贡献
 
 你可以通过如下几种方式参与贡献这个项目
@@ -53,6 +71,7 @@ TypeScript 类型体操姿势合集
 - [piotrwitek/utility-types](https://github.com/piotrwitek/utility-types)
 - [wixplosives/typescript-type-utils](https://github.com/wixplosives/typescript-type-utils)
 - [psmyrdek/typescript-challenges](https://github.com/psmyrdek/typescript-challenges)
+- [andnp/SimplyTyped](https://github.com/andnp/SimplyTyped)
 
 参与贡献者
 

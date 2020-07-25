@@ -37,7 +37,19 @@ English | <a href='./README.zh-CN.md'>简体中文</a>
 <a href="./questions/2-medium-return-type/README.md" target="_blank"><img src="https://img.shields.io/badge/-%232%E3%83%BBGet%20Return%20Type-d8af2c" alt="#2・Get Return Type"/></a> <a href="./questions/3-medium-omit/README.md" target="_blank"><img src="https://img.shields.io/badge/-%233%E3%83%BBOmit%3CT%2C%20K%3E-d8af2c" alt="#3・Omit<T, K>"/></a> <a href="./questions/4-easy-pick/README.md" target="_blank"><img src="https://img.shields.io/badge/-%234%E3%83%BBPick%3CT%2C%20K%3E-green" alt="#4・Pick<T, K>"/></a> <a href="./questions/5-hard-readonly-keys/README.md" target="_blank"><img src="https://img.shields.io/badge/-%235%E3%83%BBGet%20Readonly%20Keys-red" alt="#5・Get Readonly Keys"/></a> <a href="./questions/6-extreme-simple-vue/README.md" target="_blank"><img src="https://img.shields.io/badge/-%236%E3%83%BBSimple%20Vue-purple" alt="#6・Simple Vue"/></a> <a href="./questions/7-easy-readonly/README.md" target="_blank"><img src="https://img.shields.io/badge/-%237%E3%83%BBReadonly%3CT%3E-green" alt="#7・Readonly<T>"/></a> <a href="./questions/8-medium-readonly-2/README.md" target="_blank"><img src="https://img.shields.io/badge/-%238%E3%83%BBReadonly%202-d8af2c" alt="#8・Readonly 2"/></a> 
 <!--challenges-end-->
 
-</details>
+## Recommended Readings
+
+### Official
+
+- [The Typescript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+  - [Unions and Intersection Types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html)
+  - [Literal Types](https://www.typescriptlang.org/docs/handbook/literal-types.html)
+  - [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
+  - [Advanced Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
+
+### Articles
+
+> TODO
 
 ## How to Contribute
 
@@ -59,6 +71,7 @@ Inspired by
 - [piotrwitek/utility-types](https://github.com/piotrwitek/utility-types)
 - [wixplosives/typescript-type-utils](https://github.com/wixplosives/typescript-type-utils)
 - [psmyrdek/typescript-challenges](https://github.com/psmyrdek/typescript-challenges)
+- [andnp/SimplyTyped](https://github.com/andnp/SimplyTyped)
 
 Contributors
 
