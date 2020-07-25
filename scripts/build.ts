@@ -3,22 +3,29 @@ import fs from 'fs-extra'
 import { loadQuizes } from './list'
 import { toPlaygroundUrl } from './toUrl'
 import { Quiz } from './types'
+import { supportedLocales, defaultLocale, messages } from './locales'
 
 function toCommentBlock(text: string) {
-  return `/**\n${text
-    .trim()
-    .split('\n')
-    .map(i => `  ${i}`)
-    .join('\n')
-  }\n\n */\n\n`
+  return `/**\n${
+    text
+      .trim()
+      .split('\n')
+      .map(i => `  ${i}`)
+      .join('\n')
+  }\n*/\n\n`
 }
 
 function toDivier(text: string) {
   return `\n/* _____________ ${text} _____________ */\n`
 }
 
-function toInfoHeader(quiz: Quiz) {
-  return `#${quiz.no} - ${quiz.info?.title || ''} \n-------\nby ${quiz.info?.author?.name} (@${quiz.info?.author?.github}) #${quiz.difficulty}\n\n### Question\n\n`
+function toInfoHeader(quiz: Quiz, locale: keyof typeof messages) {
+  const info = Object.assign({}, quiz.info[defaultLocale], quiz.info[locale])
+  return `#${quiz.no} - ${info.title || ''} \n-------\nby ${info.author?.name} (@${info?.author?.github}) #${quiz.difficulty}\n\n### ${messages[locale].question}\n\n`
+}
+
+function toLinks(locale: keyof typeof messages) {
+  return `\n\n> ${messages[locale]['link-tip-repo']}https://github.com/type-challenges/type-challenges`
 }
 
 export async function build() {
@@ -26,21 +33,31 @@ export async function build() {
   const redirects: [string, string, number][] = []
 
   for (const quiz of quizes) {
-    /* eslint-disable prefer-template */
+    for (const locale of supportedLocales) {
+      /* eslint-disable prefer-template */
 
-    const code
-      = toCommentBlock(toInfoHeader(quiz) + quiz.readme)
-      + toDivier('Your Code Here')
+      const code
+      = toCommentBlock(
+        toInfoHeader(quiz, locale)
+        + (quiz.readme[locale] || quiz.readme[defaultLocale])
+        + toLinks(locale),
+      )
+      + toDivier(messages[locale]['code-start'])
       + '\n'
       + (quiz.template || '').trim()
       + '\n\n'
-      + toDivier('Test Cases')
+      + toDivier(messages[locale]['test-cases'])
       + (quiz.tests || '')
 
-    /* eslint-enable prefer-template */
+      /* eslint-enable prefer-template */
 
-    const url = toPlaygroundUrl(code)
-    redirects.push([`/case/${quiz.no}/play`, url, 302])
+      const url = toPlaygroundUrl(code)
+
+      if (locale === defaultLocale)
+        redirects.push([`/case/${quiz.no}/play`, url, 302])
+
+      redirects.push([`/case/${quiz.no}/play/${locale}`, url, 302])
+    }
   }
 
   const dist = path.resolve(__dirname, 'dist')

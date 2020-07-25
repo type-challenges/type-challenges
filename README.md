@@ -19,15 +19,10 @@ Collection of TypeScript type challenges
 
 ## Challenges
 
-### Warm Up
+> TODO: auto-generated
 
-### Easy
-
-### Medium
-
-### Hard
-
-### Extreme
+- Here is a demo: https://type-challenges.netlify.app/case/2/play
+- 支持多语言: https://type-challenges.netlify.app/case/2/play/zh-CN
 
 ## How to Contribute
 

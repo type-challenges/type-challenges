@@ -18,12 +18,12 @@ export interface Quiz {
   no: number
   difficulty: Difficulty
   path: string
-  readme: string
+  readme: Record<string, string>
   template: string
-  info?: DeepPartial<QuizMetaInfo>
+  info: Record<string, DeepPartial<QuizMetaInfo>>
   tests?: string
   solutions?: {
     code?: string
-    readme?: string
+    readme?: Record<string, string>
   }
 }

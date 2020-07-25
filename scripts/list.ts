@@ -2,12 +2,26 @@ import path from 'path'
 import fs from 'fs-extra'
 import fg from 'fast-glob'
 import YAML from 'js-yaml'
-import { Quiz } from './types'
+import { Quiz, QuizMetaInfo } from './types'
+import { supportedLocales, defaultLocale } from './locales'
 
 export async function loadFile(filepath: string) {
   if (fs.existsSync(filepath))
     return await fs.readFile(filepath, 'utf-8')
   return undefined
+}
+
+export async function loadLocaleVariations<T = string>(filepath: string, postprocessor: (s: string) => T = s => s as any as T) {
+  const { ext, dir, name } = path.parse(filepath)
+  const data: Record<string, T> = {}
+  for (const locale of supportedLocales) {
+    const file = postprocessor(await loadFile(path.join(dir, `${name}.${locale}${ext}`)) || '')
+    if (file)
+      data[locale] = file
+  }
+  if (!data[defaultLocale])
+    data[defaultLocale] = postprocessor(await loadFile(filepath) || '')
+  return data
 }
 
 export async function loadQuizes(): Promise<Quiz[]> {
@@ -23,13 +37,13 @@ export async function loadQuizes(): Promise<Quiz[]> {
         no: Number(dir.replace(/^(\d+)-.*/, '$1')),
         difficulty: dir.replace(/^\d+-(.+?)-.*$/, '$1') as any,
         path: dir,
-        info: YAML.safeLoad(await loadFile(path.join(root, dir, 'info.yml')) || '') as any,
-        readme: await loadFile(path.join(root, dir, 'README.md')) || '',
+        info: await loadLocaleVariations(path.join(root, dir, 'info.yml'), s => YAML.safeLoad(s) as Partial<QuizMetaInfo>),
+        readme: await loadLocaleVariations(path.join(root, dir, 'README.md')) || '',
         template: await loadFile(path.join(root, dir, 'template.ts')) || '',
         tests: await loadFile(path.join(root, dir, 'test-cases.ts')),
         solutions: {
           code: await loadFile(path.join(root, dir, 'solutions', 'index.ts')),
-          readme: await loadFile(path.join(root, dir, 'solutions', 'index.ts')),
+          readme: await loadLocaleVariations(path.join(root, dir, 'solutions', 'index.ts')),
         },
       }
       return quiz
