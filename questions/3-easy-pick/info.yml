@@ -1,0 +1,8 @@
+title: Pick<T, K>
+
+author:
+  name: Anthony Fu
+  email: hi@antfu.me
+  github: antfu
+
+tags: union, built-in

@@ -46,7 +46,7 @@ export async function build() {
     let challengesREADME = ''
 
     for (const quiz of quizes)
-      challengesREADME += `<a href="${toPlay(quiz.no, locale)}"><img src="${Badges.quiz(quiz.no, quiz.info[locale]?.title || '', quiz.difficulty)}"/></a>`
+      challengesREADME += `<a href="${toPlay(quiz.no, locale)}"><img src="${Badges.quiz(quiz.no, quiz.info[locale]?.title || '', quiz.difficulty)}"/></a> `
 
     let readme = await fs.readFile(filepath, 'utf-8')
     readme = readme.replace(

@@ -25,8 +25,10 @@ TypeScript 类型体操姿势合集
 
 ## Challenges
 
+> ![](https://img.shields.io/badge/-热身-yellow) ![](https://img.shields.io/badge/-简单-green) ![](https://img.shields.io/badge/-中等-orange) ![](https://img.shields.io/badge/-困难-red) ![](https://img.shields.io/badge/-地狱-purple)
+
 <!--challenges-start-->
-<a href="https://type-challenges.netlify.app/case/2/play/zh-CN"><img src="https://img.shields.io/badge/-%232%20--%20%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B-green"/></a>
+<a href="https://type-challenges.netlify.app/case/2/play/zh-CN"><img src="https://img.shields.io/badge/-%232%20--%20%E8%8E%B7%E5%8F%96%E5%87%BD%E6%95%B0%E8%BF%94%E5%9B%9E%E7%B1%BB%E5%9E%8B-orange"/></a> <a href="https://type-challenges.netlify.app/case/3/play/zh-CN"><img src="https://img.shields.io/badge/-%233%20--%20%E5%AE%9E%E7%8E%B0%20Omit%3CT%2C%20K%3E-green"/></a> <a href="https://type-challenges.netlify.app/case/3/play/zh-CN"><img src="https://img.shields.io/badge/-%233%20--%20%E5%AE%9E%E7%8E%B0%20Pick%3CT%2C%20K%3E-green"/></a> 
 <!--challenges-end-->
 
 ## How to Contribute
