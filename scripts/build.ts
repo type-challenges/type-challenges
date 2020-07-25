@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs-extra'
 import { loadQuizes } from './list'
-import { toPlaygroundUrl } from './toUrl'
+import { toPlaygroundUrl, toAnswers, REPO, toAnswersIssue } from './toUrl'
 import { Quiz } from './types'
 import { supportedLocales, defaultLocale, messages } from './locales'
 
@@ -24,8 +24,8 @@ function toInfoHeader(quiz: Quiz, locale: keyof typeof messages) {
   return `#${quiz.no} - ${info.title || ''} \n-------\nby ${info.author?.name} (@${info?.author?.github}) #${quiz.difficulty}\n\n### ${messages[locale].question}\n\n`
 }
 
-function toLinks(locale: keyof typeof messages) {
-  return `\n\n> ${messages[locale]['link-tip-repo']}https://github.com/type-challenges/type-challenges`
+function toLinks(quiz: Quiz, locale: keyof typeof messages) {
+  return `\n\n> ${messages[locale]['link-tip-repo']}${REPO}\n> ${messages[locale]['link-tip-answers']}${toAnswers(quiz.no)}`
 }
 
 export async function build() {
@@ -40,7 +40,7 @@ export async function build() {
       = toCommentBlock(
         toInfoHeader(quiz, locale)
         + (quiz.readme[locale] || quiz.readme[defaultLocale])
-        + toLinks(locale),
+        + toLinks(quiz, locale),
       )
       + toDivier(messages[locale]['code-start'])
       + '\n'
@@ -58,6 +58,8 @@ export async function build() {
 
       redirects.push([`/case/${quiz.no}/play/${locale}`, url, 302])
     }
+
+    redirects.push([`/case/${quiz.no}/answers`, toAnswersIssue(quiz.no), 302])
   }
 
   const dist = path.resolve(__dirname, 'dist')

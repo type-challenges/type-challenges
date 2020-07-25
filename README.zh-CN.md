@@ -3,14 +3,14 @@
 </p>
 
 <p align='center'>
-Collection of TypeScript type challenges
+TypeScript 类型体操姿势合集
 </p>
 
 <br>
 <br>
 
 <p align='center'>
-English | <a href='./README.zh-CN.md'>简体中文</a>
+<a href='./README.md'>English</a> | 简体中文
 </p>
 
 <br>

@@ -41,10 +41,6 @@ export async function loadQuizes(): Promise<Quiz[]> {
         readme: await loadLocaleVariations(path.join(root, dir, 'README.md')) || '',
         template: await loadFile(path.join(root, dir, 'template.ts')) || '',
         tests: await loadFile(path.join(root, dir, 'test-cases.ts')),
-        solutions: {
-          code: await loadFile(path.join(root, dir, 'solutions', 'index.ts')),
-          readme: await loadLocaleVariations(path.join(root, dir, 'solutions', 'index.ts')),
-        },
       }
       return quiz
     }),
