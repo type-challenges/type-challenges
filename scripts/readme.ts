@@ -13,6 +13,12 @@ const DifficultyColors: Record<string, string> = {
   extreme: 'purple',
 }
 
+function escape(text: string) {
+  return text
+    .replace(/</, '\\<')
+    .replace(/>/, '\\>')
+}
+
 function toBadgeURL(label: string, text: string, color: string, args = '') {
   return `https://img.shields.io/badge/${encodeURIComponent(label.replace(/-/g, '--'))}-${encodeURIComponent(text.replace(/-/g, '--'))}-${color}${args}`
 }
@@ -42,7 +48,7 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: keyof type
     .replace(
       /<!--info-header-start-->[\s\S]*<!--info-header-end-->/,
       '<!--info-header-start-->\n'
-      + `# ${info.title} ${toBadge('', quiz.difficulty, DifficultyColors[quiz.difficulty])}\n`
+      + `# ${escape(info.title || '')} ${toBadge('', quiz.difficulty, DifficultyColors[quiz.difficulty])}\n`
       + `> by ${info.author?.name}\n\n`
       + toBadgeLink(toPlay(quiz.no, locale), '', messages[locale]['take-the-challenge'], 'blue', '?logo=typescript')
       + '<!--info-header-end-->',
