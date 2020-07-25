@@ -1,8 +1,4 @@
-<!--info-header-start-->
-# Readonly 2 <img src="https://img.shields.io/badge/-medium-d8af2c" alt="medium"/>
-> by Anthony Fu
-
-<a href="https://type-challenges.netlify.app/case/8/play/en" target="_blank"><img src="https://img.shields.io/badge/-Take%20the%20Challenge-blue?logo=typescript" alt="Take the Challenge"/></a> <!--info-header-end-->
+<!--info-header-start--><h1>Readonly 2 <img src="https://img.shields.io/badge/-medium-d8af2c" alt="medium"/></h1><blockquote><p>by Anthony Fu <a href="https://github.com/antfu" target="_blank">@antfu</a></p></blockquote><br><a href="https://type-challenges.netlify.app/case/8/play" target="_blank"><img src="https://img.shields.io/badge/-Take%20the%20Challenge-blue?logo=typescript" alt="Take the Challenge"/></a> <br><br><!--info-header-end-->
 
 Implement a generic `MyReadonly2<T, K>` which takes two type argument `T` and `K`.
 
@@ -28,6 +24,4 @@ todo.description = "barFoo" // Error: cannot reassign a readonly property
 todo.completed = true // OK
 ```
 
-<!--info-footer-start-->
-<a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://type-challenges.netlify.app/case/8/answers" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Answers-F59BAF?logo=awesome-lists&logoColor=white" alt="Check out Answers"/></a> 
-<!--info-footer-end-->
+<!--info-footer-start--><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://type-challenges.netlify.app/case/8/answers" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Answers-F59BAF?logo=awesome-lists&logoColor=white" alt="Check out Answers"/></a> <!--info-footer-end-->

@@ -1,9 +1,9 @@
 import path from 'path'
 import fs from 'fs-extra'
-import { supportedLocales, defaultLocale, messages } from './locales'
-import { loadQuizes } from './list'
+import { supportedLocales, defaultLocale, t, SupportedLocale, f } from './locales'
+import { loadQuizes, resolveInfo } from './list'
 import { toPlay, toQuizREADME, toAnswers } from './toUrl'
-import { Quiz } from './types'
+import { Quiz, QuizMetaInfo } from './types'
 
 const DifficultyColors: Record<string, string> = {
   'warm-up': 'teal',
@@ -13,10 +13,13 @@ const DifficultyColors: Record<string, string> = {
   extreme: 'purple',
 }
 
-function escape(text: string) {
-  return text
-    .replace(/</, '\\<')
-    .replace(/>/, '\\>')
+function escapeHtml(unsafe: string) {
+  return unsafe
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
 }
 
 function toBadgeURL(label: string, text: string, color: string, args = '') {
@@ -31,7 +34,11 @@ function toBadgeLink(url: string, label: string, text: string, color: string, ar
   return `<a href="${url}" target="_blank">${toBadge(label, text, color, args)}</a> `
 }
 
-async function insertInfoReadme(filepath: string, quiz: Quiz, locale: keyof typeof messages) {
+function toAuthorInfo(author: Partial<QuizMetaInfo['author']> = {}) {
+  return `by ${author.name}${author.github ? ` <a href="https://github.com/${author.github}" target="_blank">@${author.github}</a>` : ''}`
+}
+
+async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedLocale) {
   if (!fs.existsSync(filepath))
     return
   let text = await fs.readFile(filepath, 'utf-8')
@@ -42,23 +49,24 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: keyof type
   if (!text.match(/<!--info-footer-start-->[\s\S]*<!--info-footer-end-->/))
     text = `${text}\n\n<!--info-footer-start--><!--info-footer-end-->`
 
-  const info = Object.assign({}, quiz.info[defaultLocale], quiz.info[locale])
+  const info = resolveInfo(quiz, locale)
 
   text = text
     .replace(
       /<!--info-header-start-->[\s\S]*<!--info-header-end-->/,
-      '<!--info-header-start-->\n'
-      + `# ${escape(info.title || '')} ${toBadge('', quiz.difficulty, DifficultyColors[quiz.difficulty])}\n`
-      + `> by ${info.author?.name}\n\n`
-      + toBadgeLink(toPlay(quiz.no, locale), '', messages[locale]['take-the-challenge'], 'blue', '?logo=typescript')
+      '<!--info-header-start-->'
+      + `<h1>${escapeHtml(info.title || '')} ${toBadge('', quiz.difficulty, DifficultyColors[quiz.difficulty])}</h1>`
+      + `<blockquote><p>${toAuthorInfo(info.author)}</p></blockquote><br>`
+      + toBadgeLink(toPlay(quiz.no, locale), '', t(locale, 'take-the-challenge'), 'blue', '?logo=typescript')
+      + '<br><br>'
       + '<!--info-header-end-->',
     )
     .replace(
       /<!--info-footer-start-->[\s\S]*<!--info-footer-end-->/,
-      '<!--info-footer-start-->\n'
-      + toBadgeLink(locale === defaultLocale ? '../../README.md' : `../../README.${locale}.md`, '', messages[locale].back, 'grey')
-      + toBadgeLink(toAnswers(quiz.no), '', messages[locale]['see-answers'], 'F59BAF', '?logo=awesome-lists&logoColor=white')
-      + '\n<!--info-footer-end-->',
+      '<!--info-footer-start-->'
+      + toBadgeLink(`../../${f('README', locale, 'md')}`, '', t(locale, 'back'), 'grey')
+      + toBadgeLink(toAnswers(quiz.no), '', t(locale, 'see-answers'), 'F59BAF', '?logo=awesome-lists&logoColor=white')
+      + '<!--info-footer-end-->',
     )
 
   /* eslint-enable prefer-template */
@@ -72,11 +80,7 @@ export async function build() {
 
   // update index README
   for (const locale of supportedLocales) {
-    const filepath = path.resolve(__dirname, '..',
-      locale === defaultLocale
-        ? 'README.md'
-        : `README.${locale}.md`,
-    )
+    const filepath = path.resolve(__dirname, '..', f('README', locale, 'md'))
 
     let challengesREADME = ''
 
@@ -104,7 +108,8 @@ export async function build() {
         path.join(
           questionsDir,
           quiz.path,
-          locale === defaultLocale ? 'README.md' : `README.${locale}.md`),
+          f('README', locale, 'md'),
+        ),
         quiz,
         locale,
       )

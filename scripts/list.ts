@@ -28,6 +28,7 @@ export function readmeCleanUp(text: string) {
   return text
     .replace(/<!--info-header-start-->[\s\S]*<!--info-header-end-->/, '')
     .replace(/<!--info-footer-start-->[\s\S]*<!--info-footer-end-->/, '')
+    .trim()
 }
 
 export async function loadQuizes(): Promise<Quiz[]> {
@@ -53,4 +54,8 @@ export async function loadQuizes(): Promise<Quiz[]> {
   )
 
   return quizes
+}
+
+export function resolveInfo(quiz: Quiz, locale: string) {
+  return Object.assign({}, quiz.info[defaultLocale], quiz.info[locale])
 }

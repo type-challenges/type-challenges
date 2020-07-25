@@ -24,7 +24,9 @@ export function toAnswers(no: number) {
 }
 
 export function toPlay(no: number, locale?: string) {
-  return locale ? `${DOMAIN}/case/${no}/play/${locale}` : `${DOMAIN}/case/${no}/play`
+  return locale !== defaultLocale
+    ? `${DOMAIN}/case/${no}/play/${locale}`
+    : `${DOMAIN}/case/${no}/play`
 }
 
 export function toQuizREADME(quiz: Quiz, locale?: string) {
