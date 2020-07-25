@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs-extra'
 import { supportedLocales, defaultLocale, messages } from './locales'
 import { loadQuizes } from './list'
-import { toPlay, toQuizREADME } from './toUrl'
+import { toPlay, toQuizREADME, toAnswers } from './toUrl'
 import { Quiz } from './types'
 
 const DifficultyColors: Record<string, string> = {
@@ -50,8 +50,8 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: keyof type
     .replace(
       /<!--info-footer-start-->[\s\S]*<!--info-footer-end-->/,
       '<!--info-footer-start-->\n'
-      + toBadgeLink(toPlay(quiz.no, locale), '', messages[locale]['see-answers'], 'F59BAF', '?logo=awesome-lists&logoColor=white')
       + toBadgeLink(locale === defaultLocale ? '../../README.md' : `../../README.${locale}.md`, '', messages[locale].back, 'grey')
+      + toBadgeLink(toAnswers(quiz.no), '', messages[locale]['see-answers'], 'F59BAF', '?logo=awesome-lists&logoColor=white')
       + '\n<!--info-footer-end-->',
     )
 

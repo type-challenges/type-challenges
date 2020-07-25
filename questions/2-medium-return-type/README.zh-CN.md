@@ -20,5 +20,5 @@ type a = MyReturnType<typeof fn> // 应推导出 "1 | 2"
 ```
 
 <!--info-footer-start-->
-<a href="https://type-challenges.netlify.app/case/2/play/zh-CN" target="_blank"><img src="https://img.shields.io/badge/-%E6%9F%A5%E7%9C%8B%E7%AD%94%E6%A1%88-F59BAF?logo=awesome-lists&logoColor=white" alt="查看答案"/></a> <a href="../../README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-%E8%BF%94%E5%9B%9E%E9%A6%96%E9%A1%B5-grey" alt="返回首页"/></a> 
+<a href="../../README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-%E8%BF%94%E5%9B%9E%E9%A6%96%E9%A1%B5-grey" alt="返回首页"/></a> <a href="https://type-challenges.netlify.app/case/2/answers" target="_blank"><img src="https://img.shields.io/badge/-%E6%9F%A5%E7%9C%8B%E7%AD%94%E6%A1%88-F59BAF?logo=awesome-lists&logoColor=white" alt="查看答案"/></a> 
 <!--info-footer-end-->
