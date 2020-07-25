@@ -1,18 +1,18 @@
 ---
-name: New Question
-about: Add a new question, it's already solvable.
+name: New Challenge
+about: Propose a new challenge, it's should be solvable.
 title: ""
 labels: new
 ---
 
 <details>
-<summary>🆕 New Question</summary>
+<summary>🆕 New Challenge</summary>
 
 You need to privode a detailed description of your new question, 
-either in English or Chinese is acceptable (great if you can have both!).
+either in English or Chinese are acceptable (great if you can have both!).
 
-A minimal test cases are preferred.
+Minimal test cases are preferred.
 
-A detailed solution is not required, but be sure it's solvable.
+A detailed solution/guide is not required, but be sure the challenge is solvable.
 
 </details>

@@ -32,6 +32,8 @@ export async function build() {
   const quizes = await loadQuizes()
   const redirects: [string, string, number][] = []
 
+  redirects.push(['/', REPO, 302])
+
   for (const quiz of quizes) {
     for (const locale of supportedLocales) {
       /* eslint-disable prefer-template */
@@ -68,7 +70,6 @@ export async function build() {
   await fs.ensureDir(dist)
 
   await fs.writeFileSync(path.join(dist, '_redirects'), redirects.map(i => i.join('\t')).join('\n'), 'utf-8')
-  await fs.writeFileSync(path.join(dist, 'index.html'), 'Hello World', 'utf-8')
 }
 
 build()
