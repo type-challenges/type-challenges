@@ -6,9 +6,9 @@ import { toPlay, toQuizREADME } from './toUrl'
 import { Quiz } from './types'
 
 const DifficultyColors: Record<string, string> = {
-  'warm-up': 'yellow',
+  'warm-up': 'teal',
   easy: 'green',
-  medium: 'orange',
+  medium: 'd8af2c',
   hard: 'red',
   extreme: 'purple',
 }
@@ -29,6 +29,7 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: keyof type
   if (!fs.existsSync(filepath))
     return
   let text = await fs.readFile(filepath, 'utf-8')
+  /* eslint-disable prefer-template */
 
   if (!text.match(/<!--info-header-start-->[\s\S]*<!--info-header-end-->/))
     text = `<!--info-header-start--><!--info-header-end-->\n\n${text}`
@@ -40,15 +41,21 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: keyof type
   text = text
     .replace(
       /<!--info-header-start-->[\s\S]*<!--info-header-end-->/,
-      `<!--info-header-start-->\n# ${info.title} ${toBadge('', quiz.difficulty, DifficultyColors[quiz.difficulty])}\n> by ${info.author?.name}\n<!--info-header-end-->`,
+      '<!--info-header-start-->\n'
+      + `# ${info.title} ${toBadge('', quiz.difficulty, DifficultyColors[quiz.difficulty])}\n`
+      + `> by ${info.author?.name}\n\n`
+      + toBadgeLink(toPlay(quiz.no, locale), '', messages[locale]['take-the-challenge'], 'blue', '?logo=typescript')
+      + '<!--info-header-end-->',
     )
     .replace(
       /<!--info-footer-start-->[\s\S]*<!--info-footer-end-->/,
-      `<!--info-footer-start-->\n${
-        toBadgeLink(toPlay(quiz.no, locale), '', messages[locale]['take-the-challenge'], 'blue', '?logo=typescript')
-        + toBadgeLink(toPlay(quiz.no, locale), '', messages[locale]['see-answers'], 'F59BAF', '?logo=awesome-lists&logoColor=white')
-      }\n<!--info-footer-end-->`,
+      '<!--info-footer-start-->\n'
+      + toBadgeLink(toPlay(quiz.no, locale), '', messages[locale]['see-answers'], 'F59BAF', '?logo=awesome-lists&logoColor=white')
+      + toBadgeLink(locale === defaultLocale ? '../../README.md' : `../../README.${locale}.md`, '', messages[locale].back, 'grey')
+      + '\n<!--info-footer-end-->',
     )
+
+  /* eslint-enable prefer-template */
 
   await fs.writeFile(filepath, text, 'utf-8')
 }
