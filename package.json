@@ -34,7 +34,9 @@
   "eslintConfig": {
     "extends": "@antfu/eslint-config-ts",
     "rules": {
-      "import/first": "off"
+      "import/first": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off"
     }
   },
   "dependencies": {

@@ -25,8 +25,10 @@ English | <a href='./README.zh-CN.md'>简体中文</a>
 
 ## Challenges ![](https://img.shields.io/badge/-warm--up-yellow) ![](https://img.shields.io/badge/-easy-green) ![](https://img.shields.io/badge/-medium-orange) ![](https://img.shields.io/badge/-hard-red) ![](https://img.shields.io/badge/-extreme-purple)
 
+> Click the badges to accept the challenge!
+
 <!--challenges-start-->
-<a href="https://type-challenges.netlify.app/case/2/play/en"><img src="https://img.shields.io/badge/-%232%20--%20Get%20Return%20Type-orange"/></a> <a href="https://type-challenges.netlify.app/case/3/play/en"><img src="https://img.shields.io/badge/-%233%20--%20Omit%3CT%2C%20K%3E-orange"/></a> <a href="https://type-challenges.netlify.app/case/4/play/en"><img src="https://img.shields.io/badge/-%234%20--%20Pick%3CT%2C%20K%3E-green"/></a> <a href="https://type-challenges.netlify.app/case/5/play/en"><img src="https://img.shields.io/badge/-%235%20--%20Get%20Readonly%20Keys-red"/></a> 
+<a href="https://type-challenges.netlify.app/case/2/play/en"><img src="https://img.shields.io/badge/-%232%20--%20Get%20Return%20Type-orange"/></a> <a href="https://type-challenges.netlify.app/case/3/play/en"><img src="https://img.shields.io/badge/-%233%20--%20Omit%3CT%2C%20K%3E-orange"/></a> <a href="https://type-challenges.netlify.app/case/4/play/en"><img src="https://img.shields.io/badge/-%234%20--%20Pick%3CT%2C%20K%3E-green"/></a> <a href="https://type-challenges.netlify.app/case/5/play/en"><img src="https://img.shields.io/badge/-%235%20--%20Get%20Readonly%20Keys-red"/></a> <a href="https://type-challenges.netlify.app/case/6/play/en"><img src="https://img.shields.io/badge/-%236%20--%20Simple%20Vue-purple"/></a> 
 <!--challenges-end-->
 
 </details>
