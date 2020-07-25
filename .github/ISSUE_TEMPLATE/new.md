@@ -1,6 +1,6 @@
 ---
 name: New Question
-about: Adding a new question, it's already do-able.
+about: Add a new question, it's already do-able.
 title: ""
 labels: new
 ---
