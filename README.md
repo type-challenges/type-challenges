@@ -1,3 +1,9 @@
+<h3 align='center'>
+👋 Check out <a href='https://github.com/orgs/type-challenges/teams/early-access/discussions/1'>the plan of this project</a>
+</h3>
+
+----
+
 <p align='center'>
 <img src='./screenshots/logo.svg' width='400'/>
 </p>

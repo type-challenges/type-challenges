@@ -13,27 +13,6 @@ const DifficultyColors: Record<string, string> = {
   extreme: 'purple',
 }
 
-const Badges = {
-  difficulty: {
-    'warm-up': 'https://img.shields.io/badge/-warm--up-yellow',
-    easy: 'https://img.shields.io/badge/-easy-green',
-    medium: 'https://img.shields.io/badge/-medium-orange',
-    hard: 'https://img.shields.io/badge/-hard-red',
-    extreme: 'https://img.shields.io/badge/-extreme-purple',
-  },
-  actions: {
-    play: 'https://img.shields.io/badge/-take%20the%20challenge-007ACC?logo=typescript',
-    answers: 'https://img.shields.io/badge/-answers-F59BAF?logo=awesome-lists&logoColor=white',
-  },
-  locales: {
-    'zh-CN': 'https://img.shields.io/badge/-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-888',
-    en: 'https://img.shields.io/badge/-English-888',
-  },
-  quiz(no: number, name: string, difficulty: string) {
-    return `https://img.shields.io/badge/-${encodeURIComponent(`#${no} -- ${name}`)}-${DifficultyColors[difficulty]}`
-  },
-}
-
 function toBadgeURL(label: string, text: string, color: string, args = '') {
   return `https://img.shields.io/badge/${encodeURIComponent(label.replace(/-/g, '--'))}-${encodeURIComponent(text.replace(/-/g, '--'))}-${color}${args}`
 }
