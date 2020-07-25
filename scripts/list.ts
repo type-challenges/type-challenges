@@ -24,6 +24,12 @@ export async function loadLocaleVariations<T = string>(filepath: string, postpro
   return data
 }
 
+export function readmeCleanUp(text: string) {
+  return text
+    .replace(/<!--info-header-start-->[\s\S]*<!--info-header-end-->/, '')
+    .replace(/<!--info-footer-start-->[\s\S]*<!--info-footer-end-->/, '')
+}
+
 export async function loadQuizes(): Promise<Quiz[]> {
   const root = path.resolve(__dirname, '../questions')
   const folders = await fg('{0..9}-*', {
@@ -38,7 +44,7 @@ export async function loadQuizes(): Promise<Quiz[]> {
         difficulty: dir.replace(/^\d+-(.+?)-.*$/, '$1') as any,
         path: dir,
         info: await loadLocaleVariations(path.join(root, dir, 'info.yml'), s => YAML.safeLoad(s) as Partial<QuizMetaInfo>),
-        readme: await loadLocaleVariations(path.join(root, dir, 'README.md')) || '',
+        readme: await loadLocaleVariations(path.join(root, dir, 'README.md'), readmeCleanUp),
         template: await loadFile(path.join(root, dir, 'template.ts')) || '',
         tests: await loadFile(path.join(root, dir, 'test-cases.ts')),
       }

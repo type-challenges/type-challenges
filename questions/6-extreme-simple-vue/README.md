@@ -1,3 +1,8 @@
+<!--info-header-start-->
+# Simple Vue <img src="https://img.shields.io/badge/-extreme-purple" alt="extreme"/>
+> by Anthony Fu
+<!--info-header-end-->
+
 {WIP} Implement a simpiled version of a Vue-like typing support.
 
 By providing a function name `SimpleVue` (similar to `Vue.extend` or `defineComponent`), it should properly infer the `this` type inside computed and methods.
@@ -33,3 +38,7 @@ const instance = SimpleVue({
   }
 })
 ```
+
+<!--info-footer-start-->
+<a href="https://type-challenges.netlify.app/case/6/play/en" target="_blank"><img src="https://img.shields.io/badge/-Take%20the%20Challenge-blue?logo=typescript" alt="Take the Challenge"/></a> <a href="https://type-challenges.netlify.app/case/6/play/en" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Answers-F59BAF?logo=awesome-lists&logoColor=white" alt="Check out Answers"/></a> 
+<!--info-footer-end-->

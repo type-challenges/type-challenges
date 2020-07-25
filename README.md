@@ -28,7 +28,7 @@ English | <a href='./README.zh-CN.md'>简体中文</a>
 > Click the badges to accept the challenge!
 
 <!--challenges-start-->
-<a href="https://type-challenges.netlify.app/case/2/play/en"><img src="https://img.shields.io/badge/-%232%20--%20Get%20Return%20Type-orange"/></a> <a href="https://type-challenges.netlify.app/case/3/play/en"><img src="https://img.shields.io/badge/-%233%20--%20Omit%3CT%2C%20K%3E-orange"/></a> <a href="https://type-challenges.netlify.app/case/4/play/en"><img src="https://img.shields.io/badge/-%234%20--%20Pick%3CT%2C%20K%3E-green"/></a> <a href="https://type-challenges.netlify.app/case/5/play/en"><img src="https://img.shields.io/badge/-%235%20--%20Get%20Readonly%20Keys-red"/></a> <a href="https://type-challenges.netlify.app/case/6/play/en"><img src="https://img.shields.io/badge/-%236%20--%20Simple%20Vue-purple"/></a> 
+<a href="./questions/2-medium-return-type/README.md" target="_blank"><img src="https://img.shields.io/badge/-%232%E3%83%BBGet%20Return%20Type-orange" alt="#2・Get Return Type"/></a> <a href="./questions/3-medium-omit/README.md" target="_blank"><img src="https://img.shields.io/badge/-%233%E3%83%BBOmit%3CT%2C%20K%3E-orange" alt="#3・Omit<T, K>"/></a> <a href="./questions/4-easy-pick/README.md" target="_blank"><img src="https://img.shields.io/badge/-%234%E3%83%BBPick%3CT%2C%20K%3E-green" alt="#4・Pick<T, K>"/></a> <a href="./questions/5-hard-readonly-keys/README.md" target="_blank"><img src="https://img.shields.io/badge/-%235%E3%83%BBGet%20Readonly%20Keys-red" alt="#5・Get Readonly Keys"/></a> <a href="./questions/6-extreme-simple-vue/README.md" target="_blank"><img src="https://img.shields.io/badge/-%236%E3%83%BBSimple%20Vue-purple" alt="#6・Simple Vue"/></a> 
 <!--challenges-end-->
 
 </details>

@@ -3,5 +3,7 @@
   "code-start": "你的代码",
   "test-cases": "测试用例",
   "link-tip-repo": "在 Type Challenges 查看更多姿势: ",
-  "link-tip-answers": "答案: "
+  "link-tip-answers": "答案: ",
+  "take-the-challenge": "接受挑战",
+  "see-answers": "查看答案"
 }
