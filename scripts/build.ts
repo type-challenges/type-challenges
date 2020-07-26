@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs-extra'
-import { loadQuizes, resolveInfo, getTags } from './list'
+import { loadQuizes, resolveInfo } from './list'
 import { toPlaygroundUrl, toSolutionsShort, REPO, toSolutionsFull, toQuizREADME, toShareAnswer, toShareAnswerFull } from './toUrl'
 import { Quiz } from './types'
 import { supportedLocales, defaultLocale, t, SupportedLocale } from './locales'
@@ -21,10 +21,9 @@ function toDivier(text: string) {
 
 function toInfoHeader(quiz: Quiz, locale: SupportedLocale) {
   const info = resolveInfo(quiz, locale)
-  const tabs = getTags(quiz, locale)
   return `#${quiz.no} - ${info.title || ''}\n`
     + '-------\n'
-    + `by ${info.author?.name} (@${info?.author?.github}) #${t(locale, `difficulty.${quiz.difficulty}`)} ${tabs.map(i => `#${i}`).join(' ')}\n\n`
+    + `by ${info.author?.name} (@${info?.author?.github}) #${t(locale, `difficulty.${quiz.difficulty}`)} ${info?.tags?.map(i => `#${i}`).join(' ') || ''}\n\n`
     + `### ${t(locale, 'title.question')}\n\n`
 }
 

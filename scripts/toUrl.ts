@@ -31,7 +31,7 @@ export function toPlay(no: number, locale?: string) {
 }
 
 export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
-  const prefix = absolute ? REPO : '.'
+  const prefix = absolute ? `${REPO}/tree/master` : '.'
   return locale && locale !== defaultLocale && quiz.readme[locale]
     ? `${prefix}/questions/${quiz.path}/README.${locale}.md`
     : `${prefix}/questions/${quiz.path}/README.md`

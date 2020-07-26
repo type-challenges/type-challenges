@@ -19,8 +19,11 @@ export async function loadLocaleVariations<T = string>(filepath: string, postpro
     if (file)
       data[locale] = file
   }
-  if (!data[defaultLocale])
-    data[defaultLocale] = postprocessor(await loadFile(filepath) || '')
+  if (!data[defaultLocale]) {
+    const file = postprocessor(await loadFile(filepath) || '')
+    if (file)
+      data[defaultLocale] = file
+  }
   return data
 }
 
@@ -29,6 +32,18 @@ export function readmeCleanUp(text: string) {
     .replace(/<!--info-header-start-->[\s\S]*<!--info-header-end-->/, '')
     .replace(/<!--info-footer-start-->[\s\S]*<!--info-footer-end-->/, '')
     .trim()
+}
+export function loadInfo(s: string): Partial<QuizMetaInfo> | undefined {
+  const object = YAML.safeLoad(s) as any
+  if (!object)
+    return undefined
+
+  if (object.tags)
+    object.tags = (object.tags as string).split(',').map(i => i.trim()).filter(Boolean)
+  else
+    object.tags = []
+
+  return object
 }
 
 export async function loadQuizes(): Promise<Quiz[]> {
@@ -44,7 +59,7 @@ export async function loadQuizes(): Promise<Quiz[]> {
         no: Number(dir.replace(/^(\d+)-.*/, '$1')),
         difficulty: dir.replace(/^\d+-(.+?)-.*$/, '$1') as any,
         path: dir,
-        info: await loadLocaleVariations(path.join(root, dir, 'info.yml'), s => YAML.safeLoad(s) as Partial<QuizMetaInfo>),
+        info: await loadLocaleVariations(path.join(root, dir, 'info.yml'), loadInfo),
         readme: await loadLocaleVariations(path.join(root, dir, 'README.md'), readmeCleanUp),
         template: await loadFile(path.join(root, dir, 'template.ts')) || '',
         tests: await loadFile(path.join(root, dir, 'test-cases.ts')),
@@ -58,9 +73,4 @@ export async function loadQuizes(): Promise<Quiz[]> {
 
 export function resolveInfo(quiz: Quiz, locale: string = defaultLocale) {
   return Object.assign({}, quiz.info[defaultLocale], quiz.info[locale])
-}
-
-export function getTags(quiz: Quiz, locale: string) {
-  const info = resolveInfo(quiz, locale)
-  return (info.tags || '').split(',').map(i => i.trim()).filter(Boolean)
 }
