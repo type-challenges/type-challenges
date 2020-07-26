@@ -33,7 +33,7 @@ export function readmeCleanUp(text: string) {
 
 export async function loadQuizes(): Promise<Quiz[]> {
   const root = path.resolve(__dirname, '../questions')
-  const folders = await fg('{0..9}-*', {
+  const folders = await fg('{0..9}*-*', {
     onlyDirectories: true,
     cwd: root,
   })

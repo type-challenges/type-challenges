@@ -15,3 +15,8 @@ For example:
 
 </details>
 
+```ts
+// your answers
+```
+
+<!--Some idea or thoughts about how to solve this problem-->
