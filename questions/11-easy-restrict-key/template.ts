@@ -1,0 +1,1 @@
+type O = any
