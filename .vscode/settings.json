@@ -1,11 +1,13 @@
 {
   "i18n-ally.localesPaths": "scripts/locales",
   "i18n-ally.sourceLanguage": "en",
+  "i18n-ally.sortKeys": true,
   "search.exclude": {
     "**/node_modules": true,
     "**/bower_components": true,
     "**/*.code-search": true,
     "pnpm-lock.yaml": true,
     "**/dist": true
-  }
+  },
+  "i18n-ally.keystyle": "flat"
 }

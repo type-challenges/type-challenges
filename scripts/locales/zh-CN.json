@@ -1,15 +1,17 @@
 {
-  "difficulty.warm": "热身",
+  "badge.back": "返回首页",
+  "badge.checkout-solutions": "查看解答",
+  "badge.share-your-solutions": "分享你的解答",
+  "badge.take-the-challenge": "接受挑战",
   "difficulty.easy": "简单",
-  "difficulty.medium": "中等",
-  "difficulty.hard": "困难",
   "difficulty.extreme": "地狱",
-  "question": "题目",
-  "code-start": "你的代码",
-  "test-cases": "测试用例",
-  "link-tip-repo": "在 Type Challenges 查看更多姿势: ",
-  "link-tip-answers": "答案: ",
-  "take-the-challenge": "接受挑战",
-  "see-answers": "查看答案",
-  "back": "返回首页"
+  "difficulty.hard": "困难",
+  "difficulty.medium": "中等",
+  "difficulty.warm": "热身",
+  "divider.code-start": "你的代码",
+  "divider.test-cases": "测试用例",
+  "link.checkout-solutions": "查看解答：",
+  "link.share-solutions": "分享你的解答：",
+  "link.view-on-github": "在 Github 上查看：",
+  "title.question": "题目"
 }

@@ -1,12 +1,12 @@
 import path from 'path'
 import fs from 'fs-extra'
-import { loadQuizes, resolveInfo } from './list'
-import { toPlaygroundUrl, toAnswers, REPO, toAnswersIssue } from './toUrl'
+import { loadQuizes, resolveInfo, getTags } from './list'
+import { toPlaygroundUrl, toSolutionsShort, REPO, toSolutionsFull, toQuizREADME, toShareAnswer, toShareAnswerFull } from './toUrl'
 import { Quiz } from './types'
 import { supportedLocales, defaultLocale, t, SupportedLocale } from './locales'
 
 function toCommentBlock(text: string) {
-  return `/**\n${
+  return `/*\n${
     text
       .trim()
       .split('\n')
@@ -21,16 +21,22 @@ function toDivier(text: string) {
 
 function toInfoHeader(quiz: Quiz, locale: SupportedLocale) {
   const info = resolveInfo(quiz, locale)
+  const tabs = getTags(quiz, locale)
   return `#${quiz.no} - ${info.title || ''}\n`
     + '-------\n'
-    + `by ${info.author?.name} (@${info?.author?.github}) #${quiz.difficulty}\n\n`
-    + `### ${t(locale, 'question')}\n\n`
+    + `by ${info.author?.name} (@${info?.author?.github}) #${t(locale, `difficulty.${quiz.difficulty}`)} ${tabs.map(i => `#${i}`).join(' ')}\n\n`
+    + `### ${t(locale, 'title.question')}\n\n`
 }
 
 function toLinks(quiz: Quiz, locale: SupportedLocale) {
   return '\n\n'
-  + `> ${t(locale, 'link-tip-repo')}${REPO}\n`
-  + `> ${t(locale, 'link-tip-answers')}${toAnswers(quiz.no)}`
+  + `> ${t(locale, 'link.view-on-github')}${toQuizREADME(quiz, locale, true)}`
+}
+
+function toFooter(quiz: Quiz, locale: SupportedLocale) {
+  return '\n\n'
+  + `> ${t(locale, 'link.share-solutions')}${toShareAnswer(quiz.no, locale)}\n`
+  + `> ${t(locale, 'link.checkout-solutions')}${toSolutionsShort(quiz.no)}\n`
 }
 
 export async function build() {
@@ -50,24 +56,31 @@ export async function build() {
         + (quiz.readme[locale] || quiz.readme[defaultLocale])
         + toLinks(quiz, locale),
       )
-      + toDivier(t(locale, 'code-start'))
+      + toDivier(t(locale, 'divider.code-start'))
       + '\n'
       + (quiz.template || '').trim()
       + '\n\n'
-      + toDivier(t(locale, 'test-cases'))
+      + toDivier(t(locale, 'divider.test-cases'))
       + (quiz.tests || '')
+      + '\n\n'
+      + toDivier(t(locale, 'divider.further-steps'))
+      + toCommentBlock(toFooter(quiz, locale))
 
       /* eslint-enable prefer-template */
 
       const url = toPlaygroundUrl(code)
 
-      if (locale === defaultLocale)
+      if (locale === defaultLocale) {
         redirects.push([`/case/${quiz.no}/play`, url, 302])
-      else
+        redirects.push([`/case/${quiz.no}/answer`, toShareAnswerFull(quiz), 302])
+      }
+      else {
         redirects.push([`/case/${quiz.no}/play/${locale}`, url, 302])
+        redirects.push([`/case/${quiz.no}/answer/${locale}`, toShareAnswerFull(quiz, locale), 302])
+      }
     }
 
-    redirects.push([`/case/${quiz.no}/answers`, toAnswersIssue(quiz.no), 302])
+    redirects.push([`/case/${quiz.no}/solutions`, toSolutionsFull(quiz.no), 302])
   }
 
   const dist = path.resolve(__dirname, 'dist')

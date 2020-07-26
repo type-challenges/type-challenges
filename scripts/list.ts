@@ -56,7 +56,7 @@ export async function loadQuizes(): Promise<Quiz[]> {
   return quizes
 }
 
-export function resolveInfo(quiz: Quiz, locale: string) {
+export function resolveInfo(quiz: Quiz, locale: string = defaultLocale) {
   return Object.assign({}, quiz.info[defaultLocale], quiz.info[locale])
 }
 
