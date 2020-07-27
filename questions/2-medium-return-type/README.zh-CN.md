@@ -1,4 +1,4 @@
-<!--info-header-start--><h1>获取函数返回类型 <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%AD%89-eaa648" alt="中等"/> </h1><blockquote><p>by Anthony Fu <a href="https://github.com/antfu" target="_blank">@antfu</a></p></blockquote><a href="https://type-challenges.netlify.app/case/2/play/zh-CN" target="_blank"><img src="https://img.shields.io/badge/-%E6%8E%A5%E5%8F%97%E6%8C%91%E6%88%98-3178c6?logo=typescript" alt="接受挑战"/></a> <br><br><!--info-header-end-->
+<!--info-header-start--><h1>获取函数返回类型 <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%AD%89-eaa648" alt="中等"/> <img src="https://img.shields.io/badge/-%23infer-999" alt="#infer"/> <img src="https://img.shields.io/badge/-%23built--in-999" alt="#built-in"/></h1><blockquote><p>by Anthony Fu <a href="https://github.com/antfu" target="_blank">@antfu</a></p></blockquote><a href="https://type-challenges.netlify.app/case/2/play/zh-CN" target="_blank"><img src="https://img.shields.io/badge/-%E6%8E%A5%E5%8F%97%E6%8C%91%E6%88%98-3178c6?logo=typescript" alt="接受挑战"/></a> <br><br><!--info-header-end-->
 
 不使用 `ReturnType` 实现 TypeScript 的 `ReturnType<T>` 范型。
 

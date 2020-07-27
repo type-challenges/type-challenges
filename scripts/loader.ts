@@ -1,5 +1,5 @@
 import path from 'path'
-import fs, { open } from 'fs-extra'
+import fs from 'fs-extra'
 import fg from 'fast-glob'
 import YAML from 'js-yaml'
 import { Quiz, QuizMetaInfo } from './types'
@@ -11,7 +11,10 @@ export async function loadFile(filepath: string) {
   return undefined
 }
 
-export async function loadLocaleVariations<T = string>(filepath: string, postprocessor: (s: string) => T = s => s as any as T) {
+export async function loadLocaleVariations<T = string>(
+  filepath: string,
+  postprocessor: (s: string) => T = s => s as any as T,
+) {
   const { ext, dir, name } = path.parse(filepath)
   const data: Record<string, T> = {}
   for (const locale of supportedLocales) {
@@ -41,7 +44,7 @@ export function loadInfo(s: string): Partial<QuizMetaInfo> | undefined {
   if (object.tags)
     object.tags = (object.tags as string).split(',').map(i => i.trim()).filter(Boolean)
   else
-    object.tags = []
+    object.tags = undefined
 
   return object
 }
@@ -72,5 +75,7 @@ export async function loadQuizes(): Promise<Quiz[]> {
 }
 
 export function resolveInfo(quiz: Quiz, locale: string = defaultLocale) {
-  return Object.assign({}, quiz.info[defaultLocale], quiz.info[locale])
+  const info = Object.assign({}, quiz.info[defaultLocale], quiz.info[locale])
+  info.tags = quiz.info[locale]?.tags || quiz.info[defaultLocale]?.tags || []
+  return info
 }

@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs-extra'
 import { supportedLocales, defaultLocale, t, SupportedLocale, f } from './locales'
-import { loadQuizes, resolveInfo } from './list'
+import { loadQuizes, resolveInfo } from './loader'
 import { toPlay, toQuizREADME, toSolutionsShort, toShareAnswer } from './toUrl'
 import { Quiz, QuizMetaInfo } from './types'
 

@@ -1,4 +1,4 @@
-<!--info-header-start--><h1>可串联构造器 <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%AD%89-eaa648" alt="中等"/> </h1><blockquote><p>by Anthony Fu <a href="https://github.com/antfu" target="_blank">@antfu</a></p></blockquote><a href="https://type-challenges.netlify.app/case/12/play/zh-CN" target="_blank"><img src="https://img.shields.io/badge/-%E6%8E%A5%E5%8F%97%E6%8C%91%E6%88%98-3178c6?logo=typescript" alt="接受挑战"/></a> <br><br><!--info-header-end-->
+<!--info-header-start--><h1>可串联构造器 <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%AD%89-eaa648" alt="中等"/> <img src="https://img.shields.io/badge/-%23application-999" alt="#application"/></h1><blockquote><p>by Anthony Fu <a href="https://github.com/antfu" target="_blank">@antfu</a></p></blockquote><a href="https://type-challenges.netlify.app/case/12/play/zh-CN" target="_blank"><img src="https://img.shields.io/badge/-%E6%8E%A5%E5%8F%97%E6%8C%91%E6%88%98-3178c6?logo=typescript" alt="接受挑战"/></a> <br><br><!--info-header-end-->
 
 在 JavaScript 中我们很常会使用可串联（Chainable/Pipeline）的函数构造一个对象，但在 TypeScript 中，你能合理的给他附上类型吗？
 

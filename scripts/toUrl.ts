@@ -1,7 +1,7 @@
 import lzs from 'lz-string'
 import { Quiz } from './types'
 import { defaultLocale } from './locales'
-import { resolveInfo } from './list'
+import { resolveInfo } from './loader'
 
 export const REPO = 'https://github.com/type-challenges/type-challenges'
 export const DOMAIN = 'https://type-challenges.netlify.app'
