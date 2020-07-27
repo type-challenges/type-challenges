@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs-extra'
 import { loadQuizes, resolveInfo } from './loader'
-import { toPlaygroundUrl, toSolutionsShort, REPO, toSolutionsFull, toQuizREADME, toShareAnswer, toShareAnswerFull } from './toUrl'
+import { toPlaygroundUrl, toSolutionsShort, REPO, toSolutionsFull, toQuizREADME, toAnswerShort, toShareAnswerFull, toReadmeShort } from './toUrl'
 import { Quiz } from './types'
 import { supportedLocales, defaultLocale, t, SupportedLocale } from './locales'
 
@@ -29,12 +29,12 @@ function toInfoHeader(quiz: Quiz, locale: SupportedLocale) {
 
 function toLinks(quiz: Quiz, locale: SupportedLocale) {
   return '\n\n'
-  + `> ${t(locale, 'link.view-on-github')}${toQuizREADME(quiz, locale, true)}`
+  + `> ${t(locale, 'link.view-on-github')}${toReadmeShort(quiz.no, locale)}`
 }
 
 function toFooter(quiz: Quiz, locale: SupportedLocale) {
   return '\n\n'
-  + `> ${t(locale, 'link.share-solutions')}${toShareAnswer(quiz.no, locale)}\n`
+  + `> ${t(locale, 'link.share-solutions')}${toAnswerShort(quiz.no, locale)}\n`
   + `> ${t(locale, 'link.checkout-solutions')}${toSolutionsShort(quiz.no)}\n`
 }
 
@@ -70,16 +70,24 @@ export async function build() {
       const url = toPlaygroundUrl(code)
 
       if (locale === defaultLocale) {
+        redirects.push([`/${quiz.no}`, toQuizREADME(quiz, locale, true), 302])
+        redirects.push([`/${quiz.no}/play`, url, 302])
+        redirects.push([`/${quiz.no}/answer`, toShareAnswerFull(quiz), 302])
+
+        // TODO: remove in next release
         redirects.push([`/case/${quiz.no}/play`, url, 302])
-        redirects.push([`/case/${quiz.no}/answer`, toShareAnswerFull(quiz), 302])
       }
       else {
+        redirects.push([`/${quiz.no}/${locale}`, toQuizREADME(quiz, locale, true), 302])
+        redirects.push([`/${quiz.no}/play/${locale}`, url, 302])
+        redirects.push([`/${quiz.no}/answer/${locale}`, toShareAnswerFull(quiz, locale), 302])
+
+        // TODO: remove in next release
         redirects.push([`/case/${quiz.no}/play/${locale}`, url, 302])
-        redirects.push([`/case/${quiz.no}/answer/${locale}`, toShareAnswerFull(quiz, locale), 302])
       }
     }
 
-    redirects.push([`/case/${quiz.no}/solutions`, toSolutionsFull(quiz.no), 302])
+    redirects.push([`/${quiz.no}/solutions`, toSolutionsFull(quiz.no), 302])
   }
 
   const dist = path.resolve(__dirname, 'dist')

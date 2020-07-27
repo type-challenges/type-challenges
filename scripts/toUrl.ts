@@ -20,16 +20,6 @@ export function toSolutionsFull(no: number) {
   return `${REPO}/issues?q=label%3A%23${no}+label%3Aanswer`
 }
 
-export function toSolutionsShort(no: number) {
-  return `${DOMAIN}/case/${no}/solutions`
-}
-
-export function toPlay(no: number, locale?: string) {
-  return locale !== defaultLocale
-    ? `${DOMAIN}/case/${no}/play/${locale}`
-    : `${DOMAIN}/case/${no}/play`
-}
-
 export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
   const prefix = absolute ? `${REPO}/tree/master` : '.'
   return locale && locale !== defaultLocale && quiz.readme[locale]
@@ -37,13 +27,31 @@ export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
     : `${prefix}/questions/${quiz.path}/README.md`
 }
 
-export function toShareAnswer(no: number, locale? : string) {
-  return locale !== defaultLocale
-    ? `${DOMAIN}/case/${no}/answer/${locale}`
-    : `${DOMAIN}/case/${no}/answer`
-}
-
 export function toShareAnswerFull(quiz: Quiz, locale: string = defaultLocale) {
   const info = resolveInfo(quiz, locale)
   return `https://github.com/type-challenges/type-challenges/issues/new?labels=answer,${encodeURIComponent(`#${quiz.no}`)},${encodeURIComponent(locale)}&template=answer.md&title=${encodeURIComponent(`#${quiz.no} - ${info.title}`)}`
+}
+
+// Short
+
+export function toReadmeShort(no: number, locale?: string) {
+  return locale !== defaultLocale
+    ? `${DOMAIN}/${no}/${locale}`
+    : `${DOMAIN}/${no}`
+}
+
+export function toSolutionsShort(no: number) {
+  return `${DOMAIN}/${no}/solutions`
+}
+
+export function toPlayShort(no: number, locale?: string) {
+  return locale !== defaultLocale
+    ? `${DOMAIN}/${no}/play/${locale}`
+    : `${DOMAIN}/${no}/play`
+}
+
+export function toAnswerShort(no: number, locale? : string) {
+  return locale !== defaultLocale
+    ? `${DOMAIN}/${no}/answer/${locale}`
+    : `${DOMAIN}/${no}/answer`
 }
