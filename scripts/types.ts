@@ -7,10 +7,10 @@ export interface QuizMetaInfo {
     email: string
     github: string
   }
-  tsconfig: any
+  tsconfig?: Record<string, any>
   original_issues: number[]
   recommended_solutions: number[]
-  tags: string
+  tags: string[]
 }
 
 export type Difficulty = 'warm-up' | 'easy' | 'medium' | 'hard' | 'extreme' | 'pending'
@@ -21,7 +21,7 @@ export interface Quiz {
   path: string
   readme: Record<string, string>
   template: string
-  info: Record<string, DeepPartial<QuizMetaInfo>>
+  info: Record<string, DeepPartial<QuizMetaInfo> | undefined>
   tests?: string
   solutions?: {
     code?: string

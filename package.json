@@ -30,7 +30,7 @@
     "rollup-plugin-dts": "^1.4.9",
     "rollup-plugin-typescript2": "^0.27.1",
     "ts-node": "^8.10.2",
-    "typescript": "^3.9.7"
+    "typescript": "^4.0.0-beta"
   },
   "husky": {
     "hooks": {

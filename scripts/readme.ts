@@ -1,8 +1,8 @@
 import path from 'path'
 import fs from 'fs-extra'
 import { supportedLocales, defaultLocale, t, SupportedLocale, f } from './locales'
-import { loadQuizes, resolveInfo, getTags } from './list'
-import { toPlay, toQuizREADME, toSolutionsShort, toShareAnswer } from './toUrl'
+import { loadQuizes, resolveInfo } from './loader'
+import { toPlayShort, toQuizREADME, toSolutionsShort, toAnswerShort, toReadmeShort, toNearborREADME } from './toUrl'
 import { Quiz, QuizMetaInfo } from './types'
 
 const DifficultyColors: Record<string, string> = {
@@ -54,6 +54,32 @@ function toDifficultyBadgeInverted(difficulty: string, locale: SupportedLocale) 
   return toBadge(t(locale, `difficulty.${difficulty}`), ' ', DifficultyColors[difficulty])
 }
 
+function quizToBadge(quiz: Quiz, locale: string) {
+  return toBadgeLink(
+    toQuizREADME(quiz, locale),
+    '',
+    `${quiz.no}・${quiz.info[locale]?.title || quiz.info[defaultLocale]?.title}`,
+    DifficultyColors[quiz.difficulty],
+  )
+}
+
+function getAllTags(quizes: Quiz[], locale: string) {
+  const set = new Set<string>()
+  for (const quiz of quizes) {
+    const info = resolveInfo(quiz, locale)
+    for (const tag of (info?.tags || []))
+      set.add(tag as string)
+  }
+  return Array.from(set).sort()
+}
+
+function getQuizesByTag(quizes: Quiz[], locale: string, tag: string) {
+  return quizes.filter((quiz) => {
+    const info = resolveInfo(quiz, locale)
+    return !!info.tags?.includes(tag)
+  })
+}
+
 async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedLocale) {
   if (!fs.existsSync(filepath))
     return
@@ -67,22 +93,26 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
 
   const info = resolveInfo(quiz, locale)
 
+  const avaliableLocales = supportedLocales.filter(l => l !== locale).filter(l => !!quiz.readme[l])
+
   text = text
     .replace(
       /<!--info-header-start-->[\s\S]*<!--info-header-end-->/,
       '<!--info-header-start-->'
-      + `<h1>${escapeHtml(info.title || '')} ${toDifficultyBadge(quiz.difficulty, locale)} ${getTags(quiz, locale).map(i => toBadge('', `#${i}`, '999')).join(' ')}</h1>`
+      + `<h1>${escapeHtml(info.title || '')} ${toDifficultyBadge(quiz.difficulty, locale)} ${(info.tags || []).map(i => toBadge('', `#${i}`, '999')).join(' ')}</h1>`
       + `<blockquote><p>${toAuthorInfo(info.author)}</p></blockquote>`
-      + toBadgeLink(toPlay(quiz.no, locale), '', t(locale, 'badge.take-the-challenge'), '3178c6', '?logo=typescript')
-      + '<br><br>'
+      + '<p>'
+      + toBadgeLink(toPlayShort(quiz.no, locale), '', t(locale, 'badge.take-the-challenge'), '3178c6', '?logo=typescript')
+      + (avaliableLocales.length ? ('&nbsp;&nbsp;&nbsp;' + avaliableLocales.map(l => toBadgeLink(toNearborREADME(quiz, l), '', t(l, 'display'), 'gray')).join(' ')) : '')
+      + '</p>'
       + '<!--info-header-end-->',
     )
     .replace(
       /<!--info-footer-start-->[\s\S]*<!--info-footer-end-->/,
-      '<!--info-footer-start-->'
+      '<!--info-footer-start--><br>'
       + toBadgeLink(`../../${f('README', locale, 'md')}`, '', t(locale, 'badge.back'), 'grey')
       + toBadgeLink(toSolutionsShort(quiz.no), '', t(locale, 'badge.checkout-solutions'), 'de5a77', '?logo=awesome-lists&logoColor=white')
-      + toBadgeLink(toShareAnswer(quiz.no, locale), '', t(locale, 'badge.share-your-solutions'), 'green')
+      + toBadgeLink(toAnswerShort(quiz.no, locale), '', t(locale, 'badge.share-your-solutions'), 'green')
       + '<!--info-footer-end-->',
     )
 
@@ -91,11 +121,7 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
   await fs.writeFile(filepath, text, 'utf-8')
 }
 
-export async function build() {
-  const quizes = await loadQuizes()
-  quizes.sort((a, b) => DifficultyRank.indexOf(a.difficulty) - DifficultyRank.indexOf(b.difficulty))
-  const questionsDir = path.resolve(__dirname, '../questions')
-
+async function updateIndexREADME(quizes: Quiz[]) {
   // update index README
   for (const locale of supportedLocales) {
     const filepath = path.resolve(__dirname, '..', f('README', locale, 'md'))
@@ -103,19 +129,28 @@ export async function build() {
     let challengesREADME = ''
     let prev = ''
 
-    for (const quiz of quizes) {
+    // Difficulty
+    const quizesByDifficulty = [...quizes].sort((a, b) => DifficultyRank.indexOf(a.difficulty) - DifficultyRank.indexOf(b.difficulty))
+    for (const quiz of quizesByDifficulty) {
       if (prev !== quiz.difficulty)
         challengesREADME += `${prev ? '<br><br>' : ''}${toDifficultyBadgeInverted(quiz.difficulty, locale)}<br>`
 
-      challengesREADME += toBadgeLink(
-        toQuizREADME(quiz, locale),
-        '',
-        `#${quiz.no}・${quiz.info[locale]?.title || quiz.info[defaultLocale]?.title}`,
-        DifficultyColors[quiz.difficulty],
-      )
+      challengesREADME += quizToBadge(quiz, locale)
 
       prev = quiz.difficulty
     }
+
+    challengesREADME += '<br><details><summary>By Tags</summary><br><table><tbody>'
+    const tags = getAllTags(quizes, locale)
+    for (const tag of tags) {
+      challengesREADME += `<tr><td>${toBadge('', `#${tag}`, '999')}</td><td>`
+      getQuizesByTag(quizesByDifficulty, locale, tag)
+        .forEach((quiz) => {
+          challengesREADME += quizToBadge(quiz, locale)
+        })
+      challengesREADME += '</td></tr>'
+    }
+    challengesREADME += '</tbody></table></details>'
 
     let readme = await fs.readFile(filepath, 'utf-8')
     readme = readme.replace(
@@ -124,6 +159,10 @@ export async function build() {
     )
     await fs.writeFile(filepath, readme, 'utf-8')
   }
+}
+
+async function updateQuestionsREADME(quizes: Quiz[]) {
+  const questionsDir = path.resolve(__dirname, '../questions')
 
   // update each questions' readme
   for (const quiz of quizes) {
@@ -141,4 +180,14 @@ export async function build() {
   }
 }
 
-build()
+export async function updateREADMEs() {
+  const quizes = await loadQuizes()
+  quizes.sort((a, b) => a.no - b.no)
+
+  await Promise.all([
+    updateIndexREADME(quizes),
+    updateQuestionsREADME(quizes),
+  ])
+}
+
+updateREADMEs()

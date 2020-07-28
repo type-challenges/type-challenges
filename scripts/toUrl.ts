@@ -1,7 +1,7 @@
 import lzs from 'lz-string'
 import { Quiz } from './types'
 import { defaultLocale } from './locales'
-import { resolveInfo } from './list'
+import { resolveInfo } from './loader'
 
 export const REPO = 'https://github.com/type-challenges/type-challenges'
 export const DOMAIN = 'https://type-challenges.netlify.app'
@@ -13,37 +13,57 @@ export function toPlaygroundUrl(
   config: Object = {},
   site = TYPESCRIPT_PLAYGROUND,
 ) {
-  return `${site}?${Object.entries(config).map(([k, v]) => `${k}=${v}`).join('&')}#code/${lzs.compressToEncodedURIComponent(code)}`
+  return `${site}?${Object.entries(config).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&')}#code/${lzs.compressToEncodedURIComponent(code)}`
 }
 
 export function toSolutionsFull(no: number) {
-  return `${REPO}/issues?q=label%3A%23${no}+label%3Aanswer`
-}
-
-export function toSolutionsShort(no: number) {
-  return `${DOMAIN}/case/${no}/solutions`
-}
-
-export function toPlay(no: number, locale?: string) {
-  return locale !== defaultLocale
-    ? `${DOMAIN}/case/${no}/play/${locale}`
-    : `${DOMAIN}/case/${no}/play`
+  return `${REPO}/issues?q=label%3A${no}+label%3Aanswer`
 }
 
 export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
-  const prefix = absolute ? REPO : '.'
+  const prefix = absolute ? `${REPO}/tree/master` : '.'
   return locale && locale !== defaultLocale && quiz.readme[locale]
     ? `${prefix}/questions/${quiz.path}/README.${locale}.md`
     : `${prefix}/questions/${quiz.path}/README.md`
 }
 
-export function toShareAnswer(no: number, locale? : string) {
-  return locale !== defaultLocale
-    ? `${DOMAIN}/case/${no}/answer/${locale}`
-    : `${DOMAIN}/case/${no}/answer`
+export function toNearborREADME(quiz: Quiz, locale?: string) {
+  return locale && locale !== defaultLocale && quiz.readme[locale]
+    ? `./README.${locale}.md`
+    : './README.md'
 }
 
 export function toShareAnswerFull(quiz: Quiz, locale: string = defaultLocale) {
   const info = resolveInfo(quiz, locale)
-  return `https://github.com/type-challenges/type-challenges/issues/new?labels=answer,${encodeURIComponent(`#${quiz.no}`)},${encodeURIComponent(locale)}&template=answer.md&title=${encodeURIComponent(`#${quiz.no} - ${info.title}`)}`
+  return `https://github.com/type-challenges/type-challenges/issues/new?labels=answer,${encodeURIComponent(`${quiz.no}`)},${encodeURIComponent(locale)}&template=answer.md&title=${encodeURIComponent(`${quiz.no} - ${info.title}`)}`
+}
+
+// Short
+
+export function toReadmeShort(no: number, locale?: string) {
+  return locale !== defaultLocale
+    ? `${DOMAIN}/${no}/${locale}`
+    : `${DOMAIN}/${no}`
+}
+
+export function toSolutionsShort(no: number) {
+  return `${DOMAIN}/${no}/solutions`
+}
+
+export function toPlayShort(no: number, locale?: string) {
+  return locale !== defaultLocale
+    ? `${DOMAIN}/${no}/play/${locale}`
+    : `${DOMAIN}/${no}/play`
+}
+
+export function toAnswerShort(no: number, locale? : string) {
+  return locale !== defaultLocale
+    ? `${DOMAIN}/${no}/answer/${locale}`
+    : `${DOMAIN}/${no}/answer`
+}
+
+export function toHomepageShort(locale? : string) {
+  return locale !== defaultLocale
+    ? `${DOMAIN}/${locale}`
+    : `${DOMAIN}`
 }
