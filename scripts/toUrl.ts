@@ -13,11 +13,11 @@ export function toPlaygroundUrl(
   config: Object = {},
   site = TYPESCRIPT_PLAYGROUND,
 ) {
-  return `${site}?${Object.entries(config).map(([k, v]) => `${k}=${v}`).join('&')}#code/${lzs.compressToEncodedURIComponent(code)}`
+  return `${site}?${Object.entries(config).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&')}#code/${lzs.compressToEncodedURIComponent(code)}`
 }
 
 export function toSolutionsFull(no: number) {
-  return `${REPO}/issues?q=label%3A%23${no}+label%3Aanswer`
+  return `${REPO}/issues?q=label%3A${no}+label%3Aanswer`
 }
 
 export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
@@ -27,9 +27,15 @@ export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
     : `${prefix}/questions/${quiz.path}/README.md`
 }
 
+export function toNearborREADME(quiz: Quiz, locale?: string) {
+  return locale && locale !== defaultLocale && quiz.readme[locale]
+    ? `./README.${locale}.md`
+    : './README.md'
+}
+
 export function toShareAnswerFull(quiz: Quiz, locale: string = defaultLocale) {
   const info = resolveInfo(quiz, locale)
-  return `https://github.com/type-challenges/type-challenges/issues/new?labels=answer,${encodeURIComponent(`#${quiz.no}`)},${encodeURIComponent(locale)}&template=answer.md&title=${encodeURIComponent(`#${quiz.no} - ${info.title}`)}`
+  return `https://github.com/type-challenges/type-challenges/issues/new?labels=answer,${encodeURIComponent(`${quiz.no}`)},${encodeURIComponent(locale)}&template=answer.md&title=${encodeURIComponent(`${quiz.no} - ${info.title}`)}`
 }
 
 // Short
@@ -54,4 +60,10 @@ export function toAnswerShort(no: number, locale? : string) {
   return locale !== defaultLocale
     ? `${DOMAIN}/${no}/answer/${locale}`
     : `${DOMAIN}/${no}/answer`
+}
+
+export function toHomepageShort(locale? : string) {
+  return locale !== defaultLocale
+    ? `${DOMAIN}/${locale}`
+    : `${DOMAIN}`
 }

@@ -7,7 +7,7 @@ export interface QuizMetaInfo {
     email: string
     github: string
   }
-  tsconfig: any
+  tsconfig?: Record<string, any>
   original_issues: number[]
   recommended_solutions: number[]
   tags: string[]

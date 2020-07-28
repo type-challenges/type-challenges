@@ -15,7 +15,7 @@ type X = {
           i: true
           j: 'string'
         }
-        k: () => false
+        k: 'hello'
       }
     }
   }
@@ -32,7 +32,7 @@ type Expected = {
           readonly i: true
           readonly j: 'string'
         }
-        readonly k: () => false
+        readonly k: 'hello'
       }
     }
   }

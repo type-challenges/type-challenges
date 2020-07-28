@@ -8,10 +8,12 @@
   "difficulty.hard": "hard",
   "difficulty.medium": "medium",
   "difficulty.warm": "warm-up",
+  "display": "English",
   "divider.code-start": "Your Code Here",
   "divider.further-steps": "Further Steps",
   "divider.test-cases": "Test Cases",
   "link.checkout-solutions": "View solutions: ",
+  "link.more-challenges": "More Challenges: ",
   "link.share-solutions": "Share your solutions: ",
   "link.view-on-github": "View on Github: ",
   "title.question": "Question"
