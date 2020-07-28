@@ -1,8 +1,8 @@
 import path from 'path'
 import fs from 'fs-extra'
 import { supportedLocales, defaultLocale, t, SupportedLocale, f } from './locales'
-import { loadQuizes, resolveInfo } from './list'
-import { toPlay, toQuizREADME, toSolutionsShort, toShareAnswer } from './toUrl'
+import { loadQuizes, resolveInfo } from './loader'
+import { toPlayShort, toQuizREADME, toSolutionsShort, toAnswerShort } from './toUrl'
 import { Quiz, QuizMetaInfo } from './types'
 
 const DifficultyColors: Record<string, string> = {
@@ -99,7 +99,7 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
       '<!--info-header-start-->'
       + `<h1>${escapeHtml(info.title || '')} ${toDifficultyBadge(quiz.difficulty, locale)} ${(info.tags || []).map(i => toBadge('', `#${i}`, '999')).join(' ')}</h1>`
       + `<blockquote><p>${toAuthorInfo(info.author)}</p></blockquote>`
-      + toBadgeLink(toPlay(quiz.no, locale), '', t(locale, 'badge.take-the-challenge'), '3178c6', '?logo=typescript')
+      + toBadgeLink(toPlayShort(quiz.no, locale), '', t(locale, 'badge.take-the-challenge'), '3178c6', '?logo=typescript')
       + '<br><br>'
       + '<!--info-header-end-->',
     )
@@ -108,7 +108,7 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
       '<!--info-footer-start-->'
       + toBadgeLink(`../../${f('README', locale, 'md')}`, '', t(locale, 'badge.back'), 'grey')
       + toBadgeLink(toSolutionsShort(quiz.no), '', t(locale, 'badge.checkout-solutions'), 'de5a77', '?logo=awesome-lists&logoColor=white')
-      + toBadgeLink(toShareAnswer(quiz.no, locale), '', t(locale, 'badge.share-your-solutions'), 'green')
+      + toBadgeLink(toAnswerShort(quiz.no, locale), '', t(locale, 'badge.share-your-solutions'), 'green')
       + '<!--info-footer-end-->',
     )
 
