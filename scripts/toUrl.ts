@@ -27,6 +27,12 @@ export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
     : `${prefix}/questions/${quiz.path}/README.md`
 }
 
+export function toNearborREADME(quiz: Quiz, locale?: string) {
+  return locale && locale !== defaultLocale && quiz.readme[locale]
+    ? `./README.${locale}.md`
+    : './README.md'
+}
+
 export function toShareAnswerFull(quiz: Quiz, locale: string = defaultLocale) {
   const info = resolveInfo(quiz, locale)
   return `https://github.com/type-challenges/type-challenges/issues/new?labels=answer,${encodeURIComponent(`#${quiz.no}`)},${encodeURIComponent(locale)}&template=answer.md&title=${encodeURIComponent(`#${quiz.no} - ${info.title}`)}`

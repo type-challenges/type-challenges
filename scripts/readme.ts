@@ -2,7 +2,7 @@ import path from 'path'
 import fs from 'fs-extra'
 import { supportedLocales, defaultLocale, t, SupportedLocale, f } from './locales'
 import { loadQuizes, resolveInfo } from './loader'
-import { toPlayShort, toQuizREADME, toSolutionsShort, toAnswerShort } from './toUrl'
+import { toPlayShort, toQuizREADME, toSolutionsShort, toAnswerShort, toReadmeShort, toNearborREADME } from './toUrl'
 import { Quiz, QuizMetaInfo } from './types'
 
 const DifficultyColors: Record<string, string> = {
@@ -93,19 +93,23 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
 
   const info = resolveInfo(quiz, locale)
 
+  const avaliableLocales = supportedLocales.filter(l => l !== locale).filter(l => !!quiz.readme[l])
+
   text = text
     .replace(
       /<!--info-header-start-->[\s\S]*<!--info-header-end-->/,
       '<!--info-header-start-->'
       + `<h1>${escapeHtml(info.title || '')} ${toDifficultyBadge(quiz.difficulty, locale)} ${(info.tags || []).map(i => toBadge('', `#${i}`, '999')).join(' ')}</h1>`
       + `<blockquote><p>${toAuthorInfo(info.author)}</p></blockquote>`
+      + '<p>'
       + toBadgeLink(toPlayShort(quiz.no, locale), '', t(locale, 'badge.take-the-challenge'), '3178c6', '?logo=typescript')
-      + '<br><br>'
+      + (avaliableLocales.length ? (' · ' + avaliableLocales.map(l => toBadgeLink(toNearborREADME(quiz, l), '', t(l, 'display'), 'gray')).join(' ')) : '')
+      + '</p><br>'
       + '<!--info-header-end-->',
     )
     .replace(
       /<!--info-footer-start-->[\s\S]*<!--info-footer-end-->/,
-      '<!--info-footer-start-->'
+      '<!--info-footer-start--><br>'
       + toBadgeLink(`../../${f('README', locale, 'md')}`, '', t(locale, 'badge.back'), 'grey')
       + toBadgeLink(toSolutionsShort(quiz.no), '', t(locale, 'badge.checkout-solutions'), 'de5a77', '?logo=awesome-lists&logoColor=white')
       + toBadgeLink(toAnswerShort(quiz.no, locale), '', t(locale, 'badge.share-your-solutions'), 'green')
