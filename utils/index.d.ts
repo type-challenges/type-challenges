@@ -14,6 +14,7 @@ export type Equal<VALUE extends EXPECTED, EXPECTED> = NotEqual<VALUE, EXPECTED> 
 
 // https://stackoverflow.com/questions/49927523/disallow-call-with-any/49928360#49928360
 export type IsAny<T> = 0 extends (1 & T) ? true : false
+export type NotAny<T> = true extends IsAny<T> ? false : true
 
 export type Debug<T> = { [K in keyof T]: T[K] }
 
