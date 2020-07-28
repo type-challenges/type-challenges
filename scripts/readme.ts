@@ -58,7 +58,7 @@ function quizToBadge(quiz: Quiz, locale: string) {
   return toBadgeLink(
     toQuizREADME(quiz, locale),
     '',
-    `#${quiz.no}・${quiz.info[locale]?.title || quiz.info[defaultLocale]?.title}`,
+    `${quiz.no}・${quiz.info[locale]?.title || quiz.info[defaultLocale]?.title}`,
     DifficultyColors[quiz.difficulty],
   )
 }
