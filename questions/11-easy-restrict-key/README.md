@@ -6,15 +6,9 @@ Given an array, the key in the object must be an item in the array
 For example
 
 ```ts
-const list = ['pop', 'slice', 'push', 'concat']
+const list = ['pop', 'slice', 'push', 'concat'] as const
 
-type O = {
-    pop: any
-    slice: any
-    push: any
-    concat: any
-}
-
+const object: TupleToObject<list> // expected { pop: 'pop', slice: 'slice', concat: 'concat'}
 
 ```
 

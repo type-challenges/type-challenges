@@ -1,1 +1,1 @@
-type O = any
+type TupleToObject<T extends readonly any[]> = any
