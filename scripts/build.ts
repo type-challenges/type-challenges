@@ -51,27 +51,28 @@ export async function build() {
 
   for (const quiz of quizes) {
     for (const locale of supportedLocales) {
-      /* eslint-disable prefer-template */
+      const info = resolveInfo(quiz, locale)
 
+      /* eslint-disable prefer-template */
       const code
-      = toCommentBlock(
-        toInfoHeader(quiz, locale)
-        + (quiz.readme[locale] || quiz.readme[defaultLocale])
-        + toLinks(quiz, locale),
-      )
-      + toDivier(t(locale, 'divider.code-start'))
-      + '\n'
-      + (quiz.template || '').trim()
-      + '\n\n'
-      + toDivier(t(locale, 'divider.test-cases'))
-      + (quiz.tests || '')
-      + '\n\n'
-      + toDivier(t(locale, 'divider.further-steps'))
-      + toCommentBlock(toFooter(quiz, locale))
+        = toCommentBlock(
+          toInfoHeader(quiz, locale)
+          + (quiz.readme[locale] || quiz.readme[defaultLocale])
+          + toLinks(quiz, locale),
+        )
+        + toDivier(t(locale, 'divider.code-start'))
+        + '\n'
+        + (quiz.template || '').trim()
+        + '\n\n'
+        + toDivier(t(locale, 'divider.test-cases'))
+        + (quiz.tests || '')
+        + '\n\n'
+        + toDivier(t(locale, 'divider.further-steps'))
+        + toCommentBlock(toFooter(quiz, locale))
 
       /* eslint-enable prefer-template */
 
-      const url = toPlaygroundUrl(code)
+      const url = toPlaygroundUrl(code, info.tsconfig || {})
 
       if (locale === defaultLocale) {
         redirects.push([`/${quiz.no}`, toQuizREADME(quiz, locale, true), 302])

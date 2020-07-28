@@ -13,7 +13,7 @@ export function toPlaygroundUrl(
   config: Object = {},
   site = TYPESCRIPT_PLAYGROUND,
 ) {
-  return `${site}?${Object.entries(config).map(([k, v]) => `${k}=${v}`).join('&')}#code/${lzs.compressToEncodedURIComponent(code)}`
+  return `${site}?${Object.entries(config).map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&')}#code/${lzs.compressToEncodedURIComponent(code)}`
 }
 
 export function toSolutionsFull(no: number) {

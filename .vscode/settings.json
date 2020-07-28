@@ -9,5 +9,6 @@
     "pnpm-lock.yaml": true,
     "**/dist": true
   },
-  "i18n-ally.keystyle": "flat"
+  "i18n-ally.keystyle": "flat",
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
