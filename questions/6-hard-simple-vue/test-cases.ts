@@ -22,7 +22,7 @@ SimpleVue({
       const fullname = this.fullname
       const cases: [
         Expect<Equal<typeof fullname, string>>,
-      ]
+      ] = [] as any
     },
   },
 })
