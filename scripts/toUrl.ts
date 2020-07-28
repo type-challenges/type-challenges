@@ -61,3 +61,9 @@ export function toAnswerShort(no: number, locale? : string) {
     ? `${DOMAIN}/${no}/answer/${locale}`
     : `${DOMAIN}/${no}/answer`
 }
+
+export function toHomepageShort(locale? : string) {
+  return locale !== defaultLocale
+    ? `${DOMAIN}/${locale}`
+    : `${DOMAIN}`
+}

@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs-extra'
 import { loadQuizes, resolveInfo } from './loader'
-import { toPlaygroundUrl, toSolutionsShort, REPO, toSolutionsFull, toQuizREADME, toAnswerShort, toShareAnswerFull, toReadmeShort } from './toUrl'
+import { toPlaygroundUrl, toSolutionsShort, REPO, toSolutionsFull, toQuizREADME, toAnswerShort, toShareAnswerFull, toReadmeShort, toHomepageShort } from './toUrl'
 import { Quiz } from './types'
 import { supportedLocales, defaultLocale, t, SupportedLocale } from './locales'
 
@@ -36,6 +36,7 @@ function toFooter(quiz: Quiz, locale: SupportedLocale) {
   return '\n\n'
   + `> ${t(locale, 'link.share-solutions')}${toAnswerShort(quiz.no, locale)}\n`
   + `> ${t(locale, 'link.checkout-solutions')}${toSolutionsShort(quiz.no)}\n`
+  + `> ${t(locale, 'link.more-challenges')}${toHomepageShort(locale)}\n`
 }
 
 export async function build() {

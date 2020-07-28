@@ -103,8 +103,8 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
       + `<blockquote><p>${toAuthorInfo(info.author)}</p></blockquote>`
       + '<p>'
       + toBadgeLink(toPlayShort(quiz.no, locale), '', t(locale, 'badge.take-the-challenge'), '3178c6', '?logo=typescript')
-      + (avaliableLocales.length ? (' · ' + avaliableLocales.map(l => toBadgeLink(toNearborREADME(quiz, l), '', t(l, 'display'), 'gray')).join(' ')) : '')
-      + '</p><br>'
+      + (avaliableLocales.length ? ('&nbsp;&nbsp;&nbsp;' + avaliableLocales.map(l => toBadgeLink(toNearborREADME(quiz, l), '', t(l, 'display'), 'gray')).join(' ')) : '')
+      + '</p>'
       + '<!--info-header-end-->',
     )
     .replace(

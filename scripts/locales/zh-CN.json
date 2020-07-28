@@ -1,5 +1,4 @@
 {
-  "display": "简体中文",
   "badge.back": "返回首页",
   "badge.checkout-solutions": "查看解答",
   "badge.share-your-solutions": "分享你的解答",
@@ -9,9 +8,11 @@
   "difficulty.hard": "困难",
   "difficulty.medium": "中等",
   "difficulty.warm": "热身",
+  "display": "简体中文",
   "divider.code-start": "你的代码",
   "divider.test-cases": "测试用例",
   "link.checkout-solutions": "查看解答：",
+  "link.more-challenges": "更多题目：",
   "link.share-solutions": "分享你的解答：",
   "link.view-on-github": "在 Github 上查看：",
   "title.question": "题目"
