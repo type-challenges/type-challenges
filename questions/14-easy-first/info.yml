@@ -1,4 +1,4 @@
-title: Tail of Array
+title: First of Array
 
 author:
   name: Anthony Fu
@@ -10,4 +10,4 @@ tags: array, 4.0
 tsconfig: 
   ts: 4.0.0-beta
 
-related: 14, 16
+related: 15
