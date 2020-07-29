@@ -1,7 +1,7 @@
 import { Equal, Expect } from '@type-challenges/utils'
 
-const list = ['pop', 'slice', 'push', 'concat']
+const list = ['tesla', 'model 3', 'model X', 'model Y'] as const
 
 type cases = [
-  Expect<Equal<TupleToObject<list>, { pop: 'pop', slice: 'slice', concat: 'concat'}>>,
+  Expect<Equal<TupleToObject<typeof list>, { tesla: 'tesla', 'model 3': 'model 3', 'model Y': 'model Y'}>>,
 ]
