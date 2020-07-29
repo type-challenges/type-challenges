@@ -1,6 +1,6 @@
 {
   "name": "@type-challenges/utils",
-  "version": "0.1.0-beta.2",
+  "version": "0.1.0-beta.4",
   "license": "MIT",
   "types": "index.d.ts",
   "files": [
