@@ -1,9 +1,3 @@
-<h3 align='center'>
-👋 Check out <a href='https://github.com/orgs/type-challenges/teams/early-access/discussions/1'>the plan of this project</a>
-</h3>
-
-----
-
 <p align='center'>
 <img src='./screenshots/logo.svg' width='400'/>
 </p>
@@ -19,7 +13,6 @@ Collection of TypeScript type challenges
 English | <a href='./README.zh-CN.md'>简体中文</a>
 </p>
 
-<br>
 
 ## Intro
 
@@ -27,7 +20,9 @@ English | <a href='./README.zh-CN.md'>简体中文</a>
 <del><em>by the power of TypeScript's well-known <a href="https://github.com/microsoft/TypeScript/issues/14833">Turing Completed</a> type system</em></del>
 </p>
 
-> TODO
+High quality types can help with projects' maintainability and avoiding bugs. There are a bunch of awesome type utilities libraries may boosting your works on types, like [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility-types](https://github.com/piotrwitek/utility-types), [SimplyTyped](https://github.com/andnp/SimplyTyped), etc. We took a lot of inspiration from them too!
+
+This project is aim to make you better understand how the type system works, writing your own utilities, or just having fun with the challenges. We are also trying to form a community that you can ask and answer questions you have faced in realworld - they may become part the challenges as well!
 
 ## Challenges
 
@@ -69,7 +64,6 @@ Just [open an issue](https://github.com/type-challenges/type-challenges/issues/n
 Inspired by
 
 - [piotrwitek/utility-types](https://github.com/piotrwitek/utility-types)
-- [wixplosives/typescript-type-utils](https://github.com/wixplosives/typescript-type-utils)
 - [psmyrdek/typescript-challenges](https://github.com/psmyrdek/typescript-challenges)
 - [andnp/SimplyTyped](https://github.com/andnp/SimplyTyped)
 
