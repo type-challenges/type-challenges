@@ -1,14 +1,13 @@
 <!--info-header-start--><h1>Tuple to Object <img src="https://img.shields.io/badge/-easy-90bb12" alt="easy"/> </h1><blockquote><p>by sinoon <a href="https://github.com/sinoon" target="_blank">@sinoon</a></p></blockquote><p><a href="https://type-challenges.netlify.app/11/play" target="_blank"><img src="https://img.shields.io/badge/-Take%20the%20Challenge-3178c6?logo=typescript" alt="Take the Challenge"/></a> </p><!--info-header-end-->
 
-Given an array, the key in the object must be an item in the array
-
+Given an array, transform to a object type and the key/value must in the given array.
 
 For example
 
 ```ts
 const list = ['tesla', 'model 3', 'model X', 'model Y'] as const
 
-const object: TupleToObject<list> // expected { tesla: 'tesla', 'model 3': 'model 3', 'model Y': 'model Y'}
+const object: TupleToObject<list> // expected { tesla: 'tesla', 'model 3': 'model 3', 'model X': 'model X', 'model Y': 'model Y'}
 
 ```
 
