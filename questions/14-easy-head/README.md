@@ -5,7 +5,7 @@ Implement a generic `Head<T>` that takes an Array `T` and returns it's first ele
 
 For example
 
-```
+```ts
 type arr1 = ['a', 'b', 'c']
 type arr2 = [3, 2, 1]
 
