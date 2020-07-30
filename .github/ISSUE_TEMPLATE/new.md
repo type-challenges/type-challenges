@@ -5,13 +5,13 @@ title: ""
 labels: new-challenge
 ---
 
-You need to privode a detailed description of your new challenge, 
+You need to provide a detailed description of your new challenge, 
 either in English or Chinese are acceptable.
 
 A detailed solution/guide is not required, but be sure the challenge is solvable.
 
 Please follow the template and fill the info.
-A PR will be auto generated and always reflect to your changes.
+A PR will be auto-generated and always reflect on your changes.
 
 ## Info
 
