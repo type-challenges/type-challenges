@@ -1,0 +1,16 @@
+{
+  "name": "@type-challenges/actions",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "@type-challenges/octokit-create-pull-request": "^0.1.6",
+    "js-yaml": "^3.14.0",
+    "slug": "^3.3.2"
+  },
+  "devDependencies": {
+    "@actions/core": "^1.2.4",
+    "@actions/github": "^4.0.0",
+    "@octokit/types": "^5.2.0",
+    "@types/js-yaml": "^3.12.5"
+  }
+}

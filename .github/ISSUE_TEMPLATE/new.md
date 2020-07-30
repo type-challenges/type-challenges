@@ -1,18 +1,47 @@
 ---
 name: New Challenge
-about: Propose a new challenge, it's should be solvable.
+about: Propose a new challenge, a PR will be auto generated.
 title: ""
-labels: new
+labels: new-challenge
 ---
 
-<details>
-<summary>🆕 New Challenge</summary>
-
-You need to privode a detailed description of your new question, 
-either in English or Chinese are acceptable (great if you can have both!).
-
-Minimal test cases are preferred.
+You need to privode a detailed description of your new challenge, 
+either in English or Chinese are acceptable.
 
 A detailed solution/guide is not required, but be sure the challenge is solvable.
 
-</details>
+Please follow the template and fill the info.
+A PR will be auto generated and always reflect to your changes.
+
+## Info
+
+```yaml
+difficulty: easy # medium / hard / extreme
+title: Your Question Name
+#tags: union, array # separate by comma
+```
+
+## Question
+
+<!--question-start-->
+
+Describe your question and give some examples. 
+
+<!--question-end-->
+
+## Template
+
+```ts
+type YourType = any
+```
+
+## Test Cases
+
+```ts
+import { Equal, Expect } from '@type-challenges/utils'
+
+// your test cases
+type cases = [
+  Expect<Equal<true, true>>
+]
+```
