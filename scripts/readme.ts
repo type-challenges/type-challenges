@@ -180,14 +180,22 @@ async function updateQuestionsREADME(quizes: Quiz[]) {
   }
 }
 
-export async function updateREADMEs() {
+export async function updateREADMEs(argv: string[]) {
   const quizes = await loadQuizes()
   quizes.sort((a, b) => a.no - b.no)
 
-  await Promise.all([
-    updateIndexREADME(quizes),
-    updateQuestionsREADME(quizes),
-  ])
+  if (argv[0] === 'quiz') {
+    await updateQuestionsREADME(quizes)
+  }
+  else if (argv[0] === 'index') {
+    await updateIndexREADME(quizes)
+  }
+  else {
+    await Promise.all([
+      updateIndexREADME(quizes),
+      updateQuestionsREADME(quizes),
+    ])
+  }
 }
 
-updateREADMEs()
+updateREADMEs(process.argv.slice(2))
