@@ -42,7 +42,11 @@ This project is aim to make you better understand how the type system works, wri
   - [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
   - [Advanced Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
 
+- [The New Handbook](https://github.com/microsoft/TypeScript-New-Handbook)
+
 ### Articles
+
+- [Learn Advanced TypeScript Types](https://medium.com/free-code-camp/typescript-curry-ramda-types-f747e99744ab)
 
 > TODO
 
