@@ -1,10 +1,6 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
 
-const YAML = require('js-yaml')
-const slug = require('slug')
-const { PushCommit } = require('@type-challenges/octokit-create-pull-request')
-
 /**
  * @param {ReturnType<typeof import('@actions/github').getOctokit>} github
  * @param {typeof import('@actions/github').context} context
@@ -12,15 +8,28 @@ const { PushCommit } = require('@type-challenges/octokit-create-pull-request')
  * @return {Promise<void>}
  */
 module.exports = async(github, context, core) => {
+  const payload = context.payload || {}
+  const issue = payload.issue
+
+  if (!issue)
+    return
+
+  /** @type {string[]} */
+  const labels = (issue.labels || []).map(i => i && i.name).filter(Boolean)
+
+  if (!labels.includes('new-challenge'))
+    return
+
   // close pull request
   // Leave a message: close by issue
-  const no = context.issue.number
+  const no = issue.number
+  const action = payload.action
 
   // find pull request
   const { data: pulls } = await github.pulls.list({
     owner: context.repo.owner,
     repo: context.repo.repo,
-    state: 'all',
+    state: action === 'close' ? 'open' : 'close',
   })
 
   core.info(`pulls.length ${pulls.length}`)
