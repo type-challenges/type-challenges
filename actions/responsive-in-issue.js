@@ -36,7 +36,7 @@ module.exports = async(github, context, core) => {
     return
   }
 
-  core.info(JSON.stringify(existing_pull))
+  core.info(JSON.stringify(context))
 
   if (context.eventName === 'reopened') {
     await github.pulls.update({
