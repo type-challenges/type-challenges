@@ -11,6 +11,7 @@ export interface QuizMetaInfo {
   original_issues: number[]
   recommended_solutions: number[]
   tags: string[]
+  related?: string[]
 }
 
 export type Difficulty = 'warm-up' | 'easy' | 'medium' | 'hard' | 'extreme' | 'pending'

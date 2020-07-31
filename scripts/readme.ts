@@ -63,6 +63,14 @@ function quizToBadge(quiz: Quiz, locale: string) {
   )
 }
 
+function quizNoToBadges(ids: (string|number)[], quizes: Quiz[], locale: string) {
+  return ids
+    .map(i => quizes.find(q => q.no === Number(i)))
+    .filter(Boolean)
+    .map(i => quizToBadge(i!, locale))
+    .join(' ')
+}
+
 function getAllTags(quizes: Quiz[], locale: string) {
   const set = new Set<string>()
   for (const quiz of quizes) {
@@ -80,7 +88,7 @@ function getQuizesByTag(quizes: Quiz[], locale: string, tag: string) {
   })
 }
 
-async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedLocale) {
+async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedLocale, quizes: Quiz[]) {
   if (!fs.existsSync(filepath))
     return
   let text = await fs.readFile(filepath, 'utf-8')
@@ -111,8 +119,9 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
       /<!--info-footer-start-->[\s\S]*<!--info-footer-end-->/,
       '<!--info-footer-start--><br>'
       + toBadgeLink(`../../${f('README', locale, 'md')}`, '', t(locale, 'badge.back'), 'grey')
+      + toBadgeLink(toAnswerShort(quiz.no, locale), '', t(locale, 'badge.share-your-solutions'), 'teal')
       + toBadgeLink(toSolutionsShort(quiz.no), '', t(locale, 'badge.checkout-solutions'), 'de5a77', '?logo=awesome-lists&logoColor=white')
-      + toBadgeLink(toAnswerShort(quiz.no, locale), '', t(locale, 'badge.share-your-solutions'), 'green')
+      + (Array.isArray(info.related) && info.related.length ? `<hr><h3>${t(locale, 'readme.related-challenges')}</h3>${quizNoToBadges(info.related, quizes, locale)}` : '')
       + '<!--info-footer-end-->',
     )
 
@@ -175,19 +184,28 @@ async function updateQuestionsREADME(quizes: Quiz[]) {
         ),
         quiz,
         locale,
+        quizes,
       )
     }
   }
 }
 
-export async function updateREADMEs() {
+export async function updateREADMEs(argv: string[]) {
   const quizes = await loadQuizes()
   quizes.sort((a, b) => a.no - b.no)
 
-  await Promise.all([
-    updateIndexREADME(quizes),
-    updateQuestionsREADME(quizes),
-  ])
+  if (argv[0] === 'quiz') {
+    await updateQuestionsREADME(quizes)
+  }
+  else if (argv[0] === 'index') {
+    await updateIndexREADME(quizes)
+  }
+  else {
+    await Promise.all([
+      updateIndexREADME(quizes),
+      updateQuestionsREADME(quizes),
+    ])
+  }
 }
 
-updateREADMEs()
+updateREADMEs(process.argv.slice(2))

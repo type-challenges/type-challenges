@@ -74,7 +74,7 @@ module.exports = async(github, context, core) => {
       && i.title.startsWith(`#${no} `),
     )
 
-    const dir = `questions/${no}-${slug(info.title)}`
+    const dir = `questions/${no}-${info.difficulty}-${slug(info.title.replace(/\./g, '-').replace(/<.*>/g, ''))}`
     const userEmail = `${user.id}+${user.login}@users.noreply.github.com`
 
     await PushCommit(github, {
@@ -107,7 +107,7 @@ module.exports = async(github, context, core) => {
         head: `pulls/${no}`,
         title: `#${no} - ${info.title}`,
         body: `This is an auto-generated PR that auto reflect on #${no}, please go to #${no} for discussion or making changes.\n\nCloses #${no}`,
-        labels: ['auto-generated']
+        labels: ['auto-generated'],
       })
 
       core.info('-----Pull Request-----')

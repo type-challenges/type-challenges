@@ -34,7 +34,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pnpm readme && git add ."
+      "pre-commit": "pnpm readme quiz && git add ."
     }
   },
   "eslintConfig": {
