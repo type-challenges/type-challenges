@@ -38,7 +38,7 @@ module.exports = async(github, context, core) => {
   const closed = await github.pulls.checkIfMerged({
     owner: context.repo.owner,
     repo: context.repo.repo,
-    pull_number: existing_pull.id,
+    pull_number: existing_pull.number,
   })
 
   if (closed)
