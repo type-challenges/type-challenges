@@ -20,7 +20,9 @@ module.exports = async(github, context, core) => {
   const { data: pulls } = await github.pulls.list({
     owner: context.repo.owner,
     repo: context.repo.repo,
+    state: 'all',
   })
+
   core.info(`pulls.length ${pulls.length}`)
   core.info(JSON.stringify(pulls))
 
