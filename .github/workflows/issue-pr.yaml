@@ -1,0 +1,17 @@
+name: Issue to Pull Request
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd actions && npm i --only=production
+      - uses: actions/github-script@v2
+        with:
+          script: |
+            const script = require(`${process.env.GITHUB_WORKSPACE}/actions/issue-pr.js`)
+            await script(github, context, core)
