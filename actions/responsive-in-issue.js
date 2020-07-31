@@ -22,13 +22,17 @@ module.exports = async(github, context, core) => {
     repo: context.repo.repo,
   })
 
+  core.info(JSON.stringify(pulls))
+
   const existing_pull = pulls.find(i =>
     i.user.login === 'github-actions[bot]'
     && i.title.startsWith(`#${no} `),
   )
 
-  if (!existing_pull)
+  if (!existing_pull) {
+    core.info('existing_pull not exist')
     return
+  }
 
   core.info(JSON.stringify(existing_pull))
 
