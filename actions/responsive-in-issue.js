@@ -38,7 +38,7 @@ module.exports = async(github, context, core) => {
 
   core.info(JSON.stringify(context))
 
-  if (context.eventName === 'reopened') {
+  if (context.payload.action === 'reopened') {
     await github.pulls.update({
       ...context.repo,
       pull_number: existing_pull.number,
