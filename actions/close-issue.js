@@ -41,7 +41,7 @@ module.exports = async(github, context, core) => {
   // close
   await github.pulls.update({
     ...context.repo,
-    pull_number: existing_pull.id,
+    pull_number: existing_pull.number,
     state: 'closed',
   })
 }
