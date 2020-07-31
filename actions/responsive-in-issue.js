@@ -21,7 +21,7 @@ module.exports = async(github, context, core) => {
     owner: context.repo.owner,
     repo: context.repo.repo,
   })
-
+  core.info(`pulls.length ${pulls.length}`)
   core.info(JSON.stringify(pulls))
 
   const existing_pull = pulls.find(i =>
@@ -44,9 +44,6 @@ module.exports = async(github, context, core) => {
     })
   }
   else {
-    if (!existing_pull.state === 'open')
-      return
-
     // close
     await github.pulls.update({
       ...context.repo,
