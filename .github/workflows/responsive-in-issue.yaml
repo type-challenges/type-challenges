@@ -2,7 +2,7 @@ name: close issue
 
 on:
   issues:
-    types: [closed]
+    types: [closed, reopened]
 
 jobs:
   start:
@@ -13,5 +13,5 @@ jobs:
       - uses: actions/github-script@v2
         with:
           script: |
-            const script = require(`${process.env.GITHUB_WORKSPACE}/actions/close-issue.js`)
+            const script = require(`${process.env.GITHUB_WORKSPACE}/actions/responsive-in-issue.js`)
             await script(github, context, core)
