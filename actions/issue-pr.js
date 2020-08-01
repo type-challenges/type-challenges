@@ -233,5 +233,5 @@ function getCommentRange(text, key) {
 }
 
 function getTimestampBadge() {
-  return `![${new Date().toISOString()}](https://img.shields.io/date/${+new Date() / 1000})`
+  return `![${new Date().toISOString()}](https://img.shields.io/date/${Math.round(+new Date() / 1000)})`
 }
