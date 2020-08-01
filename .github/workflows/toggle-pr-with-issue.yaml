@@ -1,0 +1,16 @@
+name: Toggle PR With Issue
+
+on:
+  issues:
+    types: [closed, reopened]
+
+jobs:
+  start:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/github-script@v2
+        with:
+          script: |
+            const script = require(`${process.env.GITHUB_WORKSPACE}/actions/toggle-pr-with-issue.js`)
+            await script(github, context, core)
