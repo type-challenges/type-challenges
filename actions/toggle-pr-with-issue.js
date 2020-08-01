@@ -27,11 +27,14 @@ module.exports = async(github, context, core) => {
 
   core.info(`action: ${action}`)
 
+  // action: reopened
+  // action: closed
+
   // find pull request
   const { data: pulls } = await github.pulls.list({
     owner: context.repo.owner,
     repo: context.repo.repo,
-    state: action === 'close' ? 'open' : 'close',
+    state: action === 'closed' ? 'open' : 'close',
   })
 
   core.info(`pulls.length ${pulls.length}`)
