@@ -3,9 +3,9 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "@type-challenges/octokit-create-pull-request": "^0.1.6",
+    "@type-challenges/octokit-create-pull-request": "^0.1.8",
     "js-yaml": "^3.14.0",
-    "slug": "^3.3.2"
+    "limax": "^2.1.0"
   },
   "devDependencies": {
     "@actions/core": "^1.2.4",

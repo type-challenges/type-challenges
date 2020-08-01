@@ -2,7 +2,7 @@
 // @ts-check
 
 const YAML = require('js-yaml')
-const slug = require('slug')
+const slug = require('limax')
 const { PushCommit } = require('@type-challenges/octokit-create-pull-request')
 
 const Messages = {
@@ -103,7 +103,7 @@ module.exports = async(github, context, core) => {
       && i.title.startsWith(`#${no} `),
     )
 
-    const dir = `questions/${no}-${info.difficulty}-${slug(info.title.replace(/\./g, '-').replace(/<.*>/g, ''))}`
+    const dir = `questions/${no}-${info.difficulty}-${slug(info.title.replace(/\./g, '-').replace(/<.*>/g, ''), { tone: false })}`
     const userEmail = `${user.id}+${user.login}@users.noreply.github.com`
 
     await PushCommit(github, {
@@ -118,7 +118,11 @@ module.exports = async(github, context, core) => {
           [`${dir}/template.ts`]: `${template}\n`,
           [`${dir}/test-cases.ts`]: `${tests}\n`,
         },
-        commit: `feat(question): add #${no} - ${info.title}\n\nCo-authored-by: ${user.name} <${userEmail}>`,
+        commit: `feat(question): add #${no} - ${info.title}`,
+        author: {
+          name: user.name,
+          email: userEmail,
+        },
       },
       fresh: !existing_pull,
     })
