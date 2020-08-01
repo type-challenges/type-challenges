@@ -11,6 +11,7 @@ const Messages = {
     template: 'Template',
     tests: 'Test Cases',
     issue_reply: 'Pull Request created at #{0}',
+    issue_update_reply: 'Pull Request updated at #{0}. {1}',
     issue_invalid_reply: 'Failed to parse the issue, please follow the template.',
   },
   'zh-CN': {
@@ -18,6 +19,7 @@ const Messages = {
     template: '题目模版',
     tests: '判题测试',
     issue_reply: 'PR 已自动生成 #{0}',
+    issue_update_reply: 'PR 已更新 #{0}. {1}',
     issue_invalid_reply: 'Issue 格式不正确，请按照依照模版修正',
   },
 }
@@ -130,6 +132,13 @@ module.exports = async(github, context, core) => {
     if (existing_pull) {
       core.info('-----Pull Request Existed-----')
       core.info(JSON.stringify(existing_pull, null, 2))
+      await updateComment(
+        github,
+        context,
+        Messages[locale].issue_update_reply
+          .replace('{0}', existing_pull.number.toString())
+          .replace('{1}', new Date().toISOString()),
+      )
     }
     else {
       core.info('-----Creating PR-----')
