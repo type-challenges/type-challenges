@@ -1,4 +1,4 @@
-name: close issue
+name: toggle pr with issue
 
 on:
   issues:
