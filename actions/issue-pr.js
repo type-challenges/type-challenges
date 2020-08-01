@@ -1,3 +1,4 @@
+/* eslint-disable prefer-template */
 /* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
 
@@ -10,16 +11,16 @@ const Messages = {
     info: 'Info',
     template: 'Template',
     tests: 'Test Cases',
-    issue_reply: 'Pull Request created at #{0}',
-    issue_update_reply: 'Pull Request updated at #{0}. {1}',
+    issue_reply: '#{0} - Pull Request created.',
+    issue_update_reply: '#{0} - Pull Request updated.',
     issue_invalid_reply: 'Failed to parse the issue, please follow the template.',
   },
   'zh-CN': {
     info: '基本信息',
     template: '题目模版',
     tests: '判题测试',
-    issue_reply: 'PR 已自动生成 #{0}',
-    issue_update_reply: 'PR 已更新 #{0}. {1}',
+    issue_reply: '#{0} - PR 已生成',
+    issue_update_reply: '#{0} - PR 已更新',
     issue_invalid_reply: 'Issue 格式不正确，请按照依照模版修正',
   },
 }
@@ -135,9 +136,9 @@ module.exports = async(github, context, core) => {
       await updateComment(
         github,
         context,
-        Messages[locale].issue_update_reply
-          .replace('{0}', existing_pull.number.toString())
-          .replace('{1}', new Date().toISOString()),
+        Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
+          + ' '
+          + getTimestampBadge(),
       )
     }
     else {
@@ -159,7 +160,9 @@ module.exports = async(github, context, core) => {
         await updateComment(
           github,
           context,
-          Messages[locale].issue_reply.replace('{0}', pr.number.toString()),
+          Messages[locale].issue_reply.replace('{0}', pr.number.toString())
+            + ' '
+            + getTimestampBadge(),
         )
       }
     }
@@ -227,4 +230,8 @@ function getCommentRange(text, key) {
   if (match && match[1])
     return match[1].toString().trim()
   return null
+}
+
+function getTimestampBadge() {
+  return `![${new Date().toISOString()}](https://img.shields.io/date/${+new Date()})`
 }
