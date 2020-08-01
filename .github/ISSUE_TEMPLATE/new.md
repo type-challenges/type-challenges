@@ -13,6 +13,8 @@ labels: new-challenge
 
 ## Info
 
+Basic info of your challenge questions,
+
 ```yaml
 difficulty: easy # medium / hard / extreme
 title: Your Question Name
@@ -23,11 +25,13 @@ title: Your Question Name
 
 <!--question-start-->
 
-Describe your question and give some examples. 
+Describe your question and give some examples. Markdown is supported here. 
 
 <!--question-end-->
 
 ## Template
+
+This is the template for challenger to start the coding, basically you just need to change the name of your generic/function and leave to implementation `any`.
 
 ```ts
 type YourType = any
@@ -35,10 +39,11 @@ type YourType = any
 
 ## Test Cases
 
-```ts
-import { Equal, Expect } from '@type-challenges/utils'
+Provide some test cases for your challenge, you can use some utils from `@type-challenges/utils` for assetion.  
 
-// your test cases
+```ts
+import { Equal, Expect, ExpectFalse, NotEqual } from '@type-challenges/utils'
+
 type cases = [
   Expect<Equal<true, true>>
 ]

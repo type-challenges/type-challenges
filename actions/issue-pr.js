@@ -5,6 +5,23 @@ const YAML = require('js-yaml')
 const slug = require('slug')
 const { PushCommit } = require('@type-challenges/octokit-create-pull-request')
 
+const Messages = {
+  en: {
+    info: 'Info',
+    template: 'Template',
+    tests: 'Test Cases',
+    issue_reply: 'Pull Request created at #{0}',
+    issue_invalid_reply: 'Failed to parse the issue, please follow the template.',
+  },
+  'zh-CN': {
+    info: '基本信息',
+    template: '题目模版',
+    tests: '判题测试',
+    issue_reply: 'PR 已自动生成 #{0}',
+    issue_invalid_reply: 'Issue 格式不正确，请按照依照模版修正',
+  },
+}
+
 /**
  * @param {ReturnType<typeof import('@actions/github').getOctokit>} github
  * @param {typeof import('@actions/github').context} context
@@ -24,10 +41,12 @@ module.exports = async(github, context, core) => {
 
   // create pr for new challenge
   if (labels.includes('new-challenge')) {
+    const locale = labels.includes('zh-CN') ? 'zh-CN' : 'en'
+
     const body = issue.body || ''
-    const infoRaw = getCodeBlock(body, 'Info', 'yaml')
-    const template = getCodeBlock(body, 'Template', 'ts')
-    const tests = getCodeBlock(body, 'Test Cases', 'ts')
+    const infoRaw = getCodeBlock(body, Messages[locale].info, 'yaml')
+    const template = getCodeBlock(body, Messages[locale].template, 'ts')
+    const tests = getCodeBlock(body, Messages[locale].tests, 'ts')
     const question = getCommentRange(body, 'question')
 
     /** @type {any} */
@@ -53,15 +72,25 @@ module.exports = async(github, context, core) => {
       }, null, 2),
     )
 
-    if (!question || !template || !tests || !info)
-      return // TODO: warn user
+    // invalid issue
+    if (!question || !template || !tests || !info) {
+      await updateComment(
+        github,
+        context,
+        Messages[locale].issue_invalid_reply,
+      )
+      return
+    }
 
     const { data: user } = await github.users.getByUsername({ username: issue.user.login })
 
-    info.author = info.author || {}
-    info.author.github = issue.user.login
-    if (user)
-      info.author.name = user.name
+    // allow user to override the author info when filled in the Issue
+    if (!info.author) {
+      info.author = info.author || {}
+      info.author.github = issue.user.login
+      if (user)
+        info.author.name = user.name
+    }
 
     const { data: pulls } = await github.pulls.list({
       owner: context.repo.owner,
@@ -114,17 +143,51 @@ module.exports = async(github, context, core) => {
       core.info(JSON.stringify(pr, null, 2))
 
       if (pr) {
-        await github.issues.createComment({
-          issue_number: context.issue.number,
-          owner: context.repo.owner,
-          repo: context.repo.repo,
-          body: `Pull Request created at #${pr.number}!`,
-        })
+        await updateComment(
+          github,
+          context,
+          Messages[locale].issue_reply.replace('{0}', pr.number.toString()),
+        )
       }
     }
   }
   else {
     core.info('No matched labels, skipped')
+  }
+}
+
+/**
+ * @param {ReturnType<typeof import('@actions/github').getOctokit>} github
+ * @param {typeof import('@actions/github').context} context
+ * @param {string} body
+ */
+async function updateComment(github, context, body) {
+  const { data: comments } = await github.issues.listComments({
+    issue_number: context.issue.number,
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+  })
+
+  const existing_comment = comments.find(i =>
+    i.user.login === 'github-actions[bot]',
+  )
+
+  if (existing_comment) {
+    return await github.issues.updateComment({
+      comment_id: existing_comment.id,
+      issue_number: context.issue.number,
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+      body,
+    })
+  }
+  else {
+    return await github.issues.createComment({
+      issue_number: context.issue.number,
+      owner: context.repo.owner,
+      repo: context.repo.repo,
+      body,
+    })
   }
 }
 
