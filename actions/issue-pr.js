@@ -113,8 +113,8 @@ module.exports = async(github, context, core) => {
       head: `pulls/${no}`,
       changes: {
         files: {
-          [`${dir}/info.yml`]: `${YAML.safeDump(info)}\n`,
-          [`${dir}/README.md`]: `${question}\n`,
+          [locale === 'en' ? `${dir}/info.yml` : `${dir}/info.${locale}.yml`]: `${YAML.safeDump(info)}\n`,
+          [locale === 'en' ? `${dir}/README.md` : `${dir}/README.${locale}.md`]: `${question}\n`,
           [`${dir}/template.ts`]: `${template}\n`,
           [`${dir}/test-cases.ts`]: `${tests}\n`,
         },
