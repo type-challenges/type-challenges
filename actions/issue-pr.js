@@ -137,7 +137,7 @@ module.exports = async(github, context, core) => {
         github,
         context,
         Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
-          + '\n'
+          + '\n\n'
           + getTimestampBadge(),
       )
     }
@@ -161,7 +161,7 @@ module.exports = async(github, context, core) => {
           github,
           context,
           Messages[locale].issue_reply.replace('{0}', pr.number.toString())
-            + '\n'
+            + '\n\n'
             + getTimestampBadge(),
         )
       }
@@ -233,5 +233,5 @@ function getCommentRange(text, key) {
 }
 
 function getTimestampBadge() {
-  return `![${new Date().toISOString()}](https://img.shields.io/date/${Math.round(+new Date() / 1000)})`
+  return `![${new Date().toISOString()}](https://img.shields.io/date/${Math.round(+new Date() / 1000)}?color=green&label=)`
 }
