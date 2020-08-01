@@ -25,6 +25,8 @@ module.exports = async(github, context, core) => {
   const no = issue.number
   const action = payload.action
 
+  core.info(`action: ${action}`)
+
   // find pull request
   const { data: pulls } = await github.pulls.list({
     owner: context.repo.owner,
