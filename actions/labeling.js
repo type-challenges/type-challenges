@@ -8,7 +8,7 @@
  * @return {Promise<void>}
  */
 module.exports = async(github, context, core) => {
-  const payload = context.payload || {}
+  const payload = context.payload
   const issue = payload.issue
 
   if (!issue)

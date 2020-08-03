@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 // @ts-check
 
-const YAML = require('js-yaml')
-const slug = require('limax')
-const { PushCommit } = require('@type-challenges/octokit-create-pull-request')
-const { toPlaygroundUrl } = require('../scripts/utils/toPlaygroundUrl')
-const { formatToCode } = require('../scripts/utils/formatToCode')
+import YAML from 'js-yaml'
+import slug from 'limax'
+import { PushCommit } from '@type-challenges/octokit-create-pull-request'
+import { toPlaygroundUrl } from '../scripts/utils/toPlaygroundUrl'
+import { formatToCode } from '../scripts/utils/formatToCode'
 
 const Messages = {
   en: {
@@ -35,7 +35,7 @@ const Messages = {
  * @param {typeof import('@actions/core')} core
  * @return {Promise<void>}
  */
-module.exports = async(github, context, core) => {
+export default async(github, context, core) => {
   const payload = context.payload || {}
   const issue = payload.issue
   const no = context.issue.number
@@ -150,10 +150,10 @@ module.exports = async(github, context, core) => {
         github,
         context,
         Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
-          + '\n\n'
+        + '\n\n'
         + Messages[locale].playground_url.replace('{0}', url)
         + '\n\n'
-          + getTimestampBadge(),
+        + getTimestampBadge(),
       )
     }
     else {
@@ -179,7 +179,7 @@ module.exports = async(github, context, core) => {
           + '\n\n'
           + Messages[locale].playground_url.replace('{0}', url)
           + '\n\n'
-            + getTimestampBadge(),
+          + getTimestampBadge(),
         )
       }
     }
@@ -234,6 +234,7 @@ function getCodeBlock(text, title, lang = 'ts') {
   const match = text.match(regex)
   if (match && match[1])
     return match[1].toString().trim()
+
   return null
 }
 
@@ -246,6 +247,7 @@ function getCommentRange(text, key) {
   const match = text.match(regex)
   if (match && match[1])
     return match[1].toString().trim()
+
   return null
 }
 
