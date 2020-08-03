@@ -8,9 +8,12 @@ jobs:
   start:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/setup-node@v1
+          with:
+            node-version: 14.x
       - uses: actions/checkout@v2
       - uses: actions/github-script@v2
         with:
           script: |
-            const script = require(`${process.env.GITHUB_WORKSPACE}/actions/toggle-pr-with-issue.js`)
+            import script from './actions/toggle-pr-with-issue.js'
             await script(github, context, core)
