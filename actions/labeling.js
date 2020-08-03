@@ -7,7 +7,7 @@
  * @param {typeof import('@actions/core')} core
  * @return {Promise<void>}
  */
-module.exports = async(github, context, core) => {
+export default async(github, context, core) => {
   const payload = context.payload
   const issue = payload.issue
 
