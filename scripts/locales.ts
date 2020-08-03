@@ -1,6 +1,7 @@
 export const defaultLocale = 'en'
 
 export const supportedLocales = ['en', 'zh-CN'] as const
+export type SupportedLocales = typeof supportedLocales[number]
 
 export const messages = {
   en: require('./locales/en.json'),

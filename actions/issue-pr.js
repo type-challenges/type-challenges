@@ -5,6 +5,8 @@
 const YAML = require('js-yaml')
 const slug = require('limax')
 const { PushCommit } = require('@type-challenges/octokit-create-pull-request')
+const { toPlaygroundUrl } = require('../scripts/utils/toPlaygroundUrl')
+const { formatToCode } = require('../scripts/utils/formatToCode')
 
 const Messages = {
   en: {
@@ -14,6 +16,7 @@ const Messages = {
     issue_reply: '#{0} - Pull Request created.',
     issue_update_reply: '#{0} - Pull Request updated.',
     issue_invalid_reply: 'Failed to parse the issue, please follow the template.',
+    playground_url: 'test playground url: {0}',
   },
   'zh-CN': {
     info: '基本信息',
@@ -22,6 +25,7 @@ const Messages = {
     issue_reply: '#{0} - PR 已生成',
     issue_update_reply: '#{0} - PR 已更新',
     issue_invalid_reply: 'Issue 格式不正确，请按照依照模版修正',
+    playground_url: '测试 playground 地址: {0}',
   },
 }
 
@@ -130,6 +134,15 @@ module.exports = async(github, context, core) => {
       fresh: !existing_pull,
     })
 
+    const url = toPlaygroundUrl(formatToCode({
+      no,
+      difficulty: info.difficulty,
+      info: YAML.safeDump(info),
+      readme: question,
+      template,
+      tests,
+    }, locale))
+
     if (existing_pull) {
       core.info('-----Pull Request Existed-----')
       core.info(JSON.stringify(existing_pull, null, 2))
@@ -138,6 +151,8 @@ module.exports = async(github, context, core) => {
         context,
         Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
           + '\n\n'
+        + Messages[locale].playground_url.replace('{0}', url)
+        + '\n\n'
           + getTimestampBadge(),
       )
     }
@@ -161,7 +176,9 @@ module.exports = async(github, context, core) => {
           github,
           context,
           Messages[locale].issue_reply.replace('{0}', pr.number.toString())
-            + '\n\n'
+          + '\n\n'
+          + Messages[locale].playground_url.replace('{0}', url)
+          + '\n\n'
             + getTimestampBadge(),
         )
       }
