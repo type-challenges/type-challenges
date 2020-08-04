@@ -11,9 +11,11 @@
     "esbuild-register": "^1.0.2",
     "esm": "^3.2.25",
     "js-yaml": "^3.14.0",
-    "limax": "^2.1.0"
+    "limax": "^2.1.0",
+    "lz-string": "^1.4.4"
   },
   "devDependencies": {
+    "@types/lz-string": "^1.3.34",
     "@octokit/types": "^5.2.0",
     "@types/js-yaml": "^3.12.5"
   }
