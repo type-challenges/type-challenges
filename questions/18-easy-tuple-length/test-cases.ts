@@ -1,9 +1,9 @@
 import { Equal, Expect } from '@type-challenges/utils'
 
-const tesla = ['tesla', 'model 3', 'model X', 'model Y']
-const spaceX = ['FALCON 9', 'FALCON HEAVY', 'DRAGON', 'STARSHIP', 'HUMAN SPACEFLIGHT']
+const tesla = ['tesla', 'model 3', 'model X', 'model Y'] as const
+const spaceX = ['FALCON 9', 'FALCON HEAVY', 'DRAGON', 'STARSHIP', 'HUMAN SPACEFLIGHT'] as const
 
 type cases = [
-  Expect<Equal<Length<tesla>, 4>>,
-  Expect<Equal<Length<spaceX>, 5>>,
+  Expect<Equal<Length<typeof tesla>, 4>>,
+  Expect<Equal<Length<typeof spaceX>, 5>>,
 ]
