@@ -1,106 +1,46 @@
-import path from 'path'
-import fs from 'fs-extra'
-import { loadQuizes, resolveInfo } from './loader'
-import { toPlaygroundUrl, toSolutionsShort, REPO, toSolutionsFull, toQuizREADME, toAnswerShort, toShareAnswerFull, toReadmeShort, toHomepageShort } from './toUrl'
-import { Quiz } from './types'
-import { supportedLocales, defaultLocale, t, SupportedLocale } from './locales'
+/*
+  16 - Pop
+  -------
+  by Anthony Fu (@antfu) #medium #array #4.0
 
-function toCommentBlock(text: string) {
-  return `/*\n${
-    text
-      .trim()
-      .split('\n')
-      .map(i => `  ${i}`)
-      .join('\n')
-  }\n*/\n\n`
-}
+  ### Question
 
-function toDivier(text: string) {
-  return `\n/* _____________ ${text} _____________ */\n`
-}
+  > TypeScript 4.0 is recommended in this challenge
 
-function toInfoHeader(quiz: Quiz, locale: SupportedLocale) {
-  const info = resolveInfo(quiz, locale)
-  return `${quiz.no} - ${info.title || ''}\n`
-    + '-------\n'
-    + `by ${info.author?.name} (@${info?.author?.github}) #${t(locale, `difficulty.${quiz.difficulty}`)} ${info?.tags?.map(i => `#${i}`).join(' ') || ''}\n\n`
-    + `### ${t(locale, 'title.question')}\n\n`
-}
+  Implement a generic `Pop<T>` that takes an Array `T` and returns an Array without it's last element.
 
-function toLinks(quiz: Quiz, locale: SupportedLocale) {
-  return '\n\n'
-  + `> ${t(locale, 'link.view-on-github')}${toReadmeShort(quiz.no, locale)}`
-}
+  For example
 
-function toFooter(quiz: Quiz, locale: SupportedLocale) {
-  return '\n\n'
-  + `> ${t(locale, 'link.share-solutions')}${toAnswerShort(quiz.no, locale)}\n`
-  + `> ${t(locale, 'link.checkout-solutions')}${toSolutionsShort(quiz.no)}\n`
-  + `> ${t(locale, 'link.more-challenges')}${toHomepageShort(locale)}\n`
-}
+  ```ts
+  type arr1 = ['a', 'b', 'c', 'd']
+  type arr2 = [3, 2, 1]
 
-export async function build() {
-  const quizes = await loadQuizes()
-  const redirects: [string, string, number][] = []
+  type re1 = Pop<arr1> // expected to be ['a', 'b', 'c']
+  type re2 = Pop<arr2> // expected to be [3, 2]
+  ```
 
-  // redirect homepage to github repo
-  redirects.push(['/', `${REPO}/blob/master/README.md`, 302])
-  supportedLocales.filter(locale => locale !== defaultLocale).forEach((locale) => {
-    redirects.push([`/${locale}`, `${REPO}/blob/master/README.${locale}.md`, 302])
-  })
+  **Extra**: Similarly, can you implement `Shift`, `Push` and `Unshift` as well?
 
-  for (const quiz of quizes) {
-    for (const locale of supportedLocales) {
-      const info = resolveInfo(quiz, locale)
+  > View on Github: https://type-challenges.netlify.app/16
+*/
 
-      /* eslint-disable prefer-template */
-      const code
-        = toCommentBlock(
-          toInfoHeader(quiz, locale)
-          + (quiz.readme[locale] || quiz.readme[defaultLocale])
-          + toLinks(quiz, locale),
-        )
-        + toDivier(t(locale, 'divider.code-start'))
-        + '\n'
-        + (quiz.template || '').trim()
-        + '\n\n'
-        + toDivier(t(locale, 'divider.test-cases'))
-        + (quiz.tests || '')
-        + '\n\n'
-        + toDivier(t(locale, 'divider.further-steps'))
-        + toCommentBlock(toFooter(quiz, locale))
+/* _____________ Your Code Here _____________ */
 
-      /* eslint-enable prefer-template */
+type Pop<T extends any[]> = T extends [... infer T, infer K] ? T : never
 
-      const url = toPlaygroundUrl(code, info.tsconfig || {})
+/* _____________ Test Cases _____________ */
+import { Equal, Expect } from '@type-challenges/utils'
 
-      if (locale === defaultLocale) {
-        redirects.push([`/${quiz.no}`, toQuizREADME(quiz, locale, true), 302])
-        redirects.push([`/${quiz.no}/play`, url, 302])
-        redirects.push([`/${quiz.no}/answer`, toShareAnswerFull(quiz), 302])
+type a = Pop<[3, 2, 1]>
 
-        // TODO: remove in next release
-        redirects.push([`/case/${quiz.no}/play`, url, 302])
-      }
-      else {
-        redirects.push([`/${quiz.no}/${locale}`, toQuizREADME(quiz, locale, true), 302])
-        redirects.push([`/${quiz.no}/play/${locale}`, url, 302])
-        redirects.push([`/${quiz.no}/answer/${locale}`, toShareAnswerFull(quiz, locale), 302])
+type cases = [
+  Expect<Equal<a, [3, 2]>>,
+  Expect<Equal<Pop<['a', 'b', 'c', 'd', ]>, ['a', 'b', 'c']>>,
+]
 
-        // TODO: remove in next release
-        redirects.push([`/case/${quiz.no}/play/${locale}`, url, 302])
-      }
-    }
-
-    redirects.push([`/${quiz.no}/solutions`, toSolutionsFull(quiz.no), 302])
-  }
-
-  const dist = path.resolve(__dirname, 'dist')
-
-  await fs.remove(dist)
-  await fs.ensureDir(dist)
-
-  await fs.writeFileSync(path.join(dist, '_redirects'), redirects.map(i => i.join('\t')).join('\n'), 'utf-8')
-}
-
-build()
+/* _____________ Further Steps _____________ */
+/*
+  > Share your solutions: https://type-challenges.netlify.app/16/answer
+  > View solutions: https://type-challenges.netlify.app/16/solutions
+  > More Challenges: https://type-challenges.netlify.app
+*/

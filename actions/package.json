@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "dependencies": {
     "@type-challenges/octokit-create-pull-request": "^0.1.8",
+    "esbuild": "^0.6.16",
+    "esbuild-register": "^1.0.2",
+    "esm": "^3.2.25",
     "js-yaml": "^3.14.0",
     "limax": "^2.1.0"
   },
