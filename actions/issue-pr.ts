@@ -1,12 +1,7 @@
-/* eslint-disable prefer-template */
-/* eslint-disable @typescript-eslint/no-var-requires */
-// @ts-check
-
 import YAML from 'js-yaml'
 import slug from 'limax'
 import { PushCommit } from '@type-challenges/octokit-create-pull-request'
-import { toPlaygroundUrl } from './utils/toPlaygroundUrl'
-import { formatToCode } from './utils/formatToCode'
+import type { Action, Github, Context } from './types'
 
 const Messages = {
   en: {
@@ -16,7 +11,6 @@ const Messages = {
     issue_reply: '#{0} - Pull Request created.',
     issue_update_reply: '#{0} - Pull Request updated.',
     issue_invalid_reply: 'Failed to parse the issue, please follow the template.',
-    playground_url: 'test playground url: {0}',
   },
   'zh-CN': {
     info: '基本信息',
@@ -25,17 +19,10 @@ const Messages = {
     issue_reply: '#{0} - PR 已生成',
     issue_update_reply: '#{0} - PR 已更新',
     issue_invalid_reply: 'Issue 格式不正确，请按照依照模版修正',
-    playground_url: '测试 playground 地址: {0}',
   },
 }
 
-/**
- * @param {ReturnType<typeof import('@actions/github').getOctokit>} github
- * @param {typeof import('@actions/github').context} context
- * @param {typeof import('@actions/core')} core
- * @return {Promise<void>}
- */
-export default async(github, context, core) => {
+const action: Action = async(github, context, core) => {
   const payload = context.payload || {}
   const issue = payload.issue
   const no = context.issue.number
@@ -43,8 +30,9 @@ export default async(github, context, core) => {
   if (!issue)
     return
 
-  /** @type {string[]} */
-  const labels = (issue.labels || []).map(i => i && i.name).filter(Boolean)
+  const labels: string[] = (issue.labels || [])
+    .map((i: any) => i && i.name)
+    .filter(Boolean)
 
   // create pr for new challenge
   if (labels.includes('new-challenge')) {
@@ -56,8 +44,7 @@ export default async(github, context, core) => {
     const tests = getCodeBlock(body, Messages[locale].tests, 'ts')
     const question = getCommentRange(body, 'question')
 
-    /** @type {any} */
-    let info = {}
+    let info: any = {}
 
     try {
       info = YAML.safeLoad(infoRaw || '')
@@ -134,26 +121,15 @@ export default async(github, context, core) => {
       fresh: !existing_pull,
     })
 
-    const url = toPlaygroundUrl(formatToCode({
-      no,
-      difficulty: info.difficulty,
-      info: YAML.safeDump(info),
-      readme: question,
-      template,
-      tests,
-    }, locale))
-
     if (existing_pull) {
       core.info('-----Pull Request Existed-----')
       core.info(JSON.stringify(existing_pull, null, 2))
       await updateComment(
         github,
         context,
-        Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
-        + '\n\n'
-        + Messages[locale].playground_url.replace('{0}', url)
-        + '\n\n'
-        + getTimestampBadge(),
+        `${Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
+        }\n\n${
+          getTimestampBadge()}`,
       )
     }
     else {
@@ -175,11 +151,9 @@ export default async(github, context, core) => {
         await updateComment(
           github,
           context,
-          Messages[locale].issue_reply.replace('{0}', pr.number.toString())
-          + '\n\n'
-          + Messages[locale].playground_url.replace('{0}', url)
-          + '\n\n'
-          + getTimestampBadge(),
+          `${Messages[locale].issue_reply.replace('{0}', pr.number.toString())
+          }\n\n${
+            getTimestampBadge()}`,
         )
       }
     }
@@ -189,12 +163,7 @@ export default async(github, context, core) => {
   }
 }
 
-/**
- * @param {ReturnType<typeof import('@actions/github').getOctokit>} github
- * @param {typeof import('@actions/github').context} context
- * @param {string} body
- */
-async function updateComment(github, context, body) {
+async function updateComment(github: Github, context: Context, body: string) {
   const { data: comments } = await github.issues.listComments({
     issue_number: context.issue.number,
     owner: context.repo.owner,
@@ -224,33 +193,24 @@ async function updateComment(github, context, body) {
   }
 }
 
-/**
- * @param {string} text
- * @param {string} title
- * @param {?string} lang
- */
-function getCodeBlock(text, title, lang = 'ts') {
+function getCodeBlock(text: string, title: string, lang = 'ts') {
   const regex = new RegExp(`## ${title}[\\s\\S]*?\`\`\`${lang}([\\s\\S]*?)\`\`\``)
   const match = text.match(regex)
   if (match && match[1])
     return match[1].toString().trim()
-
   return null
 }
 
-/**
- * @param {string} text
- * @param {string} key
- */
-function getCommentRange(text, key) {
+function getCommentRange(text: string, key: string) {
   const regex = new RegExp(`<!--${key}-start-->([\\s\\S]*?)<!--${key}-end-->`)
   const match = text.match(regex)
   if (match && match[1])
     return match[1].toString().trim()
-
   return null
 }
 
 function getTimestampBadge() {
   return `![${new Date().toISOString()}](https://img.shields.io/date/${Math.round(+new Date() / 1000)}?color=green&label=)`
 }
+
+export default action

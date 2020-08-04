@@ -2,7 +2,7 @@ name: Labeling
 
 on:
   issues:
-    types: [opened,edited]
+    types: [opened]
 
 jobs:
   start:
@@ -10,17 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd actions && npm i --only=production
-      - uses: actions/github-script@v2
-        with:
-          script: |
-            core.info(process.env.GITHUB_WORKSPACE)
-            const fs = require('fs')
-            const { resolve } = require('path')
-            const dir = fs.readdirSync(resolve(process.env.GITHUB_WORKSPACE,'actions'))
-            core.info(JSON.stringify(dir,null,2))
-
-            const file = fs.readFileSync(`${process.env.GITHUB_WORKSPACE}/actions/launcher.js`).toString()
-            core.info(file)
-
-            const script = require.resolve(`${process.env.GITHUB_WORKSPACE}/actions/launcher.js`)
-            core.info(script)
+      - run: cd actions && node -r esm -r esbuild-register ./loader.ts ${{github.token}} labeling

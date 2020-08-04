@@ -45,8 +45,10 @@ importers:
       utility-types: ^3.10.0
   actions:
     dependencies:
+      '@actions/io': 1.0.2
       '@type-challenges/octokit-create-pull-request': 0.1.8
-      esbuild-register: 1.0.2
+      esbuild: 0.6.16
+      esbuild-register: 1.0.2_esbuild@0.6.16
       esm: 3.2.25
       js-yaml: 3.14.0
       limax: 2.1.0
@@ -58,9 +60,11 @@ importers:
     specifiers:
       '@actions/core': ^1.2.4
       '@actions/github': ^4.0.0
+      '@actions/io': ^1.0.2
       '@octokit/types': ^5.2.0
       '@type-challenges/octokit-create-pull-request': ^0.1.8
       '@types/js-yaml': ^3.12.5
+      esbuild: ^0.6.16
       esbuild-register: ^1.0.2
       esm: ^3.2.25
       js-yaml: ^3.14.0
@@ -91,6 +95,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-G4JjJ6f9Hb3Zvejj+ewLLKLf99ZC+9v+yCxoYf9vSyH+WkzPLB2LuUtRMGNkooMqdugGBFStIKXOuvH1W+EctA==
+  /@actions/io/1.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-J8KuFqVPr3p6U8W93DOXlXW6zFvrQAJANdS+vw0YhusLIq+bszW8zmK2Fh1C2kDPX8FMvwIl1OUcFgvJoXLbAg==
   /@antfu/eslint-config-ts/0.2.14_3d38e31617677cc95fc3eb1c56fe7093:
     dependencies:
       '@antfu/eslint-config': 0.2.14_eslint@7.5.0
@@ -954,8 +962,9 @@ packages:
       node: '>= 0.4'
     resolution:
       integrity: sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA==
-  /esbuild-register/1.0.2:
+  /esbuild-register/1.0.2_esbuild@0.6.16:
     dependencies:
+      esbuild: 0.6.16
       joycon: 2.2.5
       pirates: 4.0.1
       source-map-support: 0.5.19
@@ -965,6 +974,12 @@ packages:
       esbuild: ^0.6.3
     resolution:
       integrity: sha512-2znPqwdKSTl70zcpOlEnuNj56KVS0nUFJQ+IX4Ogj6AyXOi98V/LZ65k+/LQ8VTiQCazBiYq97izFwGiNaP1Og==
+  /esbuild/0.6.16:
+    dev: false
+    hasBin: true
+    requiresBuild: true
+    resolution:
+      integrity: sha512-Jm4aJYAk4uBP2RssDe/rvYCrpGkfOJ5tPBZUF6da62pUtyzk8/RVwXZB4q8dxjYLKZNmY4lYJRpWY+wT3kme1w==
   /escape-string-regexp/1.0.5:
     dev: true
     engines:
@@ -1882,7 +1897,7 @@ packages:
       npm-packlist: 1.4.8
       npmlog: 4.1.2
       rc: 1.2.8
-      rimraf: 2.7.1
+      rimraf: 2.6.3
       semver: 5.7.1
       tar: 4.4.13
     dev: false
@@ -2352,18 +2367,9 @@ packages:
   /rimraf/2.6.3:
     dependencies:
       glob: 7.1.6
-    dev: true
     hasBin: true
     resolution:
       integrity: sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==
-  /rimraf/2.7.1:
-    dependencies:
-      glob: 7.1.6
-    dev: false
-    hasBin: true
-    optional: true
-    resolution:
-      integrity: sha512-uWjbaKIK3T1OSVptzX7Nl6PvQ3qAGtKEtVRjRuazjfL3Bx5eI409VZSqgND+4UNnmzLVdPj9FqFJNPqBZFve4w==
   /rollup-plugin-dts/1.4.9_b6084331d0266cba073270c65404b5f6:
     dependencies:
       rollup: 2.22.2

@@ -1,17 +1,15 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-// @ts-check
+import type { Action } from './types'
 
-import type { getOctokit, context as Context } from '@actions/github'
-import type Core from '@actions/core'
-
-export default async(github: ReturnType<typeof getOctokit>, context: typeof Context, core: typeof Core) => {
+const action: Action = async(github, context, core) => {
   const payload = context.payload
   const issue = payload.issue
 
   if (!issue)
     return
 
-  const labels: string[] = (issue.labels || []).map((i: any) => i && i.name).filter(Boolean)
+  const labels: string[] = (issue.labels || [])
+    .map((i: any) => i && i.name)
+    .filter(Boolean)
 
   if (labels.includes('answer')) {
     const match = issue.title.match(/^(\d+) - /)
@@ -53,3 +51,5 @@ export default async(github: ReturnType<typeof getOctokit>, context: typeof Cont
     core.info('No matched labels, skipped')
   }
 }
+
+export default action
