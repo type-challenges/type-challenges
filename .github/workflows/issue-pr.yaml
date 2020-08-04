@@ -16,5 +16,7 @@ jobs:
       - uses: actions/github-script@v2
         with:
           script: |
-            import script from './actions/issue-pr.js'
+            require = require('esm')(module)
+            require('esbuild-register/register')
+            const script = require("./actions/issue-pr.ts")
             await script(github, context, core)

@@ -4,10 +4,11 @@
   "version": "1.0.0",
   "dependencies": {
     "@type-challenges/octokit-create-pull-request": "^0.1.8",
+    "esbuild-register": "^1.0.2",
+    "esm": "^3.2.25",
     "js-yaml": "^3.14.0",
     "limax": "^2.1.0"
   },
-  "type": "module",
   "devDependencies": {
     "@actions/core": "^1.2.4",
     "@actions/github": "^4.0.0",
