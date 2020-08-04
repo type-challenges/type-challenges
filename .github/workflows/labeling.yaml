@@ -18,5 +18,5 @@ jobs:
             const { resolve } = require('path')
             const dir = fs.readdirSync(resolve(process.env.GITHUB_WORKSPACE,'actions'))
             core.info(JSON.stringify(dir,null,2))
-            const script = require(`${process.env.GITHUB_WORKSPACE}/actions/launcher.js`)
+            const script = require(`${process.env.GITHUB_WORKSPACE}/actions/launcher`)
             await script('./labeing.ts',github, context, core)
