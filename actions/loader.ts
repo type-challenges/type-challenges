@@ -6,10 +6,8 @@ process.on('unhandledRejection', handleError)
 main().catch(handleError)
 
 async function main(): Promise<void> {
-  core.info(`argv ${JSON.stringify(process.argv)}`)
-
-  const token = process.argv[1]
-  const fnName = process.argv[2]
+  const token = process.argv[2]
+  const fnName = process.argv[3]
   const github = getOctokit(token)
 
   const fn = await import(`./${fnName}.ts`)
