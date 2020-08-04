@@ -35,7 +35,7 @@ export function toNearborREADME(quiz: Quiz, locale?: string) {
 
 export function toShareAnswerFull(quiz: Quiz, locale: string = defaultLocale) {
   const info = resolveInfo(quiz, locale)
-  return `https://github.com/type-challenges/type-challenges/issues/new?labels=answer,${encodeURIComponent(`${quiz.no}`)},${encodeURIComponent(locale)}&template=answer.md&title=${encodeURIComponent(`${quiz.no} - ${info.title}`)}`
+  return `https://github.com/type-challenges/type-challenges/issues/new?labels=answer,${encodeURIComponent(locale)}&template=answer.md&title=${encodeURIComponent(`${quiz.no} - ${info.title}`)}`
 }
 
 // Short
