@@ -4,8 +4,8 @@ export const supportedLocales = ['en', 'zh-CN'] as const
 export type SupportedLocales = typeof supportedLocales[number]
 
 export const messages = {
-  en: require('./locales/en.json'),
-  'zh-CN': require('./locales/zh-CN.json'),
+  en: require('../actions/locales/en.json'),
+  'zh-CN': require('../actions/locales/zh-CN.json'),
 }
 
 export type SupportedLocale = keyof typeof messages

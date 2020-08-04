@@ -1,5 +1,5 @@
-import { t } from '../locales'
-import { resolveInfo } from '../loader'
+import { t } from './locales'
+import { resolveInfo } from './resolveInfo'
 
 export const toInfoHeader = function toInfoHeader(quiz, locale) {
   const info = resolveInfo(quiz, locale)

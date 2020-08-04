@@ -5,8 +5,8 @@
 import YAML from 'js-yaml'
 import slug from 'limax'
 import { PushCommit } from '@type-challenges/octokit-create-pull-request'
-import { toPlaygroundUrl } from '../scripts/utils/toPlaygroundUrl'
-import { formatToCode } from '../scripts/utils/formatToCode'
+import { toPlaygroundUrl } from './utils/toPlaygroundUrl'
+import { formatToCode } from './utils/formatToCode'
 
 const Messages = {
   en: {

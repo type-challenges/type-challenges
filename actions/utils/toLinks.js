@@ -1,5 +1,5 @@
-import { t } from '../locales'
-import { toReadmeShort } from '../toUrl'
+import { t } from './locales'
+import { toReadmeShort } from './toPlaygroundUrl'
 
 export function toLinks(quiz, locale) {
   return '\n\n'

@@ -1,4 +1,4 @@
-import { defaultLocale, t } from '../locales'
+import { defaultLocale, t } from './locales'
 import { toCommentBlock } from './toCommentBlock'
 import { toInfoHeader } from './toInfoHeader'
 import { toLinks } from './toLinks'

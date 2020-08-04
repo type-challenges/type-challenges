@@ -1,6 +1,6 @@
-import { t } from '../locales'
+import { t } from './locales'
 
-import { toAnswerShort, toHomepageShort, toSolutionsShort } from '../toUrl'
+import { toAnswerShort, toHomepageShort, toSolutionsShort } from './toPlaygroundUrl'
 
 export const toFooter = function(quiz, locale) {
   return '\n\n'
