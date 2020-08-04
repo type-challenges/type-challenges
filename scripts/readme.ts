@@ -1,8 +1,8 @@
 import path from 'path'
 import fs from 'fs-extra'
-import { supportedLocales, defaultLocale, t, SupportedLocale, f } from './locales'
+import { defaultLocale, f, SupportedLocale, supportedLocales, t } from './locales'
 import { loadQuizes, resolveInfo } from './loader'
-import { toPlayShort, toQuizREADME, toSolutionsShort, toAnswerShort, toReadmeShort, toNearborREADME } from './toUrl'
+import { toAnswerShort, toNearborREADME, toPlayShort, toQuizREADME, toSolutionsShort } from './toUrl'
 import { Quiz, QuizMetaInfo } from './types'
 
 const DifficultyColors: Record<string, string> = {
@@ -38,7 +38,7 @@ function toBadge(label: string, text: string, color: string, args = '') {
   return `<img src="${toBadgeURL(label, text, color, args)}" alt="${text}"/>`
 }
 
-function toBadgeLink(url: string, label: string, text: string, color: string, args = '') {
+export function toBadgeLink(url: string, label: string, text: string, color: string, args = '') {
   return `<a href="${url}" target="_blank">${toBadge(label, text, color, args)}</a> `
 }
 

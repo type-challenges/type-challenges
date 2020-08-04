@@ -1,6 +1,8 @@
 import YAML from 'js-yaml'
 import slug from 'limax'
 import { PushCommit } from '@type-challenges/octokit-create-pull-request'
+import { toBadgeLink } from '../scripts/readme'
+import { t } from '../scripts/locales'
 import type { Action, Github, Context } from './types'
 import { formatToCode } from './utils/formatToCode'
 import { toPlaygroundUrl } from './utils/toPlaygroundUrl'
@@ -13,7 +15,7 @@ const Messages = {
     issue_reply: '#{0} - Pull Request created.',
     issue_update_reply: '#{0} - Pull Request updated.',
     issue_invalid_reply: 'Failed to parse the issue, please follow the template.',
-    playground_url: 'test playground url - [click me]({0})',
+    playground_url: 'test playground url - {0}',
   },
   'zh-CN': {
     info: '基本信息',
@@ -22,7 +24,7 @@ const Messages = {
     issue_reply: '#{0} - PR 已生成',
     issue_update_reply: '#{0} - PR 已更新',
     issue_invalid_reply: 'Issue 格式不正确，请按照依照模版修正',
-    playground_url: '测试 playground 地址 - [点击我]({0})',
+    playground_url: '测试 playground 地址 - {0}',
   },
 }
 
@@ -137,6 +139,8 @@ const action: Action = async(github, context, core) => {
       },
     }, locale))
 
+    const playgroundBadge = Messages[locale].playground_url.replace('{0}', toBadgeLink(playgroundURL, '', t(locale, 'badge.take-the-challenge'), '3178c6', '?logo=typescript'))
+
     if (existing_pull) {
       core.info('-----Pull Request Existed-----')
       core.info(JSON.stringify(existing_pull, null, 2))
@@ -144,7 +148,7 @@ const action: Action = async(github, context, core) => {
         github,
         context,
         `${Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
-        }\n${Messages[locale].playground_url.replace('{0}', playgroundURL)}\n\n${
+        }\n${playgroundBadge}\n\n${
           getTimestampBadge()}`,
       )
     }
@@ -168,7 +172,7 @@ const action: Action = async(github, context, core) => {
           github,
           context,
           `${Messages[locale].issue_reply.replace('{0}', pr.number.toString())
-          }\n${Messages[locale].playground_url.replace('{0}', playgroundURL)}\n\n${
+          }\n${playgroundBadge}\n\n${
             getTimestampBadge()}`,
         )
       }
