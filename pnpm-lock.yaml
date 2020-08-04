@@ -45,6 +45,7 @@ importers:
       utility-types: ^3.10.0
   actions:
     dependencies:
+      '@actions/io': 1.0.2
       '@type-challenges/octokit-create-pull-request': 0.1.8
       esbuild: 0.6.16
       esbuild-register: 1.0.2_esbuild@0.6.16
@@ -59,6 +60,7 @@ importers:
     specifiers:
       '@actions/core': ^1.2.4
       '@actions/github': ^4.0.0
+      '@actions/io': ^1.0.2
       '@octokit/types': ^5.2.0
       '@type-challenges/octokit-create-pull-request': ^0.1.8
       '@types/js-yaml': ^3.12.5
@@ -93,6 +95,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-G4JjJ6f9Hb3Zvejj+ewLLKLf99ZC+9v+yCxoYf9vSyH+WkzPLB2LuUtRMGNkooMqdugGBFStIKXOuvH1W+EctA==
+  /@actions/io/1.0.2:
+    dev: false
+    resolution:
+      integrity: sha512-J8KuFqVPr3p6U8W93DOXlXW6zFvrQAJANdS+vw0YhusLIq+bszW8zmK2Fh1C2kDPX8FMvwIl1OUcFgvJoXLbAg==
   /@antfu/eslint-config-ts/0.2.14_3d38e31617677cc95fc3eb1c56fe7093:
     dependencies:
       '@antfu/eslint-config': 0.2.14_eslint@7.5.0

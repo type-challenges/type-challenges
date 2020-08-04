@@ -2,17 +2,11 @@ name: Labeling
 
 on:
   issues:
-    types: [opened]
+    types: [opened, edited]
 
 jobs:
   start:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: antfu/github-script@v2
-        with:
-          script: |
-            const r = require(`${process.env.GITHUB_WORKSPACE}/actions/node_modules/esm`)(module)
-            r(`${process.env.GITHUB_WORKSPACE}/actions/node_modules/esbuild-register/register`)
-            const script = r(`${process.env.GITHUB_WORKSPACE}/actions/labeling.ts`)
-            await script(github, context, core)
+      - run: node -r esm -r esbuild-register ./actions/loader labeling
