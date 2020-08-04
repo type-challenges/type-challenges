@@ -138,16 +138,18 @@ const action: Action = async(github, context, core) => {
     }, locale))
 
     const playgroundBadge = toBadgeLink(playgroundURL, '', t(locale, 'badge.preview-playground'), '3178c6', '?logo=typescript')
+    const messageBody = `${Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
+    }\n\n${
+      getTimestampBadge()}  ${playgroundBadge}`
 
     if (existing_pull) {
       core.info('-----Pull Request Existed-----')
       core.info(JSON.stringify(existing_pull, null, 2))
+
       await updateComment(
         github,
         context,
-        `${Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
-        }\n${
-          getTimestampBadge()}\t${playgroundBadge}`,
+        messageBody,
       )
     }
     else {
@@ -169,9 +171,7 @@ const action: Action = async(github, context, core) => {
         await updateComment(
           github,
           context,
-          `${Messages[locale].issue_reply.replace('{0}', pr.number.toString())
-          }\n${
-            getTimestampBadge()}\t${playgroundBadge}`,
+          messageBody,
         )
       }
     }
