@@ -52,6 +52,7 @@ importers:
       esbuild: 0.6.16
       esbuild-register: 1.0.2_esbuild@0.6.16
       esm: 3.2.25
+      fs-extra: 9.0.1
       js-yaml: 3.14.0
       limax: 2.1.0
       lz-string: 1.4.4
@@ -70,6 +71,7 @@ importers:
       esbuild: ^0.6.16
       esbuild-register: ^1.0.2
       esm: ^3.2.25
+      fs-extra: ^9.0.1
       js-yaml: ^3.14.0
       limax: ^2.1.0
       lz-string: ^1.4.4
@@ -663,7 +665,6 @@ packages:
     resolution:
       integrity: sha512-+Ryf6g3BKoRc7jfp7ad8tM4TtMiaWvbF/1/sQcZPkkS7ag3D5nMBCe2UfOTONtAkaG0tO0ij3C5Lwmf1EiyjHg==
   /at-least-node/1.0.0:
-    dev: true
     engines:
       node: '>= 4.0.0'
     resolution:
@@ -1368,7 +1369,6 @@ packages:
       graceful-fs: 4.2.4
       jsonfile: 6.0.1
       universalify: 1.0.0
-    dev: true
     engines:
       node: '>=10'
     resolution:
@@ -1447,7 +1447,6 @@ packages:
     resolution:
       integrity: sha512-BWICuzzDvDoH54NHKCseDanAhE3CeDorgDL5MT6LMXXj2WCnd9UC2szdk4AWLfjdgNBCXLUanXYcpBBKOSWGwg==
   /graceful-fs/4.2.4:
-    dev: true
     resolution:
       integrity: sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
   /has-flag/3.0.0:
@@ -1713,7 +1712,6 @@ packages:
   /jsonfile/6.0.1:
     dependencies:
       universalify: 1.0.0
-    dev: true
     optionalDependencies:
       graceful-fs: 4.2.4
     resolution:
@@ -2791,7 +2789,6 @@ packages:
     resolution:
       integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==
   /universalify/1.0.0:
-    dev: true
     engines:
       node: '>= 10.0.0'
     resolution:
