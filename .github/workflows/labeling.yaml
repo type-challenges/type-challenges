@@ -9,4 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: cd actions && npm i --only=production
       - run: node -r esm -r esbuild-register ./actions/loader labeling
