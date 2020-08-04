@@ -2,7 +2,7 @@ name: Labeling
 
 on:
   issues:
-    types: [opened]
+    types: [opened,edited]
 
 jobs:
   start:
@@ -13,5 +13,10 @@ jobs:
       - uses: actions/github-script@v2
         with:
           script: |
-            const script = require(`${process.env.GITHUB_WORKSPACE}/actions/loader.js`)
+            core.info(process.env.GITHUB_WORKSPACE)
+            const fs = require('fs')
+            const { resolve } = require('path')
+            const dir = fs.readDirSync(resolve(process.env.GITHUB_WORKSPACE,'actions'))
+            core.info(JSON.stringify(dir,null,2))
+            const script = require(`${process.env.GITHUB_WORKSPACE}/actions/launcher.js`)
             await script('./labeing.ts',github, context, core)
