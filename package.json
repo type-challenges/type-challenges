@@ -11,7 +11,6 @@
     "build": "ts-node ./scripts/build.ts",
     "utils:release": "pnpm -C utils release"
   },
-  "type": "module",
   "devDependencies": {
     "@antfu/eslint-config-ts": "^0.2.14",
     "@type-challenges/utils": "workspace:*",

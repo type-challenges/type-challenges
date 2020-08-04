@@ -14,4 +14,4 @@ jobs:
         with:
           script: |
             const script = require(`${process.env.GITHUB_WORKSPACE}/actions/loader.js`)
-            await script('./lobeing.ts',github, context, core)
+            await script('./labeing.ts',github, context, core)
