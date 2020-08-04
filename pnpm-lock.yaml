@@ -45,6 +45,8 @@ importers:
       utility-types: ^3.10.0
   actions:
     dependencies:
+      '@actions/core': 1.2.4
+      '@actions/github': 4.0.0
       '@actions/io': 1.0.2
       '@type-challenges/octokit-create-pull-request': 0.1.8
       esbuild: 0.6.16
@@ -53,8 +55,6 @@ importers:
       js-yaml: 3.14.0
       limax: 2.1.0
     devDependencies:
-      '@actions/core': 1.2.4
-      '@actions/github': 4.0.0
       '@octokit/types': 5.2.0
       '@types/js-yaml': 3.12.5
     specifiers:
@@ -77,7 +77,6 @@ importers:
 lockfileVersion: 5.1
 packages:
   /@actions/core/1.2.4:
-    dev: true
     resolution:
       integrity: sha512-YJCEq8BE3CdN8+7HPZ/4DxJjk/OkZV2FFIf+DlZTC/4iBlzYCD5yjRR6eiOS5llO11zbRltIRuKAjMKaWTE6cg==
   /@actions/github/4.0.0:
@@ -86,13 +85,11 @@ packages:
       '@octokit/core': 3.1.1
       '@octokit/plugin-paginate-rest': 2.3.0
       '@octokit/plugin-rest-endpoint-methods': 4.1.2
-    dev: true
     resolution:
       integrity: sha512-Ej/Y2E+VV6sR9X7pWL5F3VgEWrABaT292DRqRU6R4hnQjPtC/zD3nagxVdXWiRQvYDh8kHXo7IDmG42eJ/dOMA==
   /@actions/http-client/1.0.8:
     dependencies:
       tunnel: 0.0.6
-    dev: true
     resolution:
       integrity: sha512-G4JjJ6f9Hb3Zvejj+ewLLKLf99ZC+9v+yCxoYf9vSyH+WkzPLB2LuUtRMGNkooMqdugGBFStIKXOuvH1W+EctA==
   /@actions/io/1.0.2:
@@ -236,7 +233,6 @@ packages:
   /@octokit/auth-token/2.4.2:
     dependencies:
       '@octokit/types': 5.2.0
-    dev: true
     resolution:
       integrity: sha512-jE/lE/IKIz2v1+/P0u4fJqv0kYwXOTujKemJMFr6FeopsxlIK3+wKDCJGnysg81XID5TgZQbIfuJ5J0lnTiuyQ==
   /@octokit/core/3.1.1:
@@ -247,7 +243,6 @@ packages:
       '@octokit/types': 5.2.0
       before-after-hook: 2.1.0
       universal-user-agent: 6.0.0
-    dev: true
     resolution:
       integrity: sha512-cQ2HGrtyNJ1IBxpTP1U5m/FkMAJvgw7d2j1q3c9P0XUuYilEgF6e4naTpsgm4iVcQeOnccZlw7XHRIUBy0ymcg==
   /@octokit/endpoint/6.0.5:
@@ -255,7 +250,6 @@ packages:
       '@octokit/types': 5.2.0
       is-plain-object: 4.1.1
       universal-user-agent: 6.0.0
-    dev: true
     resolution:
       integrity: sha512-70K5u6zd45ItOny6aHQAsea8HHQjlQq85yqOMe+Aj8dkhN2qSJ9T+Q3YjUjEYfPRBcuUWNgMn62DQnP/4LAIiQ==
   /@octokit/graphql/4.5.3:
@@ -263,20 +257,17 @@ packages:
       '@octokit/request': 5.4.7
       '@octokit/types': 5.2.0
       universal-user-agent: 6.0.0
-    dev: true
     resolution:
       integrity: sha512-JyYvi3j2tOb5ofASEpcg1Advs07H+Ag+I+ez7buuZfNVAmh1IYcDTuxd4gnYH8S2PSGu+f5IdDGxMmkK+5zsdA==
   /@octokit/plugin-paginate-rest/2.3.0:
     dependencies:
       '@octokit/types': 5.2.0
-    dev: true
     resolution:
       integrity: sha512-Ye2ZJreP0ZlqJQz8fz+hXvrEAEYK4ay7br1eDpWzr6j76VXs/gKqxFcH8qRzkB3fo/2xh4Vy9VtGii4ZDc9qlA==
   /@octokit/plugin-rest-endpoint-methods/4.1.2:
     dependencies:
       '@octokit/types': 5.2.0
       deprecation: 2.3.1
-    dev: true
     resolution:
       integrity: sha512-PTI7wpbGEZ2IR87TVh+TNWaLcgX/RsZQalFbQCq8XxYUrQ36RHyERrHSNXFy5gkWpspUAOYRSV707JJv6BhqJA==
   /@octokit/request-error/2.0.2:
@@ -284,7 +275,6 @@ packages:
       '@octokit/types': 5.2.0
       deprecation: 2.3.1
       once: 1.4.0
-    dev: true
     resolution:
       integrity: sha512-2BrmnvVSV1MXQvEkrb9zwzP0wXFNbPJij922kYBTLIlIafukrGOb+ABBT2+c6wZiuyWDH1K1zmjGQ0toN/wMWw==
   /@octokit/request/5.4.7:
@@ -297,13 +287,11 @@ packages:
       node-fetch: 2.6.0
       once: 1.4.0
       universal-user-agent: 6.0.0
-    dev: true
     resolution:
       integrity: sha512-FN22xUDP0i0uF38YMbOfx6TotpcENP5W8yJM1e/LieGXn6IoRxDMnBf7tx5RKSW4xuUZ/1P04NFZy5iY3Rax1A==
   /@octokit/types/5.2.0:
     dependencies:
       '@types/node': 14.0.25
-    dev: true
     resolution:
       integrity: sha512-XjOk9y4m8xTLIKPe1NFxNWBdzA2/z3PFFA/bwf4EoH6oS8hM0Y46mEa4Cb+KCyj/tFDznJFahzQ0Aj3o1FYq4A==
   /@rollup/pluginutils/3.1.0_rollup@2.22.2:
@@ -362,7 +350,6 @@ packages:
     resolution:
       integrity: sha512-btt/oNOiDWcSuI721MdL8VQGnjsKjlTMdrKyTcLCKeQp/n4AAMFJ961wMbp+09y8WuGPClDEv07RIItdXKIXAA==
   /@types/node/14.0.25:
-    dev: true
     resolution:
       integrity: sha512-okMqUHqrMlGOxfDZliX1yFX5MV6qcd5PpRz96XYtjkM0Ws/hwg23FMUqt6pETrVRZS+EKUB5HY19mmo54EuQbA==
   /@types/normalize-package-data/2.4.0:
@@ -686,7 +673,6 @@ packages:
     resolution:
       integrity: sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
   /before-after-hook/2.1.0:
-    dev: true
     resolution:
       integrity: sha512-IWIbu7pMqyw3EAJHzzHbWa85b6oud/yfKYg5rqB5hNE8CeMi3nX+2C2sj0HswfblST86hpVEOAb9x34NZd6P7A==
   /brace-expansion/1.1.11:
@@ -882,7 +868,6 @@ packages:
     resolution:
       integrity: sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o=
   /deprecation/2.3.1:
-    dev: true
     resolution:
       integrity: sha512-xmHIy4F3scKVwMsQ4WnVaS8bHOx0DmVwRywosKhaILI0ywMDWPtBSku2HNxRvF7jtwDRsoEwYQSfbxj8b7RlJQ==
   /detect-libc/1.0.3:
@@ -1625,7 +1610,6 @@ packages:
     resolution:
       integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==
   /is-plain-object/4.1.1:
-    dev: true
     engines:
       node: '>=0.10.0'
     resolution:
@@ -1877,7 +1861,6 @@ packages:
     resolution:
       integrity: sha512-o/qITSDR0JCyCKEQ1/1bnUXMmznxabbwi/Y4WwJElf+evwJNFNwIDMCCt5IigFVxgeGBJESLohGtIS9gEzo1fA==
   /node-fetch/2.6.0:
-    dev: true
     engines:
       node: 4.x || >=6.0.0
     resolution:
@@ -2740,7 +2723,6 @@ packages:
     resolution:
       integrity: sha512-kzeQ5B8H3w60nFY2g8cJIuH7JDpsALXySGtwGJ0p2LSjLgay3NdIpqq5SoOBe46bKDW2iq25irHCr8wjomUS2g==
   /tunnel/0.0.6:
-    dev: true
     engines:
       node: '>=0.6.11 <=0.7.0 || >=0.7.3'
     resolution:
@@ -2780,7 +2762,6 @@ packages:
     resolution:
       integrity: sha512-d3s/CogGtB2uPZ2Z8ts6eoUxxyB9PH3R27/UrzvpthuOvpCg4FWWnBbBiqJ0K4eu6eTlgmLiqQkh2dquReJweA==
   /universal-user-agent/6.0.0:
-    dev: true
     resolution:
       integrity: sha512-isyNax3wXoKaulPDZWHQqbmIx1k2tb9fb3GGDBRxCscfYV2Ch7WxPArBsFEG8s/safwXTT7H4QGhaIkTp9447w==
   /universalify/0.1.2:
