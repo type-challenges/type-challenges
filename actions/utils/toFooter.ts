@@ -1,10 +1,9 @@
 import type { Quiz } from '../../scripts/types'
-import type { SupportedLocales } from '../../scripts/locales'
-import { t } from './locales'
+import { SupportedLocale, t } from './locales'
 
 import { toAnswerShort, toHomepageShort, toSolutionsShort } from './toPlaygroundUrl'
 
-export const toFooter = function(quiz: Quiz, locale: SupportedLocales) {
+export const toFooter = function(quiz: Quiz, locale: SupportedLocale) {
   return '\n\n'
         + `> ${t(locale, 'link.share-solutions')}${toAnswerShort(quiz.no, locale)}\n`
         + `> ${t(locale, 'link.checkout-solutions')}${toSolutionsShort(quiz.no)}\n`

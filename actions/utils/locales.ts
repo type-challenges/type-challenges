@@ -1,15 +1,15 @@
-import type { SupportedLocales } from '../../scripts/locales'
-
 export const defaultLocale = 'en'
 
-export const supportedLocales = ['en', 'zh-CN']
+export const supportedLocales = ['en', 'zh-CN'] as const
 
 export const messages = {
   en: require('../locales/en.json'),
   'zh-CN': require('../locales/zh-CN.json'),
 }
 
-export function t(locale: SupportedLocales, key: string): string {
+export type SupportedLocale = keyof typeof messages
+
+export function t(locale: SupportedLocale, key: string): string {
   return messages[locale][key] || messages[defaultLocale][key]
 }
 
