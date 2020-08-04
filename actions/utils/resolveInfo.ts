@@ -1,4 +1,4 @@
-import type { Quiz } from '../../scripts/types'
+import { Quiz } from '../types'
 import { defaultLocale, SupportedLocale } from './locales'
 
 export function resolveInfo(quiz: Quiz, locale: SupportedLocale = defaultLocale) {

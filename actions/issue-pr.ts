@@ -2,10 +2,10 @@ import YAML from 'js-yaml'
 import slug from 'limax'
 import { PushCommit } from '@type-challenges/octokit-create-pull-request'
 import { toBadgeLink } from '../scripts/readme'
-import { t } from '../scripts/locales'
 import type { Action, Github, Context } from './types'
 import { formatToCode } from './utils/formatToCode'
 import { toPlaygroundUrl } from './utils/toPlaygroundUrl'
+import { t } from './utils/locales'
 
 const Messages = {
   en: {

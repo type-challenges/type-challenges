@@ -1,4 +1,4 @@
-import type { Quiz } from '../../scripts/types'
+import { Quiz } from '../types'
 import { SupportedLocale, t } from './locales'
 
 import { toAnswerShort, toHomepageShort, toSolutionsShort } from './toPlaygroundUrl'

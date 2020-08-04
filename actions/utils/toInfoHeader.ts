@@ -1,5 +1,5 @@
-import type { Quiz } from '../../scripts/types'
 import type { SupportedLocales } from '../../scripts/locales'
+import { Quiz } from '../types'
 import { t } from './locales'
 import { resolveInfo } from './resolveInfo'
 
