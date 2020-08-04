@@ -10,8 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd actions && npm i --only=production
-      - uses: actions/github-script@v2
-        with:
-          script: |
-            const script = require(`${process.env.GITHUB_WORKSPACE}/actions/issue-pr.js`)
-            await script(github, context, core)
+      - run: cd actions && node -r esm -r esbuild-register ./loader.ts ${{github.token}} issue-pr

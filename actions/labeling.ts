@@ -1,7 +1,6 @@
-import type { getOctokit, context as Context } from '@actions/github'
-import type Core from '@actions/core'
+import type { Action } from './types'
 
-export default async(github: ReturnType<typeof getOctokit>, context: typeof Context, core: typeof Core) => {
+const action: Action = async(github, context, core) => {
   const payload = context.payload
   const issue = payload.issue
 
@@ -52,3 +51,5 @@ export default async(github: ReturnType<typeof getOctokit>, context: typeof Cont
     core.info('No matched labels, skipped')
   }
 }
+
+export default action

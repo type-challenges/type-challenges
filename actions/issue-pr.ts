@@ -1,10 +1,7 @@
-/* eslint-disable prefer-template */
-/* eslint-disable @typescript-eslint/no-var-requires */
-// @ts-check
-
-const YAML = require('js-yaml')
-const slug = require('limax')
-const { PushCommit } = require('@type-challenges/octokit-create-pull-request')
+import YAML from 'js-yaml'
+import slug from 'limax'
+import { PushCommit } from '@type-challenges/octokit-create-pull-request'
+import type { Action, Github, Context } from './types'
 
 const Messages = {
   en: {
@@ -25,13 +22,7 @@ const Messages = {
   },
 }
 
-/**
- * @param {ReturnType<typeof import('@actions/github').getOctokit>} github
- * @param {typeof import('@actions/github').context} context
- * @param {typeof import('@actions/core')} core
- * @return {Promise<void>}
- */
-module.exports = async(github, context, core) => {
+const action: Action = async(github, context, core) => {
   const payload = context.payload || {}
   const issue = payload.issue
   const no = context.issue.number
@@ -39,8 +30,9 @@ module.exports = async(github, context, core) => {
   if (!issue)
     return
 
-  /** @type {string[]} */
-  const labels = (issue.labels || []).map(i => i && i.name).filter(Boolean)
+  const labels: string[] = (issue.labels || [])
+    .map((i: any) => i && i.name)
+    .filter(Boolean)
 
   // create pr for new challenge
   if (labels.includes('new-challenge')) {
@@ -52,8 +44,7 @@ module.exports = async(github, context, core) => {
     const tests = getCodeBlock(body, Messages[locale].tests, 'ts')
     const question = getCommentRange(body, 'question')
 
-    /** @type {any} */
-    let info = {}
+    let info: any = {}
 
     try {
       info = YAML.safeLoad(infoRaw || '')
@@ -136,9 +127,9 @@ module.exports = async(github, context, core) => {
       await updateComment(
         github,
         context,
-        Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
-          + '\n\n'
-          + getTimestampBadge(),
+        `${Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
+        }\n\n${
+          getTimestampBadge()}`,
       )
     }
     else {
@@ -160,9 +151,9 @@ module.exports = async(github, context, core) => {
         await updateComment(
           github,
           context,
-          Messages[locale].issue_reply.replace('{0}', pr.number.toString())
-            + '\n\n'
-            + getTimestampBadge(),
+          `${Messages[locale].issue_reply.replace('{0}', pr.number.toString())
+          }\n\n${
+            getTimestampBadge()}`,
         )
       }
     }
@@ -172,12 +163,7 @@ module.exports = async(github, context, core) => {
   }
 }
 
-/**
- * @param {ReturnType<typeof import('@actions/github').getOctokit>} github
- * @param {typeof import('@actions/github').context} context
- * @param {string} body
- */
-async function updateComment(github, context, body) {
+async function updateComment(github: Github, context: Context, body: string) {
   const { data: comments } = await github.issues.listComments({
     issue_number: context.issue.number,
     owner: context.repo.owner,
@@ -207,12 +193,7 @@ async function updateComment(github, context, body) {
   }
 }
 
-/**
- * @param {string} text
- * @param {string} title
- * @param {?string} lang
- */
-function getCodeBlock(text, title, lang = 'ts') {
+function getCodeBlock(text: string, title: string, lang = 'ts') {
   const regex = new RegExp(`## ${title}[\\s\\S]*?\`\`\`${lang}([\\s\\S]*?)\`\`\``)
   const match = text.match(regex)
   if (match && match[1])
@@ -220,11 +201,7 @@ function getCodeBlock(text, title, lang = 'ts') {
   return null
 }
 
-/**
- * @param {string} text
- * @param {string} key
- */
-function getCommentRange(text, key) {
+function getCommentRange(text: string, key: string) {
   const regex = new RegExp(`<!--${key}-start-->([\\s\\S]*?)<!--${key}-end-->`)
   const match = text.match(regex)
   if (match && match[1])
@@ -235,3 +212,5 @@ function getCommentRange(text, key) {
 function getTimestampBadge() {
   return `![${new Date().toISOString()}](https://img.shields.io/date/${Math.round(+new Date() / 1000)}?color=green&label=)`
 }
+
+export default action
