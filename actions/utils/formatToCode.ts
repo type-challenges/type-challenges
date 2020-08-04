@@ -1,5 +1,5 @@
-import { Quiz } from '../../scripts/types'
-import { SupportedLocales } from '../../scripts/locales'
+import type { Quiz } from '../../scripts/types'
+import type { SupportedLocales } from '../../scripts/locales'
 import { defaultLocale, t } from './locales'
 import { toCommentBlock } from './toCommentBlock'
 import { toInfoHeader } from './toInfoHeader'

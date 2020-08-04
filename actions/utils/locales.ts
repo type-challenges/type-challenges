@@ -1,4 +1,4 @@
-import { SupportedLocales } from '../../scripts/locales'
+import type { SupportedLocales } from '../../scripts/locales'
 
 export const defaultLocale = 'en'
 

@@ -5,7 +5,7 @@ import { defaultLocale } from './locales'
 
 const DOMAIN = 'https://type-challenges.netlify.app'
 
-export function toSolutionsShort(no: string) {
+export function toSolutionsShort(no: number) {
   return `${DOMAIN}/${no}/solutions`
 }
 
@@ -15,13 +15,13 @@ export function toHomepageShort(locale: SupportedLocales) {
     : `${DOMAIN}`
 }
 
-export function toAnswerShort(no: string, locale: SupportedLocales) {
+export function toAnswerShort(no: number, locale: SupportedLocales) {
   return locale !== defaultLocale
     ? `${DOMAIN}/${no}/answer/${locale}`
     : `${DOMAIN}/${no}/answer`
 }
 
-export function toReadmeShort(no: string, locale: SupportedLocales) {
+export function toReadmeShort(no: number, locale: SupportedLocales) {
   return locale !== defaultLocale
     ? `${DOMAIN}/${no}/${locale}`
     : `${DOMAIN}/${no}`
