@@ -11,7 +11,7 @@ async function main(): Promise<void> {
   const github = getOctokit(token)
 
   const fn = await import(`./${fnName}.ts`)
-  fn(github, context, core, io)
+  fn.default(github, context, core, io)
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
