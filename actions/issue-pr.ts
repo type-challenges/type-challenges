@@ -144,12 +144,8 @@ const action: Action = async(github, context, core) => {
         github,
         context,
         `${Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
-        }
-        
-       ${Messages[locale].playground_url.replace('{0}', playgroundURL)} 
-        
-        ${
-  getTimestampBadge()}`,
+        }\n${Messages[locale].playground_url.replace('{0}', playgroundURL)}\n\n${
+          getTimestampBadge()}`,
       )
     }
     else {
@@ -172,12 +168,8 @@ const action: Action = async(github, context, core) => {
           github,
           context,
           `${Messages[locale].issue_reply.replace('{0}', pr.number.toString())
-          }
-          
-          ${Messages[locale].playground_url.replace('{0}', playgroundURL)} 
-          
-          ${
-  getTimestampBadge()}`,
+          }\n${Messages[locale].playground_url.replace('{0}', playgroundURL)}\n\n${
+            getTimestampBadge()}`,
         )
       }
     }
