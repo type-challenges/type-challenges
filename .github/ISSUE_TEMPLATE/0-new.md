@@ -39,7 +39,7 @@ type YourType = any
 
 ## Test Cases
 
-Provide some test cases for your challenge, you can use some utils from `@type-challenges/utils` for assetion.  
+Provide some test cases for your challenge, you can use some utils from `@type-challenges/utils` for assertion.  
 
 ```ts
 import { Equal, Expect, ExpectFalse, NotEqual } from '@type-challenges/utils'
