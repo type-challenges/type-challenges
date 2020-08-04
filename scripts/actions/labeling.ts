@@ -1,4 +1,4 @@
-import type { Action } from './types'
+import { Action } from '../types'
 
 const action: Action = async(github, context, core) => {
   const payload = context.payload

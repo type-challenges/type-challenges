@@ -9,5 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd actions && npm i --only=production
-      - run: cd actions && node -r esm -r esbuild-register ./loader.ts ${{github.token}} issue-pr
+      - run: cd scripts && npm i --only=production
+      - run: cd scripts/actions && node -r esm -r esbuild-register ./loader.ts ${{github.token}} issue-pr

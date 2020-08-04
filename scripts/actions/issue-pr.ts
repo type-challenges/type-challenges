@@ -1,11 +1,11 @@
 import YAML from 'js-yaml'
 import slug from 'limax'
 import { PushCommit } from '@type-challenges/octokit-create-pull-request'
-import type { Action, Github, Context } from './types'
+import { Action, Context, Github } from '../types'
+import { t } from '../locales'
+import { toPlaygroundUrl } from '../toUrl'
+import { toBadgeLink } from '../readme'
 import { formatToCode } from './utils/formatToCode'
-import { toPlaygroundUrl } from './utils/toPlaygroundUrl'
-import { t } from './utils/locales'
-import { toBadgeLink } from './utils/readme'
 
 const Messages = {
   en: {
@@ -50,7 +50,7 @@ const action: Action = async(github, context, core) => {
     const tests = getCodeBlock(body, Messages[locale].tests, 'ts')
     const question = getCommentRange(body, 'question')
 
-    let info: any = {}
+    let info: any
 
     try {
       info = YAML.safeLoad(infoRaw || '')

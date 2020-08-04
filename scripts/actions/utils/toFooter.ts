@@ -1,7 +1,7 @@
-import { Quiz } from '../types'
-import { SupportedLocale, t } from './locales'
+import { Quiz } from '../../types'
 
-import { toAnswerShort, toHomepageShort, toSolutionsShort } from './toPlaygroundUrl'
+import { SupportedLocale, t } from '../../locales'
+import { toAnswerShort, toHomepageShort, toSolutionsShort } from '../../toUrl'
 
 export const toFooter = function(quiz: Quiz, locale: SupportedLocale) {
   return '\n\n'
