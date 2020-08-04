@@ -13,7 +13,7 @@ jobs:
       - uses: actions/github-script@v2
         with:
           script: |
-            require = require('${process.env.GITHUB_WORKSPACE}/node_modules/esm')(module)
-            require('${process.env.GITHUB_WORKSPACE}/node_modules/esbuild-register/register')
+            require = require(`${process.env.GITHUB_WORKSPACE}/node_modules/esm`)(module)
+            require(`${process.env.GITHUB_WORKSPACE}/node_modules/esbuild-register/register`)
             const script = require(`${process.env.GITHUB_WORKSPACE}/actions/labeling.ts`)
             await script(github, context, core)
