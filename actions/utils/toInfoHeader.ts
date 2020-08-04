@@ -1,7 +1,9 @@
+import { Quiz } from '../../scripts/types'
+import { SupportedLocales } from '../../scripts/locales'
 import { t } from './locales'
 import { resolveInfo } from './resolveInfo'
 
-export const toInfoHeader = function toInfoHeader(quiz, locale) {
+export const toInfoHeader = function toInfoHeader(quiz: Quiz, locale: SupportedLocales) {
   const info = resolveInfo(quiz, locale)
   return `${quiz.no} - ${info.title || ''}\n`
         + '-------\n'

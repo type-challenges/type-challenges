@@ -1,9 +1,9 @@
 import path from 'path'
 import fs from 'fs-extra'
+import { formatToCode } from '../actions/utils/formatToCode'
 import { loadQuizes, resolveInfo } from './loader'
 import { toPlaygroundUrl, toSolutionsShort, REPO, toSolutionsFull, toQuizREADME, toAnswerShort, toShareAnswerFull, toReadmeShort, toHomepageShort } from './toUrl'
 import { supportedLocales, defaultLocale, t, SupportedLocale } from './locales'
-import { formatToCode } from './utils/formatToCode'
 
 export async function build() {
   const quizes = await loadQuizes()

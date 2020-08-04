@@ -1,3 +1,5 @@
+import { Quiz } from '../../scripts/types'
+import { SupportedLocales } from '../../scripts/locales'
 import { defaultLocale, t } from './locales'
 import { toCommentBlock } from './toCommentBlock'
 import { toInfoHeader } from './toInfoHeader'
@@ -5,7 +7,7 @@ import { toLinks } from './toLinks'
 import { toDivider } from './toDivider'
 import { toFooter } from './toFooter'
 
-export const formatToCode = (quiz, locale) => {
+export const formatToCode = (quiz: Quiz, locale: SupportedLocales) => {
   return `${toCommentBlock(
     toInfoHeader(quiz, locale)
         + (quiz.readme[locale] || quiz.readme[defaultLocale])

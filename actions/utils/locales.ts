@@ -1,3 +1,5 @@
+import { SupportedLocales } from '../../scripts/locales'
+
 export const defaultLocale = 'en'
 
 export const supportedLocales = ['en', 'zh-CN']
@@ -7,11 +9,11 @@ export const messages = {
   'zh-CN': require('../locales/zh-CN.json'),
 }
 
-export function t(locale, key) {
+export function t(locale: SupportedLocales, key: string): string {
   return messages[locale][key] || messages[defaultLocale][key]
 }
 
-export function f(name, locale, ext) {
+export function f(name: string, locale: string, ext: string) {
   if (locale === defaultLocale)
     return `${name}.${ext}`
   return `${name}.${locale}.${ext}`
