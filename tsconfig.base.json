@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "module": "esnext",
-    "target": "es2017",
+    "target": "es2020",
     "lib": ["ESNext"],
     "strict": true,
     "esModuleInterop": true,
