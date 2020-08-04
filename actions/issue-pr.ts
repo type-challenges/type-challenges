@@ -13,7 +13,7 @@ const Messages = {
     issue_reply: '#{0} - Pull Request created.',
     issue_update_reply: '#{0} - Pull Request updated.',
     issue_invalid_reply: 'Failed to parse the issue, please follow the template.',
-    playground_url: 'test playground url: {0}',
+    playground_url: 'test playground url - [click me]({0})',
   },
   'zh-CN': {
     info: '基本信息',
@@ -22,7 +22,7 @@ const Messages = {
     issue_reply: '#{0} - PR 已生成',
     issue_update_reply: '#{0} - PR 已更新',
     issue_invalid_reply: 'Issue 格式不正确，请按照依照模版修正',
-    playground_url: '测试 playground 地址: {0}',
+    playground_url: '测试 playground 地址 - [点击我]({0})',
   },
 }
 
