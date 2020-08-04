@@ -10,6 +10,7 @@
     "esbuild": "^0.6.16",
     "esbuild-register": "^1.0.2",
     "esm": "^3.2.25",
+    "fast-glob": "^3.2.4",
     "fs-extra": "^9.0.1",
     "js-yaml": "^3.14.0",
     "limax": "^2.1.0",
