@@ -1,21 +1,15 @@
-/* eslint-disable @typescript-eslint/no-var-requires */
-// @ts-check
+import { Action } from './types'
 
-/**
- * @param {ReturnType<typeof import('@actions/github').getOctokit>} github
- * @param {typeof import('@actions/github').context} context
- * @param {typeof import('@actions/core')} core
- * @return {Promise<void>}
- */
-module.exports = async(github, context, core) => {
+const action: Action = async(github, context, core) => {
   const payload = context.payload || {}
   const issue = payload.issue
 
   if (!issue)
     return
 
-  /** @type {string[]} */
-  const labels = (issue.labels || []).map(i => i && i.name).filter(Boolean)
+  const labels: string[] = (issue.labels || [])
+    .map((i: any) => i && i.name)
+    .filter(Boolean)
 
   if (!labels.includes('new-challenge'))
     return
@@ -34,7 +28,7 @@ module.exports = async(github, context, core) => {
   const { data: pulls } = await github.pulls.list({
     owner: context.repo.owner,
     repo: context.repo.repo,
-    state: action === 'closed' ? 'open' : 'close',
+    state: action === 'closed' ? 'open' : 'closed',
   })
 
   core.info(`pulls.length ${pulls.length}`)
@@ -68,3 +62,5 @@ module.exports = async(github, context, core) => {
     })
   }
 }
+
+export default action
