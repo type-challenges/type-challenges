@@ -50,8 +50,8 @@ function toDifficultyBadge(difficulty: string, locale: SupportedLocale) {
   return toBadge('', t(locale, `difficulty.${difficulty}`), DifficultyColors[difficulty])
 }
 
-function toDifficultyBadgeInverted(difficulty: string, locale: SupportedLocale) {
-  return toBadge(t(locale, `difficulty.${difficulty}`), ' ', DifficultyColors[difficulty])
+function toDifficultyBadgeInverted(difficulty: string, locale: SupportedLocale, count: number) {
+  return toBadge(t(locale, `difficulty.${difficulty}`), count.toString(), DifficultyColors[difficulty])
 }
 
 function quizToBadge(quiz: Quiz, locale: string) {
@@ -101,7 +101,7 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
 
   const info = resolveInfo(quiz, locale)
 
-  const avaliableLocales = supportedLocales.filter(l => l !== locale).filter(l => !!quiz.readme[l])
+  const availableLocales = supportedLocales.filter(l => l !== locale).filter(l => !!quiz.readme[l])
 
   text = text
     .replace(
@@ -111,7 +111,7 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
       + `<blockquote><p>${toAuthorInfo(info.author)}</p></blockquote>`
       + '<p>'
       + toBadgeLink(toPlayShort(quiz.no, locale), '', t(locale, 'badge.take-the-challenge'), '3178c6', '?logo=typescript')
-      + (avaliableLocales.length ? ('&nbsp;&nbsp;&nbsp;' + avaliableLocales.map(l => toBadgeLink(toNearborREADME(quiz, l), '', t(l, 'display'), 'gray')).join(' ')) : '')
+      + (availableLocales.length ? ('&nbsp;&nbsp;&nbsp;' + availableLocales.map(l => toBadgeLink(toNearborREADME(quiz, l), '', t(l, 'display'), 'gray')).join(' ')) : '')
       + '</p>'
       + '<!--info-header-end-->',
     )
@@ -140,9 +140,10 @@ async function updateIndexREADME(quizes: Quiz[]) {
 
     // Difficulty
     const quizesByDifficulty = [...quizes].sort((a, b) => DifficultyRank.indexOf(a.difficulty) - DifficultyRank.indexOf(b.difficulty))
+
     for (const quiz of quizesByDifficulty) {
       if (prev !== quiz.difficulty)
-        challengesREADME += `${prev ? '<br><br>' : ''}${toDifficultyBadgeInverted(quiz.difficulty, locale)}<br>`
+        challengesREADME += `${prev ? '<br><br>' : ''}${toDifficultyBadgeInverted(quiz.difficulty, locale, quizesByDifficulty.filter(q => q.difficulty === quiz.difficulty).length)}<br>`
 
       challengesREADME += quizToBadge(quiz, locale)
 
