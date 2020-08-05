@@ -1,0 +1,1 @@
+type GetOptional<T> = any
