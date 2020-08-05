@@ -2,7 +2,7 @@ name: Labeling
 
 on:
   issues:
-    types: [opened]
+    types: [opened, labeled]
 
 jobs:
   start:

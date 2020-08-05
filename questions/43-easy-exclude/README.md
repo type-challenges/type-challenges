@@ -1,4 +1,4 @@
-<!--info-header-start--><h1>Exclude <img src="https://img.shields.io/badge/-easy-90bb12" alt="easy"/> </h1><blockquote><p>by Zheeeng <a href="https://github.com/zheeeng" target="_blank">@zheeeng</a></p></blockquote><p><a href="https://type-challenges.netlify.app/43/play" target="_blank"><img src="https://img.shields.io/badge/-Take%20the%20Challenge-3178c6?logo=typescript" alt="Take the Challenge"/></a> </p><!--info-header-end-->
+<!--info-header-start--><h1>Exclude <img src="https://img.shields.io/badge/-easy-90bb12" alt="easy"/> <img src="https://img.shields.io/badge/-%23built--in-999" alt="#built-in"/></h1><blockquote><p>by Zheeeng <a href="https://github.com/zheeeng" target="_blank">@zheeeng</a></p></blockquote><p><a href="https://type-challenges.netlify.app/43/play" target="_blank"><img src="https://img.shields.io/badge/-Take%20the%20Challenge-3178c6?logo=typescript" alt="Take the Challenge"/></a> </p><!--info-header-end-->
 
 Implement the built-in Exclude<T, U>
 > Exclude from T those types that are assignable to U
