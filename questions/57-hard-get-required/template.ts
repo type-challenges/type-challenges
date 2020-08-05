@@ -1,0 +1,1 @@
+type GetRequired<T> = any
