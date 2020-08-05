@@ -1,7 +1,11 @@
 import YAML from 'js-yaml'
 import slug from 'limax'
 import { PushCommit } from '@type-challenges/octokit-create-pull-request'
-import type { Action, Github, Context } from './types'
+import { Action, Context, Github } from '../types'
+import { t } from '../locales'
+import { toPlaygroundUrl } from '../toUrl'
+import { toBadgeLink } from '../readme'
+import { formatToCode } from './utils/formatToCode'
 
 const Messages = {
   en: {
@@ -44,7 +48,7 @@ const action: Action = async(github, context, core) => {
     const tests = getCodeBlock(body, Messages[locale].tests, 'ts')
     const question = getCommentRange(body, 'question')
 
-    let info: any = {}
+    let info: any
 
     try {
       info = YAML.safeLoad(infoRaw || '')
@@ -121,15 +125,31 @@ const action: Action = async(github, context, core) => {
       fresh: !existing_pull,
     })
 
+    const playgroundURL = toPlaygroundUrl(formatToCode({
+      no,
+      difficulty: info.difficulty,
+      path: '',
+      info,
+      template,
+      tests,
+      readme: {
+        [locale]: question,
+      },
+    }, locale))
+
+    const playgroundBadge = toBadgeLink(playgroundURL, '', t(locale, 'badge.preview-playground'), '3178c6', '?logo=typescript')
+    const createMessageBody = (prNumber: number) =>
+      `${Messages[locale].issue_update_reply.replace('{0}', prNumber.toString())
+      }\n\n${
+        getTimestampBadge()}  ${playgroundBadge}`
+
     if (existing_pull) {
       core.info('-----Pull Request Existed-----')
       core.info(JSON.stringify(existing_pull, null, 2))
       await updateComment(
         github,
         context,
-        `${Messages[locale].issue_update_reply.replace('{0}', existing_pull.number.toString())
-        }\n\n${
-          getTimestampBadge()}`,
+        createMessageBody(existing_pull.number),
       )
     }
     else {
@@ -151,9 +171,7 @@ const action: Action = async(github, context, core) => {
         await updateComment(
           github,
           context,
-          `${Messages[locale].issue_reply.replace('{0}', pr.number.toString())
-          }\n\n${
-            getTimestampBadge()}`,
+          createMessageBody(pr.number),
         )
       }
     }
