@@ -10,4 +10,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: cd scripts && npm i --only=production
-      - run: cd scripts/actions && node -r esm -r esbuild-register ./loader.ts ${{github.token}} issue-pr
+      - run: cd scripts/actions && npx esno ./loader.ts ${{github.token}} issue-pr
