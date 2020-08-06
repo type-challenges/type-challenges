@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "readme": "ts-node ./scripts/readme.ts",
-    "build": "ts-node ./scripts/build.ts",
+    "readme": "esno ./scripts/readme.ts",
+    "build": "esno ./scripts/build.ts",
     "utils:release": "pnpm -C utils release"
   },
   "devDependencies": {
@@ -21,16 +21,15 @@
     "@typescript-eslint/eslint-plugin": "^3.7.0",
     "@typescript-eslint/parser": "^3.7.0",
     "eslint": "^7.5.0",
+    "typescript": "^4.0.0-beta",
+    "utility-types": "^3.10.0"
+  },
+  "dependencies": {
+    "esno": "^0.2.0",
     "fast-glob": "^3.2.4",
     "fs-extra": "^9.0.1",
-    "husky": "^4.2.5",
     "js-yaml": "^3.14.0",
-    "lz-string": "^1.4.4",
-    "rollup": "^2.22.2",
-    "rollup-plugin-dts": "^1.4.9",
-    "rollup-plugin-typescript2": "^0.27.1",
-    "ts-node": "^8.10.2",
-    "typescript": "^4.0.0-beta"
+    "lz-string": "^1.4.4"
   },
   "eslintConfig": {
     "extends": "@antfu/eslint-config-ts",
@@ -39,8 +38,5 @@
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off"
     }
-  },
-  "dependencies": {
-    "utility-types": "^3.10.0"
   }
 }

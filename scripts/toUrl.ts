@@ -5,7 +5,7 @@ import { resolveInfo } from './loader'
 
 export const REPO = 'https://github.com/type-challenges/type-challenges'
 export const DOMAIN = 'https://type-challenges.netlify.app'
-export const TYPESCRIPT_PLAYGROUND = 'https://www.staging-typescript.org/play'
+export const TYPESCRIPT_PLAYGROUND = 'https://www.typescriptlang.org/play'
 
 // https://github.com/microsoft/TypeScript-Website/tree/v2/packages/playground
 export function toPlaygroundUrl(
