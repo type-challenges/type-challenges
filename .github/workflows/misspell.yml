@@ -1,0 +1,16 @@
+name: misspell
+
+on:
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: sobolevn/misspell-fixer-action@master
+    - uses: peter-evans/create-pull-request@v2.4.4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        commit-message: 'chore: typo'
+        title: 'Typos fix by misspell-fixer'
