@@ -75,21 +75,6 @@ const action: Action = async(github, context, core) => {
     core.info(JSON.stringify(translateQuestion.data, null, 2))
     core.info('-----translate-----')
 
-    core.info('-----Parsed-----')
-    core.info(
-      JSON.stringify(
-        {
-          info,
-          template,
-          tests,
-          question,
-          translateQuestion: translateQuestion.data,
-        },
-        null,
-        2,
-      ),
-    )
-
     // invalid issue
     if (!question || !template || !tests || !info) {
       await updateComment(
@@ -110,6 +95,24 @@ const action: Action = async(github, context, core) => {
       info.author.github = issue.user.login
       if (user) info.author.name = user.name
     }
+
+    core.info(`user: ${JSON.stringify(user)}`)
+    core.info(`info: ${JSON.stringify(info)}`)
+
+    core.info('-----Parsed-----')
+    core.info(
+      JSON.stringify(
+        {
+          info,
+          template,
+          tests,
+          question,
+          translateQuestion: translateQuestion.data,
+        },
+        null,
+        2,
+      ),
+    )
 
     const { data: pulls } = await github.pulls.list({
       owner: context.repo.owner,
