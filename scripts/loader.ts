@@ -13,20 +13,37 @@ export async function loadFile(filepath: string) {
 
 export async function loadLocaleVariations<T = string>(
   filepath: string,
-  postprocessor: (s: string) => T = s => s as any as T,
+  preprocessor: (s: string) => T = s => s as any as T,
+  translator?: (s: T) => Promise<T>,
 ) {
   const { ext, dir, name } = path.parse(filepath)
   const data: Record<string, T> = {}
+
   for (const locale of supportedLocales) {
-    const file = postprocessor(await loadFile(path.join(dir, `${name}.${locale}${ext}`)) || '')
+    const file = preprocessor(await loadFile(path.join(dir, `${name}.${locale}${ext}`)) || '')
+
     if (file)
       data[locale] = file
   }
+
+  // seems like only have en version
+  // so we need add a other version
   if (!data[defaultLocale]) {
-    const file = postprocessor(await loadFile(filepath) || '')
+    // default version
+    const file = preprocessor(await loadFile(filepath) || '')
     if (file)
       data[defaultLocale] = file
+
+    if (translator) {
+      // add other version
+      const otherVersion = supportedLocales.filter(locale => locale !== defaultLocale)
+
+      for (const locale of otherVersion)
+        // data[locale] = await translator(locale)
+        data[locale] = await loadFile(filepath).then(text => preprocessor(text || '')).then(data => translator(data))
+    }
   }
+
   return data
 }
 
