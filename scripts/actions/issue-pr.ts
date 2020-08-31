@@ -168,7 +168,9 @@ const action: Action = async(github, context, core) => {
           no,
           difficulty: info.difficulty,
           path: '',
-          info,
+          info: {
+            [locale]: info,
+          },
           template,
           tests,
           readme: {
