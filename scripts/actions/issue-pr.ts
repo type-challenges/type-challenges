@@ -143,7 +143,7 @@ const action: Action = async(github, context, core) => {
 
           [locale === 'en'
             ? `${dir}/README.${locale}.md`
-            : `${dir}/README.md`]: `${translateQuestion}\n`,
+            : `${dir}/README.md`]: `${translateQuestion.data[0]}\n`,
 
           [`${dir}/template.ts`]: `${template}\n`,
           [`${dir}/test-cases.ts`]: `${tests}\n`,
