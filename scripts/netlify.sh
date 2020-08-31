@@ -1,4 +1,3 @@
 cd ..
-npm i -g pnpm
-pnpm i
-pnpm build
+npx pnpm i
+npm run build
