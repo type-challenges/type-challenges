@@ -70,7 +70,7 @@ const action: Action = async(github, context, core) => {
     core.info(JSON.stringify(context.payload, null, 2))
 
     core.info('-----translate-----')
-    core.info(JSON.stringify(translateQuestion, null, 2))
+    core.info(JSON.stringify(translateQuestion.data, null, 2))
     core.info('-----translate-----')
 
     core.info('-----Parsed-----')
@@ -81,7 +81,7 @@ const action: Action = async(github, context, core) => {
           template,
           tests,
           question,
-          translateQuestion,
+          translateQuestion: translateQuestion.data,
         },
         null,
         2,
