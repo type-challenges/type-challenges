@@ -148,7 +148,7 @@ const action: Action = async(github, context, core) => {
 
           [locale === 'en'
             ? `${dir}/README.${locale}.md`
-            : `${dir}/README.md`]: `${translateQuestion.data[0]}\n\n${Messages[locale === 'en' ? 'zh-CN' : 'en'].pr_auto_translate_tips}`,
+            : `${dir}/README.md`]: `${translateQuestion.data[0]}\n\n> ${Messages[locale === 'en' ? 'zh-CN' : 'en'].pr_auto_translate_tips}`,
 
           [`${dir}/template.ts`]: `${template}\n`,
           [`${dir}/test-cases.ts`]: `${tests}\n`,
