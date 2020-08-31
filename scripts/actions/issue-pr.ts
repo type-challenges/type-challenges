@@ -17,6 +17,7 @@ const Messages = {
     issue_update_reply: '#{0} - Pull Request updated.',
     issue_invalid_reply:
       'Failed to parse the issue, please follow the template.',
+    pr_auto_translate_tips: 'auto translate by google api',
   },
   'zh-CN': {
     info: '基本信息',
@@ -25,6 +26,7 @@ const Messages = {
     issue_reply: '#{0} - PR 已生成',
     issue_update_reply: '#{0} - PR 已更新',
     issue_invalid_reply: 'Issue 格式不正确，请按照依照模版修正',
+    pr_auto_translate_tips: '通过谷歌 API 自动翻译',
   },
 }
 
@@ -143,7 +145,7 @@ const action: Action = async(github, context, core) => {
 
           [locale === 'en'
             ? `${dir}/README.${locale}.md`
-            : `${dir}/README.md`]: `${translateQuestion.data[0]}\n`,
+            : `${dir}/README.md`]: `${translateQuestion.data[0]}\n\n${Messages[locale === 'en' ? 'zh-CN' : 'en'].pr_auto_translate_tips}`,
 
           [`${dir}/template.ts`]: `${template}\n`,
           [`${dir}/test-cases.ts`]: `${tests}\n`,
