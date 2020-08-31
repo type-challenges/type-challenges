@@ -17,7 +17,7 @@ const Messages = {
     issue_update_reply: '#{0} - Pull Request updated.',
     issue_invalid_reply:
       'Failed to parse the issue, please follow the template.',
-    pr_auto_translate_tips: 'auto translate by google api',
+    pr_auto_translate_tips: 'Auto translated by Google Translate',
   },
   'zh-CN': {
     info: '基本信息',
