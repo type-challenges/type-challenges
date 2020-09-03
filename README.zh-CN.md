@@ -37,7 +37,7 @@ TypeScript 类型体操姿势合集
 
 ### 官方资源
 
-- [The Typescript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+- [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
   - [Unions and Intersection Types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html)
   - [Literal Types](https://www.typescriptlang.org/docs/handbook/literal-types.html)
   - [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)

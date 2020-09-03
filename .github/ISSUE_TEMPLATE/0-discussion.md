@@ -8,6 +8,6 @@ labels: discussion
 <details>
 <summary>💭 Discussion</summary>
 
-Talk anything about Typescript or its Type System.
+Talk anything about TypeScript or its Type System.
 
 </details>
