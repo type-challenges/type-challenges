@@ -53,12 +53,6 @@ const action: Action = async(github, context, core) => {
     const tests = getCodeBlock(body, Messages[locale].tests, 'ts')
     const question = getCommentRange(body, 'question')
 
-    // auto translate to other language
-    const translateQuestion = await translate(question as string, {
-      tld: locale === 'en' ? 'cn' : 'com',
-      to: locale === 'en' ? 'zh-CN' : 'cn',
-    })
-
     let info: any
 
     try {
@@ -70,10 +64,6 @@ const action: Action = async(github, context, core) => {
 
     core.info('-----Playload-----')
     core.info(JSON.stringify(context.payload, null, 2))
-
-    core.info('-----translate-----')
-    core.info(JSON.stringify(translateQuestion.data, null, 2))
-    core.info('-----translate-----')
 
     // invalid issue
     if (!question || !template || !tests || !info) {
@@ -93,7 +83,8 @@ const action: Action = async(github, context, core) => {
     if (!info.author) {
       info.author = info.author || {}
       info.author.github = issue.user.login
-      if (user) info.author.name = user.name
+      if (user)
+        info.author.name = user.name
     }
 
     core.info(`user: ${JSON.stringify(user)}`)
@@ -107,7 +98,6 @@ const action: Action = async(github, context, core) => {
           template,
           tests,
           question,
-          translateQuestion: translateQuestion.data,
         },
         null,
         2,
@@ -130,6 +120,16 @@ const action: Action = async(github, context, core) => {
       { tone: false },
     )}`
     const userEmail = `${user.id}+${user.login}@users.noreply.github.com`
+
+    // auto translate to other language
+    // TODO: make it more general
+    const translateQuestion = await translate(question as string, {
+      tld: locale === 'en' ? 'cn' : 'com',
+      to: locale === 'en' ? 'zh-CN' : 'cn',
+    })
+
+    core.info('-----Translate-----')
+    core.info(JSON.stringify(translateQuestion.data, null, 2))
 
     await PushCommit(github, {
       owner: context.repo.owner,
