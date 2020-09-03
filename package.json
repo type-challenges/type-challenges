@@ -6,7 +6,6 @@
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "readme": "esno ./scripts/readme.ts",
     "build": "esno ./scripts/build.ts",
     "utils:release": "pnpm -C utils release"
