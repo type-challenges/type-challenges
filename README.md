@@ -20,7 +20,7 @@ English | <a href='./README.zh-CN.md'>简体中文</a>
 <del><em>by the power of TypeScript's well-known <a href="https://github.com/microsoft/TypeScript/issues/14833">Turing Completed</a> type system</em></del>
 </p>
 
-High quality types can help with projects' maintainability and avoiding bugs. There are a bunch of awesome type utilities libraries may boosting your works on types, like [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility-types](https://github.com/piotrwitek/utility-types), [SimplyTyped](https://github.com/andnp/SimplyTyped), etc. We took a lot of inspiration from them too!
+High quality types can help with projects' maintainability and avoiding bugs. There are a bunch of awesome type utilities libraries may boosting your works on types, like [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility-types](https://github.com/piotrwitek/utility-types), [SimplyTyped](https://github.com/andnp/SimplyTyped), etc. We took a lot of inspiration from.
 
 This project is aim to make you better understand how the type system works, writing your own utilities, or just having fun with the challenges. We are also trying to form a community that you can ask and answer questions you have faced in realworld - they may become part the challenges as well!
 
