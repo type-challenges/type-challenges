@@ -4,7 +4,7 @@ import { defaultLocale } from './locales'
 import { resolveInfo } from './loader'
 
 export const REPO = 'https://github.com/type-challenges/type-challenges'
-export const DOMAIN = 'https://tsch.js.org/'
+export const DOMAIN = 'https://tsch.js.org'
 export const TYPESCRIPT_PLAYGROUND = 'https://www.typescriptlang.org/play'
 
 // https://github.com/microsoft/TypeScript-Website/tree/v2/packages/playground
