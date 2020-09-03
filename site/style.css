@@ -1,0 +1,60 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  color: #304455;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+
+div {
+  text-align: center;
+}
+
+h1 {
+  font-weight: 400;
+  margin: 0;
+  font-size: 1.5em;
+  color: #273849;
+  opacity: 0.7;
+}
+
+a.button {
+  padding: 0.75em 2em;
+  border-radius: 2em;
+  display: inline-block;
+  color: #fff;
+  background-color: #304455;
+  transition: all 0.15s ease;
+  box-sizing: border-box;
+  border: 1px solid #304455;
+  text-decoration: none;
+
+  margin: 2em 0;
+  font-size: 0.9em;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  min-width: 8em;
+  text-align: center;
+
+  text-transform: uppercase;
+}

@@ -10,7 +10,6 @@ export async function build() {
   const redirects: [string, string, number][] = []
 
   // redirect homepage to github repo
-  redirects.push(['/', `${REPO}/blob/master/README.md`, 302])
   supportedLocales.filter(locale => locale !== defaultLocale).forEach((locale) => {
     redirects.push([`/${locale}`, `${REPO}/blob/master/README.${locale}.md`, 302])
   })

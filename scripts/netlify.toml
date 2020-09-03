@@ -1,2 +1,7 @@
 [build]
   ignore = "git diff --quiet HEAD^ HEAD .."
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
