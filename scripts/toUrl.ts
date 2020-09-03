@@ -35,7 +35,10 @@ export function toNearborREADME(quiz: Quiz, locale?: string) {
 
 export function toShareAnswerFull(quiz: Quiz, locale: string = defaultLocale) {
   const info = resolveInfo(quiz, locale)
-  return `https://github.com/type-challenges/type-challenges/issues/new?labels=answer,${encodeURIComponent(locale)}&template=answer.md&title=${encodeURIComponent(`${quiz.no} - ${info.title}`)}`
+  if (locale === defaultLocale)
+    return `https://github.com/type-challenges/type-challenges/issues/new?labels=answer,${encodeURIComponent(locale)}&template=0-answer.md&title=${encodeURIComponent(`${quiz.no} - ${info.title}`)}`
+  else
+    return `https://github.com/type-challenges/type-challenges/issues/new?labels=answer,${encodeURIComponent(locale)}&template=1-answer.${locale}.md&title=${encodeURIComponent(`${quiz.no} - ${info.title}`)}`
 }
 
 // Short

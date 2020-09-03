@@ -2,7 +2,7 @@
 name: Answers
 about: Share answers/solutions to a question
 title: "no - "
-labels: answer
+labels: answer, en
 ---
 
 <details>
