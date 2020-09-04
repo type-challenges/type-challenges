@@ -3,8 +3,8 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "@actions/core": "^1.2.4",
-    "@actions/github": "^3.0.0",
+    "@actions/core": "^1.2.5",
+    "@actions/github": "^4.0.0",
     "@actions/io": "^1.0.2",
     "@type-challenges/octokit-create-pull-request": "^0.1.8",
     "esno": "^0.2.0",
@@ -16,7 +16,7 @@
     "lz-string": "^1.4.4"
   },
   "devDependencies": {
-    "@octokit/types": "^5.2.1",
+    "@octokit/types": "^5.4.1",
     "@types/js-yaml": "^3.12.5",
     "@types/lz-string": "^1.3.34"
   }

@@ -7,7 +7,4 @@ author:
 
 tags: array, 4.0
 
-tsconfig: 
-  ts: 4.0.0-beta
-
 related: 14, 16
