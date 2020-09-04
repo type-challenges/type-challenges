@@ -173,7 +173,7 @@ const action: Action = async(github, context, core) => {
       fresh: !existing_pull,
     })
 
-    const playgroundURL = toPlaygroundUrl(formatToCode(quiz, locale))
+    const playgroundURL = toPlaygroundUrl(formatToCode(quiz, locale), info.tsconfig || {})
 
     const playgroundBadge = toBadgeLink(
       playgroundURL,
