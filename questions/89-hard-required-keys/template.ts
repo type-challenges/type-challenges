@@ -1,0 +1,1 @@
+type RequiredKeys<T> = any
