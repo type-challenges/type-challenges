@@ -2,10 +2,11 @@ import YAML from 'js-yaml'
 import slug from 'limax'
 import { PushCommit } from '@type-challenges/octokit-create-pull-request'
 import translate from 'google-translate-open-api'
-import { Action, Context, Github } from '../types'
-import { t } from '../locales'
+import { Action, Context, Github, Quiz } from '../types'
+import { t, defaultLocale } from '../locales'
 import { toPlaygroundUrl } from '../toUrl'
 import { toBadgeLink } from '../readme'
+import { resolveInfo } from '../loader'
 import { formatToCode } from './utils/formatToCode'
 
 const Messages = {
@@ -31,6 +32,13 @@ const Messages = {
 }
 
 export const getOthers = <A, B>(condition: boolean, a: A, b: B): A | B => condition ? a : b
+
+function resolveFilePath(dir: string, name: string, ext: string, locale: string) {
+  if (locale === defaultLocale)
+    return `${dir}/${name}.${ext}`
+  else
+    return `${dir}/${name}.${locale}.${ext}`
+}
 
 const action: Action = async(github, context, core) => {
   const payload = context.payload || {}
@@ -90,19 +98,22 @@ const action: Action = async(github, context, core) => {
     core.info(`user: ${JSON.stringify(user)}`)
     core.info(`info: ${JSON.stringify(info)}`)
 
+    const quiz: Quiz = {
+      no,
+      difficulty: info.difficulty,
+      path: '',
+      info: {
+        [locale]: info,
+      },
+      template,
+      tests,
+      readme: {
+        [locale]: question,
+      },
+    }
+
     core.info('-----Parsed-----')
-    core.info(
-      JSON.stringify(
-        {
-          info,
-          template,
-          tests,
-          question,
-        },
-        null,
-        2,
-      ),
-    )
+    core.info(JSON.stringify(quiz, null, 2))
 
     const { data: pulls } = await github.pulls.list({
       owner: context.repo.owner,
@@ -121,15 +132,30 @@ const action: Action = async(github, context, core) => {
     )}`
     const userEmail = `${user.id}+${user.login}@users.noreply.github.com`
 
-    // auto translate to other language
-    // TODO: make it more general
-    const translateQuestion = await translate(question as string, {
-      tld: locale === 'en' ? 'cn' : 'com',
-      to: locale === 'en' ? 'zh-CN' : 'cn',
-    })
+    const files: Record<string, string> = {
+      [resolveFilePath(dir, 'info', 'yml', locale)]: `${YAML.safeDump(info)}\n`,
+      [resolveFilePath(dir, 'README', 'md', locale)]: `${question}\n`,
+      [`${dir}/template.ts`]: `${template}\n`,
+      [`${dir}/test-cases.ts`]: `${tests}\n`,
+    }
 
-    core.info('-----Translate-----')
-    core.info(JSON.stringify(translateQuestion.data, null, 2))
+    // TODO: add check box in the template for user to opt-in this
+    const TRANSLATE = false
+    if (TRANSLATE) {
+      // auto translate to other language
+      // TODO: make it more general
+      const translateQuestion = await translate(question as string, {
+        tld: locale === 'en' ? 'cn' : 'com',
+        to: locale === 'en' ? 'zh-CN' : 'cn',
+      })
+
+      core.info('-----Translate-----')
+      core.info(JSON.stringify(translateQuestion.data, null, 2))
+
+      files[locale === 'en'
+        ? `${dir}/README.zh-CN.md`
+        : `${dir}/README.md`] = `${translateQuestion.data[0]}\n\n> ${Messages[locale === 'en' ? 'zh-CN' : 'en'].pr_auto_translate_tips}`
+    }
 
     await PushCommit(github, {
       owner: context.repo.owner,
@@ -137,22 +163,7 @@ const action: Action = async(github, context, core) => {
       base: 'master',
       head: `pulls/${no}`,
       changes: {
-        files: {
-          [locale === 'en'
-            ? `${dir}/info.yml`
-            : `${dir}/info.${locale}.yml`]: `${YAML.safeDump(info)}\n`,
-
-          [locale === 'en'
-            ? `${dir}/README.md`
-            : `${dir}/README.${locale}.md`]: `${question}\n`,
-
-          [locale === 'en'
-            ? `${dir}/README.zh-CN.md`
-            : `${dir}/README.md`]: `${translateQuestion.data[0]}\n\n> ${Messages[locale === 'en' ? 'zh-CN' : 'en'].pr_auto_translate_tips}`,
-
-          [`${dir}/template.ts`]: `${template}\n`,
-          [`${dir}/test-cases.ts`]: `${tests}\n`,
-        },
+        files,
         commit: `feat(question): add #${no} - ${info.title}`,
         author: {
           name: user.name,
@@ -162,24 +173,7 @@ const action: Action = async(github, context, core) => {
       fresh: !existing_pull,
     })
 
-    const playgroundURL = toPlaygroundUrl(
-      formatToCode(
-        {
-          no,
-          difficulty: info.difficulty,
-          path: '',
-          info: {
-            [locale]: info,
-          },
-          template,
-          tests,
-          readme: {
-            [locale]: question,
-          },
-        },
-        locale,
-      ),
-    )
+    const playgroundURL = toPlaygroundUrl(formatToCode(quiz, locale))
 
     const playgroundBadge = toBadgeLink(
       playgroundURL,
