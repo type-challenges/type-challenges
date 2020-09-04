@@ -62,18 +62,21 @@ There are several ways you can contribute to this project
 - Provide learning resources or ideas of how to solve challenges
 - Share the problems you have faced in realworld projects, regardless you having the solution or not - the community would help you as well.
 - Help with others by discussion in issues
+- Contribute the infra of this project [TODOs.md](./TODOs.md)
 
 Just [open an issue](https://github.com/type-challenges/type-challenges/issues/new/choose) and choose the cosponsing template. Thanks!
 
 ## Thanks
 
-Inspired by
+This project was born from solving realworld types problem with [@hardfist](https://github.com/hardfist) and [@MeCKodo](https://github.com/MeCKodo). And great thanks to [@sinoon](https://github.com/sinoon) who contributed a lot while giving early feedback on this project.
+
+### Inspired by
 
 - [piotrwitek/utility-types](https://github.com/piotrwitek/utility-types)
 - [psmyrdek/typescript-challenges](https://github.com/psmyrdek/typescript-challenges)
 - [andnp/SimplyTyped](https://github.com/andnp/SimplyTyped)
 
-Contributors
+### Contributors
 
 > TODO
 

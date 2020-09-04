@@ -1,0 +1,13 @@
+## TODOs
+
+A list of TODOs for this project, PR welcome!
+
+- [ ] Auto translate for Chinese -> English / English -> Chinese. With a checkbox to opt-in in the new challenge issues.
+
+- [ ] A plugin for TypeScript Playground that provides some hint and form functionality to boost the experiences on taking challenges.
+
+- [ ] More learning resoureses.
+
+- [ ] "Recent Challenges" section in the README
+
+- [ ] Contributors graph
