@@ -1,4 +1,4 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import { Alike, Expect } from '@type-challenges/utils'
 
 declare const a: Chainable
 
@@ -9,7 +9,7 @@ const result = a
   .get()
 
 type cases = [
-  Expect<Equal<typeof result, Expected>>
+  Expect<Alike<typeof result, Expected>>
 ]
 
 type Expected = {
