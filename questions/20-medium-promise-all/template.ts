@@ -1,1 +1,1 @@
-declare function PromiseAll(promises: any[]): any
+declare function PromiseAll(values: any): any
