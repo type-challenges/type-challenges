@@ -62,7 +62,7 @@ TypeScript 类型体操姿势合集
 - 分享你在真实项目中遇到的类型问题（无论你找到答案与否）- 大家会一起帮你找到解决的思路
 - 通过在 Issue 下留言帮助他人
 
-[开一个新的 Issue](https://github.com/type-challenges/type-challenges/issues/new/choose) 并选择相应的模版即可，感谢参与！
+[开一个新的 Issue](https://github.com/type-challenges/type-challenges/issues/new/choose) 并选择相应的模板即可，感谢参与！
 
 > 💡 尽管你可以使用中文进行讨论，我们还是鼓励你尝试使用英文发起 Issue 与评论，这样可以让你的问题被更多人看到也可以帮助更多人。
 
