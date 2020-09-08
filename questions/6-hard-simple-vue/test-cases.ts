@@ -6,6 +6,8 @@ SimpleVue({
     // @ts-expect-error
     this.firstname
     // @ts-expect-error
+    this.getRandom()
+    // @ts-expect-error
     this.data()
 
     return {
