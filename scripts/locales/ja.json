@@ -1,0 +1,22 @@
+{
+  "badge.back": "バック",
+  "badge.checkout-solutions": "ソリューションを確認する",
+  "badge.preview-playground": "プレイグラウンドでプレビュー",
+  "badge.share-your-solutions": "ソリューションを共有する",
+  "badge.take-the-challenge": "挑戦する",
+  "difficulty.easy": "簡単",
+  "difficulty.extreme": "極端な",
+  "difficulty.hard": "ハード",
+  "difficulty.medium": "中",
+  "difficulty.warm": "準備し始める",
+  "display": "日本語",
+  "divider.code-start": "ここにあなたのコード",
+  "divider.further-steps": "さらなるステップ",
+  "divider.test-cases": "テストケース",
+  "link.checkout-solutions": "ソリューションを見る：",
+  "link.more-challenges": "その他の課題：",
+  "link.share-solutions": "ソリューションを共有する：",
+  "link.view-on-github": "GitHubで",
+  "readme.related-challenges": "関連する課題",
+  "title.question": "質問"
+}

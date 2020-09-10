@@ -2,9 +2,9 @@
 
 Hello, World!
 
-In Type Challenges, we uses the type system itself to do the assertion. 
+Type Challenges では、型システム自体を使用してアサーションを実行します。
 
-For this challenge, you will need to change the following code to make the tests pass (no type check errors).
+この課題では、次のコードを変更してテストに合格する必要があります（型チェックエラーなし）。
 
 ```ts
 // expected to be string
@@ -16,6 +16,6 @@ type HelloWorld = any
 type test = Expect<Equal<HelloWorld, string>>
 ```
 
-Click the `Take the Challenge` button to start coding! Happy Hacking!
+「挑戦する」ボタンをクリックしてコーディングを開始してください！ ハッキングハッピー！
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/13/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/13/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->

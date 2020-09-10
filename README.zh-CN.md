@@ -10,7 +10,7 @@ TypeScript 类型体操姿势合集
 <br>
 
 <p align='center'>
-<a href='./README.md'>English</a> | 简体中文
+<a href='./README.md'>English</a> | 简体中文 | <a href='./README.ja.md'>日本語</a>
 </p>
 
 <br>
