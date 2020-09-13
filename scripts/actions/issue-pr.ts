@@ -1,12 +1,11 @@
 import YAML from 'js-yaml'
 import slug from 'limax'
 import { PushCommit } from '@type-challenges/octokit-create-pull-request'
-import translate from 'google-translate-open-api'
 import { Action, Context, Github, Quiz } from '../types'
-import { t, defaultLocale } from '../locales'
+import { t } from '../locales'
 import { toPlaygroundUrl } from '../toUrl'
 import { toBadgeLink } from '../readme'
-import { resolveInfo } from '../loader'
+import { resolveFilePath } from '../utils/resolve'
 import { formatToCode } from './utils/formatToCode'
 
 const Messages = {
@@ -32,13 +31,6 @@ const Messages = {
 }
 
 export const getOthers = <A, B>(condition: boolean, a: A, b: B): A | B => condition ? a : b
-
-function resolveFilePath(dir: string, name: string, ext: string, locale: string) {
-  if (locale === defaultLocale)
-    return `${dir}/${name}.${ext}`
-  else
-    return `${dir}/${name}.${locale}.${ext}`
-}
 
 const action: Action = async(github, context, core) => {
   const payload = context.payload || {}
@@ -137,24 +129,6 @@ const action: Action = async(github, context, core) => {
       [resolveFilePath(dir, 'README', 'md', locale)]: `${question}\n`,
       [`${dir}/template.ts`]: `${template}\n`,
       [`${dir}/test-cases.ts`]: `${tests}\n`,
-    }
-
-    // TODO: add check box in the template for user to opt-in this
-    const TRANSLATE = false
-    if (TRANSLATE) {
-      // auto translate to other language
-      // TODO: make it more general
-      const translateQuestion = await translate(question as string, {
-        tld: locale === 'en' ? 'cn' : 'com',
-        to: locale === 'en' ? 'zh-CN' : 'cn',
-      })
-
-      core.info('-----Translate-----')
-      core.info(JSON.stringify(translateQuestion.data, null, 2))
-
-      files[locale === 'en'
-        ? `${dir}/README.zh-CN.md`
-        : `${dir}/README.md`] = `${translateQuestion.data[0]}\n\n> ${Messages[locale === 'en' ? 'zh-CN' : 'en'].pr_auto_translate_tips}`
     }
 
     await PushCommit(github, {

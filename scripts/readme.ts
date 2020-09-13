@@ -191,14 +191,14 @@ async function updateQuestionsREADME(quizes: Quiz[]) {
   }
 }
 
-export async function updateREADMEs(argv: string[]) {
+export async function updateREADMEs(type?: 'quiz' | 'index') {
   const quizes = await loadQuizes()
   quizes.sort((a, b) => a.no - b.no)
 
-  if (argv[0] === 'quiz') {
+  if (type === 'quiz') {
     await updateQuestionsREADME(quizes)
   }
-  else if (argv[0] === 'index') {
+  else if (type === 'index') {
     await updateIndexREADME(quizes)
   }
   else {
@@ -209,4 +209,4 @@ export async function updateREADMEs(argv: string[]) {
   }
 }
 
-updateREADMEs(process.argv.slice(2))
+updateREADMEs(process.argv.slice(2)[0] as any)

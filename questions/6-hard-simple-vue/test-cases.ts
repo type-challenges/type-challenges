@@ -3,6 +3,13 @@ import { Equal, Expect } from '@type-challenges/utils'
 
 SimpleVue({
   data() {
+    // @ts-expect-error
+    this.firstname
+    // @ts-expect-error
+    this.getRandom()
+    // @ts-expect-error
+    this.data()
+
     return {
       firstname: 'Type',
       lastname: 'Challenges',
@@ -15,8 +22,12 @@ SimpleVue({
     },
   },
   methods: {
+    getRandom() {
+      return Math.random()
+    },
     hi() {
       alert(this.fullname.toLowerCase())
+      alert(this.getRandom())
     },
     test() {
       const fullname = this.fullname
