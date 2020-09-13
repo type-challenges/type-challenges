@@ -6,7 +6,12 @@
 TypeScript 类型体操姿势合集
 </p>
 
-<br>
+<p align='center'>
+<a href='https://discord.gg/UgKBCq9'>
+<img src='https://img.shields.io/badge/-Discord-yellowgreen?logo=discord&logoColor=white&color=7289da'/>
+</a>
+</p>
+
 <br>
 
 <p align='center'>
