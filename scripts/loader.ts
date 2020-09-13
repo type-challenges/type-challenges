@@ -14,7 +14,6 @@ export async function loadFile(filepath: string) {
 export async function loadLocaleVariations<T = string>(
   filepath: string,
   preprocessor: (s: string) => T = s => s as any as T,
-  translator?: (s: T) => Promise<T>,
 ) {
   const { ext, dir, name } = path.parse(filepath)
   const data: Record<string, T> = {}
@@ -26,22 +25,11 @@ export async function loadLocaleVariations<T = string>(
       data[locale] = file
   }
 
-  // seems like only have en version
-  // so we need add a other version
   if (!data[defaultLocale]) {
     // default version
     const file = preprocessor(await loadFile(filepath) || '')
     if (file)
       data[defaultLocale] = file
-
-    if (translator) {
-      // add other version
-      const otherVersion = supportedLocales.filter(locale => locale !== defaultLocale)
-
-      for (const locale of otherVersion)
-        // data[locale] = await translator(locale)
-        data[locale] = await loadFile(filepath).then(text => preprocessor(text || '')).then(data => translator(data))
-    }
   }
 
   return data
@@ -77,29 +65,43 @@ export function loadInfo(s: string): Partial<QuizMetaInfo> | undefined {
   return object
 }
 
+export const QUIZ_ROOT = path.resolve(__dirname, '../questions')
+
 export async function loadQuizes(): Promise<Quiz[]> {
-  const root = path.resolve(__dirname, '../questions')
   const folders = await fg('{0..9}*-*', {
     onlyDirectories: true,
-    cwd: root,
+    cwd: QUIZ_ROOT,
   })
 
   const quizes = await Promise.all(
-    folders.map(async(dir) => {
-      const quiz: Quiz = {
-        no: Number(dir.replace(/^(\d+)-.*/, '$1')),
-        difficulty: dir.replace(/^\d+-(.+?)-.*$/, '$1') as any,
-        path: dir,
-        info: await loadLocaleVariations(path.join(root, dir, 'info.yml'), loadInfo),
-        readme: await loadLocaleVariations(path.join(root, dir, 'README.md'), readmeCleanUp),
-        template: await loadFile(path.join(root, dir, 'template.ts')) || '',
-        tests: await loadFile(path.join(root, dir, 'test-cases.ts')),
-      }
-      return quiz
-    }),
+    folders.map(async dir => loadQuiz(dir)),
   )
 
   return quizes
+}
+
+export async function loadQuiz(dir: string): Promise<Quiz> {
+  return {
+    no: Number(dir.replace(/^(\d+)-.*/, '$1')),
+    difficulty: dir.replace(/^\d+-(.+?)-.*$/, '$1') as any,
+    path: dir,
+    info: await loadLocaleVariations(path.join(QUIZ_ROOT, dir, 'info.yml'), loadInfo),
+    readme: await loadLocaleVariations(path.join(QUIZ_ROOT, dir, 'README.md'), readmeCleanUp),
+    template: await loadFile(path.join(QUIZ_ROOT, dir, 'template.ts')) || '',
+    tests: await loadFile(path.join(QUIZ_ROOT, dir, 'test-cases.ts')),
+  }
+}
+
+export async function loadQuizByNo(no: number | string) {
+  const folders = await fg(`${no}-*`, {
+    onlyDirectories: true,
+    cwd: QUIZ_ROOT,
+  })
+
+  if (folders.length)
+    return await loadQuiz(folders[0])
+
+  return undefined
 }
 
 export function resolveInfo(quiz: Quiz, locale: string = defaultLocale) {

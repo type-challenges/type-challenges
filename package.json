@@ -8,6 +8,7 @@
   "scripts": {
     "readme": "esno ./scripts/readme.ts",
     "build": "esno ./scripts/build.ts",
+    "translate": "esno ./scripts/translate-cli.ts",
     "utils:release": "pnpm -C utils release"
   },
   "devDependencies": {
