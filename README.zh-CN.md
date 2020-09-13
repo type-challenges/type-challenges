@@ -35,7 +35,7 @@ TypeScript 类型体操姿势合集
 
 ## 推荐读物
 
-### 官方资源
+### 官方资源 (英文)
 
 - [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
   - [Unions and Intersection Types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html)
@@ -68,17 +68,11 @@ TypeScript 类型体操姿势合集
 
 ## 感谢
 
-该项目启发于
+这个项目诞生于和 [@hardfist](https://github.com/hardfist) [@MeCKodo](https://github.com/MeCKodo) 两位朋友做的类型体操。同时也非常感谢 [@sinoon](https://github.com/sinoon) 在项目初期提供了宝贵的反馈意见与参与的贡献。
 
-- [piotrwitek/utility-types](https://github.com/piotrwitek/utility-types)
-- [wixplosives/typescript-type-utils](https://github.com/wixplosives/typescript-type-utils)
-- [psmyrdek/typescript-challenges](https://github.com/psmyrdek/typescript-challenges)
-- [andnp/SimplyTyped](https://github.com/andnp/SimplyTyped)
+### 贡献者
 
-参与贡献者
-
-> TODO
-
+请见[英文版](./README.md#contributors)。
 
 ## License
 

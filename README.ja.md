@@ -35,7 +35,7 @@ TypeScript には [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility
 
 ## Recommended Readings
 
-### Official
+### Official (English)
 
 - [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
   - [Unions and Intersection Types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html)
@@ -45,9 +45,7 @@ TypeScript には [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility
 
 - [The New Handbook](https://github.com/microsoft/TypeScript-New-Handbook)
 
-### Articles
-
-- [Learn Advanced TypeScript Types](https://medium.com/free-code-camp/typescript-curry-ramda-types-f747e99744ab)
+### Articles (日本語)
 
 > TODO
 
@@ -69,17 +67,11 @@ TypeScript には [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility
 
 このプロジェクトは、[@hardfist](https://github.com/hardfist) と [@MeCKodo](https://github.com/MeCKodo) と一緒に実際の業務で型の課題を解決したことから生まれました。また、このプロジェクトに初期から多くのフィードバックを通して貢献してくれた [@sinoon](https://github.com/sinoon) に感謝します。
 
-
-### Inspired by
-
-- [piotrwitek/utility-types](https://github.com/piotrwitek/utility-types)
-- [psmyrdek/typescript-challenges](https://github.com/psmyrdek/typescript-challenges)
-- [andnp/SimplyTyped](https://github.com/andnp/SimplyTyped)
+日本語のコミュニティの翻訳と維持について、[@kawamataryo](https://github.com/kawamataryo)に感謝します。
 
 ### Contributors
 
-> TODO
-
+[英語版](./README.md#contributors)で見ます
 
 ## License
 
