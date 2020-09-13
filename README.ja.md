@@ -6,7 +6,10 @@
 TypeScript の型の課題集
 </p>
 
-<br>
+<p align='center'>
+<a href='https://discord.gg/UgKBCq9'>
+<img src='https://img.shields.io/badge/-Discord-yellowgreen?logo=discord&logoColor=white&color=7289da'/>
+</a>
 <br>
 
 <p align='center'>
