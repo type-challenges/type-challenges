@@ -1,6 +1,6 @@
 <!--info-header-start--><h1>Append Argument <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%B4%9A-eaa648" alt="中級"/> <img src="https://img.shields.io/badge/-%23arguments-999" alt="#arguments"/></h1><blockquote><p>by Maciej Sikora <a href="https://github.com/maciejsikora" target="_blank">@maciejsikora</a></p></blockquote><p><a href="https://tsch.js.org/191/play/ja" target="_blank"><img src="https://img.shields.io/badge/-%E6%8C%91%E6%88%A6%E3%81%99%E3%82%8B-3178c6?logo=typescript" alt="挑戦する"/></a> &nbsp;&nbsp;&nbsp;<a href="./README.md" target="_blank"><img src="https://img.shields.io/badge/-English-gray" alt="English"/></a>  <a href="./README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-gray" alt="简体中文"/></a> </p><!--info-header-end-->
 
-> Googleが翻訳しました。翻訳の改善のためにPRを作成します。
+> この課題はGoogleが翻訳しました。翻訳品質改善のためのPRを募集しています。
 
 与えられた関数タイプFと任意のタイプA（このコンテキストでは、タイプを制限しないことを意味し、どのタイプmindも考慮しないことを意味します）に対して、最初の引数AとしてFを取るジェネリックタイプを作成しますFと同じですが、最初の引数として引数Aが追加された関数型Gを生成します。
 

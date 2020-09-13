@@ -1,6 +1,6 @@
 <!--info-header-start--><h1>Optional Keys <img src="https://img.shields.io/badge/-%E4%B8%8A%E7%B4%9A-red" alt="上級"/> <img src="https://img.shields.io/badge/-%23utils-999" alt="#utils"/></h1><blockquote><p>by yituan <a href="https://github.com/yi-tuan" target="_blank">@yi-tuan</a></p></blockquote><p><a href="https://tsch.js.org/90/play/ja" target="_blank"><img src="https://img.shields.io/badge/-%E6%8C%91%E6%88%A6%E3%81%99%E3%82%8B-3178c6?logo=typescript" alt="挑戦する"/></a> &nbsp;&nbsp;&nbsp;<a href="./README.md" target="_blank"><img src="https://img.shields.io/badge/-English-gray" alt="English"/></a>  <a href="./README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-gray" alt="简体中文"/></a> </p><!--info-header-end-->
 
-> Googleが翻訳しました。翻訳の改善のためにPRを作成します。
+> この課題はGoogleが翻訳しました。翻訳品質改善のためのPRを募集しています。
 
 高度なユーティリティタイプ`OptionalKeys<T>`を実装します。これは、すべてのオプションキーをユニオンに選択します。
 
