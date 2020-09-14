@@ -1,10 +1,6 @@
 <!--info-header-start--><h1>Readonly&lt;T&gt; <img src="https://img.shields.io/badge/-%E5%88%9D%E7%B4%9A-90bb12" alt="初級"/> <img src="https://img.shields.io/badge/-%23built--in-999" alt="#built-in"/> <img src="https://img.shields.io/badge/-%23readonly-999" alt="#readonly"/> <img src="https://img.shields.io/badge/-%23object--keys-999" alt="#object-keys"/></h1><blockquote><p>by Anthony Fu <a href="https://github.com/antfu" target="_blank">@antfu</a></p></blockquote><p><a href="https://tsch.js.org/7/play/ja" target="_blank"><img src="https://img.shields.io/badge/-%E6%8C%91%E6%88%A6%E3%81%99%E3%82%8B-3178c6?logo=typescript" alt="挑戦する"/></a> &nbsp;&nbsp;&nbsp;<a href="./README.md" target="_blank"><img src="https://img.shields.io/badge/-English-gray" alt="English"/></a>  <a href="./README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-gray" alt="简体中文"/></a> </p><!--info-header-end-->
 
-> この課題はGoogleが翻訳しました。翻訳品質改善のためのPRを募集しています。
-
-組み込み`Readonly<T>`ジェネリックを使用せずに実装します。
-
-Tのすべてのプロパティを読み取り専用に設定して型を構築します。つまり、構築された型のプロパティは再割り当てできません。
+組み込みの型ユーティリティ`Readonly<T>`を使用せず、`T` のすべてのプロパティを読み取り専用にする型を実装します。実装された型のプロパティは再割り当てできません。
 
 例えば
 
