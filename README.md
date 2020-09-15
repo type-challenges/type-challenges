@@ -79,10 +79,7 @@ This project was born from solving realworld types problem with [@hardfist](http
 - [psmyrdek/typescript-challenges](https://github.com/psmyrdek/typescript-challenges)
 - [andnp/SimplyTyped](https://github.com/andnp/SimplyTyped)
 
-### Contributors
-
-> TODO
-
+### [Contributors](https://github.com/type-challenges/type-challenges/graphs/contributors)
 
 ## License
 
