@@ -2,16 +2,15 @@
 
 > この課題はGoogleが翻訳しました。翻訳品質改善のためのPRを募集しています。
 
-与えられた関数タイプFと任意のタイプA（このコンテキストでは、タイプを制限しないことを意味し、どのタイプmindも考慮しないことを意味します）に対して、最初の引数AとしてFを取るジェネリックタイプを作成しますFと同じですが、最初の引数として引数Aが追加された関数型Gを生成します。
+与えられた関数型`Fn`と任意の型`A`（このコンテキストのいずれかは型を制限しないことを意味し、型は何も考えていません😉）最初の引数として`Fn`を取るジェネリック型_`A`を作成します2番目として、`Fn`と同じですが最初の引数として`A`が追加された関数型`G`を生成します。
+
+例えば、
 
 ```typescript
-// lets say we have some function type
-type SomeF = (a: number, b: string) => number
-// and we have our utility type
-type AppendArgument<F, A> = ... here your code 💪
+type Fn = (a: number, b: string) => number
 
-type FinalF = AppendArgument<SomeF, boolean> 
-// FinalF should be (x: boolean, a: number, b: string) => number
+type Result = AppendArgument<Fn, boolean> 
+// expected be (a: number, b: string, x: boolean) => number
 ```
 
 >この質問は、[@maciejsikora]（https://github.com/maciejsikora）による[元の記事]（https://dev.to/macsikora/advanced-typescript-exercises-question-4-495c）から移植されました。
