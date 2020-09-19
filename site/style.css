@@ -58,3 +58,13 @@ a.button {
 
   text-transform: uppercase;
 }
+
+.netlify {
+  position: fixed;
+  bottom: 0;
+  margin: 1.5em;
+  left: 0;
+  right: 0;
+  align: center;
+  opacity: 0.5;
+}
