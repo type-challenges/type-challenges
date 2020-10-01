@@ -1,0 +1,9 @@
+difficulty: extreme
+title: Slice
+tags: array
+tsconfig:
+  ts: next
+author:
+  github: antfu
+  name: Anthony Fu
+
