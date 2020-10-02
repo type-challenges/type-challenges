@@ -1,10 +1,8 @@
 <!--info-header-start--><h1>Type Lookup <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%B4%9A-eaa648" alt="中級"/> <img src="https://img.shields.io/badge/-%23union-999" alt="#union"/> <img src="https://img.shields.io/badge/-%23map-999" alt="#map"/></h1><blockquote><p>by Anthony Fu <a href="https://github.com/antfu" target="_blank">@antfu</a></p></blockquote><p><a href="https://tsch.js.org/62/play/ja" target="_blank"><img src="https://img.shields.io/badge/-%E6%8C%91%E6%88%A6%E3%81%99%E3%82%8B-3178c6?logo=typescript" alt="挑戦する"/></a> &nbsp;&nbsp;&nbsp;<a href="./README.md" target="_blank"><img src="https://img.shields.io/badge/-English-gray" alt="English"/></a>  <a href="./README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-gray" alt="简体中文"/></a> </p><!--info-header-end-->
 
-> この課題はGoogleが翻訳しました。翻訳品質改善のためのPRを募集しています。
+Union 型から特定の型を属性を使って取得したいことがあります。
 
-場合によっては、ユニオン内の型をその属性で検索する必要があります。
-
-この課題では、ユニオン`Cat | Dog`の共通の`type`フィールドを検索して、対応するタイプを取得します。つまり、次の例では、`LookUp<Dog | Cat, 'dog'>`の場合は`Dog`、`LookUp<Dog | Cat, 'cat'>`の場合は`Cat`を取得することになります。
+この課題では、`Cat | Dog` という Union 型に共通する `type` というフィールドを使って、対応する型を取得します。つまり、以下の例のように、 `LookUp<Dog | Cat, 'dog'>` の場合は `Dog` を、`LookUp<Dog | Cat, 'cat'>` の場合は `Cat` を取得することになります。
 
 ```ts
 interface Cat {
