@@ -6,7 +6,7 @@ By providing a function name `SimpleVue` (similar to `Vue.extend` or `defineComp
 
 In this challenge, we assume that SimpleVue take an Object with `data`, `computed` and `methods` fields as it's only argument,
 
-- `data` is a simple function that returns a object that expose the the context `this`, but you can't access data itself or other computer values or methods in `data`.
+- `data` is a simple function that returns an object that exposes the context `this`, but you won't be accessible to other computed values or methods.
 
 - `computed` is an Object of functions that take the context as `this`, doing some calculation and returns the result. The computed results should be exposed to the context as the plain return values instead of functions.
 
