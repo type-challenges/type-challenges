@@ -1,0 +1,9 @@
+difficulty: medium
+title: Permutation
+tags: union
+tsconfig:
+  ts: next
+author:
+  github: pandanoir
+  name: Naoto Ikuno
+
