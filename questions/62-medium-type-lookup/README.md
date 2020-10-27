@@ -16,7 +16,7 @@ interface Dog {
   color: 'brown' | 'white' | 'black'
 }
 
-const MyDog = LookUp<Cat | Dog, 'dog'> // expected to be `Dog`
+type MyDogType = LookUp<Cat | Dog, 'dog'> // expected to be `Dog`
 ```
 
 
