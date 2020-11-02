@@ -24,11 +24,13 @@ export async function build() {
 
       if (locale === defaultLocale) {
         redirects.push([`/${quiz.no}`, toQuizREADME(quiz, locale, true), 302])
+        redirects.push([`/${quiz.no}/raw`, `${toQuizREADME(quiz, locale, true)}?raw=true`, 302])
         redirects.push([`/${quiz.no}/play`, url, 302])
         redirects.push([`/${quiz.no}/answer`, toShareAnswerFull(quiz), 302])
       }
       else {
         redirects.push([`/${quiz.no}/${locale}`, toQuizREADME(quiz, locale, true), 302])
+        redirects.push([`/${quiz.no}/raw/${locale}`, `${toQuizREADME(quiz, locale, true)}?raw=true`, 302])
         redirects.push([`/${quiz.no}/play/${locale}`, url, 302])
         redirects.push([`/${quiz.no}/answer/${locale}`, toShareAnswerFull(quiz, locale), 302])
       }
