@@ -27,6 +27,13 @@ export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
     : `${prefix}/questions/${quiz.path}/README.md`
 }
 
+export function toRawREADME(quiz: Quiz, locale?: string) {
+  const prefix = 'https://raw.githubusercontent.com/type-challenges/type-challenges/master'
+  return locale && locale !== defaultLocale && quiz.readme[locale]
+    ? `${prefix}/questions/${quiz.path}/README.${locale}.md`
+    : `${prefix}/questions/${quiz.path}/README.md`
+}
+
 export function toNearborREADME(quiz: Quiz, locale?: string) {
   return locale && locale !== defaultLocale && quiz.readme[locale]
     ? `./README.${locale}.md`

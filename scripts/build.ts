@@ -1,7 +1,7 @@
 import path from 'path'
 import fs from 'fs-extra'
 import { loadQuizes, resolveInfo } from './loader'
-import { REPO, toPlaygroundUrl, toQuizREADME, toShareAnswerFull, toSolutionsFull } from './toUrl'
+import { REPO, toPlaygroundUrl, toQuizREADME, toRawREADME, toShareAnswerFull, toSolutionsFull } from './toUrl'
 import { defaultLocale, supportedLocales } from './locales'
 import { formatToCode } from './actions/utils/formatToCode'
 
@@ -24,13 +24,13 @@ export async function build() {
 
       if (locale === defaultLocale) {
         redirects.push([`/${quiz.no}`, toQuizREADME(quiz, locale, true), 302])
-        redirects.push([`/${quiz.no}/raw`, `${toQuizREADME(quiz, locale, true)}?raw=true`, 302])
+        redirects.push([`/${quiz.no}/raw`, toRawREADME(quiz, locale), 302])
         redirects.push([`/${quiz.no}/play`, url, 302])
         redirects.push([`/${quiz.no}/answer`, toShareAnswerFull(quiz), 302])
       }
       else {
         redirects.push([`/${quiz.no}/${locale}`, toQuizREADME(quiz, locale, true), 302])
-        redirects.push([`/${quiz.no}/raw/${locale}`, `${toQuizREADME(quiz, locale, true)}?raw=true`, 302])
+        redirects.push([`/${quiz.no}/raw/${locale}`, toRawREADME(quiz, locale), 302])
         redirects.push([`/${quiz.no}/play/${locale}`, url, 302])
         redirects.push([`/${quiz.no}/answer/${locale}`, toShareAnswerFull(quiz, locale), 302])
       }
