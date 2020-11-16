@@ -1,0 +1,9 @@
+difficulty: medium
+title: Capitalize<T>
+tags: template-string
+tsconfig:
+  ts: 4.1.0-pr-40336-88
+author:
+  github: antfu
+  name: Anthony Fu
+
