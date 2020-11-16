@@ -1,5 +1,6 @@
 difficulty: hard
 title: String to Number
+tags: template-literal
 tsconfig:
   ts: next
 author:

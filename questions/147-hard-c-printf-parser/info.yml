@@ -2,7 +2,7 @@ difficulty: hard
 title: C-printf Parser
 tags: template-literal
 tsconfig:
-  ts: 4.1.0-pr-40336-88
+  ts: next
 author:
   github: g-plane
   name: Pig Fang

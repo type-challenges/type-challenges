@@ -1,6 +1,6 @@
 difficulty: hard
 title: Typed Get
-tags: 'utils, string-template'
+tags: 'utils, template-literal'
 tsconfig:
   ts: next
 author:

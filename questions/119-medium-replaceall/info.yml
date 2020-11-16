@@ -1,8 +1,8 @@
 difficulty: medium
 title: ReplaceAll
-tags: template-string
+tags: template-literal
 tsconfig:
-  ts: 4.1.0-pr-40336-88
+  ts: next
 author:
   github: antfu
   name: Anthony Fu
