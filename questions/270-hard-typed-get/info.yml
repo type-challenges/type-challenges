@@ -1,8 +1,6 @@
 difficulty: hard
 title: Typed Get
 tags: 'utils, template-literal'
-tsconfig:
-  ts: next
 author:
   github: antfu
   name: Anthony Fu

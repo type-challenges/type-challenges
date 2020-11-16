@@ -3,7 +3,8 @@
 </p>
 
 <p align='center'>
-Collection of TypeScript type challenges
+Collection of TypeScript type challenges<br>
+<b><em>Now supports TypeScript 4.1 🎉</em></b>
 </p>
 
 <p align='center'>

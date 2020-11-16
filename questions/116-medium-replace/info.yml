@@ -1,8 +1,6 @@
 difficulty: medium
 title: Replace
 tags: template-literal
-tsconfig:
-  ts: next
 author:
   github: antfu
   name: Anthony Fu
