@@ -1,0 +1,9 @@
+difficulty: hard
+title: Typed Get
+tags: 'utils, string-template'
+tsconfig:
+  ts: next
+author:
+  github: antfu
+  name: Anthony Fu
+
