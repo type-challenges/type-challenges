@@ -1,0 +1,8 @@
+difficulty: hard
+title: String to Number
+tsconfig:
+  ts: next
+author:
+  github: g-plane
+  name: Pig Fang
+
