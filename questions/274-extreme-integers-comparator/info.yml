@@ -2,6 +2,7 @@ difficulty: extreme
 title: Integers Comparator
 tsconfig:
   ts: next
+tags: template-literal, math
 author:
   github: g-plane
   name: Pig Fang
