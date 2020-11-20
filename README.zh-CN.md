@@ -3,7 +3,8 @@
 </p>
 
 <p align='center'>
-TypeScript 类型体操姿势合集
+TypeScript 类型体操姿势合集<br>
+<b>现已支持 TypeScript 4.1 🎉</b>
 </p>
 
 <p align='center'>
