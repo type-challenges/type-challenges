@@ -28,10 +28,11 @@ export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
 }
 
 export function toRawREADME(quiz: Quiz, locale?: string) {
-  const prefix = 'https://raw.githubusercontent.com/type-challenges/type-challenges/master'
+  const provider = 'https://cdn.jsdelivr.net/gh/type-challenges/type-challenges'
+  // const provider = 'https://raw.githubusercontent.com/type-challenges/type-challenges/master'
   return locale && locale !== defaultLocale && quiz.readme[locale]
-    ? `${prefix}/questions/${quiz.path}/README.${locale}.md`
-    : `${prefix}/questions/${quiz.path}/README.md`
+    ? `${provider}/questions/${quiz.path}/README.${locale}.md`
+    : `${provider}/questions/${quiz.path}/README.md`
 }
 
 export function toNearborREADME(quiz: Quiz, locale?: string) {
