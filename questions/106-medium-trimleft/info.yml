@@ -1,8 +1,6 @@
 difficulty: medium
 title: TrimLeft<T>
 tags: template-literal
-tsconfig:
-  ts: next
 author:
   github: antfu
   name: Anthony Fu
