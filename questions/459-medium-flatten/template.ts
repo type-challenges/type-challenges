@@ -1,1 +1,1 @@
-type Flatten = any;
+type Flatten = any
