@@ -20,6 +20,15 @@ const action: Action = async(github, context, core) => {
 
       const name = no.toString()
 
+      if (labels.includes('trigger-bot')) {
+        await github.issues.removeLabel({
+          issue_number: context.issue.number,
+          owner: context.repo.owner,
+          repo: context.repo.repo,
+          name: 'trigger-bot',
+        })
+      }
+
       if (labels.includes(name))
         return
 

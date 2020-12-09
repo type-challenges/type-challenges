@@ -183,6 +183,13 @@ const action: Action = async(github, context, core) => {
         labels: ['auto-generated'],
       })
 
+      await github.issues.addLabels({
+        owner: context.repo.owner,
+        repo: context.repo.repo,
+        issue_number: pr.number,
+        labels: ['auto-generated'],
+      })
+
       core.info('-----Pull Request-----')
       core.info(JSON.stringify(pr, null, 2))
 
