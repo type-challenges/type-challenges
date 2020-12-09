@@ -25,7 +25,8 @@ const six = curriedAdd(1, 2, 3)
 const seven = curriedAdd(1, 2)(4)
 const eight = curriedAdd(2)(3)(4)
 ```
-传递给`DynamicParamsCurrying`的函数可能有多个参数，您需要正确键入它。
+
+传递给 `DynamicParamsCurrying` 的函数可能有多个参数，您需要实现它的类型。
 
 在此挑战中，curriedAdd函数每次可接受最少一个参数，但是所有参数个数总和及类型与原函数相同。分配完所有参数后，它应返回其结果。
 

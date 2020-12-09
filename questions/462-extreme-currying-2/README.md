@@ -14,7 +14,7 @@ const bindFunc = func(null, 1, 2)
 const result = bindFunc(3) // result: 6
 ```
 
-Thus, basic on `Currying 1`, we would need to have the dynamic argument version:
+Thus, based on `Currying 1`, we would need to have the dynamic argument version:
 
 ```ts
 const add = (a: number, b: number, c: number) => a + b + c
