@@ -140,7 +140,7 @@ const action: Action = async(github, context, core) => {
         files,
         commit: `feat(question): add #${no} - ${info.title}`,
         author: {
-          name: user.name,
+          name: user.name || user.login,
           email: userEmail,
         },
       },
