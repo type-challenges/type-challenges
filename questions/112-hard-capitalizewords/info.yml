@@ -1,5 +1,5 @@
 difficulty: hard
-title: CapitalizeWords<T>
+title: Capitalize Words
 tags: template-literal
 author:
   github: antfu
