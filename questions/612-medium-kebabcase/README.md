@@ -1,0 +1,1 @@
+`FooBarBaz` -> `for-bar-baz`
