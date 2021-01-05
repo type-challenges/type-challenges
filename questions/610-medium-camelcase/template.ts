@@ -1,0 +1,1 @@
+type CamelCase<S> = any;
