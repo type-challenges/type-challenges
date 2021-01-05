@@ -1,0 +1,1 @@
+`for-bar-baz` -> `forBarBaz`
