@@ -1,5 +1,7 @@
 import { Equal, Expect } from '@type-challenges/utils'
 
+type Arr = [1, 2, 3, 4, 5]
+
 type cases = [
   // basic
   Expect<Equal<Slice<Arr, 0, 1>, [1]>>,
