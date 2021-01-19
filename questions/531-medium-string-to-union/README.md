@@ -6,7 +6,7 @@ Implement the String to Union type. Type take string argument. The output should
   
   ```ts
   type Test = "123"
-  type Result = StrintToUnion<Test> // expected to be "1" | "2" | "3"
+  type Result = StringToUnion<Test> // expected to be "1" | "2" | "3"
   ```
 
 
