@@ -1,1 +1,1 @@
-type StrintToUnion<T extends string> = any
+type StringToUnion<T extends string> = any
