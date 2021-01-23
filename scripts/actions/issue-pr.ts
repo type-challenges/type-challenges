@@ -56,7 +56,7 @@ const action: Action = async(github, context, core) => {
     let info: any
 
     try {
-      info = YAML.safeLoad(infoRaw || '')
+      info = YAML.load(infoRaw || '')
     }
     catch {
       info = null
@@ -125,7 +125,7 @@ const action: Action = async(github, context, core) => {
     const userEmail = `${user.id}+${user.login}@users.noreply.github.com`
 
     const files: Record<string, string> = {
-      [resolveFilePath(dir, 'info', 'yml', locale)]: `${YAML.safeDump(info)}\n`,
+      [resolveFilePath(dir, 'info', 'yml', locale)]: `${YAML.dump(info)}\n`,
       [resolveFilePath(dir, 'README', 'md', locale)]: `${question}\n`,
       [`${dir}/template.ts`]: `${template}\n`,
       [`${dir}/test-cases.ts`]: `${tests}\n`,

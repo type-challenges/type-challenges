@@ -7,17 +7,17 @@
     "@actions/github": "^4.0.0",
     "@actions/io": "^1.0.2",
     "@type-challenges/octokit-create-pull-request": "^0.1.8",
-    "esno": "^0.3.0",
-    "fast-glob": "^3.2.4",
-    "fs-extra": "^9.0.1",
+    "esno": "^0.4.0",
+    "fast-glob": "^3.2.5",
+    "fs-extra": "^9.1.0",
     "google-translate-open-api": "^1.3.7",
-    "js-yaml": "^3.14.1",
+    "js-yaml": "^4.0.0",
     "limax": "^2.1.0",
     "lz-string": "^1.4.4"
   },
   "devDependencies": {
-    "@octokit/types": "^6.1.1",
-    "@types/js-yaml": "^3.12.5",
+    "@octokit/types": "^6.5.0",
+    "@types/js-yaml": "^4.0.0",
     "@types/lz-string": "^1.3.34"
   }
 }

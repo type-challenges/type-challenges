@@ -43,7 +43,7 @@ export function readmeCleanUp(text: string) {
 }
 
 export function loadInfo(s: string): Partial<QuizMetaInfo> | undefined {
-  const object = YAML.safeLoad(s) as any
+  const object = YAML.load(s) as any
   if (!object)
     return undefined
 
