@@ -7,9 +7,9 @@ import { Quiz, QuizMetaInfo } from './types'
 
 const DifficultyColors: Record<string, string> = {
   warm: 'teal',
-  easy: '90bb12',
-  medium: 'eaa648',
-  hard: 'red',
+  easy: '7aad0c',
+  medium: 'd9901a',
+  hard: 'de3d37',
   extreme: 'b11b8d',
 }
 
