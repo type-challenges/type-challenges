@@ -1,4 +1,4 @@
-import { IsTrue, IsFalse, Equal } from "@type-challenges/utils";
+import { IsTrue, Expect, Equal } from "@type-challenges/utils";
 
 /**
  * Tests of assignable of tagged variables.
@@ -104,60 +104,58 @@ type cases = [
   /**
    * HasTag.
    */
-  IsFalse<HasTag<null, "foo">>,
-  IsFalse<HasTag<undefined, "foo">>,
-  IsTrue<HasTag<Tag<any, "foo">, "foo">>,
-  IsFalse<HasTag<Tag<1, "foo"> | {}, "foo">>,
-  IsTrue<HasTag<Tag<{}, "foo">, "foo">>,
-  IsTrue<HasTag<Tag<0, "foo"> | Tag<1, "foo">, "foo">>,
-  IsFalse<HasTag<Tag<0, "foo"> | Tag<1, "bar">, "foo">>,
-  IsTrue<HasTag<Tag<Tag<{}, "foo">, "bar">, "foo">>,
-  IsTrue<HasTag<Tag<Tag<symbol, "bar">, "foo">, "foo">>,
-  IsFalse<HasTag<Tag<Tag<{}, "bar">, "baz">, "foo">>,
-  IsTrue<HasTag<Tag<true, "foo">, "foo">>,
-  IsFalse<HasTag<Tag<null, "foo">, "foo">>,
-  IsFalse<HasTag<Tag<Tag<undefined, "foo">, "bar">, "bar">>,
-  IsTrue<HasTag<Tag<Tag<false, "foo">, "bar">, "foo">>,
-  IsTrue<HasTag<Tag<Tag<never, "bar">, "foo">, "foo">>,
-  IsTrue<HasTag<Tag<{}, "foo">, "foo">>,
-  IsFalse<HasTag<Tag<{}, "foo">, "bar">>,
-  IsFalse<HasTag<{}, "foo">>,
+  Expect<Equal<HasTag<null, "foo">, false>>,
+  Expect<Equal<HasTag<undefined, "foo">, false>>,
+  Expect<Equal<HasTag<Tag<any, "foo">, "foo">, true>>,
+  Expect<Equal<HasTag<Tag<1, "foo"> | {}, "foo">, false>>,
+  Expect<Equal<HasTag<Tag<{}, "foo">, "foo">, true>>,
+  Expect<Equal<HasTag<Tag<0, "foo"> | Tag<1, "foo">, "foo">, true>>,
+  Expect<Equal<HasTag<Tag<0, "foo"> | Tag<1, "bar">, "foo">, false>>,
+  Expect<Equal<HasTag<Tag<Tag<{}, "foo">, "bar">, "foo">, true>>,
+  Expect<Equal<HasTag<Tag<Tag<symbol, "bar">, "foo">, "foo">, true>>,
+  Expect<Equal<HasTag<Tag<Tag<{}, "bar">, "baz">, "foo">, false>>,
+  Expect<Equal<HasTag<Tag<true, "foo">, "foo">, true>>,
+  Expect<Equal<HasTag<Tag<null, "foo">, "foo">, false>>,
+  Expect<Equal<HasTag<Tag<Tag<undefined, "foo">, "bar">, "bar">, false>>,
+  Expect<Equal<HasTag<Tag<Tag<false, "foo">, "bar">, "foo">, true>>,
+  Expect<Equal<HasTag<Tag<Tag<never, "bar">, "foo">, "foo">, true>>,
+  Expect<Equal<HasTag<Tag<{}, "foo">, "foo">, true>>,
+  Expect<Equal<HasTag<Tag<{}, "foo">, "bar">, false>>,
+  Expect<Equal<HasTag<{}, "foo">, false>>,
 
   /**
    * HasTags.
    */
-  IsFalse<HasTags<null, ["foo"]>>,
-  IsFalse<HasTags<undefined, ["foo"]>>,
-  IsFalse<HasTags<Tag<any, "bar">, ["foo"]>>,
-  IsFalse<HasTags<Tag<{}, "bar">, ["foo"]>>,
-  IsTrue<HasTags<Tag<{}, "foo">, ["foo"]>>,
-  IsTrue<HasTags<Tag<any, "foo">, ["foo"]>>,
-  IsTrue<HasTags<Tag<{} | undefined, "foo">, ["foo"]>>,
-  IsTrue<HasTags<Tag<Tag<string, "foo">, "bar">, ["foo", "bar"]>>,
-  IsTrue<HasTags<Tag<Tag<3n, "foo">, "bar">, ["foo", "bar"]>>,
-  IsFalse<HasTags<Tag<Tag<{}, "bar">, "foo">, ["foo", "bar"]>>,
-  IsTrue<HasTags<Tag<Tag<Tag<{}, "baz">, "foo">, "bar">, ["foo", "bar"]>>,
-  IsTrue<HasTags<Tag<Tag<Tag<symbol, "baz">, "foo">, "bar">, ["foo", "bar"]>>,
-  IsTrue<HasTags<Tag<Tag<Tag<{}, "foo">, "bar">, "baz">, ["foo", "bar"]>>,
-  IsTrue<HasTags<Tag<Tag<Tag<0, "foo">, "bar">, "baz">, ["foo", "bar"]>>,
-  IsFalse<HasTags<Tag<Tag<Tag<{}, "foo">, "baz">, "bar">, ["foo", "bar"]>>,
-  IsTrue<HasTags<Tag<Tag<unknown, "foo">, "bar">, ["foo", "bar"]>>,
+  Expect<Equal<HasTags<null, ["foo"]>, false>>,
+  Expect<Equal<HasTags<undefined, ["foo"]>, false>>,
+  Expect<Equal<HasTags<Tag<any, "bar">, ["foo"]>, false>>,
+  Expect<Equal<HasTags<Tag<{}, "bar">, ["foo"]>, false>>,
+  Expect<Equal<HasTags<Tag<{}, "foo">, ["foo"]>, true>>,
+  Expect<Equal<HasTags<Tag<any, "foo">, ["foo"]>, true>>,
+  Expect<Equal<HasTags<Tag<{} | undefined, "foo">, ["foo"]>, true>>,
+  Expect<Equal<HasTags<Tag<Tag<string, "foo">, "bar">, ["foo", "bar"]>, true>>,
+  Expect<Equal<HasTags<Tag<Tag<3n, "foo">, "bar">, ["foo", "bar"]>, true>>,
+  Expect<Equal<HasTags<Tag<Tag<{}, "bar">, "foo">, ["foo", "bar"]>, false>>,
+  Expect<Equal<HasTags<Tag<Tag<Tag<{}, "baz">, "foo">, "bar">, ["foo", "bar"]>, true>>,
+  Expect<Equal<HasTags<Tag<Tag<Tag<symbol, "baz">, "foo">, "bar">, ["foo", "bar"]>, true>>,
+  Expect<Equal<HasTags<Tag<Tag<Tag<{}, "foo">, "bar">, "baz">, ["foo", "bar"]>, true>>,
+  Expect<Equal<HasTags<Tag<Tag<Tag<0, "foo">, "bar">, "baz">, ["foo", "bar"]>, true>>,
+  Expect<Equal<HasTags<Tag<Tag<Tag<{}, "foo">, "baz">, "bar">, ["foo", "bar"]>, false>>,
+  Expect<Equal<HasTags<Tag<Tag<unknown, "foo">, "bar">, ["foo", "bar"]>, true>>,
 
   /**
    * HasExactTags.
    */
-  IsTrue<HasExactTags<0, []>>,
-  IsTrue<HasExactTags<null, []>>,
-  IsTrue<HasExactTags<undefined, []>>,
-  IsTrue<HasExactTags<Tag<number, "foo">, ["foo"]>>,
-  IsFalse<HasExactTags<Tag<any, "foo">, ["bar"]>>,
-  IsTrue<HasExactTags<Tag<Tag<any, "foo">, "bar">, ["foo", "bar"]>>,
-  IsTrue<HasExactTags<Tag<"", "foo">, ["foo"]>>,
-  IsTrue<HasExactTags<Tag<US, "foo">, ["foo"]>>,
-  IsFalse<HasExactTags<Tag<{}, "foo">, ["bar"]>>,
-  IsFalse<HasExactTags<Tag<Tag<Tag<{}, "foo">, "bar">, "baz">, ["foo", "bar"]>>,
-  IsTrue<
-    HasExactTags<Tag<Tag<Tag<{}, "foo">, "bar">, "baz">, ["foo", "bar", "baz"]>
-  >,
-  IsTrue<HasExactTags<Tag<Tag<void, "foo">, "bar">, ["foo", "bar"]>>
+  Expect<Equal<HasExactTags<0, []>, true>>,
+  Expect<Equal<HasExactTags<null, []>, true>>,
+  Expect<Equal<HasExactTags<undefined, []>, true>>,
+  Expect<Equal<HasExactTags<Tag<number, "foo">, ["foo"]>, true>>,
+  Expect<Equal<HasExactTags<Tag<any, "foo">, ["bar"]>, false>>,
+  Expect<Equal<HasExactTags<Tag<Tag<any, "foo">, "bar">, ["foo", "bar"]>, true>>,
+  Expect<Equal<HasExactTags<Tag<"", "foo">, ["foo"]>, true>>,
+  Expect<Equal<HasExactTags<Tag<US, "foo">, ["foo"]>, true>>,
+  Expect<Equal<HasExactTags<Tag<{}, "foo">, ["bar"]>, false>>,
+  Expect<Equal<HasExactTags<Tag<Tag<Tag<{}, "foo">, "bar">, "baz">, ["foo", "bar"]>, false>>,
+  Expect<Equal<HasExactTags<Tag<Tag<Tag<{}, "foo">, "bar">, "baz">, ["foo", "bar", "baz"]>, true>>,
+  Expect<Equal<HasExactTags<Tag<Tag<void, "foo">, "bar">, ["foo", "bar"]>, true>>,
 ];
