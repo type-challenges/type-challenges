@@ -154,7 +154,7 @@ const action: Action = async(github, context, core) => {
       '',
       t(locale, 'badge.preview-playground'),
       '3178c6',
-      '?logo=typescript',
+      '?logo=typescript&logoColor=white',
     )
     const createMessageBody = (prNumber: number) =>
       `${Messages[locale].issue_update_reply.replace(

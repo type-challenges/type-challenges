@@ -110,7 +110,7 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
       + `<h1>${escapeHtml(info.title || '')} ${toDifficultyBadge(quiz.difficulty, locale)} ${(info.tags || []).map(i => toBadge('', `#${i}`, '999')).join(' ')}</h1>`
       + `<blockquote><p>${toAuthorInfo(info.author)}</p></blockquote>`
       + '<p>'
-      + toBadgeLink(toPlayShort(quiz.no, locale), '', t(locale, 'badge.take-the-challenge'), '3178c6', '?logo=typescript')
+      + toBadgeLink(toPlayShort(quiz.no, locale), '', t(locale, 'badge.take-the-challenge'), '3178c6', '?logo=typescript&logoColor=white')
       + (availableLocales.length ? ('&nbsp;&nbsp;&nbsp;' + availableLocales.map(l => toBadgeLink(toNearborREADME(quiz, l), '', t(l, 'display'), 'gray')).join(' ')) : '')
       + '</p>'
       + '<!--info-header-end-->',
