@@ -1,0 +1,1 @@
+type DistributeUnions<T> = any
