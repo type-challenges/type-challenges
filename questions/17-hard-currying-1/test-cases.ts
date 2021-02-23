@@ -5,9 +5,9 @@ const curried2 = Currying((a: string, b: number, c: boolean, d: boolean, e: bool
 
 type cases = [
   Expect<Equal<
-    typeof curried1, (a: string) => (b: number) => (c: boolean) => boolean
+    typeof curried1, (a: string) => (b: number) => (c: boolean) => true
   >>,
   Expect<Equal<
-    typeof curried2, (a: string) => (b: number) => (c: boolean) => (d: boolean) => (e: boolean) => (f: string) => (g: boolean) => boolean
+    typeof curried2, (a: string) => (b: number) => (c: boolean) => (d: boolean) => (e: boolean) => (f: string) => (g: boolean) => true
   >>,
 ]
