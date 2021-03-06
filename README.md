@@ -59,6 +59,7 @@ This project is aimed at helping you better understand how the type system works
 ### Projects
 
 - [Type Gymnastics](https://github.com/g-plane/type-gymnastics)
+- [TypeType Examples](https://github.com/mistlog/typetype-examples)
 
 > TODO
 
