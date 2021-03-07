@@ -56,9 +56,10 @@ This project is aimed at helping you better understand how the type system works
 
 - [Learn Advanced TypeScript Types](https://medium.com/free-code-camp/typescript-curry-ramda-types-f747e99744ab)
 
-### Projects
+### Projects / Solutions
 
 - [Type Gymnastics](https://github.com/g-plane/type-gymnastics)
+- [Type Challenges Solutions](https://github.com/ghaiklor/type-challenges-solutions)
 - [TypeType Examples](https://github.com/mistlog/typetype-examples)
 
 > TODO
