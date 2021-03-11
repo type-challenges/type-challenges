@@ -55,6 +55,7 @@ This project is aimed at helping you better understand how the type system works
 ### Articles
 
 - [Learn Advanced TypeScript Types](https://medium.com/free-code-camp/typescript-curry-ramda-types-f747e99744ab)
+- [The Art of Type Programming](https://mistlog.medium.com/the-art-of-type-programming-cfd933bdfff7)
 
 ### Projects / Solutions
 
