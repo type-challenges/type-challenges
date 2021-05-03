@@ -10,12 +10,13 @@ async function main(): Promise<void> {
   const fnName = process.argv[3]
   const github = getOctokit(token)
 
-  const fn = await import(`./${fnName}.ts`)
-  fn.default(github, context, core, io)
+  const fn = require(`./${fnName}.ts`)
+  fn(github, context, core, io)
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function handleError(err: any): void {
   console.error(err)
   core.setFailed(`Unhandled error: ${err}`)
+  process.exit(1)
 }
