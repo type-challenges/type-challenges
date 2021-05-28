@@ -1,4 +1,4 @@
-import { Equal, Expect, ExpectFalse, NotEqual } from '@type-challenges/utils'
+import { Equal, Expect } from '@type-challenges/utils'
 
 const OperatingSystem = ['macOS', 'Windows', 'Linux'] as const
 const Command = ['echo', 'grep', 'sed', 'awk', 'cut', 'uniq', 'head', 'tail', 'xargs', 'shift'] as const
