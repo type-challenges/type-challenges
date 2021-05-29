@@ -8,4 +8,5 @@ type cases = [
   Expect<Equal<Includes<[1, 2, 3], 2>, true>>,
   Expect<Equal<Includes<[1, 2, 3], 1>, true>>,
   Expect<Equal<Includes<[{}], { a: 'A' }>, false>>,
+  Expect<Equal<Includes<[boolean, 2, 3, 5, 6, 7], false>, false>>,
 ]
