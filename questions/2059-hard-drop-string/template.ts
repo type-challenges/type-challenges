@@ -1,1 +1,1 @@
-type DropString<S, R> = any;
+type DropString<S, R> = any
