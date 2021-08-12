@@ -9,6 +9,4 @@ type OnlyBoolean = PickByType<{
   isReadonly: boolean
   isEnable: boolean
 }, boolean> // { isReadonly: boolean; isEnable: boolean; }
-
-
 ```
