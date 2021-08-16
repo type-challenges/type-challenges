@@ -1,4 +1,4 @@
-import { Equal, Expect, NotEqual, IsAny, ExpectFalse } from './index'
+import { Equal, Expect, NotEqual, IsAny, ExpectFalse, Alike } from './index'
 
 type cases = [
   /* Expect */
@@ -26,4 +26,8 @@ type cases = [
   /* IsAny */
   Expect<IsAny<any>>,
   ExpectFalse<IsAny<1>>,
+
+  /* Alike */
+  Expect<Alike<{ a: 1 } & { b: 2 }, { a: 1, b: 2 }>>
+  ExpectFalse<Equal<{ a: 1 } & { b: 2 }, { a: 1, b: 2 }>>
 ]
