@@ -1,22 +1,15 @@
-Implement the generic ```ClassPublicKeys<T>``` which returns all public keys of a class.
+Implement the generic `ClassPublicKeys<T>` which returns all public keys of a class.
 
-For example
+For example:
 
-```typescript
+```ts
 class A {
-  public str: string;
-  protected num: number;
-  private bool: boolean;
-  constructor() {
-    this.str = 'naive';
-    this.num = 19260917;
-    this.bool = true;
-  }
-
+  public str: string
+  protected num: number
+  private bool: boolean
   getNum() {
     return Math.random()
   }
-
 }
 
 type publicKyes = ClassPublicKeys<A> // 'str' | 'getNum'
