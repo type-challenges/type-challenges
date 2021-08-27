@@ -13,6 +13,6 @@ type cases = [
   Expect<Equal<Merge<Foo, Bar>, {
 	a: number;
 	b: number;
-  c: boolean;
+	c: boolean;
   }>>
 ]
