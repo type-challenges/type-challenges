@@ -1,0 +1,1 @@
+type ObjectFromEntries<T> = any
