@@ -1,0 +1,1 @@
+type Reverse<T> = any
