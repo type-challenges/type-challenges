@@ -1,0 +1,1 @@
+type FlipArguments<T> = any
