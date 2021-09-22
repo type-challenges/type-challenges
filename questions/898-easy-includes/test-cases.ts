@@ -11,4 +11,6 @@ type cases = [
   Expect<Equal<Includes<[boolean, 2, 3, 5, 6, 7], false>, false>>,
   Expect<Equal<Includes<[true, 2, 3, 5, 6, 7], boolean>, false>>,
   Expect<Equal<Includes<[false, 2, 3, 5, 6, 7], false>, true>>,
+  Expect<Equal<Includes<[{ a: 'A' }], { readonly a: 'A' }>, false>>,
+  Expect<Equal<Includes<[{ readonly a: 'A' }], { a: 'A' }>, false>>,
 ]
