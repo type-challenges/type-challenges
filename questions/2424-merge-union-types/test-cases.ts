@@ -15,6 +15,6 @@ type cases = [
   Expect<Equal<MergeUnionTypes<M1,M2>, {
       a:string|number,
       b:string,
-      c:boolean|boolean
+      c:string|boolean
   }>>,
 ]
