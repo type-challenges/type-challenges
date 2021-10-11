@@ -45,12 +45,12 @@ This project is aimed at helping you better understand how the type system works
 ### Official
 
 - [The TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
-  - [Unions and Intersection Types](https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html)
-  - [Literal Types](https://www.typescriptlang.org/docs/handbook/literal-types.html)
+  - [Unions and Intersection Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#union-types)
+  - [Literal Types](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#literal-types)
   - [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
-  - [Advanced Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
+  - [Advanced Types](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)
 
-- [The New Handbook](https://github.com/microsoft/TypeScript-New-Handbook)
+- [The New Handbook](https://github.com/microsoft/TypeScript-Website/tree/v2/packages/documentation/copy/en/handbook-v2)
 
 ### Articles
 
