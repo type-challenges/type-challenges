@@ -2,7 +2,7 @@
 
 > TypeScript 4.0 is recommended in this challenge
 
-Implement a generic `Last<T>` that takes an Array `T` and returns it's last element's type.
+Implement a generic `Last<T>` that takes an Array `T` and returns its last element.
 
 For example
 
