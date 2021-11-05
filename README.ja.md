@@ -4,7 +4,7 @@
 
 <p align='center'>
 TypeScript 型の課題集<br>
-<b><em>TypeScript 4.1 をサポートしました🎉</em></b>
+<b><em>TypeScript 4.2 をサポートしました🎉</em></b>
 </p>
 
 <p align='center'>
