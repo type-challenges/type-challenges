@@ -1,0 +1,1 @@
+type PartialOnlyOne<T> = any
