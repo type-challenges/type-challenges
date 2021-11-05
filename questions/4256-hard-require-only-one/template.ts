@@ -1,0 +1,1 @@
+type RequireOnlyOne<T> = any
