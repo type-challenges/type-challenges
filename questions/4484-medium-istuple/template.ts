@@ -1,0 +1,1 @@
+type IsTuple<T> = any
