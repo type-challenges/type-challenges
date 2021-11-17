@@ -11,7 +11,7 @@ interface Todo {
   readonly completed: boolean
 }
 
-type MutableTodo = Mutable<T> // { title: string; description: string; completed: boolean; }
+type MutableTodo = Mutable<Todo> // { title: string; description: string; completed: boolean; }
 
 ```
 
