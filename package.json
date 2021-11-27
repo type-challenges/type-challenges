@@ -18,10 +18,10 @@
     "@types/js-yaml": "^4.0.1",
     "@types/lz-string": "^1.3.34",
     "@types/node": "^15.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
     "eslint": "^7.25.0",
-    "typescript": "^4.2.4",
+    "typescript": "^4.5.2",
     "utility-types": "^3.10.0"
   },
   "dependencies": {
