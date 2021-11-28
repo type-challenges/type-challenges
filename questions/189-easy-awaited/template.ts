@@ -1,1 +1,1 @@
-type Awaited = any
+type MyAwaited = any
