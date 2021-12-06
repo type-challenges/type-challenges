@@ -13,9 +13,6 @@ jobs:
       - run: npx pnpm i
       - name: 'Update README index'
         run: npm run readme
-      - uses: EndBug/add-and-commit@v4 # You can change this to use a specific version
+      - uses: EndBug/add-and-commit@v7 # You can change this to use a specific version
         with:
-          ref: 'master'
           message: 'chore: update index'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
