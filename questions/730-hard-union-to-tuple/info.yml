@@ -1,9 +1,8 @@
 difficulty: hard
 title: Union to Tuple
 tags: union, tuple, infer
-related: 55
 author:
   github: suica
   name: Sg
 
-related: 10, 11, 472, 3188
+related: 10, 11, 55, 472, 3188

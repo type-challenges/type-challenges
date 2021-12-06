@@ -35,6 +35,11 @@ export function toRawREADME(quiz: Quiz, locale?: string) {
     : `${provider}/questions/${quiz.path}/README.md`
 }
 
+export function toQuestionsRawREADME(locale?: string) {
+  const provider = 'https://cdn.jsdelivr.net/gh/type-challenges/type-challenges'
+  return locale && locale !== defaultLocale ? `${provider}/README.${locale}.md` : `${provider}/README.md`
+}
+
 export function toNearborREADME(quiz: Quiz, locale?: string) {
   return locale && locale !== defaultLocale && quiz.readme[locale]
     ? `./README.${locale}.md`
@@ -67,13 +72,13 @@ export function toPlayShort(no: number, locale?: string) {
     : `${DOMAIN}/${no}/play`
 }
 
-export function toAnswerShort(no: number, locale? : string) {
+export function toAnswerShort(no: number, locale?: string) {
   return locale !== defaultLocale
     ? `${DOMAIN}/${no}/answer/${locale}`
     : `${DOMAIN}/${no}/answer`
 }
 
-export function toHomepageShort(locale? : string) {
+export function toHomepageShort(locale?: string) {
   return locale !== defaultLocale
     ? `${DOMAIN}/${locale}`
     : `${DOMAIN}`
