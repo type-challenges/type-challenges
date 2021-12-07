@@ -12,22 +12,22 @@
     "utils:release": "pnpm -C utils release"
   },
   "devDependencies": {
-    "@antfu/eslint-config-ts": "^0.6.4",
+    "@antfu/eslint-config-ts": "^0.12.1",
     "@type-challenges/utils": "workspace:*",
-    "@types/fs-extra": "^9.0.11",
-    "@types/js-yaml": "^4.0.1",
+    "@types/fs-extra": "^9.0.13",
+    "@types/js-yaml": "^4.0.5",
     "@types/lz-string": "^1.3.34",
-    "@types/node": "^15.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
-    "@typescript-eslint/parser": "^5.4.0",
-    "eslint": "^7.25.0",
+    "@types/node": "^16.11.12",
+    "@typescript-eslint/eslint-plugin": "^5.6.0",
+    "@typescript-eslint/parser": "^5.6.0",
+    "eslint": "^8.4.1",
     "typescript": "^4.5.2",
     "utility-types": "^3.10.0"
   },
   "dependencies": {
-    "esno": "^0.5.0",
-    "fast-glob": "^3.2.5",
-    "fs-extra": "^9.1.0",
+    "esno": "^0.12.1",
+    "fast-glob": "^3.2.7",
+    "fs-extra": "^10.0.0",
     "js-yaml": "^4.1.0",
     "lz-string": "^1.4.4"
   },
