@@ -1,21 +1,19 @@
 <p align='center'>
-<img src='./screenshots/logo.svg' width='400'/>
+  <img src='./screenshots/logo.svg' width='400'/>
 </p>
 
-<p align='center'>
-TypeScript 类型体操姿势合集
-</p>
+<p align='center'>TypeScript 类型体操姿势合集</p>
 
 <p align='center'>
-<a href='https://discord.gg/UgKBCq9'>
-<img src='https://img.shields.io/badge/-Discord-yellowgreen?logo=discord&logoColor=white&color=7289da'/>
-</a>
+  <a href='https://discord.gg/UgKBCq9'>
+    <img src='https://img.shields.io/badge/-Discord-yellowgreen?logo=discord&logoColor=white&color=7289da'/>
+  </a>
 </p>
 
 <br>
 
 <p align='center'>
-<a href='./README.md'>English</a> | 简体中文 | <a href='./README.ja.md'>日本語</a>
+  <a href='./README.md'>English</a> | 简体中文 | <a href='./README.ja.md'>日本語</a>
 </p>
 
 <br>
@@ -23,7 +21,7 @@ TypeScript 类型体操姿势合集
 ## 介绍
 
 <p align='center'>
-<del><em>众所周知，TypeScript 拥有一个<a href="https://github.com/microsoft/TypeScript/issues/14833">图灵完备的类型系统</a></em></del>
+  <del><em>众所周知，TypeScript 拥有一个<a href="https://github.com/microsoft/TypeScript/issues/14833">图灵完备的类型系统</a></em></del>
 </p>
 
 高质量的类型可以提高项目的可维护性并避免一些潜在的漏洞。市面上也已经有许多优秀的类型工具库，像是 [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility-types](https://github.com/piotrwitek/utility-types), [SimplyTyped](https://github.com/andnp/SimplyTyped) 等等。我们也从这些项目中获取了许多灵感。
