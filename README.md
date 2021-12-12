@@ -1,33 +1,33 @@
 <p align='center'>
-<img src='./screenshots/logo.svg' width='400'/>
+  <img src='./screenshots/logo.svg' width='400'/>
 </p>
 
-<p align='center'>
-Collection of TypeScript type challenges
-</p>
+<p align='center'>Collection of TypeScript type challenges</p>
 
 <p align='center'>
-<a href='https://discord.gg/UgKBCq9'>
-<img src='https://img.shields.io/badge/-Discord-yellowgreen?logo=discord&logoColor=white&color=7289da'/>
-</a>
-<a href='https://www.typescriptlang.org/play?install-plugin=%40type-challenges%2Fplayground-plugin'>
-<img src='https://img.shields.io/badge/Playground-143?logo=typescript&color=3178C6&logoColor=fff' />
-</a>
+  <a href='https://discord.gg/UgKBCq9'>
+    <img src='https://img.shields.io/badge/-Discord-yellowgreen?logo=discord&logoColor=white&color=7289da'/>
+  </a>
+  <a href='https://www.typescriptlang.org/play?install-plugin=%40type-challenges%2Fplayground-plugin'>
+  <img src='https://img.shields.io/badge/Playground-143?logo=typescript&color=3178C6&logoColor=fff' />
+  </a>
+</p>
+
 <br>
 
 <p align='center'>
-English | <a href='./README.zh-CN.md'>简体中文</a> | <a href='./README.ja.md'>日本語</a>
+  English | <a href='./README.zh-CN.md'>简体中文</a> | <a href='./README.ja.md'>日本語</a>
 </p>
 
 ## Intro
 
 <p align='center'>
-<del><em>by the power of TypeScript's well-known <a href="https://github.com/microsoft/TypeScript/issues/14833">Turing Completed</a> type system</em></del>
+  <del><em>by the power of TypeScript's well-known <a href="https://github.com/microsoft/TypeScript/issues/14833">Turing Completed</a> type system</em></del>
 </p>
 
 High-quality types can help improve projects' maintainability while avoiding potential bugs.
 
-There are a bunch of awesome type utility libraries may boost your works on types, like [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility-types](https://github.com/piotrwitek/utility-types), [SimplyTyped](https://github.com/andnp/SimplyTyped), etc, which you can already use.
+There are a bunch of awesome type utility libraries may boost your works on types, like [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility-types](https://github.com/piotrwitek/utility-types), [SimplyTyped](https://github.com/andnp/SimplyTyped), etc., which you can already use.
 
 This project is aimed at helping you better understand how the type system works, writing your own utilities, or just having fun with the challenges. We are also trying to form a community where you can ask questions and get answers you have faced in the real world - they may become part of the challenges!
 
@@ -78,15 +78,15 @@ There are several ways you can contribute to this project
 - Propose new challenges
 - Add more test cases to the existing challenges
 - Provide learning resources or ideas of how to solve challenges
-- Share the problems you have faced in realworld projects, regardless you having the solution or not - the community would help you as well.
+- Share the problems you have faced in real-world projects, regardless you having the solution or not - the community would help you as well
 - Help with others by discussion in issues
 - Contribute the infra of this project [TODOs.md](./TODOs.md)
 
-Just [open an issue](https://github.com/type-challenges/type-challenges/issues/new/choose) and choose the cosponsing template. Thanks!
+Just [open an issue](https://github.com/type-challenges/type-challenges/issues/new/choose) and choose the corresponding template. Thanks!
 
 ## Thanks
 
-This project was born from solving realworld types problem with [@hardfist](https://github.com/hardfist) and [@MeCKodo](https://github.com/MeCKodo). And great thanks to [@sinoon](https://github.com/sinoon) who contributed a lot while giving early feedback on this project.
+This project was born from solving real-world types problem with [@hardfist](https://github.com/hardfist) and [@MeCKodo](https://github.com/MeCKodo). And great thanks to [@sinoon](https://github.com/sinoon) who contributed a lot while giving early feedback on this project.
 
 ### Inspired by
 

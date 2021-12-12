@@ -6,9 +6,9 @@ A list of TODOs for this project, PR welcome!
 
 - [ ] Local playground generator for devs
 
-- [ ] A plugin for TypeScript Playground that provides some hint and form functionality to boost the experiences on taking challenges.
+- [ ] A plugin for TypeScript Playground that provides some hint and form functionality to boost the experiences on taking challenges
 
-- [ ] More learning resoureses.
+- [ ] More learning resources
 
 - [ ] "Recent Challenges" section in the README
 
