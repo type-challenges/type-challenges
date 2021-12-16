@@ -28,7 +28,7 @@ const Messages = {
     issue_invalid_reply: 'Issue 格式不正确，请按照依照模版修正',
     pr_auto_translate_tips: '通过谷歌 API 自动翻译',
   },
-  'ja' {
+  'ja': {
     info: '基本情報',
     template: 'テンプレート',
     tests: 'テストケース',
