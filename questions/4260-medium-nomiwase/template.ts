@@ -1,0 +1,1 @@
+type AllCombinations<S> = any
