@@ -1,0 +1,1 @@
+type MutableKeys<T> = any
