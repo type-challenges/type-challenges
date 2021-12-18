@@ -1,0 +1,1 @@
+type Prefix<T> = any
