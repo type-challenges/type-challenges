@@ -1,11 +1,12 @@
 export const defaultLocale = 'en'
 
-export const supportedLocales = ['en', 'zh-CN', 'ja'] as const
+export const supportedLocales = ['en', 'zh-CN', 'ja', 'ko'] as const
 
 export const messages = {
   en: require('./locales/en.json'),
   'zh-CN': require('./locales/zh-CN.json'),
   ja: require('./locales/ja.json'),
+  ko: require('./locales/ko.json'),
 }
 
 export type SupportedLocale = keyof typeof messages
