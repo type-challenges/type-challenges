@@ -1,0 +1,1 @@
+type Intersection<T> = any
