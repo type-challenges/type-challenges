@@ -62,6 +62,10 @@ This project is aimed at helping you better understand how the type system works
 - [The Art of Type Programming](https://mistlog.medium.com/the-art-of-type-programming-cfd933bdfff7)
 - [Type Query: jQuery Style Type Manipulation](https://mistlog.medium.com/type-query-jquery-style-type-manipulation-497ce26d93f)
 
+### Talks
+
+- [Type Level Programming in Typescript](https://www.youtube.com/watch?reload=9&v=vGVvJuazs84)
+
 ### Projects / Solutions
 
 - [Type Gymnastics](https://github.com/g-plane/type-gymnastics)
