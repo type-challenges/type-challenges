@@ -1,6 +1,8 @@
 difficulty: extreme
 title: JSON Parser
-tags: template-literal json
+tags: 
+  - template-literal
+  - json
 author:
   github: hyroge
   name: Hydrogen
