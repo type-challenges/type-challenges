@@ -6,3 +6,10 @@ type cases = [
   Expect<Equal<First<[]>, never>>,
   Expect<Equal<First<[undefined]>, undefined>>
 ]
+
+type errors = [
+  // @ts-expect-error
+  First<'notArray'>,
+  // @ts-expect-error
+  First<{ 0: 'arrayLike' }>
+]
