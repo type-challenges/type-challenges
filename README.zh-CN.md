@@ -2,7 +2,7 @@
   <img src='./screenshots/logo.svg' width='400'/>
 </p>
 
-<p align='center'>TypeScript 类型挑战合集</p>
+<p align='center'>TypeScript 类型体操姿势合集</p>
 
 <p align='center'>
   <a href='https://discord.gg/UgKBCq9'>
@@ -73,7 +73,7 @@
 
 ## 感谢
 
-这个项目诞生于[@hardfist](https://github.com/hardfist)和 [@MeCKodo](https://github.com/MeCKodo) 两位朋友为解决现实环境中遇到的类型问题。同时也非常感谢 [@sinoon](https://github.com/sinoon) 在项目初期提供了宝贵的反馈意见与参与的贡献。
+这个项目诞生于[@hardfist](https://github.com/hardfist)和 [@MeCKodo](https://github.com/MeCKodo) 两位朋友做的类型体操。同时也非常感谢 [@sinoon](https://github.com/sinoon) 在项目初期提供了宝贵的反馈意见与参与的贡献。
 
 ### 贡献者
 
