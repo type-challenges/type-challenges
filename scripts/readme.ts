@@ -42,6 +42,10 @@ export function toBadgeLink(url: string, label: string, text: string, color: str
   return `<a href="${url}" target="_blank">${toBadge(label, text, color, args)}</a> `
 }
 
+export function toPlanTextLink(url: string, _label: string, text: string, _color: string, _args = '') {
+  return `<a href="${url}" target="_blank">${text}</a> `
+}
+
 function toAuthorInfo(author: Partial<QuizMetaInfo['author']> = {}) {
   return `by ${author.name}${author.github ? ` <a href="https://github.com/${author.github}" target="_blank">@${author.github}</a>` : ''}`
 }
@@ -54,8 +58,13 @@ function toDifficultyBadgeInverted(difficulty: string, locale: SupportedLocale, 
   return toBadge(t(locale, `difficulty.${difficulty}`), count.toString(), DifficultyColors[difficulty])
 }
 
-function quizToBadge(quiz: Quiz, locale: string, absolute = false) {
-  return toBadgeLink(
+function toDifficultyPlainText(difficulty: string, locale: SupportedLocale, count: number) {
+  return `${t(locale, `difficulty.${difficulty}`)} (${count.toString()})`
+}
+
+function quizToBadge(quiz: Quiz, locale: string, absolute = false, badge = true) {
+  const fn = badge ? toBadgeLink : toPlanTextLink
+  return fn(
     toQuizREADME(quiz, locale, absolute),
     '',
     `${quiz.no}・${quiz.info[locale]?.title || quiz.info[defaultLocale]?.title}`,
@@ -138,7 +147,7 @@ async function updateIndexREADME(quizes: Quiz[]) {
     let challengesREADME = ''
     let prev = ''
 
-    // Difficulty
+    // difficulty
     const quizesByDifficulty = [...quizes].sort((a, b) => DifficultyRank.indexOf(a.difficulty) - DifficultyRank.indexOf(b.difficulty))
 
     for (const quiz of quizesByDifficulty) {
@@ -150,6 +159,7 @@ async function updateIndexREADME(quizes: Quiz[]) {
       prev = quiz.difficulty
     }
 
+    // by tags
     challengesREADME += '<br><details><summary>By Tags</summary><br><table><tbody>'
     const tags = getAllTags(quizes, locale)
     for (const tag of tags) {
@@ -162,6 +172,17 @@ async function updateIndexREADME(quizes: Quiz[]) {
     }
     challengesREADME += '<tr><td><code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code></td><td></td></tr>'
     challengesREADME += '</tbody></table></details>'
+
+    // by plain text
+    prev = ''
+    challengesREADME += '<br><details><summary>By Plain Text</summary><br>'
+    for (const quiz of quizesByDifficulty) {
+      if (prev !== quiz.difficulty)
+        challengesREADME += `${prev ? '</ul>' : ''}<h3>${toDifficultyPlainText(quiz.difficulty, locale, quizesByDifficulty.filter(q => q.difficulty === quiz.difficulty).length)}</h3><ul>`
+      challengesREADME += `<li>${quizToBadge(quiz, locale, false, false)}</li>`
+      prev = quiz.difficulty
+    }
+    challengesREADME += '</ul></details><br>'
 
     let readme = await fs.readFile(filepath, 'utf-8')
     readme = readme.replace(
