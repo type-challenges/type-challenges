@@ -13,5 +13,8 @@
     "**/dist": true
   },
   "i18n-ally.keystyle": "flat",
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "prettier.semi": false,
+  "typescript.format.semicolons": "remove",
+  "javascript.format.semicolons": "remove"
 }
