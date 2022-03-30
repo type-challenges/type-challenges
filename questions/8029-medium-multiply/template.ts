@@ -1,0 +1,1 @@
+type Multiply = any
