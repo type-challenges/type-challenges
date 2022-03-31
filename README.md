@@ -72,6 +72,9 @@ This project is aimed at helping you better understand how the type system works
 - [Type Challenges Solutions](https://github.com/ghaiklor/type-challenges-solutions)
 - [TypeType Examples](https://github.com/mistlog/typetype-examples)
 
+### Books
+- [Effective TypeScript](https://effectivetypescript.com/)
+
 > TODO
 
 ## How to Contribute
