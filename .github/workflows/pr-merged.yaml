@@ -15,5 +15,4 @@ jobs:
         run: npm run readme
       - uses: EndBug/add-and-commit@v9
         with:
-          branch: master
           message: 'chore: update index'
