@@ -1,6 +1,6 @@
 difficulty: hard
 title: Typed Get
-tags: "utils, template-literal"
+tags: 'utils, template-literal'
 author:
   github: antfu
   name: Anthony Fu

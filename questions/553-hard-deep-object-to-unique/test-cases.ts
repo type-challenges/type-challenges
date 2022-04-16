@@ -1,4 +1,4 @@
-import { Equal, IsTrue, IsFalse } from '@type-challenges/utils'
+import type { Equal, IsFalse, IsTrue } from '@type-challenges/utils'
 
 type Quz = { quz: 4 }
 
@@ -21,5 +21,5 @@ type cases = [
   IsFalse<Equal<UniqFoo['bar'], UniqFoo['baz']>>,
   IsFalse<Equal<UniqBar['baz'], UniqFoo['baz']>>,
   IsTrue<Equal<keyof UniqBar['baz'], keyof UniqFoo['baz']>>,
-  IsTrue<Equal<keyof Foo, keyof UniqFoo & string>>
+  IsTrue<Equal<keyof Foo, keyof UniqFoo & string>>,
 ]

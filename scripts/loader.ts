@@ -2,8 +2,8 @@ import path from 'path'
 import fs from 'fs-extra'
 import fg from 'fast-glob'
 import YAML from 'js-yaml'
-import { Quiz, QuizMetaInfo } from './types'
-import { supportedLocales, defaultLocale } from './locales'
+import type { Quiz, QuizMetaInfo } from './types'
+import { defaultLocale, supportedLocales } from './locales'
 
 export async function loadFile(filepath: string) {
   if (fs.existsSync(filepath))
@@ -110,7 +110,7 @@ export function resolveInfo(quiz: Quiz, locale: string = defaultLocale) {
   info.related = quiz.info[locale]?.related || quiz.info[defaultLocale]?.related || []
 
   if (typeof info.tags === 'string')
-    // @ts-ignore
+    // @ts-expect-error
     info.tags = info.tags.split(',').map(i => i.trim()).filter(Boolean)
 
   return info as QuizMetaInfo

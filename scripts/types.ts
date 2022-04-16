@@ -1,5 +1,5 @@
-import { DeepPartial } from 'utility-types'
-import type { getOctokit, context } from '@actions/github'
+import type { DeepPartial } from 'utility-types'
+import type { context, getOctokit } from '@actions/github'
 import type Core from '@actions/core'
 import type IO from '@actions/io'
 

@@ -1,4 +1,4 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils'
 
 type cases = [
   Expect<Equal<Multiply<2, 3>, '6'>>,
@@ -16,5 +16,5 @@ type cases = [
   Expect<Equal<Multiply<11n, 13n>, '143'>>,
   Expect<Equal<Multiply<728, 0>, '0'>>,
   Expect<Equal<Multiply<'0', 213>, '0'>>,
-  Expect<Equal<Multiply<0, '0'>, '0'>>
+  Expect<Equal<Multiply<0, '0'>, '0'>>,
 ]

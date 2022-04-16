@@ -1,7 +1,7 @@
 import YAML from 'js-yaml'
 import slug from 'limax'
 import { PushCommit } from '@type-challenges/octokit-create-pull-request'
-import { Action, Context, Github, Quiz } from '../types'
+import type { Action, Context, Github, Quiz } from '../types'
 import { t } from '../locales'
 import { toPlaygroundUrl } from '../toUrl'
 import { toBadgeLink } from '../readme'
@@ -46,7 +46,8 @@ const action: Action = async(github, context, core) => {
   const issue = payload.issue
   const no = context.issue.number
 
-  if (!issue) return
+  if (!issue)
+    return
 
   const labels: string[] = (issue.labels || [])
     .map((i: any) => i && i.name)
@@ -246,14 +247,16 @@ function getCodeBlock(text: string, title: string, lang = 'ts') {
     `## ${title}[\\s\\S]*?\`\`\`${lang}([\\s\\S]*?)\`\`\``,
   )
   const match = text.match(regex)
-  if (match && match[1]) return match[1].toString().trim()
+  if (match && match[1])
+    return match[1].toString().trim()
   return null
 }
 
 function getCommentRange(text: string, key: string) {
   const regex = new RegExp(`<!--${key}-start-->([\\s\\S]*?)<!--${key}-end-->`)
   const match = text.match(regex)
-  if (match && match[1]) return match[1].toString().trim()
+  if (match && match[1])
+    return match[1].toString().trim()
   return null
 }
 

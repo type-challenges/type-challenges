@@ -1,4 +1,4 @@
-import { Equal, IsTrue } from '@type-challenges/utils'
+import type { Equal, IsTrue } from '@type-challenges/utils'
 
 type cases = [
   IsTrue<Equal<LengthOfString<''>, 0>>,

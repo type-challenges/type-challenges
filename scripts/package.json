@@ -1,7 +1,7 @@
 {
   "name": "@type-challenges/scripts",
-  "private": true,
   "version": "1.0.0",
+  "private": true,
   "dependencies": {
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.1",

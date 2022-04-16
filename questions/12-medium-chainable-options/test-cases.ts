@@ -1,4 +1,4 @@
-import { Alike, Expect } from '@type-challenges/utils'
+import type { Alike, Expect } from '@type-challenges/utils'
 
 declare const a: Chainable
 

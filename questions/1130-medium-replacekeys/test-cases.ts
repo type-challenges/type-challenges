@@ -1,4 +1,4 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils'
 
 type NodeA = {
   type: 'A'
@@ -53,6 +53,6 @@ type ReplacedNodes = ReplacedNodeA | ReplacedNodeB | ReplacedNodeC
 type NodesNoName = NoNameNodeA | NoNameNodeC | NodeB
 
 type cases = [
-  Expect<Equal<ReplaceKeys<Nodes, 'name' | 'flag', {name: number; flag: string}>, ReplacedNodes>>,
-  Expect<Equal<ReplaceKeys<Nodes, 'name', {aa: number}>, NodesNoName>>,
+  Expect<Equal<ReplaceKeys<Nodes, 'name' | 'flag', { name: number; flag: string }>, ReplacedNodes>>,
+  Expect<Equal<ReplaceKeys<Nodes, 'name', { aa: number }>, NodesNoName>>,
 ]

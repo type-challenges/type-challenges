@@ -1,4 +1,4 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils'
 
 type Foo = {
   a: number
@@ -14,5 +14,5 @@ type cases = [
     a: number
     b: number
     c: boolean
-  }>>
+  }>>,
 ]

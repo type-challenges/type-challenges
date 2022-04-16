@@ -1,4 +1,5 @@
-import { Equal, Expect, ExpectFalse, NotEqual } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils'
+import { ExpectFalse, NotEqual } from '@type-challenges/utils'
 
 type cases = [
   Expect<Equal<(
@@ -55,5 +56,5 @@ type cases = [
 
   Expect<Equal<Parse<`{ "hello
   
-  world": 123 }`>, never>>
+  world": 123 }`>, never>>,
 ]

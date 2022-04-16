@@ -1,9 +1,10 @@
 import path from 'path'
 import fs from 'fs-extra'
-import { defaultLocale, f, SupportedLocale, supportedLocales, t } from './locales'
+import type { SupportedLocale } from './locales'
+import { defaultLocale, f, supportedLocales, t } from './locales'
 import { loadQuizes, resolveInfo } from './loader'
 import { toAnswerShort, toNearborREADME, toPlayShort, toQuizREADME, toSolutionsShort } from './toUrl'
-import { Quiz, QuizMetaInfo } from './types'
+import type { Quiz, QuizMetaInfo } from './types'
 
 const DifficultyColors: Record<string, string> = {
   warm: 'teal',

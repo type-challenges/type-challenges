@@ -16,7 +16,7 @@ Basic info of your challenge questions,
 ```yaml
 difficulty: easy # medium / hard / extreme
 title: Your Question Name
-#tags: union, array # separate by comma
+# tags: union, array # separate by comma
 ```
 
 ## Question
@@ -40,7 +40,8 @@ type YourType = any
 Provide some test cases for your challenge, you can use some utils from `@type-challenges/utils` for asserting.  
 
 ```ts
-import { Equal, Expect, ExpectFalse, NotEqual } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils'
+import { ExpectFalse, NotEqual } from '@type-challenges/utils'
 
 type cases = [
   Expect<Equal<true, true>>

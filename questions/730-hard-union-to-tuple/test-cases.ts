@@ -1,4 +1,4 @@
-import { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils'
 
 type ExtractValuesOfTuple<T extends any[]> = T[keyof T & number]
 

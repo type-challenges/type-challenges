@@ -1,5 +1,6 @@
-import { Quiz } from '../../types'
-import { SupportedLocale, t } from '../../locales'
+import type { Quiz } from '../../types'
+import type { SupportedLocale } from '../../locales'
+import { t } from '../../locales'
 import { resolveInfo } from '../../loader'
 
 export const toInfoHeader = function toInfoHeader(quiz: Quiz, locale: SupportedLocale) {

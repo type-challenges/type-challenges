@@ -1,5 +1,5 @@
 import lzs from 'lz-string'
-import { Quiz } from './types'
+import type { Quiz } from './types'
 import { defaultLocale } from './locales'
 import { resolveInfo } from './loader'
 

@@ -1,4 +1,5 @@
-import { Equal, Expect, ExpectFalse, NotEqual } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils'
+import { ExpectFalse, NotEqual } from '@type-challenges/utils'
 
 interface Model {
   name: string
@@ -11,6 +12,6 @@ type ModelEntries = ['name', string] | ['age', number] | ['locations', string[] 
 type cases = [
   Expect<Equal<ObjectEntries<Model>, ModelEntries>>,
   Expect<Equal<ObjectEntries<Partial<Model>>, ModelEntries>>,
-  Expect<Equal<ObjectEntries<{ key?: undefined}>, ['key', undefined]>>,
-  Expect<Equal<ObjectEntries<{ key: undefined}>, ['key', undefined]>>
+  Expect<Equal<ObjectEntries<{ key?: undefined }>, ['key', undefined]>>,
+  Expect<Equal<ObjectEntries<{ key: undefined }>, ['key', undefined]>>,
 ]

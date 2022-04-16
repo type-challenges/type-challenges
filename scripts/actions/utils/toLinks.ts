@@ -1,5 +1,6 @@
-import { Quiz } from '../../types'
-import { SupportedLocale, t } from '../../locales'
+import type { Quiz } from '../../types'
+import type { SupportedLocale } from '../../locales'
+import { t } from '../../locales'
 import { toReadmeShort } from '../../toUrl'
 
 export function toLinks(quiz: Quiz, locale: SupportedLocale) {

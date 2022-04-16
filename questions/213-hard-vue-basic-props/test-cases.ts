@@ -1,4 +1,4 @@
-import { Equal, Expect, IsAny, Debug } from '@type-challenges/utils'
+import type { Debug, Equal, Expect, IsAny } from '@type-challenges/utils'
 
 class ClassA {}
 

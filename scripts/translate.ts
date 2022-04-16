@@ -1,10 +1,11 @@
 import path from 'path'
 import translate from 'google-translate-open-api'
 import fs from 'fs-extra'
-import { loadQuizByNo, loadQuizes, QUIZ_ROOT } from './loader'
+import { QUIZ_ROOT, loadQuizByNo, loadQuizes } from './loader'
 import { resolveFilePath } from './utils/resolve'
-import { Quiz } from './types'
-import { SupportedLocale, t } from './locales'
+import type { Quiz } from './types'
+import type { SupportedLocale } from './locales'
+import { t } from './locales'
 
 export async function TranslateQuizByNo(no: number, from: SupportedLocale, to: SupportedLocale) {
   const quiz = await loadQuizByNo(no)

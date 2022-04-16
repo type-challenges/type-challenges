@@ -11,4 +11,3 @@ jobs:
       - uses: actions/checkout@v2
       - run: cd scripts && npm i --only=production
       - run: cd scripts/actions && npx esno ./loader.ts ${{github.token}} labeling
-

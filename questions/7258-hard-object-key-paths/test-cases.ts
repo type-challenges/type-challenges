@@ -1,4 +1,4 @@
-import { Equal, Expect, ExpectExtends } from '@type-challenges/utils'
+import type { Equal, Expect, ExpectExtends } from '@type-challenges/utils'
 
 const ref = {
   count: 1,
@@ -36,5 +36,5 @@ type cases = [
   Expect<ExpectExtends<ObjectKeyPaths<typeof ref>, 'person.books[0]'>>,
   Expect<ExpectExtends<ObjectKeyPaths<typeof ref>, 'person.books.[0]'>>,
   Expect<ExpectExtends<ObjectKeyPaths<typeof ref>, 'person.pets.0.type'>>,
-  Expect<Equal<ExpectExtends<ObjectKeyPaths<typeof ref>, 'notExist'>, false>>
+  Expect<Equal<ExpectExtends<ObjectKeyPaths<typeof ref>, 'notExist'>, false>>,
 ]

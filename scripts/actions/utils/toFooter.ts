@@ -1,6 +1,7 @@
-import { Quiz } from '../../types'
+import type { Quiz } from '../../types'
 
-import { SupportedLocale, t } from '../../locales'
+import type { SupportedLocale } from '../../locales'
+import { t } from '../../locales'
 import { toAnswerShort, toHomepageShort, toSolutionsShort } from '../../toUrl'
 
 export const toFooter = function(quiz: Quiz, locale: SupportedLocale) {

@@ -3,17 +3,21 @@ name: Index Update
 on:
   schedule:
     - cron: '0 0 * * *'
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 jobs:
   start:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: npx pnpm i
-      - name: 'Update README index'
+      - uses: pnpm/action-setup@v2.2.1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16.x
+          cache: pnpm
+      - name: Update README index
         run: npm run readme
-      - name: 'Lint fix'
+      - name: Lint fix
         run: npm run lint -- --fix
       - uses: EndBug/add-and-commit@v9
         with:

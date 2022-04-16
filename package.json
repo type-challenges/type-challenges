@@ -1,10 +1,11 @@
 {
   "name": "type-challenges",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@6.32.3",
   "license": "MIT",
-  "repository": "https://github.com/antfu/type-challenges.git",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "repository": "https://github.com/antfu/type-challenges.git",
   "scripts": {
     "readme": "esno ./scripts/readme.ts",
     "build": "esno ./scripts/build.ts",
@@ -38,10 +39,12 @@
       "import/first": "off",
       "no-unused-vars": "off",
       "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/ban-ts-comment": "off",
       "no-use-before-define": "off",
       "no-unused-expressions": "off",
       "prefer-const": "off",
-      "no-alert": "off"
+      "no-alert": "off",
+      "@typescript-eslint/consistent-type-definitions": "off"
     }
   }
 }
