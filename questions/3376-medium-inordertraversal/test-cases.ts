@@ -36,8 +36,8 @@ const tree4 = {
   right: {
     val: 2,
     left: null,
-    right: null
-  }
+    right: null,
+  },
 } as const
 
 type cases = [

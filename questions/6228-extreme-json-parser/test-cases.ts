@@ -15,43 +15,43 @@ type cases = [
     `>
   ), (
     {
-      nil: null;
-      c: [true, false, "hello", {
-        a: "b",
+      nil: null
+      c: [true, false, 'hello', {
+        a: 'b'
         b: false
-      }];
-      b: false;
-      a: "b";
+      }]
+      b: false
+      a: 'b'
     }
 
   )>>,
-  Expect<Equal<Parse<`{}`>, {}>>,
+  Expect<Equal<Parse<'{}'>, {}>>,
 
-  Expect<Equal<Parse<`[]`>, []>>,
+  Expect<Equal<Parse<'[]'>, []>>,
 
-  Expect<Equal<Parse<`[1]`>, never>>,
+  Expect<Equal<Parse<'[1]'>, never>>,
 
-  Expect<Equal<Parse<`true`>, true>>,
+  Expect<Equal<Parse<'true'>, true>>,
 
   Expect<Equal<
-    Parse<`["Hello", true, false, null]`>,
-    ["Hello", true, false, null]
+  Parse<'["Hello", true, false, null]'>,
+  ['Hello', true, false, null]
   >>,
 
   Expect<Equal<
-    (
-      Parse<`
+  (
+    Parse<`
       {
         "hello\\r\\n\\b\\f": "world"
       }`>
-    ), (
-      {
-        "hello\r\n\b\f": "world"
-      }
-    )
+  ), (
+    {
+      'hello\r\n\b\f': 'world'
+    }
+  )
   >>,
 
-  Expect<Equal<Parse<`{ 1: "world" }`>, never>>,
+  Expect<Equal<Parse<'{ 1: "world" }'>, never>>,
 
   Expect<Equal<Parse<`{ "hello
   

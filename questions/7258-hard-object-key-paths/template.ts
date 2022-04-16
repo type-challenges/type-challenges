@@ -1,1 +1,1 @@
-type ObjectKeyPaths<T extends object> = any;
+type ObjectKeyPaths<T extends object> = any

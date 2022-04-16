@@ -10,6 +10,7 @@ async function main(): Promise<void> {
   const fnName = process.argv[3]
   const github = getOctokit(token)
 
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const fn = require(`./${fnName}.ts`)
   fn.default(github, context, core, io)
 }

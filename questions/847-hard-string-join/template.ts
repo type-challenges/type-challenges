@@ -1,1 +1,1 @@
-declare function join(delimiter: any): (...parts: any[]) => any;
+declare function join(delimiter: any): (...parts: any[]) => any

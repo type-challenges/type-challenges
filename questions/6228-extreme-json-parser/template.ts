@@ -1,8 +1,8 @@
 type Pure<T> = {
-  [P in keyof T] : T[P] extends object ? Pure<T[P]> : T[P]
+  [P in keyof T]: T[P] extends object ? Pure<T[P]> : T[P]
 }
 
-type SetProperty<T , K extends PropertyKey, V> = {
+type SetProperty<T, K extends PropertyKey, V> = {
   [P in (keyof T) | K]: P extends K ? V : P extends keyof T ? T[P] : never
 }
 

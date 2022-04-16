@@ -10,6 +10,6 @@
     "release": "pnpx bumpp --commit --tag && pnpm publish"
   },
   "devDependencies": {
-    "typescript": "^4.5.2"
+    "typescript": "^4.6.3"
   }
 }

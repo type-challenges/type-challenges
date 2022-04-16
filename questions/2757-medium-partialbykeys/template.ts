@@ -1,1 +1,1 @@
-type PartialByKeys<T , K> = any
+type PartialByKeys<T, K> = any

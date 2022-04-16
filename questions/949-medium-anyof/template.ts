@@ -1,1 +1,1 @@
-type AnyOf<T extends readonly any[]> = any;
+type AnyOf<T extends readonly any[]> = any

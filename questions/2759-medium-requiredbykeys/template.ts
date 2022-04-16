@@ -1,1 +1,1 @@
-type RequiredByKeys<T , K> = any
+type RequiredByKeys<T, K> = any

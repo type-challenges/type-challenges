@@ -1,8 +1,7 @@
 difficulty: hard
 title: Vue Basic Props
-tags: 'vue, application'
+tags: "vue, application"
 related: 6
 author:
   github: antfu
   name: Anthony Fu
-

@@ -1,1 +1,1 @@
-type KebabCase<S> = any;
+type KebabCase<S> = any

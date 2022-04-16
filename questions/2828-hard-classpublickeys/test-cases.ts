@@ -9,6 +9,7 @@ class A {
     this.num = 19260917
     this.bool = true
   }
+
   getNum() {
     return Math.random()
   }

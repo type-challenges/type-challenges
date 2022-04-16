@@ -15,8 +15,8 @@ type cases = [
   Expect<Equal<Slice<Arr, 2>, [3, 4, 5]>>,
 
   // negative index
-  Expect<Equal<Slice<Arr, 0, -1>, [1,2,3,4]>>,
-  Expect<Equal<Slice<Arr, -3, -1>, [3,4]>>,
+  Expect<Equal<Slice<Arr, 0, -1>, [1, 2, 3, 4]>>,
+  Expect<Equal<Slice<Arr, -3, -1>, [3, 4]>>,
 
   // invalid
   Expect<Equal<Slice<Arr, 10>, []>>,

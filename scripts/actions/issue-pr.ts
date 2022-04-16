@@ -9,7 +9,7 @@ import { resolveFilePath } from '../utils/resolve'
 import { formatToCode } from './utils/formatToCode'
 
 const Messages = {
-  en: {
+  'en': {
     info: 'Info',
     template: 'Template',
     tests: 'Test Cases',

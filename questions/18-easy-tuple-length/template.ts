@@ -1,1 +1,1 @@
-type Length<T extends any> = any
+type Length<T> = any

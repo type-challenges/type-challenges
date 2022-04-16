@@ -9,13 +9,13 @@ interface User {
 interface UserRequiredName {
   name: string
   age?: number
-  address?: string 
+  address?: string
 }
 
 interface UserRequiredNameAndAge {
   name: string
   age: number
-  address?: string 
+  address?: string
 }
 
 type cases = [

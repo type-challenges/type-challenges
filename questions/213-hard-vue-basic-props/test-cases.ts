@@ -28,7 +28,7 @@ VueBasicProps({
     this.getRandom()
     // @ts-expect-error
     this.data()
-  
+
     return {
       firstname: 'Type',
       lastname: 'Challenges',
