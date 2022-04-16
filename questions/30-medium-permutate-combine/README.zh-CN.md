@@ -4,7 +4,7 @@
 适用于一些组件的属性，比如video的[controlsList](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/controlsList)
 
 ```ts
-// expected to be `'foo' | 'bar' | 'baz' | 'bar foo' | 'baz foo' | 'baz bar'`
+// expected to be `"foo" | "bar" | "baz" | "foo bar baz" | "bar foo" | "baz foo" | "bar baz" | "baz bar"`
 type Keys = Permutate<['foo', 'bar', 'baz']>
 ```
 
