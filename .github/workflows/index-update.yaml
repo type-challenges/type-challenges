@@ -15,10 +15,9 @@ jobs:
         with:
           node-version: 16.x
           cache: pnpm
-      - name: Update README index
-        run: npm run readme
-      - name: Lint fix
-        run: npm run lint -- --fix
+      - run: pnpm i
+      - run: npm run readme
+      - run: npm run lint -- --fix
       - uses: EndBug/add-and-commit@v9
         with:
           message: 'chore: update index'
