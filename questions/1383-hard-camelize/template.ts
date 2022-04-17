@@ -1,1 +1,0 @@
-type Camelize<T> = any
