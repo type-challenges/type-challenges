@@ -6,7 +6,7 @@
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.1",
     "@actions/io": "^1.1.2",
-    "@type-challenges/octokit-create-pull-request": "^0.1.8",
+    "@type-challenges/octokit-create-pull-request": "^0.1.9",
     "esno": "^0.14.1",
     "fast-glob": "^3.2.11",
     "fs-extra": "^10.1.0",
