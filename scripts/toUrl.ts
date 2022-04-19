@@ -21,7 +21,7 @@ export function toSolutionsFull(no: number) {
 }
 
 export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
-  const prefix = absolute ? `${REPO}/blob/master` : '.'
+  const prefix = absolute ? `${REPO}/blob/main` : '.'
   return locale && locale !== defaultLocale && quiz.readme[locale]
     ? `${prefix}/questions/${quiz.path}/README.${locale}.md`
     : `${prefix}/questions/${quiz.path}/README.md`
@@ -29,7 +29,7 @@ export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
 
 export function toRawREADME(quiz: Quiz, locale?: string) {
   const provider = 'https://cdn.jsdelivr.net/gh/type-challenges/type-challenges'
-  // const provider = 'https://raw.githubusercontent.com/type-challenges/type-challenges/master'
+  // const provider = 'https://raw.githubusercontent.com/type-challenges/type-challenges/main'
   return locale && locale !== defaultLocale && quiz.readme[locale]
     ? `${provider}/questions/${quiz.path}/README.${locale}.md`
     : `${provider}/questions/${quiz.path}/README.md`
