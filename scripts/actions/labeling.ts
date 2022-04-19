@@ -21,7 +21,7 @@ const action: Action = async(github, context, core) => {
       const name = no.toString()
 
       if (labels.includes('trigger-bot')) {
-        await github.issues.removeLabel({
+        await github.rest.issues.removeLabel({
           issue_number: context.issue.number,
           owner: context.repo.owner,
           repo: context.repo.repo,
@@ -33,14 +33,14 @@ const action: Action = async(github, context, core) => {
         return
 
       try {
-        await github.issues.getLabel({
+        await github.rest.issues.getLabel({
           owner: context.repo.owner,
           repo: context.repo.repo,
           name,
         })
       }
       catch {
-        await github.issues.createLabel({
+        await github.rest.issues.createLabel({
           owner: context.repo.owner,
           repo: context.repo.repo,
           name,
@@ -48,7 +48,7 @@ const action: Action = async(github, context, core) => {
         })
       }
 
-      await github.issues.addLabels({
+      await github.rest.issues.addLabels({
         issue_number: context.issue.number,
         owner: context.repo.owner,
         repo: context.repo.repo,
