@@ -11,5 +11,5 @@ type cases = [
   Expect<Equal<TwoSum<[1, 2, 3], 3>, true>>,
   Expect<Equal<TwoSum<[1, 2, 3], 4>, true>>,
   Expect<Equal<TwoSum<[1, 2, 3], 5>, true>>,
-  Expect<Equal<TwoSum<[1, 2, 3], 6>, false>>
+  Expect<Equal<TwoSum<[1, 2, 3], 6>, false>>,
 ]
