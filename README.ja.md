@@ -74,9 +74,9 @@ TypeScriptには [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility-
 
 日本語のコミュニティの翻訳と維持について、[@kawamataryo](https://github.com/kawamataryo)に感謝します。
 
-### Contributors
+### [Contributors](https://github.com/type-challenges/type-challenges/graphs/contributors)
 
-[英語版](./README.md#contributors)に記載しています。
+![Contributors](https://contrib.rocks/image?repo=type-challenges/type-challenges)
 
 ## ライセンス
 

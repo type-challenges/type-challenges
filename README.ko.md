@@ -90,6 +90,8 @@ This project was born from solving real-world types problem with [@hardfist](htt
 
 ### [Contributors](https://github.com/type-challenges/type-challenges/graphs/contributors)
 
+![Contributors](https://contrib.rocks/image?repo=type-challenges/type-challenges)
+
 ## License
 
 MIT
