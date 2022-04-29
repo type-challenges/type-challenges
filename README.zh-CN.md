@@ -75,9 +75,9 @@
 
 这个项目诞生于 [@hardfist](https://github.com/hardfist) 和 [@MeCKodo](https://github.com/MeCKodo) 两位朋友做的类型体操。同时也非常感谢 [@sinoon](https://github.com/sinoon) 在项目初期提供了宝贵的反馈意见与参与的贡献。
 
-### 贡献者
+### [贡献者](https://github.com/type-challenges/type-challenges/graphs/contributors)
 
-请见[英文版](./README.md#contributors)。
+![Contributors](https://contrib.rocks/image?repo=type-challenges/type-challenges)
 
 ## License
 
