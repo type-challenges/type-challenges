@@ -18,6 +18,8 @@ type cases = [
   ExpectFalse<Equal<'123', string>>,
   Expect<Equal<{ a: number }, { a: number }>>,
   ExpectFalse<Equal<{ a: number }, { b: number }>>,
+  ExpectFalse<Equal<any, '123'>>,
+  ExpectFalse<Equal<any, unknown>>,
 
   /* Not Equal */
   Expect<NotEqual<false, true>>,
