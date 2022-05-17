@@ -21,7 +21,7 @@ export interface QuizMetaInfo {
   related?: string[]
 }
 
-export type Difficulty = 'warm-up' | 'easy' | 'medium' | 'hard' | 'extreme' | 'pending'
+export type Difficulty = 'warm' | 'easy' | 'medium' | 'hard' | 'extreme' | 'pending'
 
 export interface Quiz {
   no: number
