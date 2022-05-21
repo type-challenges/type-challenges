@@ -1,5 +1,4 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import { ExpectFalse, NotEqual } from '@type-challenges/utils'
 
 interface User {
   name?: string
