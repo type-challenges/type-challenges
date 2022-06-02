@@ -3,8 +3,6 @@
 
 实现类型版本的数组反转 ```Array.reverse```
 
-```ts
-
 例如：
 
 ```typescript
