@@ -20,4 +20,13 @@ const todo: TodoPreview = {
 }
 ```
 
+answer
+
+```ts
+type RemoveKeys<T, K> = T extends K ? never : T;
+type MyOmit<T, K extends keyof T> = {
+  [key in RemoveKeys<keyof T, K>]: T[key]
+};
+```
+
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/3/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/3/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <hr><h3>Related Challenges</h3><a href="https://github.com/type-challenges/type-challenges/blob/main/questions/00004-easy-pick/README.md" target="_blank"><img src="https://img.shields.io/badge/-4%E3%83%BBPick-7aad0c" alt="4・Pick"/></a> <!--info-footer-end-->
