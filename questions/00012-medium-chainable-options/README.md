@@ -28,7 +28,7 @@ interface Result {
 answer
 ```ts
 type Chainable<T extends {} = {}> = {
-  option<K extends string, V>(key: K extends keyof T ? Error : K, value: V): Chainable<T & Record<K, V>>
+  option<K extends string, V>(key: K extends keyof T ? never : K, value: V): Chainable<T & Record<K, V>>
   get(): T
 }
 ```
