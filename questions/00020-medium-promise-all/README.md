@@ -13,5 +13,12 @@ const promise3 = new Promise<string>((resolve, reject) => {
 const p = Promise.all([promise1, promise2, promise3] as const)
 ```
 
+answer
+```ts
+type RemovePromises<T extends readonly any[]> = T extends readonly [...infer R1, infer K1] ?  (K1 extends Promise<infer P> ? [...R1, P] : [...R1, K1]) : unknown;
+
+declare function PromiseAll<T extends any[]>(values: readonly [...T]): Promise<RemovePromises<T>>;
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/20/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/20/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
