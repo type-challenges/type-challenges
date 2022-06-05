@@ -11,6 +11,12 @@ type Result = AppendArgument<Fn, boolean>
 // expected be (a: number, b: string, x: boolean) => number
 ```
 
+answer
+
+```ts
+type AppendArgument<Fn extends (...args: any[]) => any, A> = Fn extends (...args: [...infer Arg]) => infer R ? (...args: [...Arg, A]) => R : never;
+```
+
 > This question is ported from the [original article](https://dev.to/macsikora/advanced-typescript-exercises-question-4-495c) by [@maciejsikora](https://github.com/maciejsikora)
 
 
