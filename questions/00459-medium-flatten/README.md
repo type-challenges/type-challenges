@@ -8,5 +8,11 @@ For example:
 type flatten = Flatten<[1, 2, [3, 4], [[[5]]]]> // [1, 2, 3, 4, 5]
 ```
 
+answer
+
+```ts
+type Flatten<T extends any[]> = T extends [infer A, ...infer R] ? A extends [...infer R2] ? [...Flatten<R2>, ...Flatten<R>] : [A, ...Flatten<R>] : [];
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/459/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/459/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
