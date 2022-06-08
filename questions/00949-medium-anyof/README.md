@@ -11,8 +11,7 @@ type Sample2 = AnyOf<[0, '', false, [], {}]> // expected to be false.
 
 answer
 ```ts
-type FalsyObject<T> = keyof T extends never ? true : false;
-type Falsy<T> = T extends 0 ? true : T extends '' ? true : T extends false ? true : T extends [] ? true : FalsyObject<T> extends true ? true : false;
+type Falsy<T> = false | [] | Record<any, never> | 0 | undefined | null | '' extends infer F ? T extends F ? true : false : never;
 type AnyOf<T extends readonly any[]> = T extends [infer A1, ...infer A2] ?  Falsy<A1> extends true ? AnyOf<A2> : true : false;
 ```
 
