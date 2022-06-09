@@ -33,5 +33,13 @@ type ReplacedNodes = ReplaceKeys<Nodes, 'name' | 'flag', {name: number, flag: st
 type ReplacedNotExistKeys = ReplaceKeys<Nodes, 'name', {aa: number}> // {type: 'A', name: never, flag: number} | NodeB | {type: 'C', name: never, flag: number} // would replace name to never
 ```
 
+answer
+
+```ts
+type ReplaceKeys<U, T, Y> = U extends infer U1 ? {
+  [key in keyof U1]: key extends T ? key extends keyof Y ? Y[key] : never : U1[key]
+} : never;
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/1130/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/1130/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
