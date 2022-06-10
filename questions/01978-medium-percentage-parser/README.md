@@ -21,5 +21,11 @@ type R3 = PercentageParser<PString3> // expected ["-", "85", "%"]
 type R4 = PercentageParser<PString4> // expected ["", "85", "%"]
 type R5 = PercentageParser<PString5> // expected ["", "85", ""]
 ```
+  
+answer
+```ts
+type PercentageInnerParser<A, U> = A extends `${infer S1}${infer S2}` ? S1 extends "-" | "+" ? [S1, S2, U] : ["", `${S1}${S2}`, U] : ["", "", U];
+type PercentageParser<A extends string> = A extends `${infer S1}%` ? PercentageInnerParser<S1, "%"> : PercentageInnerParser<A, "">;  
+```
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/1978/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/1978/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
