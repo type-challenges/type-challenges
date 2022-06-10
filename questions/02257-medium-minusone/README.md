@@ -11,7 +11,9 @@ type FiftyFour = MinusOne<55> // 54
 
 answer
 ```ts
-type MinusOne<T extends number, K extends any[] = []> = T extends [...K, ""]["length"] ? K["length"] : MinusOne<T, [...K, ""]>;
+type MinusOne<T extends number, K extends any[] = []> = T extends [...K, "", ""]["length"] ? [...K, ""]["length"] : 
+  T extends [...K, ""]["length"] ? K["length"] : 
+  MinusOne<T, [...K, "", ""]>;
 ```
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/2257/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/2257/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
