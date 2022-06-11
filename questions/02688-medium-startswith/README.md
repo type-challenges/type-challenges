@@ -10,5 +10,11 @@ type b = StartsWith<'abc', 'ab'> // expected to be true
 type c = StartsWith<'abc', 'abcd'> // expected to be false
 ```
 
+answer
+
+```ts
+type StartsWith<T extends string, U extends string> = U extends `${infer U1}${infer U2}` ? T extends `${infer T1}${infer T2}` ? U1 extends T1 ? StartsWith<T2, U2> : false : false : true;
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/2688/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/2688/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <hr><h3>Related Challenges</h3><a href="https://github.com/type-challenges/type-challenges/blob/main/questions/02693-medium-endswith/README.md" target="_blank"><img src="https://img.shields.io/badge/-2693%E3%83%BBEndsWith-d9901a" alt="2693・EndsWith"/></a> <!--info-footer-end-->
