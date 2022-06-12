@@ -11,5 +11,11 @@ type Flipped = FlipArguments<(arg0: string, arg1: number, arg2: boolean) => void
 // (arg0: boolean, arg1: number, arg2: string) => void
 ```
 
+answer
+```ts
+type Reverse<T> = T extends [infer A1, ...infer A2] ? [...Reverse<A2>, A1] : [];
+type FlipArguments<T> = T extends (...args: [...infer A]) => infer R ? (...args: Reverse<A>) => R  : never;
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/3196/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/3196/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <hr><h3>Related Challenges</h3><a href="https://github.com/type-challenges/type-challenges/blob/main/questions/03192-medium-reverse/README.md" target="_blank"><img src="https://img.shields.io/badge/-3192%E3%83%BBReverse-d9901a" alt="3192・Reverse"/></a> <!--info-footer-end-->
