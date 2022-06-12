@@ -13,5 +13,13 @@ interface Model {
 type modelEntries = ObjectEntries<Model> // ['name', string] | ['age', number] | ['locations', string[] | null];
 ```
 
+answer
+```ts
+type RemovePartial<T> = T extends Partial<infer T1> ? T1 : never;
+type ObjectEntries<S, T = RemovePartial<S>> = keyof T extends infer K1 | infer K2 ? K1 extends keyof T ? [K1, T[K1]] | ObjectEntries<{
+  [key in Exclude<keyof T, K1>]: T[key]
+}> : never : never;
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/2946/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/2946/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
