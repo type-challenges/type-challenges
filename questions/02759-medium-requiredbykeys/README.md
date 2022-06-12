@@ -17,5 +17,18 @@ type UserRequiredName = RequiredByKeys<User, 'name'> // { name: string; age?: nu
 
 ```
 
+answer
+```ts
+type UnionObject<T> = {
+  [key in keyof T]: T[key];
+}
+
+type RequiredByKeys<T, K = keyof T> = UnionObject<{
+  [key in keyof T as key extends K ? key : never]-?: T[key];
+} & {
+  [key in keyof T as key extends K ? never : key]: T[key];
+}>;
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/2759/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/2759/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
