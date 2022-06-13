@@ -9,6 +9,13 @@ type a = FlattenDepth<[1, 2, [3, 4], [[[5]]]], 2> // [1, 2, 3, 4, [5]]. flattern
 type b = FlattenDepth<[1, 2, [3, 4], [[[5]]]]> // [1, 2, 3, 4, [[5]]]. Depth defaults to be 1
 ```
 
+answer
+```ts
+type FlattenDepth<A, N = 1, CN extends any[] = []> = A extends [infer A1, ...infer A2] ? 
+      A1 extends [...infer A11] ? CN["length"] extends N ? [A1, ...FlattenDepth<A2, N, CN>] : [...FlattenDepth<A11, N, [...CN, 0]>, ...FlattenDepth<A2, N, CN>] : [A1, ...FlattenDepth<A2, N, CN>] : [];
+
+```
+
 If the depth is provided, it's guaranteed to be positive integer.
 
 
