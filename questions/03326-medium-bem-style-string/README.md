@@ -6,5 +6,12 @@ For example, the block component would be represented as `btn`, element that dep
 
 Implement `BEM<B, E, M>` which generate string union from these three parameters. Where `B` is a string literal, `E` and `M` are string arrays (can be empty).
 
+answer
+```ts
+type Modifier<S extends string, M extends any[]> = M extends [infer M1, ...infer M2] ? M1 extends string ? `${S}--${M1}` | Modifier<S, M2> : never : never;
+type Element<S extends string, E extends any[]> = E extends [infer E1, ...infer E2] ? E1 extends string ? `${S}__${E1}` | Element<S, E2> : never : never;
+type BEM<B extends string, E extends string[], M extends string[]> = M["length"] extends 0 ? Element<B, E> : E["length"] extends 0 ? Modifier<B, M> : Modifier<Element<B, E>, M>;
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/3326/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/3326/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
