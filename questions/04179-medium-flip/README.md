@@ -10,5 +10,12 @@ flip<{ a: false, b: true }>; // {false: 'a', true: 'b'}
 
 No need to support nested objects and values which cannot be object keys such as arrays
 
+```ts
+type Flip<T> = {
+  [key in keyof T as T[key] extends true ? "true" : T[key] extends "false" ? "false" : T[key] extends string | number | symbol ? T[key] : never]: key;
+};
+```
+
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/4179/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/4179/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
