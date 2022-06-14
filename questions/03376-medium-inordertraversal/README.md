@@ -22,5 +22,15 @@ const tree1 = {
 type A = InorderTraversal<typeof tree1> // [1, 3, 2]
 ```
 
+answer
+```ts
+interface TreeNode {
+  val: number
+  left: TreeNode | null
+  right: TreeNode | null
+}
+type InorderTraversal<T extends TreeNode | null> = T extends null ? [] : [...InorderTraversal<T["left"]>, T["val"], ...InorderTraversal<T["right"]>];
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/3376/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/3376/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
