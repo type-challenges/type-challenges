@@ -10,6 +10,8 @@ flip<{ a: false, b: true }>; // {false: 'a', true: 'b'}
 
 No need to support nested objects and values which cannot be object keys such as arrays
 
+
+answer
 ```ts
 type Flip<T> = {
   [key in keyof T as T[key] extends true ? "true" : T[key] extends "false" ? "false" : T[key] extends string | number | symbol ? T[key] : never]: key;
