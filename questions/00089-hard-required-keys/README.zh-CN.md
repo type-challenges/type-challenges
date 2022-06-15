@@ -1,13 +1,11 @@
 <!--info-header-start--><h1>Required Keys <img src="https://img.shields.io/badge/-%E5%9B%B0%E9%9A%BE-de3d37" alt="困难"/> <img src="https://img.shields.io/badge/-%23utils-999" alt="#utils"/></h1><blockquote><p>by yituan <a href="https://github.com/yi-tuan" target="_blank">@yi-tuan</a></p></blockquote><p><a href="https://tsch.js.org/89/play/zh-CN" target="_blank"><img src="https://img.shields.io/badge/-%E6%8E%A5%E5%8F%97%E6%8C%91%E6%88%98-3178c6?logo=typescript&logoColor=white" alt="接受挑战"/></a> &nbsp;&nbsp;&nbsp;<a href="./README.md" target="_blank"><img src="https://img.shields.io/badge/-English-gray" alt="English"/></a>  <a href="./README.ja.md" target="_blank"><img src="https://img.shields.io/badge/-%E6%97%A5%E6%9C%AC%E8%AA%9E-gray" alt="日本語"/></a> </p><!--info-header-end-->
 
-> 由谷歌自动翻译，欢迎 PR 改进翻译质量。
-
-实现高级util类型`RequiredKeys<T>`，该类型将所有必需的键都选择为一个并集。
+实现高级 util 类型`RequiredKeys<T>`，该类型返回 由 T 中所有必需属性的键组成的一个联合类型。
 
 例如
 
 ```ts
-type Result = RequiredKeys<{ foo: number; bar?: string }>;
+type Result = RequiredKeys<{ foo: number; bar?: string }>
 // expected to be “foo”
 ```
 
