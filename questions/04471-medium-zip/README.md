@@ -5,5 +5,10 @@ In This Challenge, You should implement a type `Zip<T, U>`, T and U must be `Tup
 type exp = Zip<[1, 2], [true, false]> // expected to be [[1, true], [2, false]]
 ```
 
+answer
+```ts
+type Zip<T, U> =T extends [infer T1, ...infer T2] ? U extends [infer U1, ...infer U2] ? [[T1, U1], ...Zip<T2, U2>] : [] : [];
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/4471/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/4471/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
