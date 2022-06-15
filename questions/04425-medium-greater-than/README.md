@@ -13,6 +13,21 @@ GreaterThan<10, 100> //should be false
 GreaterThan<111, 11> //should be true
 ```
 
+answer
+
+```ts
+type Plus<T extends number | string, A extends number[] = []> = `${T}` extends `${A["length"]}` ? A : Plus<T, [0, ...A]>;
+
+type Minus<T extends number | string, U extends any[] = [], A extends number[] = []> = `${T}` extends `${A["length"]}` ? U : U extends [infer U1, ...infer U2] ? Minus<T, U2, [0, ...A]> : U;
+
+type SubstractZero<T extends number | string, U extends number | string> = Minus<U, Plus<T>>;
+
+type GreaterThan<T extends number | string, U extends number | string> = `${T}` extends `${infer T1}${infer T2}` ? 
+  `${U}` extends `${infer U1}${infer U2}` ? 
+  T1 extends U1 ? GreaterThan<T2, U2> : 
+  SubstractZero<T1, U1> extends [] ? false : true : true : false;
+```
+
 Good Luck!
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/4425/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/4425/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
