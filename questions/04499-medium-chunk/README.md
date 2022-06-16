@@ -9,5 +9,9 @@ type exp2 = Chunk<[1, 2, 3], 4> // expected to be [[1, 2, 3]]
 type exp3 = Chunk<[1, 2, 3], 1> // expected to be [[1], [2], [3]]
 ```
 
+answer
+```ts
+type Chunk<A extends any[], S, CS extends any[] = [], R extends any[] = []> = CS["length"] extends S ? Chunk<A, S, [], [...R, CS]> :  A extends [infer A1, ...infer A2] ? Chunk<A2, S, [...CS, A1], R> : CS extends [] ? R : [...R, CS];
+```
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/4499/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/4499/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
