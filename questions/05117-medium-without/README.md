@@ -7,5 +7,10 @@ type Res = Without<[1, 2], 1>; // expected to be [2]
 type Res1 = Without<[1, 2, 4, 1, 5], [1, 2]>; // expected to be [4, 5]
 type Res2 = Without<[2, 3, 2, 3, 2, 3, 2, 3], [2, 3]>; // expected to be []
 ```
+answer
+```ts
+type Without<T extends unknown[], U> = U extends number ? T extends [infer A1, ...infer A2] ? A1 extends U ? Without<A2, U> : [A1, ...Without<A2, U>] : []
+  : U extends number[] ? T extends [infer A1, ...infer A2] ? A1 extends U[number] ? Without<A2, U> : [A1, ...Without<A2, U>] : [] : never;
+```
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/5117/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/5117/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
