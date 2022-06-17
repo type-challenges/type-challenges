@@ -9,5 +9,20 @@ type exp = Fill<[1, 2, 3], 0> // expected to be [0, 0, 0]
 ```
 In order to simulate the real function, the test may contain some boundary conditions, I hope you can enjoy it :)
 
+```ts
+type Fill<
+  T extends unknown[],
+  N,
+  Start extends number = 0,
+  End extends number = T['length'],
+  R extends unknown[] = [],
+  C extends boolean = false,
+> = R["length"] extends End ? (T extends [infer A1, ...infer A2] ? Fill<A2, N, Start, End, [...R, A1], false> : R)  : 
+  C extends true ? (T extends [infer A1, ...infer A2] ? Fill<A2, N, Start, End, [...R, N], true> : R) :  
+  R["length"] extends Start ? (T extends [infer A1, ...infer A2] ? Fill<A2, N, Start, End, [...R, N], true> : R) : 
+    (T extends [infer A1, ...infer A2] ? Fill<A2, N, Start, End, [...R, A1], false> : R);
+
+```
+
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/4518/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/4518/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
