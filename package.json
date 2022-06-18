@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@6.32.3",
-  "license": "MIT",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
+  "license": "MIT",
   "repository": "https://github.com/antfu/type-challenges.git",
   "scripts": {
     "readme": "esno ./scripts/readme.ts",

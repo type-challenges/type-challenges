@@ -41,7 +41,7 @@ const Messages = {
 
 export const getOthers = <A, B>(condition: boolean, a: A, b: B): A | B => condition ? a : b
 
-const action: Action = async(github, context, core) => {
+const action: Action = async (github, context, core) => {
   const payload = context.payload || {}
   const issue = payload.issue
   const no = context.issue.number

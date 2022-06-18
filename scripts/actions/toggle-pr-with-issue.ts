@@ -1,6 +1,6 @@
 import type { Action } from '../types'
 
-const action: Action = async(github, context, core) => {
+const action: Action = async (github, context, core) => {
   const payload = context.payload || {}
   const issue = payload.issue
 
