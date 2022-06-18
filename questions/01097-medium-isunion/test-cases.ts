@@ -13,4 +13,5 @@ type cases = [
   Expect<Equal<IsUnion<string|unknown>, false >>,
   Expect<Equal<IsUnion<string|any>, false >>,
   Expect<Equal<IsUnion<string|'a'>, false >>,
+  Expect<Equal<IsUnion<never>, false >>,
 ]
