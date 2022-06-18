@@ -7,6 +7,11 @@ type Res = IndexOf<[1, 2, 3], 2>; // expected to be 1
 type Res1 = IndexOf<[2,6, 3,8,4,1,7, 3,9], 3>; // expected to be 2
 type Res2 = IndexOf<[0, 0, 0], 2>; // expected to be -1
 ```
+answer
+```ts
+type IndexOf<T extends any[], U, I extends unknown[] = []> = T extends [infer A1, ...infer A2] ? Equal<A1, U> extends true ? I["length"] : IndexOf<A2, U, [...I, 0]> : -1;
+```
+- 비교문은 **Equal를 사용하기**
 
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/5153/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/5153/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
