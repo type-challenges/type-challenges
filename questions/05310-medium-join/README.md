@@ -9,8 +9,9 @@ type Res2 = Join<["2", "2", "2"], 1>; // expected to be '21212'
 type Res3 = Join<["o"], "u">; // expected to be 'o'
 ```
 
+answer
 ```ts
-type Join<T extends unknown[], U extends string | number> = T extends [infer A1, ...infer A2] ? A1 extends string | number ? A2["length"] extends 0 ?  `${A1}${Join<A2, U>}` : `${A1}${U}${Join<A2, U>}` : '' : '';
+type Join<T, U extends string | number> = T extends [infer A1 extends string, ...infer A2]  ? `${A1}${A2["length"] extends 0 ? '' : U}${Join<A2, U>}` : '';
 ```
 
 
