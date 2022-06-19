@@ -9,6 +9,13 @@ type Res2 = Unique<[1, "a", 2, "b", 2, "a"]>; // expected to be [1, "a", 2, "b"]
 type Res3 = Unique<[string, number, 1, "a", 1, string, 2, "b", 2, number]>; // expected to be [string, number, 1, "a", 2, "b"]
 type Res4 = Unique<[unknown, unknown, any, any, never, never]>; // expected to be [unknown, any, never]
 ```
+answer
+```ts
+type CheckUnique<R extends unknown[], T> = R extends [infer A1, ...infer A2] ? Equal<A1, T> extends true ? true : CheckUnique<A2, T> : false;
+
+type Unique<T extends unknown[], R extends unknown[] = []> = T extends [infer A1, ...infer A2] ? CheckUnique<R, A1> extends true ? Unique<A2, R> : Unique<A2, [...R, A1]> : R;
+
+```
 
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/5360/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/5360/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
