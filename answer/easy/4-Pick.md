@@ -1,9 +1,11 @@
-## 1. K extends keyof T vs keyof
+# 4-Pick 풀이
+
+## 1. K extends keyof T vs keyof T
 
 `K extends keyof T`는 함수의 결과값으로 `T[K]`를 취할 수 있다. 이것은 특정 키 값 `K`를 **string 타입이 아닌 상수로 인식한**다는 것이다.
 
 ```tsx
-const func<T, K extends of T>(obj: T, key: K) => obj[key]; 
+const func<T, K extends of T>(obj: T, key: K) => obj[key];
 const obj = { 'abc' : 1, 'def' : 2 }
 func(obj, 'abc') // 결과는 1, 키의 타입은 abc
 ```
@@ -21,5 +23,5 @@ func(obj, 'abc') // 결과는 1, 키의 타입은 string
 ```tsx
 type MyPick<T, K extends keyof T> = {
   [k in K]: T[k]
-} ;
+}
 ```
