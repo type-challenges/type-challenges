@@ -12,6 +12,8 @@ type NumberRangeArr<L, H, A extends unknown[] = [], S extends boolean = false, E
   A["length"] extends H ? NumberRangeArr<L, H, [unknown, ...A], false, true, [...R, A["length"]]> : 
   S extends true ? NumberRangeArr<L, H, [unknown,...A], S, E, [...R, A["length"]]> : E extends true ? R : NumberRangeArr<L, H, [unknown,...A], S, E, R>;
 
+type NumberRange<L, H> = NumberRangeArr<L, H>[number];
+
 ```
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/8640/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/8640/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
