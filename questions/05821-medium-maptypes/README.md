@@ -31,3 +31,13 @@ MapTypes<{iWillBeANumberOneDay: string, iWillStayTheSame: Function}, StringToNum
 
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/5821/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/5821/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
+
+answer
+```ts
+type MapTypes<T, R extends { mapFrom: any; mapTo: any; }> = {
+  [key in keyof T]: { mapFrom: T[key], mapTo: any } extends R ? R extends { mapFrom: T[key], mapTo: any } ? R['mapTo'] : never : T[key];
+}
+```
+### QA
+- 왜 { mapFrom: T[key], mapTo: any } 구문으로 감싸서 진행하는가?
+
