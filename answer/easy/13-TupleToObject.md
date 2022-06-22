@@ -52,7 +52,7 @@ type SmartType<T extends string[]> = {
 const smart: SmartType<typeof keySet> = { a: "a", b: "b", c: "c" } // 통과
 ```
 
-`keySet`에 타입 단언을 해준 이유는 `typeof`를 통해서 `temp`에 있는 key만을 배열의 원소로 사용하기 위해서이다. 이렇게 되면 string 타입이 아닌 상수 타입으로 배열이 선언되기 때문에 key를 value로 사용할 수 있다.
+`keySet`에 타입 단언을 해준 이유는 `typeof`를 통해서 `temp`에 있는 key만을 배열의 원소로 사용하기 위해서이다. 이렇게 되면 string 타입이 아닌 상수 타입으로 배열이 선언되기 때문에 key를 value와 동일한 값으로 사용할 수 있다.
 
 ## 3. 풀이
 
