@@ -1,4 +1,10 @@
-import type { Equal, Expect } from '@type-challenges/utils'
+import { Equal, Expect } from '@type-challenges/utils';
+
+type KebabCase<S> = S extends `${infer F}${infer R}`
+  ? R extends Uncapitalize<R>
+    ? `${Lowercase<F>}${KebabCase<R>}`
+    : `${Lowercase<F>}-${KebabCase<R>}`
+  : S;
 
 type cases = [
   Expect<Equal<KebabCase<'FooBarBaz'>, 'foo-bar-baz'>>,
@@ -10,4 +16,4 @@ type cases = [
   Expect<Equal<KebabCase<'-'>, '-'>>,
   Expect<Equal<KebabCase<''>, ''>>,
   Expect<Equal<KebabCase<'😎'>, '😎'>>,
-]
+];
