@@ -1,4 +1,4 @@
-# 13-TupleToObject 풀이
+# 11-TupleToObject 풀이
 
 ## 1. 배열을 객체로 보는 눈
 
