@@ -6,7 +6,7 @@
 
 ```tsx
 type Animal = { name: "cat" | "dog"; age: number }
-type DogOrCat<T extends Animal> = T["name"] extends "dog" ? "cat" : "dog"
+type DogOrCat<T extends Animal> = T["name"] extends "dog" ? "dog" : "cat"
 ```
 
 ## 2. 풀이
