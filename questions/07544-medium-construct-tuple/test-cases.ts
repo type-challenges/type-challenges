@@ -1,9 +1,161 @@
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '@type-challenges/utils';
+
+type ConstructTuple<
+  L extends number,
+  Output extends string = `${L}`,
+  Count extends unknown[] = [],
+> = Output extends `${infer First}${infer Rest}`
+  ? ConstructTuple<L, Rest, N<Count>[keyof N & First]>
+  : Count;
+
+type N<T extends unknown[] = []> = {
+  '0': [...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T];
+  '1': [...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T, ...T, unknown];
+  '2': [
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    unknown,
+    unknown,
+  ];
+  '3': [
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    unknown,
+    unknown,
+    unknown,
+  ];
+  '4': [
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+  ];
+  '5': [
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+  ];
+  '6': [
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+  ];
+  '7': [
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+  ];
+  '8': [
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+  ];
+  '9': [
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    ...T,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+    unknown,
+  ];
+};
 
 type cases = [
   Expect<Equal<ConstructTuple<0>, []>>,
   Expect<Equal<ConstructTuple<2>, [unknown, unknown]>>,
   Expect<Equal<ConstructTuple<999>['length'], 999>>,
-  // @ts-expect-error
   Expect<Equal<ConstructTuple<1000>['length'], 1000>>,
-]
+];
