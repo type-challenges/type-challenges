@@ -2,7 +2,7 @@
 
 ```Array.push```のジェネリックバージョンを実装します。
 
-例えば
+例えば：
 
 ```typescript
 type Result = Push<[1, 2], '3'> // [1, 2, '3']
