@@ -2,14 +2,14 @@
 
 ## 1. const VS readonly
 
-`const`는 **변수 참조**를 위해 나왔다. 변수에 다른 값을 할당할 수 없다.
+`const`는 **변수 참조**를 위해 나왔다.
 
 ```tsx
 const ex = 123
 ex = 345 // error
 ```
 
-`readonly`는 **속성**을 위해 나왔다. 또한 `readonly`는 **얕게 동작**하기 때문에 딱 한 단계에 값에 대해서만 변경을 불허한다.
+`readonly`는 **속성**을 위해 나왔다.
 
 ```tsx
 type readonlyA = {
