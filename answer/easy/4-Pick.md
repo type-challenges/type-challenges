@@ -2,20 +2,34 @@
 
 ## 1. K extends keyof T vs keyof T
 
-`K extends keyof T`는 함수의 결과값으로 `T[K]`를 취할 수 있다. 이것은 특정 키 값 `K`를 **string 타입이 아닌 상수로 인식한**다는 것이다.
+`K extends keyof T`는 함수의 결과값으로 `T[K]`를 취할 수 있다. 이것은 특정 키 값 `K`를 **p1 그 자체로 인식한다**는 것이다.
 
 ```tsx
-const func<T, K extends of T>(obj: T, key: K) => obj[key];
-const obj = { 'abc' : 1, 'def' : 2 }
-func(obj, 'abc') // 결과는 1, 키의 타입은 abc
+function func<T, K extends keyof T>(obj: T, key: K) {
+  return obj[key];
+}
+
+const o = {
+  p1: 0,
+  p2: ''
+}
+
+func(o, 'p1') // 함수의 결과 타입은 number, key는 p1으로 인식
 ```
 
-반면 `keyof T`는 함수의 결과값으로 `T[keyof T]`를 취할 수 있다. 이것은 특정 키 값 `K`를 **상수가 아닌 자바스크립트에서 제공하는 string이나 number로 인식**한다는 것이다.
+반면 `keyof T`는 함수의 결과값으로 `T[keyof T]`를 취할 수 있다. 이것은 특정 키 값 `K`를 **p1이나 p2로 한다**는 것이다.
 
 ```tsx
-const func<T>(obj: T, key: keyof T) => obj[key];
-const obj = { 'abc' : 1, 'def' : 2 }
-func(obj, 'abc') // 결과는 1, 키의 타입은 string
+function func2<T>(obj: T, key: keyof T) {
+  return obj[key];
+}
+
+const o = {
+  p1: 0,
+  p2: ''
+}
+
+func2(o, 'p1') // 함수의 결과는 number | string, key는 p1이나 p2로 인식
 ```
 
 ## 2. 해답
