@@ -2,7 +2,7 @@
 
 タプル`T`を受け取り、そのタプルの長さを返す型`Length<T>`を実装します。
 
-例えば
+例えば：
 
 ```ts
 type tesla = ['tesla', 'model 3', 'model X', 'model Y']
