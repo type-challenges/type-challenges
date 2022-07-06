@@ -1,19 +1,26 @@
-import type { Equal, IsFalse, IsTrue } from '@type-challenges/utils'
+import type { Equal, IsFalse, IsTrue } from '@type-challenges/utils';
 
-type Quz = { quz: 4 }
+const symbol = Symbol();
+type DeepObjectToUniq<O extends object, Path extends any[] = [O]> = {
+  [K in keyof O]: O[K] extends object
+    ? DeepObjectToUniq<O[K], [...Path, K]>
+    : O[K];
+} & { [symbol]?: Path };
 
-type Foo = { foo: 2; baz: Quz; bar: Quz }
-type Bar = { foo: 2; baz: Quz; bar: Quz & { quzz?: 0 } }
+type Quz = { quz: 4 };
 
-type UniqQuz = DeepObjectToUniq<Quz>
-type UniqFoo = DeepObjectToUniq<Foo>
-type UniqBar = DeepObjectToUniq<Bar>
+type Foo = { foo: 2; baz: Quz; bar: Quz };
+type Bar = { foo: 2; baz: Quz; bar: Quz & { quzz?: 0 } };
 
-declare let foo: Foo
-declare let uniqFoo: UniqFoo
+type UniqQuz = DeepObjectToUniq<Quz>;
+type UniqFoo = DeepObjectToUniq<Foo>;
+type UniqBar = DeepObjectToUniq<Bar>;
 
-uniqFoo = foo
-foo = uniqFoo
+declare let foo: Foo;
+declare let uniqFoo: UniqFoo;
+
+uniqFoo = foo;
+foo = uniqFoo;
 
 type cases = [
   IsFalse<Equal<UniqQuz, Quz>>,
@@ -25,4 +32,4 @@ type cases = [
   IsFalse<Equal<UniqBar['baz'], UniqFoo['baz']>>,
   IsTrue<Equal<keyof UniqBar['baz'], keyof UniqFoo['baz']>>,
   IsTrue<Equal<keyof Foo, keyof UniqFoo & string>>,
-]
+];
