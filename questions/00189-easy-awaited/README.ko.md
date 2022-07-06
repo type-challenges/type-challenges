@@ -7,7 +7,7 @@ Promise와 같은 타입에 감싸인 타입이 있을 때, 안에 감싸인 타
 ```ts
 type ExampleType = Promise<string>
 
-type Result = <MyAwaited<ExampleType> // string
+type Result = MyAwaited<ExampleType> // string
 ```
 
 > 출처: [original article](https://dev.to/macsikora/advanced-typescript-exercises-question-1-45k4) by [@maciejsikora](https://github.com/maciejsikora)
