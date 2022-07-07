@@ -7,7 +7,7 @@
 ```ts
 type ExampleType = Promise<string>
 
-type Result = <MyAwaited<ExampleType> // string
+type Result = MyAwaited<ExampleType> // string
 ```
 
 > 这个挑战来自于 [@maciejsikora](https://github.com/maciejsikora) 的文章：[original article](https://dev.to/macsikora/advanced-typescript-exercises-question-1-45k4)

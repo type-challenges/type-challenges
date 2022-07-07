@@ -7,7 +7,7 @@ For example: if we have `Promise<ExampleType>` how to get ExampleType?
 ```ts
 type ExampleType = Promise<string>
 
-type Result = <MyAwaited<ExampleType> // string
+type Result = MyAwaited<ExampleType> // string
 ```
 
 > This question is ported from the [original article](https://dev.to/macsikora/advanced-typescript-exercises-question-1-45k4) by [@maciejsikora](https://github.com/maciejsikora)
