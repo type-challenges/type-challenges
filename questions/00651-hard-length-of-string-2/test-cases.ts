@@ -1,4 +1,7 @@
-import type { Equal, IsTrue } from '@type-challenges/utils'
+import type { Equal, IsTrue } from '@type-challenges/utils';
+
+type LengthOfString<S extends string, R extends unknown[] = []> =
+  S extends `${infer F}${infer L}` ? LengthOfString<L, [...R, 1]> : R['length'];
 
 type cases = [
   IsTrue<Equal<LengthOfString<''>, 0>>,
@@ -25,5 +28,10 @@ type cases = [
   IsTrue<Equal<LengthOfString<'123456789012345678901'>, 21>>,
   IsTrue<Equal<LengthOfString<'1234567890123456789012'>, 22>>,
   IsTrue<Equal<LengthOfString<'12345678901234567890123'>, 23>>,
-  IsTrue<Equal<LengthOfString<'aaaaaaaaaaaaggggggggggggggggggggkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'>, 272>>,
-]
+  IsTrue<
+    Equal<
+      LengthOfString<'aaaaaaaaaaaaggggggggggggggggggggkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'>,
+      272
+    >
+  >,
+];
