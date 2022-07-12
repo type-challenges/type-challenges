@@ -1,5 +1,11 @@
 import type { Equal, Expect } from '@type-challenges/utils'
 
+
+type Join<T,D extends string,R extends string=''> = T extends [infer F extends string,...infer L] ?  Join<L,D, L['length'] extends 0 ? `${R}${F}` : `${R}${F}${D}`> : R
+
+
+declare function join<D extends string>(delimiter: D): <T extends string[]>(...parts:T) =>  Join<T,D>
+
 // Edge cases
 const noCharsOutput = join('-')()
 const oneCharOutput = join('-')('a')
