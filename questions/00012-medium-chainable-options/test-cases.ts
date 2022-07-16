@@ -14,9 +14,15 @@ const result2 = a
   .option('name', 'last name')
   .get()
 
+const result3 = a
+  .option('name', 'another name')
+  .option('name', 123)
+  .get()
+
 type cases = [
   Expect<Alike<typeof result1, Expected1>>,
   Expect<Alike<typeof result2, Expected2>>,
+  Expect<Alike<typeof result3, Expected3>>,
 ]
 
 type Expected1 = {
@@ -29,4 +35,8 @@ type Expected1 = {
 
 type Expected2 = {
   name: string
+}
+
+type Expected3 = {
+  name: number
 }
