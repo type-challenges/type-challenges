@@ -7,7 +7,7 @@ For example:
 ```ts
 const foo = (arg1: string, arg2: number): void => {}
 
-type FunctionParamsType = MyParameters<typof foo> // [arg1: string, arg2: number]
+type FunctionParamsType = MyParameters<typeof foo> // [arg1: string, arg2: number]
 ```
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/3312/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/3312/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
