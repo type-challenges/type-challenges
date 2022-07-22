@@ -1,1 +1,1 @@
-type MyAwaited = any
+type MyAwaited<T> = any
