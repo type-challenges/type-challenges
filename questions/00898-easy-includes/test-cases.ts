@@ -17,4 +17,7 @@ type cases = [
   Expect<Equal<Includes<[1 | 2], 1>, false>>,
   Expect<Equal<Includes<[null], undefined>, false>>,
   Expect<Equal<Includes<[undefined], null>, false>>,
+  Expect<Equal<Includes<[], () => string>, false>>,
+  Expect<Equal<Includes<[], () => IterableIterator<number>>, false>>,
+  Expect<Equal<Includes<[], (separator?: string | undefined) => string>, false>>,
 ]
