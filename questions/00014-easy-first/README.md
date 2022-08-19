@@ -3,7 +3,7 @@
 
 Implement a generic `First<T>` that takes an Array `T` and returns it's first element's type.
 
-For example
+For example:
 
 ```ts
 type arr1 = ['a', 'b', 'c']

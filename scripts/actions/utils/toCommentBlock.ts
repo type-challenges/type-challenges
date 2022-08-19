@@ -1,4 +1,4 @@
-export const toCommentBlock = function(text: string) {
+export const toCommentBlock = function (text: string) {
   return `/*\n${
     text
       .trim()

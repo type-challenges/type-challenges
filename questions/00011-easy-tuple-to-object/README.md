@@ -2,7 +2,7 @@
 
 Give an array, transform into an object type and the key/value must in the given array.
 
-For example
+For example:
 
 ```ts
 const tuple = ['tesla', 'model 3', 'model X', 'model Y'] as const

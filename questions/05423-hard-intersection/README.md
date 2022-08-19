@@ -1,6 +1,6 @@
 <!--info-header-start--><h1>Intersection <img src="https://img.shields.io/badge/-hard-de3d37" alt="hard"/> <img src="https://img.shields.io/badge/-%23union-999" alt="#union"/> <img src="https://img.shields.io/badge/-%23array-999" alt="#array"/></h1><blockquote><p>by Pineapple <a href="https://github.com/Pineapple0919" target="_blank">@Pineapple0919</a></p></blockquote><p><a href="https://tsch.js.org/5423/play" target="_blank"><img src="https://img.shields.io/badge/-Take%20the%20Challenge-3178c6?logo=typescript&logoColor=white" alt="Take the Challenge"/></a> </p><!--info-header-end-->
 
-Implement the type version of Lodash.intersection, but there is a little different, Intersection<T> takes an Array T containing several arrays or any type element that includes the union type, returns a new array containing all incoming array intersection elements.
+Implement the type version of Lodash.intersection with a little difference. Intersection<T> takes an Array T containing several arrays or any type element including the union type, and returns a new union containing all intersection elements.
 
 ```ts
 type Res = Intersection<[[1, 2], [2, 3], [2, 2]]>; // expected to be 2

@@ -7,7 +7,7 @@ A subsequence is a sequence that can be derived from an array by deleting some o
 For example: 
 
 ```typescript
-type A = Subsequence<[1, 2] // [] | [1] | [2] | [1, 2]
+type A = Subsequence<[1, 2]> // [] | [1] | [2] | [1, 2]
 ```
 
 

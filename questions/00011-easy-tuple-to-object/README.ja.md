@@ -2,7 +2,7 @@
 
 タプルを受け取り、その各値のkey/valueを持つオブジェクトの型に変換する型を実装します。
 
-例えば
+例えば：
 
 ```ts
 const tuple = ['tesla', 'model 3', 'model X', 'model Y'] as const

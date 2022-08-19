@@ -2,7 +2,7 @@
 
 For given a tuple, you need create a generic `Length`, pick the length of the tuple
 
-For example
+For example:
 
 ```ts
 type tesla = ['tesla', 'model 3', 'model X', 'model Y']

@@ -8,11 +8,13 @@ type Foo = {
 type Bar = {
   [key: number]: any
   bar(): void
+  0: string
 }
 
+const foobar = Symbol('foobar')
 type FooBar = {
   [key: symbol]: any
-  foobar(): void
+  [foobar](): void
 }
 
 type Baz = {
@@ -22,7 +24,7 @@ type Baz = {
 
 type cases = [
   Expect<Equal<RemoveIndexSignature<Foo>, { foo(): void }>>,
-  Expect<Equal<RemoveIndexSignature<Bar>, { bar(): void }>>,
-  Expect<Equal<RemoveIndexSignature<FooBar>, { foobar(): void }>>,
+  Expect<Equal<RemoveIndexSignature<Bar>, { bar(): void; 0: string }>>,
+  Expect<Equal<RemoveIndexSignature<FooBar>, { [foobar](): void }>>,
   Expect<Equal<RemoveIndexSignature<Baz>, { bar(): void; baz: string }>>,
 ]
