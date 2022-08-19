@@ -10,4 +10,8 @@ type head1 = First<arr1> // expected to be 'a'
 type head2 = First<arr2> // expected to be 3
 */
 
-type First<T extends any[]> = any
+// T extends any to accommodate error checking
+// then T extends an array where we infer the first index and don't care about the rest
+// return the first index type
+// otherwise return
+type First<T extends any[]> = T extends [infer firstIndex, ...any] ? firstIndex : never
