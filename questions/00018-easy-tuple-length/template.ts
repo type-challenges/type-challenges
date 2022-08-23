@@ -12,4 +12,4 @@ type spaceXLength = Length<spaceX> // expected 5
 ```
 */
 
-type Length<T> = any
+type Length<T extends ReadonlyArray<unknown>> = T['length']
