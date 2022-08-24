@@ -5,7 +5,7 @@ For example
 
 type trimmed = TrimLeft<'  Hello World  '> // expected to be 'Hello World  '
 */
-type Whitespace = ' ' | '\n' | '\t'
+export type Whitespace = ' ' | '\n' | '\t'
 
 type TrimLeft<S extends string> = S extends `${Whitespace}${infer R}` ? TrimLeft<R> : S
 
