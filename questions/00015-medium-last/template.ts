@@ -11,4 +11,4 @@ type tail2 = Last<arr2> // expected to be 1
 
 */
 
-type Last<T extends unknown[]> = T extends [...any, infer Last] ? Last : never
+type Last<T extends unknown[]> = T extends [...any, infer Last] ? Last : T
