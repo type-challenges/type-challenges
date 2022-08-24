@@ -11,6 +11,6 @@ type Replace<S extends string, From extends string, To extends string> = From ex
   : S extends `${infer Top}${From}${infer Tail}`
     ? `${Top}${To}${Tail}`
     : S
-// if From matches an empty string, return it.
+// If From matches an empty string, return it.
 // Otherwise, grab the top, whatever & wherever the replace value is, and tail.
 // Then, if that's true, replace the From section with To
