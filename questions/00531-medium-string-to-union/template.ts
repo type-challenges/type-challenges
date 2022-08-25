@@ -13,4 +13,4 @@ type StringToUnion<T extends string> = T extends `${infer Top}${infer Tail}`
 
 // T will extend the first character and the following characters
 // If True, output Top | and recursively run the Tail through StringToUnion
-// Otherwise, don't return anything because it's already finished. 
+// Otherwise, don't return anything because it's already finished.
