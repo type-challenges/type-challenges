@@ -23,7 +23,7 @@ const three = add(1, 1, 1)
 const curriedAdd = DynamicParamsCurrying(add)
 const six = curriedAdd(1, 2, 3)
 const seven = curriedAdd(1, 2)(4)
-const eight = curriedAdd(2)(3)(4)
+const nine = curriedAdd(2)(3)(4)
 ```
 
 In this challenge, `DynamicParamsCurrying` may take a function with zero to multiple arguments, you need to correctly type it. The returned function may accept at least one argument. When all the arguments as satisfied, it should yield the return type of the original function correctly.
