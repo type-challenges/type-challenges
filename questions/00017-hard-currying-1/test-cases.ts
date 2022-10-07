@@ -11,5 +11,5 @@ type cases = [
   Expect<Equal<
     typeof curried2, (a: string) => (b: number) => (c: boolean) => (d: boolean) => (e: boolean) => (f: string) => (g: boolean) => true
   >>,
-  Expect<Equal<typeof curried3, () => true>>
+  Expect<Equal<typeof curried3, () => true>>,
 ]
