@@ -1,0 +1,1 @@
+type Integer<T> = any
