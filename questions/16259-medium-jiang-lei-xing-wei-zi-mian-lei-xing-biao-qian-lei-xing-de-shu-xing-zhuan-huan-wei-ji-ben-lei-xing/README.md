@@ -2,7 +2,7 @@ Convert a property of type literal (label type) to a primitive type.
 
 For example
 
-```
+```typescript
 type X = {
   name: 'Tom',
   age: 30,
