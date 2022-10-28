@@ -13,7 +13,6 @@ type X = {
   }
 }
 
-// 要求结果如下：
 type Expected = {
   name: string,
   age: number,

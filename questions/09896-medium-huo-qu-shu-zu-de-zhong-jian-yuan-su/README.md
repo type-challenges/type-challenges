@@ -6,6 +6,6 @@ Get the middle element of the array by implementing a `GetMiddleElement` method,
 For example
 
 ```ts
-  type simple1 = GetMiddleElement<[1, 2, 3, 4, 5]>, // 返回 [3]
-  type simple2 = GetMiddleElement<[1, 2, 3, 4, 5, 6]> // 返回 [3, 4]
+  type simple1 = GetMiddleElement<[1, 2, 3, 4, 5]>, // expected to be [3]
+  type simple2 = GetMiddleElement<[1, 2, 3, 4, 5, 6]> // expected to be [3, 4]
 ```
