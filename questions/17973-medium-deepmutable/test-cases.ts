@@ -1,4 +1,4 @@
-import type { Equal, Expect } from './test-utils'
+import type { Equal, Expect } from '@type-challenges/utils'
 
 interface Test1 {
   readonly title: string
