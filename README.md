@@ -76,6 +76,7 @@ This project is aimed at helping you better understand how the type system works
 
 ### Books
 - [Effective TypeScript](https://effectivetypescript.com/)
+- [Learning TypeScript](https://www.learningtypescript.com/)
 
 > TODO
 
