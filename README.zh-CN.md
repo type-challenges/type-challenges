@@ -8,6 +8,9 @@
   <a href='https://discord.gg/UgKBCq9'>
     <img src='https://img.shields.io/badge/-Discord-yellowgreen?logo=discord&logoColor=white&color=7289da'/>
   </a>
+  <a href='https://www.typescriptlang.org/play?install-plugin=%40type-challenges%2Fplayground-plugin'>
+    <img src='https://img.shields.io/badge/Playground-143?logo=typescript&color=3178C6&logoColor=fff' />
+  </a>
 </p>
 
 <br>
@@ -38,6 +41,10 @@
 
 > ✨ [即将到来的新题目](https://github.com/type-challenges/type-challenges/issues?q=is%3Aissue+is%3Aopen+label%3Anew-challenge)
 
+> 🔥 开始挑战 [TypeScript Playground](https://www.typescriptlang.org/play?install-plugin=%40type-challenges%2Fplayground-plugin)
+
+> ⚡️ 开始挑战 [VS Code](https://marketplace.visualstudio.com/items?itemName=YRM.type-challenges)
+
 ## 推荐读物
 
 ### 官方资源 (英文)
@@ -48,13 +55,31 @@
   - [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
   - [Advanced Types](https://www.typescriptlang.org/docs/handbook/advanced-types.html)
 
+- [The New Handbook](https://github.com/microsoft/TypeScript-Website/tree/v2/packages/documentation/copy/en/handbook-v2)
+
 ### 知乎专栏
 
 - [来玩TypeScript啊，机都给你开好了！](https://zhuanlan.zhihu.com/c_206498766)
 
-### 文章
+### 文章（英文）
 
-> TODO
+- [Learn Advanced TypeScript Types](https://medium.com/free-code-camp/typescript-curry-ramda-types-f747e99744ab)
+- [The Art of Type Programming](https://mistlog.medium.com/the-art-of-type-programming-cfd933bdfff7)
+- [Type Query: jQuery Style Type Manipulation](https://mistlog.medium.com/type-query-jquery-style-type-manipulation-497ce26d93f)
+
+### 视频
+
+- [Type Level Programming in Typescript](https://www.youtube.com/watch?reload=9&v=vGVvJuazs84)
+
+### 项目 / 题解
+
+- [Type Gymnastics](https://github.com/g-plane/type-gymnastics)
+- [Type Challenges Solutions](https://github.com/ghaiklor/type-challenges-solutions)
+- [TypeType Examples](https://github.com/mistlog/typetype-examples)
+
+### 书籍
+- [Effective TypeScript](https://effectivetypescript.com/)
+- [Learning TypeScript](https://www.learningtypescript.com/)
 
 ## 参与贡献
 
