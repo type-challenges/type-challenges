@@ -6,4 +6,5 @@ type cases = [
   Expect<Equal<MinusOne<3>, 2>>,
   Expect<Equal<MinusOne<100>, 99>>,
   Expect<Equal<MinusOne<1101>, 1100>>,
+  Expect<Equal<MinusOne<0>, -1>>,
 ]
