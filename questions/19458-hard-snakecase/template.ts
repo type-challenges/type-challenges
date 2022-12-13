@@ -1,0 +1,1 @@
+type SnakeCase<T> = any
