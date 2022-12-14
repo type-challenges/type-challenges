@@ -1,1 +1,1 @@
-type FirstUniqueCharIndex<T extends string>= any
+type FirstUniqueCharIndex<T extends string> = any

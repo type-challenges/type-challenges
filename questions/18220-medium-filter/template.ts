@@ -1,1 +1,1 @@
-type Filter<T extends any[], P> = [];
+type Filter<T extends any[], P> = []
