@@ -18,15 +18,14 @@ declare const example: {
     };
 }
 
-/* Possible solutions: 
-[]
-['foo']
-['foo', 'bar']
-['foo', 'bar', 'a']
-['foo', 'baz']
-['foo', 'baz', 'b']
-['foo', 'baz', 'c']
-*/
+// Possible solutions: 
+// []
+// ['foo']
+// ['foo', 'bar']
+// ['foo', 'bar', 'a']
+// ['foo', 'baz']
+// ['foo', 'baz', 'b']
+// ['foo', 'baz', 'c']
 ```
 
 
