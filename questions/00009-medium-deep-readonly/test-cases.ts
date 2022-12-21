@@ -1,10 +1,11 @@
 import type { Equal, Expect } from '@type-challenges/utils'
 
 type cases = [
-  Expect<Equal<DeepReadonly<X>, Expected>>,
+  Expect<Equal<DeepReadonly<X1>, Expected1>>,
+  Expect<Equal<DeepReadonly<X2>, Expected2>>,
 ]
 
-type X = {
+type X1 = {
   a: () => 22
   b: string
   c: {
@@ -27,7 +28,9 @@ type X = {
   }
 }
 
-type Expected = {
+type X2 = { a: string } | { b: number };
+
+type Expected1 = {
   readonly a: () => 22
   readonly b: string
   readonly c: {
@@ -49,3 +52,5 @@ type Expected = {
     }
   }
 }
+
+type Expected2 = { readonly a: string } | { readonly b: number };
