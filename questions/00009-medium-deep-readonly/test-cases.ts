@@ -28,7 +28,7 @@ type X1 = {
   }
 }
 
-type X2 = { a: string } | { b: number };
+type X2 = { a: string } | { b: number }
 
 type Expected1 = {
   readonly a: () => 22
@@ -53,4 +53,4 @@ type Expected1 = {
   }
 }
 
-type Expected2 = { readonly a: string } | { readonly b: number };
+type Expected2 = { readonly a: string } | { readonly b: number }
