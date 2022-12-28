@@ -35,7 +35,7 @@ This project is aimed at helping you better understand how the type system works
 
 > Click the following badges to see details of the challenges.
 
-> **Note**: Challenges works in the [strict mode](https://www.typescriptlang.org/tsconfig#strict).
+> **Note**: Challenges work in the [strict mode](https://www.typescriptlang.org/tsconfig#strict).
 
 <br>
 
