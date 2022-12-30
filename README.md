@@ -47,7 +47,9 @@ This project is aimed at helping you better understand how the type system works
 
 > 🔥 Start the challenge in [TypeScript Playground](https://www.typescriptlang.org/play?install-plugin=%40type-challenges%2Fplayground-plugin)
 
-> ⚡️ Start the challenge in [VS Code](https://marketplace.visualstudio.com/items?itemName=YRM.type-challenges)
+> 🚀 Start the challenge locally in [your IDE or text editor with TypeScript language support](#play-locally)
+
+> ⚡️ Start the challenge in [VS Code Exntension](https://marketplace.visualstudio.com/items?itemName=YRM.type-challenges)
 
 ## Recommended Readings
 
@@ -79,10 +81,9 @@ This project is aimed at helping you better understand how the type system works
 - [TypeType Examples](https://github.com/mistlog/typetype-examples)
 
 ### Books
+
 - [Effective TypeScript](https://effectivetypescript.com/)
 - [Learning TypeScript](https://www.learningtypescript.com/)
-
-> TODO
 
 ## How to Contribute
 
@@ -97,6 +98,26 @@ There are several ways you can contribute to this project
 - Contribute the infra of this project [TODOs.md](./TODOs.md)
 
 Just [open an issue](https://github.com/type-challenges/type-challenges/issues/new/choose) and choose the corresponding template. Thanks!
+
+## Play Locally
+
+You can build the challenges and play locally using your preferred IDE or text editor with TypeScript language support.
+
+To do that, you will need the latest version of [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/) installed.
+
+After cloning the repo, installed the dependencies by:
+
+```bash
+pnpm install
+```
+
+Then and run the `generate` script:
+
+```bash
+pnpm generate
+```
+
+It will prompt you to select the desired language, then you can find the generated challenges in the `./playground` folder.
 
 ## Thanks
 

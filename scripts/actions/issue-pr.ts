@@ -127,10 +127,7 @@ const action: Action = async (github, context, core) => {
       i => i.user?.login === 'github-actions[bot]' && i.title.startsWith(`#${no} `),
     )
 
-    const dir = `questions/${String(no).padStart(5, '0')}-${info.difficulty}-${slug(
-      info.title.replace(/\./g, '-').replace(/<.*>/g, ''),
-      { tone: false },
-    )}`
+    const dir = `questions/${getQuestionFullName(no, info.difficulty, info.title)}`
     const userEmail = `${user.id}+${user.login}@users.noreply.github.com`
 
     const files: Record<string, string> = {
@@ -263,6 +260,13 @@ function getTimestampBadge() {
   return `![${new Date().toISOString()}](https://img.shields.io/date/${Math.round(
     +new Date() / 1000,
   )}?color=green&label=)`
+}
+
+export function getQuestionFullName (no: number, difficulty: string, title: string ){
+  return `${String(no).padStart(5, '0')}-${difficulty}-${slug(
+    title.replace(/\./g, '-').replace(/<.*>/g, ''),
+    { tone: false },
+  )}`
 }
 
 export default action
