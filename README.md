@@ -47,9 +47,9 @@ This project is aimed at helping you better understand how the type system works
 
 > 🔥 Start the challenge in [TypeScript Playground](https://www.typescriptlang.org/play?install-plugin=%40type-challenges%2Fplayground-plugin)
 
-> ⚡️ Start the challenge in [VS Code](https://marketplace.visualstudio.com/items?itemName=YRM.type-challenges)
+> 🚀 Start the challenge locally in [your IDE or text editor with TypeScript language support](#play-locally)
 
-> 🚀 Start the challenge in [any IDE or text editor with typescript language support](#building-quizzes-locally)
+> ⚡️ Start the challenge in [VS Code Exntension](https://marketplace.visualstudio.com/items?itemName=YRM.type-challenges)
 
 ## Recommended Readings
 
