@@ -81,10 +81,9 @@ This project is aimed at helping you better understand how the type system works
 - [TypeType Examples](https://github.com/mistlog/typetype-examples)
 
 ### Books
+
 - [Effective TypeScript](https://effectivetypescript.com/)
 - [Learning TypeScript](https://www.learningtypescript.com/)
-
-> TODO
 
 ## How to Contribute
 
@@ -100,14 +99,25 @@ There are several ways you can contribute to this project
 
 Just [open an issue](https://github.com/type-challenges/type-challenges/issues/new/choose) and choose the corresponding template. Thanks!
 
-## Building Quizzes Locally
-You can build the quizzes locally to solve the challenges using your preferred IDE or text editor with typescript language support. After cloning the repo, run the script to build to `type-challenges/quizes`:
+## Play Locally
 
-    pnpm build-quizes-local
+You can build the challenges and play locally using your preferred IDE or text editor with TypeScript language support.
 
-Without any arguments it builds with the default locale. Alteranatively you can pass in a supported locale:
+To do that, you will need the latest version of [Node.js](https://nodejs.org/) and [pnpm](https://pnpm.io/) installed.
 
-    pnpm build-quizes-local zh-CN
+After cloning the repo, installed the dependencies by:
+
+```bash
+pnpm install
+```
+
+Then and run the `generate` script:
+
+```bash
+pnpm generate
+```
+
+It will prompt you to select the desired language, then you can find the generated challenges in the `./playground` folder.
 
 ## Thanks
 

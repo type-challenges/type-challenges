@@ -3,7 +3,7 @@ export const toCommentBlock = function (text: string) {
     text
       .trim()
       .split('\n')
-      .map(i => `  ${i}`)
+      .map(i => i.trim() ? `  ${i}`.trimEnd() : '')
       .join('\n')
-  }\n*/\n\n`
+  }\n*/\n`
 }

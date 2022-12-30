@@ -4,4 +4,4 @@ node_modules/
 dist
 *.log
 *.local
-quizes/
+playground/
