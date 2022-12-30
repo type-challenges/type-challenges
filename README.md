@@ -49,6 +49,8 @@ This project is aimed at helping you better understand how the type system works
 
 > ⚡️ Start the challenge in [VS Code](https://marketplace.visualstudio.com/items?itemName=YRM.type-challenges)
 
+> 🚀 Start the challenge in [any IDE or text editor with typescript language support](#building-quizzes-locally)
+
 ## Recommended Readings
 
 ### Official
@@ -97,6 +99,15 @@ There are several ways you can contribute to this project
 - Contribute the infra of this project [TODOs.md](./TODOs.md)
 
 Just [open an issue](https://github.com/type-challenges/type-challenges/issues/new/choose) and choose the corresponding template. Thanks!
+
+## Building Quizzes Locally
+You can build the quizzes locally to solve the challenges using your preferred IDE or text editor with typescript language support. After cloning the repo, run the script to build to `type-challenges/quizes`:
+
+    pnpm build-quizes-local
+
+Without any arguments it builds with the default locale. Alteranatively you can pass in a supported locale:
+
+    pnpm build-quizes-local zh-CN
 
 ## Thanks
 
