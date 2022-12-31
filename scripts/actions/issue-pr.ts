@@ -262,7 +262,7 @@ function getTimestampBadge() {
   )}?color=green&label=)`
 }
 
-export function getQuestionFullName (no: number, difficulty: string, title: string ){
+export function getQuestionFullName(no: number, difficulty: string, title: string) {
   return `${String(no).padStart(5, '0')}-${difficulty}-${slug(
     title.replace(/\./g, '-').replace(/<.*>/g, ''),
     { tone: false },
