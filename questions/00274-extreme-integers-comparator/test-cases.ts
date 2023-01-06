@@ -26,6 +26,7 @@ type cases = [
   Expect<Equal<Comparator<-100, -1>, Comparison.Lower>>,
   Expect<Equal<Comparator<-1, -100>, Comparison.Greater>>,
 
+  // Extra tests if you like to challenge yourself!
   Expect<Equal<Comparator<9007199254740992, 9007199254740992>, Comparison.Equal>>,
   Expect<Equal<Comparator<-9007199254740992, -9007199254740992>, Comparison.Equal>>,
   Expect<Equal<Comparator<9007199254740991, 9007199254740992>, Comparison.Lower>>,
