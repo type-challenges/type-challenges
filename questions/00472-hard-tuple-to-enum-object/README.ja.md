@@ -1,28 +1,28 @@
-<!--info-header-start--><h1>Tuple to Enum Object <img src="https://img.shields.io/badge/-%E4%B8%8A%E7%B4%9A-de3d37" alt="上級"/> <img src="https://img.shields.io/badge/-%23tuple-999" alt="#tuple"/> <img src="https://img.shields.io/badge/-%23template--literal-999" alt="#template-literal"/></h1><blockquote><p>by Ryo Hanafusa <a href="https://github.com/softoika" target="_blank">@softoika</a></p></blockquote><p><a href="https://tsch.js.org/472/play/ja" target="_blank"><img src="https://img.shields.io/badge/-%E6%8C%91%E6%88%A6%E3%81%99%E3%82%8B-3178c6?logo=typescript&logoColor=white" alt="挑戦する"/></a> &nbsp;&nbsp;&nbsp;<a href="./README.md" target="_blank"><img src="https://img.shields.io/badge/-English-gray" alt="English"/></a> </p><!--info-header-end-->
+<!--info-header-start--><h1>Tuple to Enum Object <img src="https://img.shields.io/badge/-%E4%B8%8A%E7%B4%9A-de3d37" alt="上級"/> <img src="https://img.shields.io/badge/-%23tuple-999" alt="#tuple"/> <img src="https://img.shields.io/badge/-%23template--literal-999" alt="#template-literal"/></h1><blockquote><p>by Ryo Hanafusa <a href="https://github.com/softoika" target="_blank">@softoika</a></p></blockquote><p><a href="https://tsch.js.org/472/play/ja" target="_blank"><img src="https://img.shields.io/badge/-%E6%8C%91%E6%88%A6%E3%81%99%E3%82%8B-3178c6?logo=typescript&logoColor=white" alt="挑戦する"/></a> &nbsp;&nbsp;&nbsp;<a href="./README.md" target="_blank"><img src="https://img.shields.io/badge/-English-gray" alt="English"/></a> <a href="./README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-gray" alt="简体中文"/></a> </p><!--info-header-end-->
 
 enum は TypeScript 独自の文法です(JavaScript にはありません)。そのため、以下の形式にトランスパイルされます。
 
 ```js
-let OperatingSystem;
-(function (OperatingSystem) {
-  OperatingSystem[(OperatingSystem['MacOS'] = 0)] = 'MacOS';
-  OperatingSystem[(OperatingSystem['Windows'] = 1)] = 'Windows';
-  OperatingSystem[(OperatingSystem['Linux'] = 2)] = 'Linux';
-})(OperatingSystem || (OperatingSystem = {}));
+let OperatingSystem
+;(function (OperatingSystem) {
+  OperatingSystem[(OperatingSystem['MacOS'] = 0)] = 'MacOS'
+  OperatingSystem[(OperatingSystem['Windows'] = 1)] = 'Windows'
+  OperatingSystem[(OperatingSystem['Linux'] = 2)] = 'Linux'
+})(OperatingSystem || (OperatingSystem = {}))
 ```
 
 この問題では、文字列のタプルを enum と同じようなオブジェクトに変換する型を実装します。
 さらに、enum のプロパティはパスカルケースであることが好ましいです。
 
 ```ts
-Enum<["macOS", "Windows", "Linux"]>
+Enum<['macOS', 'Windows', 'Linux']>
 // -> { readonly MacOS: "macOS", readonly Windows: "Windows", readonly Linux: "Linux" }
 ```
 
 第 2 引数に`true`が与えられた場合、値は数値リテラルとなります。
 
 ```ts
-Enum<["macOS", "Windows", "Linux"], true>
+Enum<['macOS', 'Windows', 'Linux'], true>
 // -> { readonly MacOS: 0, readonly Windows: 1, readonly Linux: 2 }
 ```
 
