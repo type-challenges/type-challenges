@@ -15,6 +15,10 @@
   "i18n-ally.keystyle": "flat",
   "typescript.tsdk": "node_modules/typescript/lib",
   "prettier.semi": false,
+  "prettier.singleQuote": true,
   "typescript.format.semicolons": "remove",
-  "javascript.format.semicolons": "remove"
+  "javascript.format.semicolons": "remove",
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
 }
