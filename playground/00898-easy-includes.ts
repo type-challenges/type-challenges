@@ -18,7 +18,7 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Includes<T extends readonly any[], U> = any
+type Includes<T extends readonly unknown[], U> = T extends [infer F, ...infer R] ? Equal<F, U> extends true ? true : Includes<R, U> : false
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
@@ -41,6 +41,8 @@ type cases = [
   Expect<Equal<Includes<[null], undefined>, false>>,
   Expect<Equal<Includes<[undefined], null>, false>>,
 ]
+
+type test = Includes<[{}], { a: 'A' }>
 
 /* _____________ Further Steps _____________ */
 /*
