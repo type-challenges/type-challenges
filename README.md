@@ -49,7 +49,7 @@ This project is aimed at helping you better understand how the type system works
 
 > 🚀 Start the challenge locally in [your IDE or text editor with TypeScript language support](#play-locally)
 
-> ⚡️ Start the challenge in [VS Code Exntension](https://marketplace.visualstudio.com/items?itemName=YRM.type-challenges)
+> ⚡️ Start the challenge in [VS Code Extension](https://marketplace.visualstudio.com/items?itemName=YRM.type-challenges)
 
 ## Recommended Readings
 
