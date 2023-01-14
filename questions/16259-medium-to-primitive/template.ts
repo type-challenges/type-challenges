@@ -1,0 +1,1 @@
+type ToPrimitive = any

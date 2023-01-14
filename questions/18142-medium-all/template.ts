@@ -1,0 +1,1 @@
+type All = any

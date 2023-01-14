@@ -1,0 +1,1 @@
+type DeepMutable = any

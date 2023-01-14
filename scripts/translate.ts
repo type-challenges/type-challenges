@@ -65,10 +65,11 @@ export async function TranslateAllQuizes(from: SupportedLocale, to: SupportedLoc
 
   for (const quiz of quizes) {
     if (quiz.readme[to] || !quiz.readme[from]) {
-      console.log(`Skipped [${quiz.no}]`)
+      console.log(`Skipped #${quiz.no}`)
       continue
     }
 
+    console.log(`Translating #${quiz.no} to ${to}`)
     await TranslateQuiz(quiz, from, to)
   }
 }

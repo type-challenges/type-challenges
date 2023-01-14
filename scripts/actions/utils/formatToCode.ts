@@ -16,10 +16,11 @@ export const formatToCode = (quiz: Quiz, locale: SupportedLocale) => {
         + toDivider(t(locale, 'divider.code-start'))
   }\n${
     (quiz.template || '').trim()
-  }\n\n${
+  }\n${
     toDivider(t(locale, 'divider.test-cases'))
-  }${quiz.tests || ''
-  }\n\n${
+  }${
+    (quiz.tests || '').trim()
+  }\n${
     toDivider(t(locale, 'divider.further-steps'))
   }${toCommentBlock(toFooter(quiz, locale))}`
 }

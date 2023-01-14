@@ -73,7 +73,7 @@ function quizToBadge(quiz: Quiz, locale: string, absolute = false, badge = true)
   )
 }
 
-function quizNoToBadges(ids: (string|number)[], quizes: Quiz[], locale: string, absolute = false) {
+function quizNoToBadges(ids: (string | number)[], quizes: Quiz[], locale: string, absolute = false) {
   return ids
     .map(i => quizes.find(q => q.no === Number(i)))
     .filter(Boolean)

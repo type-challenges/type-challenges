@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@actions/core": "^1.6.0",
-    "@actions/github": "^5.0.1",
+    "@actions/core": "^1.9.0",
+    "@actions/github": "^5.0.3",
     "@actions/io": "^1.1.2",
     "@type-challenges/octokit-create-pull-request": "^0.1.9",
-    "esno": "^0.14.1",
+    "esno": "^0.16.3",
     "fast-glob": "^3.2.11",
     "fs-extra": "^10.1.0",
     "google-translate-open-api": "^1.3.7",
@@ -16,7 +16,7 @@
     "lz-string": "^1.4.4"
   },
   "devDependencies": {
-    "@octokit/types": "^6.34.0",
+    "@octokit/types": "^6.35.0",
     "@types/js-yaml": "^4.0.5",
     "@types/lz-string": "^1.3.34"
   }

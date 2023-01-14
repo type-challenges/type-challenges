@@ -1,6 +1,6 @@
 difficulty: medium
 title: Promise.all
-tags: 'array, built-in'
+tags: array, promise
 author:
   github: antfu
   name: Anthony Fu
