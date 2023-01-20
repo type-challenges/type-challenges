@@ -18,6 +18,11 @@ const curried2Return8 = curried2('123', 123, true, false, true)('123')(false)
 const curried2Return9 = curried2('123', 123, true, false, true, '123')(false)
 const curried2Return10 = curried2('123', 123, true, false, true, '123', false)
 
+// @ts-expect-error
+const curried1ReturnWrong = curried1('123')(123)('wrong arg type')
+// @ts-expect-error
+const curried1ReturnWrong2 = curried1('123')()(123)(true)
+
 type cases = [
   Expect<Equal< typeof curried1Return1, boolean>>,
   Expect<Equal< typeof curried1Return2, boolean>>,
