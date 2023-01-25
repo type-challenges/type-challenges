@@ -8,4 +8,7 @@ type cases = [
   Expect<Equal<GreaterThan<20, 20>, false>>,
   Expect<Equal<GreaterThan<10, 100>, false>>,
   Expect<Equal<GreaterThan<111, 11>, true>>,
+  Expect<Equal<GreaterThan<9_007_199_254_740_991, 9_007_199_254_740_992>, false>>,
+  Expect<Equal<GreaterThan<9_007_199_254_740_992, 9_007_199_254_740_992>, false>>,
+  Expect<Equal<GreaterThan<9_007_199_254_740_992, 9_007_199_254_740_991>, true>>,
 ]
