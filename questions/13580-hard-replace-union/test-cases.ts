@@ -7,4 +7,10 @@ type cases = [
 
   // Date -> string; Function -> undefined
   Expect<Equal<UnionReplace<Function | Date | object, [[Date, string], [Function, undefined]]>, undefined | string | object>>,
+
+  // Date -> string; object -> undefined
+  Expect<Equal<UnionReplace<Function | Date | object, [[Date, string], [object, undefined]]>, Function | string | undefined>>,
+
+  // () => number -> never
+  Expect<Equal<UnionReplace<(() => 0) | (() => number), [[() => number, never]]>, () => 0>>,
 ]
