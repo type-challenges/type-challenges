@@ -1,4 +1,5 @@
 import type { Alike, Expect } from '@type-challenges/utils'
+import type { Chainable } from './template'
 
 declare const a: Chainable
 
