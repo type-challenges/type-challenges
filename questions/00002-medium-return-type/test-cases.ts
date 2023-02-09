@@ -1,4 +1,5 @@
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from '../../utils'
+import type { MyReturnType } from './template'
 
 type cases = [
   Expect<Equal<string, MyReturnType<() => string>>>,
@@ -18,3 +19,4 @@ type ComplexObject = {
 
 const fn = (v: boolean) => v ? 1 : 2
 const fn1 = (v: boolean, w: any) => v ? 1 : 2
+
