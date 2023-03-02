@@ -10,7 +10,8 @@ const simple = {
 const deep = {
   a: {
     b: {
-      c: 123
+      c: 123,
+      d: '123'
     }
   }
 }
@@ -18,5 +19,5 @@ const deep = {
 
 type cases = [
   Expect<Equal<FlattenObject<typeof simple>, { 'a': {} }>>,
-  Expect<Equal<FlattenObject<typeof deep>, { 'a/b/c': string }>>
+  Expect<Equal<FlattenObject<typeof deep>, { 'a/b/c': number, 'a/b/d': string }>>
 ]
