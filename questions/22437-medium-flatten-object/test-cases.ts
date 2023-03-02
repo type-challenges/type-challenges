@@ -15,8 +15,6 @@ const deep = {
   }
 }
 
-type test1 = FlattenObject<typeof simple>
-type test12 = FlattenObject<typeof deep>
 
 type cases = [
   Expect<Equal<FlattenObject<typeof simple>, { 'a': {} }>>,
