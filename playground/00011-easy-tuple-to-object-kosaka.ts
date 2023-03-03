@@ -20,19 +20,32 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type TupleToObject<T extends readonly any[]> = any
+type TupleToObject<T extends readonly any[]> = { [K in keyof T as Exclude<K, keyof any[]]>: T[K] }
 
 /* _____________ テストケース _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils"
 
-const tuple = ['tesla', 'model 3', 'model X', 'model Y'] as const
+const tuple = ["tesla", "model 3", "model X", "model Y"] as const
 const tupleNumber = [1, 2, 3, 4] as const
-const tupleMix = [1, '2', 3, '4'] as const
-
+const tupleMix = [1, "2", 3, "4"] as const
+type a = keyof typeof tuple
+type x = TupleToObject<typeof tuple>
 type cases = [
-  Expect<Equal<TupleToObject<typeof tuple>, { tesla: 'tesla'; 'model 3': 'model 3'; 'model X': 'model X'; 'model Y': 'model Y' }>>,
+  Expect<
+    Equal<
+      TupleToObject<typeof tuple>,
+      {
+        tesla: "tesla"
+        "model 3": "model 3"
+        "model X": "model X"
+        "model Y": "model Y"
+      }
+    >
+  >,
   Expect<Equal<TupleToObject<typeof tupleNumber>, { 1: 1; 2: 2; 3: 3; 4: 4 }>>,
-  Expect<Equal<TupleToObject<typeof tupleMix>, { 1: 1; '2': '2'; 3: 3; '4': '4' }>>,
+  Expect<
+    Equal<TupleToObject<typeof tupleMix>, { 1: 1; "2": "2"; 3: 3; "4": "4" }>
+  >
 ]
 
 // @ts-expect-error

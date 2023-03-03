@@ -28,15 +28,12 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type HelloWorld = any // expected to be a string
+type HelloWorld = string // expected to be a string
 
 /* _____________ テストケース _____________ */
-import type { Equal, Expect, NotAny } from '@type-challenges/utils'
+import type { Equal, Expect, NotAny } from "@type-challenges/utils"
 
-type cases = [
-  Expect<NotAny<HelloWorld>>,
-  Expect<Equal<HelloWorld, string>>,
-]
+type cases = [Expect<NotAny<HelloWorld>>, Expect<Equal<HelloWorld, string>>]
 
 /* _____________ 次のステップ _____________ */
 /*

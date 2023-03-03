@@ -18,15 +18,18 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type MyExclude<T, U> = any
+// https://github.com/type-challenges/type-challenges/issues/1646
+type MyExclude<T, U> = T extends U ? never : T
 
 /* _____________ テストケース _____________ */
-import type { Equal, Expect } from '@type-challenges/utils'
+import type { Equal, Expect } from "@type-challenges/utils"
 
 type cases = [
-  Expect<Equal<MyExclude<'a' | 'b' | 'c', 'a'>, 'b' | 'c'>>,
-  Expect<Equal<MyExclude<'a' | 'b' | 'c', 'a' | 'b'>, 'c'>>,
-  Expect<Equal<MyExclude<string | number | (() => void), Function>, string | number>>,
+  Expect<Equal<MyExclude<"a" | "b" | "c", "a">, "b" | "c">>,
+  Expect<Equal<MyExclude<"a" | "b" | "c", "a" | "b">, "c">>,
+  Expect<
+    Equal<MyExclude<string | number | (() => void), Function>, string | number>
+  >
 ]
 
 /* _____________ 次のステップ _____________ */
