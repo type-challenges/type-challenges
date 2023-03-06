@@ -1,0 +1,7 @@
+<!--info-header-start--><h1>Combination key type <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%AD%89-d9901a" alt="medium"/> </h1><blockquote><p>by Nauxscript <a href="https://github.com/Nauxscript" target="_blank">@Nauxscript</a></p></blockquote><p><a href="https://tsch.js.org/21106/play/zh-CN" target="_blank"><img src="https://img.shields.io/badge/-%E6%8E%A5%E5%8F%97%E6%8C%91%E6%88%98-3178c6?logo=typescript&logoColor=white" alt="Take the Challenge"/></a> </p><!--info-header-end-->
+
+1. Combine multiple modifier keys, but the same modifier key combination cannot appear.
+2. In the `ModifierKeys` provided, the priority of the previous value is higher than the latter value; that is, `cmd ctrl` is OK, but `ctrl cmd` is not allowed.
+
+
+<!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-%E8%BF%94%E5%9B%9E%E9%A6%96%E9%A1%B5-grey" alt="Back"/></a> <a href="https://tsch.js.org/21106/answer" target="_blank"><img src="https://img.shields.io/badge/-%E5%88%86%E4%BA%AB%E4%BD%A0%E7%9A%84%E8%A7%A3%E7%AD%94-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/21106/solutions" target="_blank"><img src="https://img.shields.io/badge/-%E6%9F%A5%E7%9C%8B%E8%A7%A3%E7%AD%94-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
