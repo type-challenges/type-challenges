@@ -6,5 +6,5 @@ type cases = [
   Expect<Equal<ReplaceFirst<[true, true, true], true, false>, [false, true, true]>>,
   Expect<Equal<ReplaceFirst<[string, boolean, number], boolean, string>, [string, string, number]>>,
   Expect<Equal<ReplaceFirst<[1, 'two', 3], string, 2>, [1, 2, 3]>>,
-  Expect<Equal<ReplaceFirst<['six', 'eight', 'ten'], 'eleven', 'twelve'>, ['six', 'eight', 'ten']>>
+  Expect<Equal<ReplaceFirst<['six', 'eight', 'ten'], 'eleven', 'twelve'>, ['six', 'eight', 'ten']>>,
 ]
