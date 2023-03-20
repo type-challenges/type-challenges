@@ -3,5 +3,5 @@ title: DeepMutable
 author:
   github: cutefcc
   name: cutefcc
-tags: readonly
+tags: readonly, deep
 
