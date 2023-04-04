@@ -17,7 +17,7 @@ export function toPlaygroundUrl(
 }
 
 export function toSolutionsFull(no: number) {
-  return `${REPO}/issues?q=label%3A${no}+label%3Aanswer`
+  return `${REPO}/issues?q=label%3A${no}+label%3Aanswer+sort%3Areactions-%2B1-desc`
 }
 
 export function toQuizREADME(quiz: Quiz, locale?: string, absolute = false) {
