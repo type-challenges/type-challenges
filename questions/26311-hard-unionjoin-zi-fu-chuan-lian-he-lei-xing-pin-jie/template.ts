@@ -1,0 +1,1 @@
+type UnionJoin<T> = any
