@@ -1,1 +1,1 @@
-type JSONSchema2TS<T> = any;
+type JSONSchema2TS<T> = any
