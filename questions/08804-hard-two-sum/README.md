@@ -2,5 +2,11 @@
 
 Given an array of integers `nums` and an integer `target`, return true if two numbers such that they add up to `target`.
 
+For example
+
+```ts
+type sum1 = TwoSum<[3, 2, 4], 6> // true
+type sum2 = TwoSum<[2, 7, 11, 15], 15> // false
+```
 
 <!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/8804/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/8804/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
