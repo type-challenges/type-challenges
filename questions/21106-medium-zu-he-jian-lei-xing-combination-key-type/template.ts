@@ -1,4 +1,2 @@
-type ModifierKeys = ['cmd', 'ctrl', 'opt', 'fn']
-
 // 实现 Combs
-type Combs = any
+type Combs<T extends any[]> = any
