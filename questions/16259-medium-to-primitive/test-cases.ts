@@ -9,6 +9,8 @@ type PersonInfo = {
     phone: '13111111111'
   }
   hobbies: ['sing', 'dance']
+  readonlyArr: readonly ['test']
+  fn: () => any
 }
 
 type ExpectedResult = {
@@ -20,6 +22,8 @@ type ExpectedResult = {
     phone: string
   }
   hobbies: [string, string]
+  readonlyArr: readonly [string]
+  fn: Function
 }
 
 type cases = [

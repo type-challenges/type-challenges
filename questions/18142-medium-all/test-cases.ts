@@ -10,4 +10,9 @@ type cases = [
   Expect<Equal<All<[null, null, null], null>, true>>,
   Expect<Equal<All<[[1], [1], [1]], [1]>, true>>,
   Expect<Equal<All<[{}, {}, {}], {}>, true>>,
+  Expect<Equal<All<[never], never>, true>>,
+  Expect<Equal<All<[any], any>, true>>,
+  Expect<Equal<All<[unknown], unknown>, true>>,
+  Expect<Equal<All<[any], unknown>, false>>,
+  Expect<Equal<All<[unknown], any>, false>>,
 ]
