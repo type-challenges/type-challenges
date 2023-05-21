@@ -119,6 +119,16 @@ pnpm generate
 
 It will prompt you to select the desired language, then you can find the generated challenges in the `./playground` folder.
 
+Later if you want to update playground while keeping your changes:
+
+```bash
+pnpm generate --keep-changes
+```
+OR
+```bash
+pnpm generate -K
+```
+
 ## Thanks
 
 This project was born from solving real-world types problem with [@hardfist](https://github.com/hardfist) and [@MeCKodo](https://github.com/MeCKodo). And great thanks to [@sinoon](https://github.com/sinoon) who contributed a lot while giving early feedback on this project.
