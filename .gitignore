@@ -5,3 +5,4 @@ dist
 *.log
 *.local
 playground/
+.playgroundcache
