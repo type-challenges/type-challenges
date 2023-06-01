@@ -4,7 +4,7 @@ Implement `RemoveIndexSignature<T>` , exclude the index signature from object ty
 
 For example:
 
-```
+```ts
 
 type Foo = {
   [key: string]: any;
