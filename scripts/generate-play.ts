@@ -83,6 +83,13 @@ function calculateOverridableFiles(cache: Snapshot, snapshot: Snapshot) {
   return result
 }
 
+function isQuizWritable(quizFileName: string, overridableFiles: Snapshot, playgroundSnapshot: Snapshot): boolean {
+  return !!(
+    overridableFiles[quizFileName]
+    || (!overridableFiles[quizFileName] && !playgroundSnapshot[quizFileName])
+  )
+}
+
 async function generatePlayground() {
   const playgroundPath = path.join(__dirname, '../playground')
   const playgroundCachePath = path.join(__dirname, '../.playgroundcache')
@@ -91,15 +98,16 @@ async function generatePlayground() {
 
   console.log(c.bold(c.cyan('Generating local playground...\n')))
 
-  let overridableFiles: Snapshot = {}
+  let overridableFiles: Snapshot
   let keepChanges = false
   const currentPlaygroundCache = readPlaygroundCache(playgroundCachePath)
+  let playgroundSnapshot: Snapshot
 
   if (argv.length === 3 && (argv[2] === '--keep-changes' || argv[2] === '-K')) {
     console.log(c.bold(c.cyan('We will keep your chanegs while generating.\n')))
     keepChanges = true
 
-    const playgroundSnapshot = await takeSnapshot(playgroundPath)
+    playgroundSnapshot = await takeSnapshot(playgroundPath)
 
     overridableFiles = calculateOverridableFiles(currentPlaygroundCache, playgroundSnapshot)
   }
@@ -146,7 +154,7 @@ async function generatePlayground() {
     const quizFileName = `${getQuestionFullName(quiz.no, difficulty, title)}.ts`
     const quizPathFull = path.join(quizesPathByDifficulty, quizFileName)
 
-    if (!keepChanges || overridableFiles[quizFileName]) {
+    if (!keepChanges || (keepChanges && isQuizWritable(quizPathFull, overridableFiles!, playgroundSnapshot!))) {
       if (!fs.existsSync(quizesPathByDifficulty))
         fs.mkdirSync(quizesPathByDifficulty)
       await fs.writeFile(quizPathFull, code, 'utf-8')
