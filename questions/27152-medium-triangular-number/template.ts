@@ -1,1 +1,1 @@
-type Triangular<N extends number> = any;
+type Triangular<N extends number> = any

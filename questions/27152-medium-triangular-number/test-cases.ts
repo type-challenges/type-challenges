@@ -8,4 +8,4 @@ type cases = [
   Expect<Equal<Triangular<20>, 210>>,
   Expect<Equal<Triangular<55>, 1540>>,
   Expect<Equal<Triangular<100>, 5050>>,
-];
+]
