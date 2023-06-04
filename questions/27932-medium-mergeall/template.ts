@@ -1,0 +1,1 @@
+type MergeAll<XS> = any
