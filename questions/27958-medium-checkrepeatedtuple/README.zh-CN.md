@@ -1,6 +1,6 @@
 <!--info-header-start--><h1>CheckRepeatedTuple <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%AD%89-d9901a" alt="中等"/> </h1><blockquote><p>by bowen <a href="https://github.com/jiaowoxiaobala" target="_blank">@jiaowoxiaobala</a></p></blockquote><p><a href="https://tsch.js.org/27958/play/zh-CN" target="_blank"><img src="https://img.shields.io/badge/-%E6%8E%A5%E5%8F%97%E6%8C%91%E6%88%98-3178c6?logo=typescript&logoColor=white" alt="接受挑战"/></a> </p><!--info-header-end-->
 
-`Implement type ```CheckRepeatedChars<T>``` which will return whether type ```T``` contains duplicated member`
+判断一个元组类型中是否有相同的成员
 
 For example:
 
