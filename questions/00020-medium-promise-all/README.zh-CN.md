@@ -1,8 +1,6 @@
 <!--info-header-start--><h1>Promise.all <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%AD%89-d9901a" alt="中等"/> <img src="https://img.shields.io/badge/-%23array-999" alt="#array"/> <img src="https://img.shields.io/badge/-%23promise-999" alt="#promise"/></h1><blockquote><p>by Anthony Fu <a href="https://github.com/antfu" target="_blank">@antfu</a></p></blockquote><p><a href="https://tsch.js.org/20/play/zh-CN" target="_blank"><img src="https://img.shields.io/badge/-%E6%8E%A5%E5%8F%97%E6%8C%91%E6%88%98-3178c6?logo=typescript&logoColor=white" alt="接受挑战"/></a> &nbsp;&nbsp;&nbsp;<a href="./README.md" target="_blank"><img src="https://img.shields.io/badge/-English-gray" alt="English"/></a>  <a href="./README.ja.md" target="_blank"><img src="https://img.shields.io/badge/-%E6%97%A5%E6%9C%AC%E8%AA%9E-gray" alt="日本語"/></a> </p><!--info-header-end-->
 
-> 由谷歌自动翻译，欢迎 PR 改进翻译质量。
-
-键入函数`PromiseAll`，它接受PromiseLike对象数组，返回值应为`Promise<T>`，其中`T`是解析的结果数组。
+给函数`PromiseAll`指定类型，它接受元素为 Promise 或者类似 Promise 的对象的数组，返回值应为`Promise<T>`，其中`T`是这些 Promise 的结果组成的数组。
 
 ```ts
 const promise1 = Promise.resolve(3);
@@ -11,7 +9,7 @@ const promise3 = new Promise<string>((resolve, reject) => {
   setTimeout(resolve, 100, 'foo');
 });
 
-// expected to be `Promise<[number, 42, string]>`
+// 应推导出 `Promise<[number, 42, string]>`
 const p = PromiseAll([promise1, promise2, promise3] as const)
 ```
 
