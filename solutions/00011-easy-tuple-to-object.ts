@@ -18,7 +18,7 @@
   > View on GitHub: https://tsch.js.org/11
 */
 
-import { Equal, Expect } from "../../utils"
+import { Equal, Expect } from "../utils"
 
 type TupleToObject<T extends readonly (string | number)[]> = {[key in T[number]]: key};
 
