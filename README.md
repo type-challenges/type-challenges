@@ -69,6 +69,7 @@ This project is aimed at helping you better understand how the type system works
 - [Learn Advanced TypeScript Types](https://medium.com/free-code-camp/typescript-curry-ramda-types-f747e99744ab)
 - [The Art of Type Programming](https://mistlog.medium.com/the-art-of-type-programming-cfd933bdfff7)
 - [Type Query: jQuery Style Type Manipulation](https://mistlog.medium.com/type-query-jquery-style-type-manipulation-497ce26d93f)
+- [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/)
 
 ### Talks
 
