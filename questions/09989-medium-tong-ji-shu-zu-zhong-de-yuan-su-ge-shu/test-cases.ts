@@ -28,4 +28,10 @@ type cases = [
     1: 1
     2: 1
   }>>,
+  Expect<Equal<CountElementNumberToObject<['a', 'b', ['c', ['d']]]>, {
+    'a': 1
+    'b': 1
+    'c': 1
+    'd': 1
+  }>>,
 ]
