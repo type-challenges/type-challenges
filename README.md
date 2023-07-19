@@ -77,8 +77,9 @@ This project is aimed at helping you better understand how the type system works
 
 ### Projects / Solutions
 
-- [Type Gymnastics](https://github.com/g-plane/type-gymnastics)
+- [🎥 Video Explanations and Solutions for every challenge!](https://www.youtube.com/playlist?list=PLOlZuxYbPik180vcJfsAM6xHYLVxrEgHC)
 - [Type Challenges Solutions](https://github.com/ghaiklor/type-challenges-solutions)
+- [Type Gymnastics](https://github.com/g-plane/type-gymnastics)
 - [TypeType Examples](https://github.com/mistlog/typetype-examples)
 
 ### Books
