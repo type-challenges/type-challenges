@@ -1,1 +1,1 @@
-type FindAll<T extends string, P extends string> = any;
+type FindAll<T extends string, P extends string> = any

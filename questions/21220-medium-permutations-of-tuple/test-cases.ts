@@ -1,6 +1,6 @@
 import type { Equal, Expect, ExpectFalse } from '@type-challenges/utils'
 
-type cases = [ 
+type cases = [
   Expect<Equal<PermutationsOfTuple<[]>, []>>,
   Expect<Equal<PermutationsOfTuple<[any]>, [any]>>,
   Expect<Equal<PermutationsOfTuple<[any, unknown]>, [any, unknown] | [unknown, any]>>,
@@ -20,7 +20,7 @@ type cases = [
     | [number, 1, unknown]
     | [unknown, 1, number]
     | [number, unknown, 1]
-    | [unknown, number ,1]
+    | [unknown, number, 1]
   >>,
-  ExpectFalse<Equal<PermutationsOfTuple<[ 1, number, unknown ]>, [unknown]>>
+  ExpectFalse<Equal<PermutationsOfTuple<[ 1, number, unknown ]>, [unknown]>>,
 ]
