@@ -1,6 +1,6 @@
 ## TODOs
 
-A list of TODOs for this project, PR welcome!
+A list of TODOs for this project, PR welcome  !
 
 - [ ] Auto translate for Chinese -> English / English -> Chinese. With a checkbox to opt-in in the new challenge issues.
 
