@@ -86,6 +86,9 @@ This project is aimed at helping you better understand how the type system works
 
 - [Effective TypeScript](https://effectivetypescript.com/)
 - [Learning TypeScript](https://www.learningtypescript.com/)
+- [TypeScript in 50 Lessons](https://typescript-book.com/)
+- [TypeScript Cookbook](https://typescript-cookbook.com/)
+
 
 ## How to Contribute
 
