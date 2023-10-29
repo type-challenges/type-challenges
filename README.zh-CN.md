@@ -87,6 +87,8 @@
 ### 书籍
 - [Effective TypeScript](https://effectivetypescript.com/)
 - [Learning TypeScript](https://www.learningtypescript.com/)
+- [TypeScript in 50 Lessons](https://typescript-book.com/)
+- [TypeScript Cookbook](https://typescript-cookbook.com/)
 
 ## 参与贡献
 
