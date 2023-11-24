@@ -1,1 +1,3 @@
-type TupleToObject<T extends readonly any[]> = any
+type TupleToObject<TTuple extends readonly PropertyKey[]> = {
+  [Key in TTuple[number]]: Key
+}
