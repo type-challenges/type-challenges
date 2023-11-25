@@ -1,1 +1,1 @@
-type Push<T, U> = any
+type Push<TArray extends any[], TElement> = [...TArray, TElement]
