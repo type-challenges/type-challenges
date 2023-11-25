@@ -1,1 +1,1 @@
-type MyExclude<T, U> = any
+type MyExclude<TType, TExclude> = TType extends TExclude ? never : TType
