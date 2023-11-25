@@ -1,1 +1,1 @@
-type If<C, T, F> = any
+type If<TCondition extends boolean, TTrue, TFalse> = TCondition extends true ? TTrue : TFalse
