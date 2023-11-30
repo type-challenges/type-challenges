@@ -56,6 +56,9 @@
 - [타입 프로그래밍의 예술](https://mistlog.medium.com/the-art-of-type-programming-cfd933bdfff7)
 - [타입쿼리 : jQuery 스타일의 타입 조작](https://mistlog.medium.com/type-query-jquery-style-type-manipulation-497ce26d93f)
 
+### 세미나
+- [타입스크립트는 왜 그럴까? - 집합으로 이해하는 타입스크립트](https://www.youtube.com/watch?v=F6iXvOBQ_B4)
+
 ### 프로젝트 / 해결책 
 
 - [Type Gymnastics](https://github.com/g-plane/type-gymnastics)
