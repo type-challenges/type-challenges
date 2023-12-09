@@ -43,7 +43,7 @@ importers:
 
   scripts:
     specifiers:
-      '@actions/core': ^1.9.0
+      '@actions/core': ^1.9.1
       '@actions/github': ^5.0.3
       '@actions/io': ^1.1.2
       '@octokit/types': ^6.35.0
@@ -58,7 +58,7 @@ importers:
       limax: ^3.0.0
       lz-string: ^1.4.4
     dependencies:
-      '@actions/core': 1.9.0
+      '@actions/core': 1.9.1
       '@actions/github': 5.0.3
       '@actions/io': 1.1.2
       '@type-challenges/octokit-create-pull-request': 0.1.9
@@ -82,10 +82,11 @@ importers:
 
 packages:
 
-  /@actions/core/1.9.0:
-    resolution: {integrity: sha512-5pbM693Ih59ZdUhgk+fts+bUWTnIdHV3kwOSr+QIoFHMLg7Gzhwm0cifDY/AG68ekEJAkHnQVpcy4f6GjmzBCA==}
+  /@actions/core/1.9.1:
+    resolution: {integrity: sha512-5ad+U2YGrmmiw6du20AQW5XuWo7UKN2052FjSV7MX+Wfjf8sCqcsZe62NfgHys4QI4/Y+vQvLKYL8jWtA1ZBTA==}
     dependencies:
       '@actions/http-client': 2.0.1
+      uuid: 8.3.2
     dev: false
 
   /@actions/github/5.0.3:
@@ -3148,6 +3149,11 @@ packages:
     resolution: {integrity: sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==}
     engines: {node: '>= 4'}
     dev: true
+
+  /uuid/8.3.2:
+    resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
+    hasBin: true
+    dev: false
 
   /v8-compile-cache/2.1.1:
     resolution: {integrity: sha512-8OQ9CL+VWyt3JStj7HX7/ciTL2V3Rl1Wf5OL+SNTm0yK1KvtReVulksyeRnCANHHuUxHlQig+JJDlUhBt1NQDQ==}
