@@ -1,3 +1,3 @@
 # type-challenges
 
-Задачи в папке `question`, мои решения в папке `solutions`.
+Tasks are in directory `question`, my solutions are in directory `solutions`.
