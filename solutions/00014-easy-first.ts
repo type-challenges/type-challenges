@@ -12,7 +12,7 @@ type head2 = First<arr2> // expected to be 3
 ```
 */
 
-import type { Equal, Expect } from "../../utils"
+import type { Equal, Expect } from "../utils"
 
 type First<T extends any[]> = T extends [] ? never : T[0];
 

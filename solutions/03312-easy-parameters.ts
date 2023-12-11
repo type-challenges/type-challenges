@@ -10,9 +10,9 @@ type FunctionParamsType = MyParameters<typeof foo> // [arg1: string, arg2: numbe
 ```
 */
 
-import type { Equal, Expect } from '../../utils'
+import type { Equal, Expect } from '../utils'
 
-type MyParameters<T extends (...args: any[]) => unknown> = T extends (...args: infer U) => unknown ? U : never;
+type MyParameters<T extends (...args: any[]) => unknown> = T extends (...args: infer U) => unknown ? U : [];
 
 const foo = (arg1: string, arg2: number): void => {}
 const bar = (arg1: boolean, arg2: { a: 'A' }): void => {}
