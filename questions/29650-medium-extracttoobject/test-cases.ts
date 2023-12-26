@@ -1,6 +1,6 @@
 import type { Equal, Expect } from '@type-challenges/utils'
 
-type test1 = { id: '1'; myProp: { foo: '2' } }
+type test1 = { id: '1', myProp: { foo: '2' } }
 
 type testExpect1 = {
   id: '1'
@@ -20,8 +20,8 @@ type testExpect2 = {
 }
 
 type test3 = {
-  prop1: { zoo: '2'; a: 2; b: 4; c: 7 }
-  prop2: { foo: '4'; v: 2; d: 4; g: 7 }
+  prop1: { zoo: '2', a: 2, b: 4, c: 7 }
+  prop2: { foo: '4', v: 2, d: 4, g: 7 }
   k: 289
 }
 
@@ -30,11 +30,11 @@ type testExpect3 = {
   a: 2
   b: 4
   c: 7
-  prop2: { foo: '4'; v: 2; d: 4; g: 7 }
+  prop2: { foo: '4', v: 2, d: 4, g: 7 }
   k: 289
 }
 
-type test4 = { id: '1'; myProp: { foo: '2' } }
+type test4 = { id: '1', myProp: { foo: '2' } }
 
 type testExpect4 = {
   id: '1'

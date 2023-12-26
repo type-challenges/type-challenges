@@ -1,16 +1,16 @@
 [build]
-  ignore = "git diff --quiet HEAD^ HEAD .."
+ignore = "git diff --quiet HEAD^ HEAD .."
 
 [build.environment]
-  NPM_FLAGS = "--prefix=/dev/null"
-  NODE_VERSION = "14"
+NODE_VERSION = "20"
 
 [[redirects]]
-  from = "/"
-  to = "/index.html"
-  status = 200
+from = "/"
+to = "/index.html"
+status = 200
 
 [[headers]]
-  for = "/*"
-    [headers.values]
-    Access-Control-Allow-Origin = "*"
+for = "/*"
+
+[headers.values]
+Access-Control-Allow-Origin = "*"

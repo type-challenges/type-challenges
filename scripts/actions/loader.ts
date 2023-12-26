@@ -1,3 +1,4 @@
+import process from 'node:process'
 import * as core from '@actions/core'
 import { context, getOctokit } from '@actions/github'
 import * as io from '@actions/io'
@@ -10,7 +11,7 @@ async function main(): Promise<void> {
   const fnName = process.argv[3]
   const github = getOctokit(token)
 
-  // eslint-disable-next-line @typescript-eslint/no-var-requires
+  // eslint-disable-next-line ts/no-var-requires
   const fn = require(`./${fnName}.ts`)
   fn.default(github, context, core, io)
 }
