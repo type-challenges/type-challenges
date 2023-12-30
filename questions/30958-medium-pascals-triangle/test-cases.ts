@@ -1,16 +1,15 @@
 import { Expect, Equal } from "@type-challenges/utils";
 
-/* prettier-ignore */
-{
-  type N1 = Expect<
+type cases = [
+  Expect<
     Equal<
       Pascal<1>,
       [
         [1],
       ]
     >
-  >;
-  type N3 = Expect<
+  >,
+  Expect<
     Equal<
       Pascal<3>,
       [
@@ -19,8 +18,8 @@ import { Expect, Equal } from "@type-challenges/utils";
         [1, 2, 1],
       ]
     >
-  >;
-  type N5 = Expect<
+  >,
+  Expect<
     Equal<
       Pascal<5>,
       [
@@ -31,8 +30,8 @@ import { Expect, Equal } from "@type-challenges/utils";
         [1, 4, 6, 4, 1],
       ]
     >
-  >;
-  type N7 = Expect<
+  >,
+  Expect<
     Equal<
       Pascal<7>,
       [
@@ -45,5 +44,5 @@ import { Expect, Equal } from "@type-challenges/utils";
         [1, 6, 15, 20, 15, 6, 1],
       ]
     >
-  >;
-}
+  >,
+]
