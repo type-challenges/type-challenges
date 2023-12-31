@@ -1,4 +1,4 @@
-import type { Equal, Expect } from '@type-challenges/utils';
+import type { Equal, Expect } from '@type-challenges/utils'
 
 type testcase =
   | Expect<Equal<IsFixedStringLiteralType<'ABC'>, true>>
@@ -41,4 +41,4 @@ type testcase =
   | Expect<Equal<IsFixedStringLiteralType<`ABC${false}DEF`>, true>>
   | Expect<Equal<IsFixedStringLiteralType<`ABC${null}DEF`>, true>>
   | Expect<Equal<IsFixedStringLiteralType<`ABC${undefined}DEF`>, true>>
-  | true;
+  | true

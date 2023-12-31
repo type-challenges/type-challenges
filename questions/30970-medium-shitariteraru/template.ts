@@ -1,1 +1,1 @@
-type IsFixedStringLiteralType<S extends string> = any;
+type IsFixedStringLiteralType<S extends string> = any
