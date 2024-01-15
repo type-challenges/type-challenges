@@ -64,6 +64,10 @@ function toDifficultyPlainText(difficulty: string, locale: SupportedLocale, coun
   return `${t(locale, `difficulty.${difficulty}`)} (${count.toString()})`
 }
 
+function toDetailsInnerText(text: string, locale: SupportedLocale) {
+  return `${t(locale, `details.${text}`)}`
+}
+
 function quizToBadge(quiz: Quiz, locale: string, absolute = false, badge = true) {
   const fn = badge ? toBadgeLink : toPlanTextLink
   return fn(
@@ -162,7 +166,7 @@ async function updateIndexREADME(quizes: Quiz[]) {
     }
 
     // by tags
-    challengesREADME += '<br><details><summary>By Tags</summary><br><table><tbody>'
+    challengesREADME += `<br><details><summary>${toDetailsInnerText('by-tags', locale)}</summary><br><table><tbody>`
     const tags = getAllTags(quizes, locale)
     for (const tag of tags) {
       challengesREADME += `<tr><td>${toBadge('', `#${tag}`, '999')}</td><td>`
@@ -177,7 +181,7 @@ async function updateIndexREADME(quizes: Quiz[]) {
 
     // by plain text
     prev = ''
-    challengesREADME += '<br><details><summary>By Plain Text</summary><br>'
+    challengesREADME += `<br><details><summary>${toDetailsInnerText('by-plain-text', locale)}</summary><br>`
     for (const quiz of quizesByDifficulty) {
       if (prev !== quiz.difficulty)
         challengesREADME += `${prev ? '</ul>' : ''}<h3>${toDifficultyPlainText(quiz.difficulty, locale, quizesByDifficulty.filter(q => q.difficulty === quiz.difficulty).length)}</h3><ul>`
