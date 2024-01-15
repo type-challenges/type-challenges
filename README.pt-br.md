@@ -16,7 +16,7 @@
 <br>
 
 <p align='center'>
-  English | <a href='./README.zh-CN.md'>简体中文</a> | <a href='./README.ja.md'>日本語</a> | <a href='./README.ko.md'>한국어</a> | <a href='./README.pt-br.md'>Português</a>
+  <a href='./README.md'>English</a> | <a href='./README.zh-CN.md'>简体中文</a> | <a href='./README.ja.md'>日本語</a> | <a href='./README.ko.md'>한국어</a> | Português
 </p>
 
 ## Intro
@@ -33,7 +33,7 @@ Esse projeto tem como objectio ajudar você a entender melhor como um sistema de
 
 ## Desafios
 
-> Click nas etiquetas abaixo para ver detalhes dos desafios.
+> Clique nas etiquetas abaixo para ver detalhes dos desafios.
 
 > **Nota**: Os desafios funcionam em [modo estrito](https://www.typescriptlang.org/tsconfig#strict)
 
@@ -105,7 +105,6 @@ Há diversas formas de você contribuir para esse projeto
 Just [open an issue](https://github.com/type-challenges/type-challenges/issues/new/choose) and choose the corresponding template. Thanks!
 Apenas [braça uma *issue*](https://github.com/type-challenges/type-challenges/issues/new/choose) and escolha o template correspondente. Agradecemos!
 
-## Play Locally
 ## Execute Localmente
 
 Você pode fazer a *build* dos desafios and executar localmente em sua IDE ou editor de texto com suporte a TypeScript.
