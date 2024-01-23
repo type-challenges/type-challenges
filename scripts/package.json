@@ -7,10 +7,10 @@
     "@actions/github": "^6.0.0",
     "@actions/io": "^1.1.3",
     "@type-challenges/octokit-create-pull-request": "^0.1.9",
+    "@vitalets/google-translate-api": "^9.2.0",
     "esno": "^4.0.0",
     "fast-glob": "^3.3.2",
     "fs-extra": "^11.2.0",
-    "google-translate-open-api": "^1.3.7",
     "js-yaml": "^4.1.0",
     "limax": "^4.1.0",
     "lz-string": "^1.5.0"
