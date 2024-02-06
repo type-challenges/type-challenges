@@ -104,7 +104,7 @@ async function generatePlayground() {
   let playgroundSnapshot: Snapshot
 
   if (process.argv.length === 3 && (process.argv[2] === '--keep-changes' || process.argv[2] === '-K')) {
-    console.log(c.bold(c.cyan('We will keep your chanegs while generating.\n')))
+    console.log(c.bold(c.cyan('We will keep your changes while generating.\n')))
     keepChanges = true
 
     playgroundSnapshot = await takeSnapshot(playgroundPath)
