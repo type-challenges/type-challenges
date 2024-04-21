@@ -6,15 +6,13 @@ For example:
 
 ```ts
 PermutationsOfTuple<[1, number, unknown]>
-/**
- * Should return:
- * | [1, number, unknown]
- * | [1, unknown, number]
- * | [number, 1, unknown]
- * | [unknown, 1, number]
- * | [number, unknown, 1]
- * | [unknown, number ,1]
- */ 
+// Should return:
+// | [1, number, unknown]
+// | [1, unknown, number]
+// | [number, 1, unknown]
+// | [unknown, 1, number]
+// | [number, unknown, 1]
+// | [unknown, number ,1]
 ```
 
 
