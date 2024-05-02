@@ -29,7 +29,9 @@
 
 /* _____________ ここにコードを記入 _____________ */
 
-type MyReadonly<T> = any
+type MyReadonly<T> = {
+  readonly [k in keyof T]: T[k]
+}
 
 /* _____________ テストケース _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
