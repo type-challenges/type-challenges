@@ -4,5 +4,5 @@ node_modules/
 dist
 *.log
 *.local
-playground/
+# playground/
 .playgroundcache
