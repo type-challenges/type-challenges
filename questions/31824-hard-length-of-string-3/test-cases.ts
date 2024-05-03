@@ -1,23 +1,23 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import { ExpectFalse, NotEqual } from '@type-challenges/utils'
 
-type Deced = [10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-type Signum = Deced[number];
+type Deced = [10, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+type Signum = Deced[number]
 type Reped<
   S extends string,
   C extends Signum,
-  R extends string = ''>
+  R extends string = '',
+>
   = (C extends 0
     ? R
     : Reped<S, Deced[C], `${R}${S}`>
-  );
-type t0 = 'k';
-type t1 = Reped<t0, 10>;
-type t2 = Reped<t1, 10>;
-type t3 = Reped<t2, 10>;
-type t4 = Reped<t3, 10>;
-type t5 = Reped<t4, 10>;
-type t6 = Reped<t5, 10>;
+  )
+type t0 = 'k'
+type t1 = Reped<t0, 10>
+type t2 = Reped<t1, 10>
+type t3 = Reped<t2, 10>
+type t4 = Reped<t3, 10>
+type t5 = Reped<t4, 10>
+type t6 = Reped<t5, 10>
 type Gened<N extends string> = N extends `${''
   }${infer N6 extends Signum
   }${infer N5 extends Signum
@@ -34,7 +34,7 @@ type Gened<N extends string> = N extends `${''
   }${Reped<t2, N2>
   }${Reped<t1, N1>
   }${Reped<t0, N0>
-  }` : never;
+  }` : never
 
 type cases = [
   Expect<Equal<LengthOfString<Gened<'0000000'>>, 0>>,
@@ -56,5 +56,5 @@ type cases = [
   Expect<Equal<LengthOfString<Gened<'0058901'>>, 58901>>,
   Expect<Equal<LengthOfString<Gened<'8414001'>>, 8414001>>,
   Expect<Equal<LengthOfString<Gened<'1740697'>>, 1740697>>,
-  Expect<Equal<LengthOfString<Gened<'2281441'>>, 2281441>>
+  Expect<Equal<LengthOfString<Gened<'2281441'>>, 2281441>>,
 ]

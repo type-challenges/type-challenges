@@ -34,7 +34,7 @@ uniqueItems([
   // @ts-expect-error
   4,
   6,
-  7
+  7,
 ])
 
 uniqueItems([
@@ -46,5 +46,5 @@ uniqueItems([
   false,
   'b',
   // @ts-expect-error
-  'b'
+  'b',
 ])
