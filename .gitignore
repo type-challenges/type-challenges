@@ -6,3 +6,8 @@ dist
 *.local
 playground/
 .playgroundcache
+src/
+
+# Added by cargo
+
+/target
