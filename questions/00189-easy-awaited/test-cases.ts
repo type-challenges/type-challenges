@@ -13,4 +13,3 @@ type cases = [
   Expect<Equal<MyAwaited<Z1>, string | boolean>>,
   Expect<Equal<MyAwaited<T>, number>>,
 ]
-
