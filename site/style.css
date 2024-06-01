@@ -33,13 +33,17 @@ div {
 h1 {
   font-weight: 400;
   margin: 0;
-  font-size: 1.5em;
+  font-size: min(10vw, 1.5em);
   color: #273849;
   opacity: 0.7;
 }
 
+img {
+  max-width: 500px;
+}
+
 a.button {
-  padding: 0.75em 2em;
+  padding: 0.75em min(7vw, 2em);
   border-radius: 2em;
   display: inline-block;
   color: #fff;
@@ -50,7 +54,7 @@ a.button {
   text-decoration: none;
 
   margin: 2em 0;
-  font-size: 0.9em;
+  font-size: min(7vw, 0.9em);
   font-weight: 600;
   letter-spacing: 0.1em;
   min-width: 8em;
