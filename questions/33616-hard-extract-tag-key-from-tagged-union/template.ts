@@ -1,0 +1,1 @@
+type ExtractTagFromTaggedUnion<T> = 'type'
