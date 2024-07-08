@@ -17,7 +17,9 @@ const todo: TodoPreview = {
     title: 'Clean room',
     completed: false,
 }
-```
+
+
+```ts
 type TodoPick<T, K extends keyof T> {
   [P in K] : T[P];
 }
