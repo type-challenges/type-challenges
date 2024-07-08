@@ -8,7 +8,7 @@ Type Challenges에서는 타입 단언(assertion)을 하기 위해 자체적인 
 
 ```ts
 // string이 되어야 합니다.
-type HelloWorld = any
+type HelloWorld = string
 ```
 
 ```ts
