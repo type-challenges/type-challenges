@@ -20,7 +20,7 @@ const todo: TodoPreview = {
 
 
 ```ts
-type TodoPick<T, K extends keyof T> {
+type MyPick<T, K extends keyof T> {
   [P in K] : T[P];
 }
 ```
