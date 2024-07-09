@@ -32,7 +32,6 @@ T[0]은 배열 T의 첫 번째 요소의 타입을 나타내지만, P in T[0]은
 
 
 
-
 // answer2
 type First<T extends readonly any[]> = T[0] extends [] ? never : T[0];
 /*
