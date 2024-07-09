@@ -50,16 +50,27 @@ type First<T extends readonly any[]> = T[0] extends [] ? never : T[0];
 */
 
 
+// answer3
+type First<T extends readonly any[]> = T extends [infer F, ...any[]] ? F : never;
 
+/*
+😊 설명
 
+infer 키워드는 TypeScript의 조건부 타입에서 사용되는 기능으로, 타입을 추론할 수 있게 해줍니다.
+infer는 특정 위치에서 타입을 추론할 수 있는 매개변수 역할을 합니다. 이를 통해 타입이 조건에 따라 결정될 때, 특정 부분의 타입을 변수에 할당할 수 있습니다.
 
+T extends [infer F, ...any[]] ? F : never;의 경우, 이 코드는 배열 T가 적어도 하나의 요소를 가지고 있는지 검사합니다.
+만약 그렇다면 첫 번째 요소의 타입을 F로 추론합니다. 그렇지 않다면 never 타입을 반환합니다.
 
+구체적으로 살펴보면:
 
-
-
+T extends [infer F, ...any[]]는 배열 T가 적어도 하나의 요소를 가지고 있는지 확인합니다.
+만약 T가 [infer F, ...any[]]와 일치한다면, T의 첫 번째 요소의 타입을 F로 추론합니다.
+infer F는 T의 첫 번째 요소의 타입을 F라는 이름으로 추론합니다.
+- 조건이 참이면, ? F에 의해 첫 번째 요소의 타입을 반환합니다.
+- 조건이 거짓이면, : never에 의해 never 타입을 반환합니다.
 
 */
-
 
 
 ```
