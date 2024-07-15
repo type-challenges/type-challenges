@@ -1,0 +1,1 @@
+type OverloadedParameters<F> = any
