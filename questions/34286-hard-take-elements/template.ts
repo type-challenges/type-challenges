@@ -1,1 +1,1 @@
-type Take<N, Arr> = Arr;
+type Take<N, Arr> = Arr
