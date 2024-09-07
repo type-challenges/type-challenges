@@ -18,15 +18,21 @@ type t3 = Reped<t2, 10>
 type t4 = Reped<t3, 10>
 type t5 = Reped<t4, 10>
 type t6 = Reped<t5, 10>
-type Gened<N extends string> = N extends `${''
-  }${infer N6 extends Signum
-  }${infer N5 extends Signum
-  }${infer N4 extends Signum
-  }${infer N3 extends Signum
-  }${infer N2 extends Signum
-  }${infer N1 extends Signum
-  }${infer N0 extends Signum
-  }` ? `${''
+type Signums<
+  N extends string,
+  Acc extends readonly Signum[] = [],
+> = N extends `${infer Head extends Signum}${infer Rest}`
+  ? Signums<Rest, [...Acc, Head]>
+  : Acc
+type Gened<N extends string> = Signums<N> extends [
+  infer N6 extends Signum,
+  infer N5 extends Signum,
+  infer N4 extends Signum,
+  infer N3 extends Signum,
+  infer N2 extends Signum,
+  infer N1 extends Signum,
+  infer N0 extends Signum,
+] ? `${''
   }${Reped<t6, N6>
   }${Reped<t5, N5>
   }${Reped<t4, N4>
