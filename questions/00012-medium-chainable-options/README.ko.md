@@ -26,6 +26,17 @@ interface Result {
 }
 ```
 
+풀이
+
+```ts
+type Chainable<T = {}> = {
+  option<K extends string, V>(key: K extends keyof T ? never : K, value: V): Chainable<Omit<T, K> & Record<K, V>>
+  get(): T
+}
+```
+
+링크: [Type Challenge - MEDIUM - Chainable Options](https://dev-iamkanguk.tistory.com/entry/Type-Challenge-MEDIUM-Chainable-Options)
+
 문제를 해결하기 위해 js/ts 로직을 작성할 필요는 없습니다. 단지 타입 수준입니다.
 
 `key`는 `string`만 허용하고 `value`는 무엇이든 될 수 있다고 가정합니다. 같은 `key`는 두 번 전달되지 않습니다.
