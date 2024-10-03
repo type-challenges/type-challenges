@@ -1,1 +1,1 @@
-type TrimLeft<S extends string> = any
+type TrimLeft<S extends string> = S extends ` ${infer T}` ? TrimLeft<T> : S;
