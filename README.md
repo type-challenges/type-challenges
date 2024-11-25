@@ -148,6 +148,14 @@ This project was born from solving real-world types problem with [@hardfist](htt
 
 ![Contributors](https://contrib.rocks/image?repo=type-challenges/type-challenges)
 
+## [Star History](https://github.com/type-challenges/type-challenges/stargazers)
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=type-challenges/type-challenges&type=Date&theme=dark" />
+  <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=type-challenges/type-challenges&type=Date" />
+  <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=type-challenges/type-challenges&type=Date" />
+</picture>
+
 ## License
 
 MIT
