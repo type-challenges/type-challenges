@@ -7,5 +7,6 @@ type cases = [
   Expect<Equal<IsOdd<1926>, false>>,
   Expect<Equal<IsOdd<2.3>, false>>,
   Expect<Equal<IsOdd<3e23>, false>>,
+  Expect<Equal<IsOdd<3e0>, true>>,
   Expect<Equal<IsOdd<number>, false>>,
 ]
