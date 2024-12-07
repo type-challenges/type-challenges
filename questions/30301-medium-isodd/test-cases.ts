@@ -12,7 +12,7 @@ type cases = [
   Expect<Equal<IsOdd<1.01e2>, true>>,
   Expect<Equal<IsOdd<1.2e1>, false>>,
   Expect<Equal<IsOdd<1.02e2>, false>>,
-  Expect<Equal<IsOdd<100e-2>, false>>,
+  Expect<Equal<IsOdd<100e-2>, true>>,
   Expect<Equal<IsOdd<320e-1>, false>>,
   Expect<Equal<IsOdd<number>, false>>,
 ]
