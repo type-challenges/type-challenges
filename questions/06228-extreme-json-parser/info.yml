@@ -1,8 +1,10 @@
 difficulty: extreme
 title: JSON Parser
 tags:
+  - JSON
   - template-literal
-  - json
+  - object
+  - recursion
 author:
   github: hydrati
   name: Hydration
