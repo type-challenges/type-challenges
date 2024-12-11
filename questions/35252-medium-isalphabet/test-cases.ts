@@ -1,5 +1,4 @@
 import type { Equal, Expect } from '@type-challenges/utils'
-import { ExpectFalse, NotEqual } from '@type-challenges/utils'
 
 type cases = [
   Expect<Equal<IsAlphabet<'A'>, true>>,
@@ -7,5 +6,5 @@ type cases = [
   Expect<Equal<IsAlphabet<'9'>, false>>,
   Expect<Equal<IsAlphabet<'!'>, false>>,
   Expect<Equal<IsAlphabet<'😂'>, false>>,
-  Expect<Equal<IsAlphabet<''>, false>>
+  Expect<Equal<IsAlphabet<''>, false>>,
 ]
