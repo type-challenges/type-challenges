@@ -1,3 +1,5 @@
+<!--info-header-start--><h1>Defined Partial Record <img src="https://img.shields.io/badge/-medium-d9901a" alt="medium"/> </h1><blockquote><p>by Aleksandr Trutanov <a href="https://github.com/alex-altay" target="_blank">@alex-altay</a></p></blockquote><p><a href="https://tsch.js.org/34857/play" target="_blank"><img src="https://img.shields.io/badge/-Take%20the%20Challenge-3178c6?logo=typescript&logoColor=white" alt="Take the Challenge"/></a> </p><!--info-header-end-->
+
 ### Defined Partial Record
 
 
@@ -24,3 +26,6 @@ const best: DefinedPartial<Record<'a' | 'b' | 'c', number>> = { a: 42 }
 const sum = 0 + best.a // 42
 const error = best.b // error: property 'b' does not exist on type '{ a: number; }'
 ```
+
+
+<!--info-footer-start--><br><a href="../../README.md" target="_blank"><img src="https://img.shields.io/badge/-Back-grey" alt="Back"/></a> <a href="https://tsch.js.org/34857/answer" target="_blank"><img src="https://img.shields.io/badge/-Share%20your%20Solutions-teal" alt="Share your Solutions"/></a> <a href="https://tsch.js.org/34857/solutions" target="_blank"><img src="https://img.shields.io/badge/-Check%20out%20Solutions-de5a77?logo=awesome-lists&logoColor=white" alt="Check out Solutions"/></a> <!--info-footer-end-->
