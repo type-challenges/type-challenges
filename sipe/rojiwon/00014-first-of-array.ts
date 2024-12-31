@@ -27,8 +27,6 @@ type First<T extends any[]> = T['length'] extends 0 ? never : T[0];
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
 
-type a = First<[]>
-
 type cases = [
   Expect<Equal<First<[3, 2, 1]>, 3>>,
   Expect<Equal<First<[() => 123, { a: string }]>, () => 123>>,
