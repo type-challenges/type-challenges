@@ -39,8 +39,6 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type test = Exclude<string, 'name'>
-
 type Chainable<T = object> = {
   option: <Key extends string, Value>(key: Exclude<Key, keyof T>, value: Value) => Chainable<Omit<T, Key> & Record<Key, Value>>
   get: () => T
