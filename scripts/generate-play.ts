@@ -2,7 +2,7 @@ import path from 'node:path'
 import process from 'node:process'
 import crypto from 'node:crypto'
 import fs from 'fs-extra'
-import c from 'picocolors'
+import c from 'ansis'
 import prompts from 'prompts'
 import { formatToCode } from './actions/utils/formatToCode'
 import { loadQuizes, resolveInfo } from './loader'
@@ -96,7 +96,7 @@ async function generatePlayground() {
 
   let locale = supportedLocales.find(locale => locale === process.argv[2])!
 
-  console.log(c.bold(c.cyan('Generating local playground...\n')))
+  console.log(c.bold.cyan('Generating local playground...\n'))
 
   let overridableFiles: Snapshot
   let keepChanges = false
@@ -104,7 +104,7 @@ async function generatePlayground() {
   let playgroundSnapshot: Snapshot
 
   if (process.argv.length === 3 && (process.argv[2] === '--keep-changes' || process.argv[2] === '-K')) {
-    console.log(c.bold(c.cyan('We will keep your changes while generating.\n')))
+    console.log(c.bold.cyan('We will keep your changes while generating.\n'))
     keepChanges = true
 
     playgroundSnapshot = await takeSnapshot(playgroundPath)
@@ -150,7 +150,7 @@ async function generatePlayground() {
     const code = formatToCode(quiz, locale)
 
     if (difficulty === undefined || title === undefined) {
-      console.log(c.yellow(`${quiz.no} has no ${locale.toUpperCase()} version. Skipping`))
+      console.log(c.yellow`${quiz.no} has no ${locale.toUpperCase()} version. Skipping`)
       continue
     }
 
@@ -173,7 +173,7 @@ async function generatePlayground() {
   }))
 
   console.log()
-  console.log(c.bold(c.green('Local playground generated at: ')) + c.dim(playgroundPath))
+  console.log(c.bold.green('Local playground generated at: ') + c.dim(playgroundPath))
   console.log()
 }
 

@@ -45,12 +45,12 @@ importers:
       '@types/prompts':
         specifier: ^2.4.9
         version: 2.4.9
+      ansis:
+        specifier: ^3.12.0
+        version: 3.12.0
       eslint:
         specifier: ^8.56.0
         version: 8.56.0
-      picocolors:
-        specifier: ^1.0.0
-        version: 1.0.0
       prompts:
         specifier: ^2.4.2
         version: 2.4.2
@@ -1181,6 +1181,11 @@ packages:
     dependencies:
       '@types/color-name': 1.1.1
       color-convert: 2.0.1
+    dev: true
+
+  /ansis@3.12.0:
+    resolution: {integrity: sha512-SxhlInpMkv9QCyI2yHyrhVrTF8dH93M/S86DT5f9brFgr92uJLOCg0RNmtx3YKWKcRmNAaU+gyUfHMdUiqxvFw==}
+    engines: {node: '>=14'}
     dev: true
 
   /are-docs-informative@0.0.2:
