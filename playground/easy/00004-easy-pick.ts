@@ -29,9 +29,7 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type MyPick<T, K extends keyof> = {
-  [P in K] = T[P]
-}
+type MyPick<T, K> = any
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
@@ -39,7 +37,7 @@ import type { Equal, Expect } from '@type-challenges/utils'
 type cases = [
   Expect<Equal<Expected1, MyPick<Todo, 'title'>>>,
   Expect<Equal<Expected2, MyPick<Todo, 'title' | 'completed'>>>,
-  // @ts-expect-error
+  // @ts-expect-errorㄴ
   MyPick<Todo, 'title' | 'completed' | 'invalid'>,
 ]
 
