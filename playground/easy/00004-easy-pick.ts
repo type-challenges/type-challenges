@@ -29,8 +29,8 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type MyPick<T, K extends keyof T> = {
-  [P in K] : T[P]
+type MyPick<T, K extends keyof> = {
+  [P in K] = T[P]
 }
 
 /* _____________ 테스트 케이스 _____________ */
