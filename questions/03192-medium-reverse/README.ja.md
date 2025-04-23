@@ -1,7 +1,7 @@
 <!--info-header-start-->
 <h1>
  Reverse
- <img alt="medium" src="https://img.shields.io/badge/-medium-d9901a"/>
+ <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%B4%9A-d9901a" alt="中級"/> 
  <img alt="#tuple" src="https://img.shields.io/badge/-%23tuple-999"/>
 </h1>
 <blockquote>

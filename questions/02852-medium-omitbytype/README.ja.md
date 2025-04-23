@@ -1,6 +1,6 @@
 <h1>
  OmitByType
- <img alt="medium" src="https://img.shields.io/badge/-medium-d9901a"/>
+ <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%B4%9A-d9901a" alt="中級"/> 
  <img alt="#object" src="https://img.shields.io/badge/-%23object-999"/>
 </h1>
 <blockquote>
