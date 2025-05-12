@@ -20,7 +20,15 @@
 
 /* _____________ Your Code Here _____________ */
 
-type TupleToObject<T extends readonly any[]> = any
+
+//в данном варианте @ts-expect-error подчёркивается с ошибкой
+// type TupleToObject<T extends readonly any[]> = {
+//   [K in T[number]]: K
+// }
+
+type TupleToObject<T extends readonly (string | number | symbol)[]> = {
+  [K in T[number]]: K
+}
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
