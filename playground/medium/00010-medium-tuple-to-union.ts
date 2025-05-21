@@ -20,7 +20,16 @@
 
 /* _____________ Your Code Here _____________ */
 
-type TupleToUnion<T> = any
+type TupleToUnion<T extends unknown[]> = T[number]
+
+// Варианты, предложенные DS
+
+// type TupleToUnion<T> = T extends (infer U)[] ? U : never
+
+// type TupleToUnion<T extends unknown[]> =
+//   T extends [infer First, ...infer Rest]
+//     ? First | TupleToUnion<Rest>
+//     : never
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
