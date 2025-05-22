@@ -24,7 +24,10 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Last<T extends any[]> = any
+type Last<T extends unknown[]> = T extends [...unknown[], infer U] ? U : never
+
+// Вариант 2 от DS, как работает "_" в этом случае?
+// type Last<T extends any[]> = T extends [...infer _, infer Last] ? Last : never
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'

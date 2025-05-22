@@ -23,7 +23,13 @@
 
 /* _____________ Your Code Here _____________ */
 
-declare function PromiseAll(values: any): any
+type Awaited<T> = T extends PromiseLike<infer U> ? Awaited<U> : T
+
+declare function PromiseAll<T extends readonly unknown[]>(
+  values: readonly [...T]
+): Promise<{
+  [P in keyof T]: Awaited<T[P]>
+}>
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
