@@ -1,31 +1,33 @@
 <p align='center'>
-<img src='./screenshots/logo.svg' width='400'/>
+  <img src='./screenshots/logo.svg' width='400'/>
 </p>
 
 <p align='center'>
-TypeScript 型の課題集
+  TypeScript 型パズル集
 </p>
 
 <p align='center'>
-<a href='https://discord.gg/UgKBCq9'>
-<img src='https://img.shields.io/badge/-Discord-yellowgreen?logo=discord&logoColor=white&color=7289da'/>
-</a>
-<br>
+  <a href='https://discord.gg/UgKBCq9'>
+    <img src='https://img.shields.io/badge/-Discord-yellowgreen?logo=discord&logoColor=white&color=7289da'/>
+  </a>
+  <br>
+</p>
 
 <p align='center'>
-<a href='./README.md'>English</a> | <a href='./README.zh-CN.md'>简体中文</a> | 日本語 | <a href='./README.ko.md'>한국어</a>
+  <a href='./README.md'>English</a> | <a href='./README.zh-CN.md'>简体中文</a> | 日本語 | <a href='./README.ko.md'>한국어</a> | <a href='./README.pt-BR.md'>Português</a>
 </p>
 
 ## はじめに
 
 <p align='center'>
-<del><em>TypeScript の<a href="https://github.com/microsoft/TypeScript/issues/14833">チューリング完全</a>な型システムの力で</em></del>
+  <del><em>TypeScript の<a href="https://github.com/microsoft/TypeScript/issues/14833">チューリング完全</a>な型システムの力で</em></del>
 </p>
 
 高品質な型は潜在的なバグを回避しつつ、プロジェクトの保守性を向上させるのに役立ちます。  
-TypeScriptには [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility-types](https://github.com/piotrwitek/utility-types), [simplytyped](https://github.com/andnp/simplytyped) など優れた型ユーティリティライブラリがあり、私たちは多くの後押しを得ているはずです。
 
-このプロジェクトは、型システムがどのように動作するのかを理解したり、独自の型ユーティリティを書いたり、課題へのチャレンジを楽しむことをサポートします。また、実際の業務で直面した問題を質問したり、その答えを得られるコミュニティを作りたいと考えています。 - そこでの問題が課題集に追加されるかもしれません！
+このプロジェクトはUtility型を作るにあたって、型システムがどのように動くのかを理解する手助けを目的としています。あるいは、純粋に型パズルを楽しむのもよいです。また私たちは、みんなが実際に直面している問題を共有し、解決策を得るためのコミュニティを形成しようとしています。- そして、その問題と解決策は、新たな型パズルになるかもしれません！
+
+あなたは[type-fest](https://github.com/sindresorhus/type-fest)をはじめとした、既存の多くのUtilityライブラリを扱うこともできます。他にも安定した(しかし現在は積極的にメンテナンスされていない)[utility-types](https://github.com/piotrwitek/utility-types), [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [SimplyTyped](https://github.com/andnp/SimplyTyped)のようなパッケージを参照することもできます。
 
 ## 課題集
 
