@@ -1,11 +1,11 @@
 import { updateREADMEs } from './readme'
-import { translateAllQuizes } from './translate'
+import { translateAllQuizzes } from './translate'
 import { defaultLocale } from './locales'
 
 async function run() {
-  await translateAllQuizes(defaultLocale, 'zh-CN')
-  await translateAllQuizes(defaultLocale, 'ja')
-  await translateAllQuizes(defaultLocale, 'pt-BR')
+  await translateAllQuizzes(defaultLocale, 'zh-CN')
+  await translateAllQuizzes(defaultLocale, 'ja')
+  await translateAllQuizzes(defaultLocale, 'pt-BR')
   await updateREADMEs()
 }
 

@@ -67,17 +67,17 @@ export function loadInfo(s: string): Partial<QuizMetaInfo> | undefined {
 
 export const QUIZ_ROOT = path.resolve(__dirname, '../questions')
 
-export async function loadQuizes(): Promise<Quiz[]> {
+export async function loadQuizzes(): Promise<Quiz[]> {
   const folders = await fg('{0..9}*-*', {
     onlyDirectories: true,
     cwd: QUIZ_ROOT,
   })
 
-  const quizes = await Promise.all(
+  const quizzes = await Promise.all(
     folders.map(async dir => loadQuiz(dir)),
   )
 
-  return quizes
+  return quizzes
 }
 
 export async function loadQuiz(dir: string): Promise<Quiz> {

@@ -3,7 +3,7 @@ import process from 'node:process'
 import fs from 'fs-extra'
 import type { SupportedLocale } from './locales'
 import { defaultLocale, f, supportedLocales, t } from './locales'
-import { loadQuizes, resolveInfo } from './loader'
+import { loadQuizzes, resolveInfo } from './loader'
 import { toAnswerShort, toNearborREADME, toPlayShort, toQuizREADME, toSolutionsShort } from './toUrl'
 import type { Quiz, QuizMetaInfo } from './types'
 
@@ -78,17 +78,17 @@ function quizToBadge(quiz: Quiz, locale: string, absolute = false, badge = true)
   )
 }
 
-function quizNoToBadges(ids: (string | number)[], quizes: Quiz[], locale: string, absolute = false) {
+function quizNoToBadges(ids: (string | number)[], quizzes: Quiz[], locale: string, absolute = false) {
   return ids
-    .map(i => quizes.find(q => q.no === Number(i)))
+    .map(i => quizzes.find(q => q.no === Number(i)))
     .filter(Boolean)
     .map(i => quizToBadge(i!, locale, absolute))
     .join(' ')
 }
 
-function getAllTags(quizes: Quiz[], locale: string) {
+function getAllTags(quizzes: Quiz[], locale: string) {
   const set = new Set<string>()
-  for (const quiz of quizes) {
+  for (const quiz of quizzes) {
     const info = resolveInfo(quiz, locale)
     for (const tag of (info?.tags || []))
       set.add(tag as string)
@@ -96,14 +96,14 @@ function getAllTags(quizes: Quiz[], locale: string) {
   return Array.from(set).sort()
 }
 
-function getQuizesByTag(quizes: Quiz[], locale: string, tag: string) {
-  return quizes.filter((quiz) => {
+function getQuizzesByTag(quizzes: Quiz[], locale: string, tag: string) {
+  return quizzes.filter((quiz) => {
     const info = resolveInfo(quiz, locale)
     return !!info.tags?.includes(tag)
   })
 }
 
-async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedLocale, quizes: Quiz[]) {
+async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedLocale, quizzes: Quiz[]) {
   if (!fs.existsSync(filepath))
     return
   let text = await fs.readFile(filepath, 'utf-8')
@@ -136,7 +136,7 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
       + toBadgeLink(`../../${f('README', locale, 'md')}`, '', t(locale, 'badge.back'), 'grey')
       + toBadgeLink(toAnswerShort(quiz.no, locale), '', t(locale, 'badge.share-your-solutions'), 'teal')
       + toBadgeLink(toSolutionsShort(quiz.no), '', t(locale, 'badge.checkout-solutions'), 'de5a77', '?logo=awesome-lists&logoColor=white')
-      + (Array.isArray(info.related) && info.related.length ? `<hr><h3>${t(locale, 'readme.related-challenges')}</h3>${quizNoToBadges(info.related, quizes, locale, true)}` : '')
+      + (Array.isArray(info.related) && info.related.length ? `<hr><h3>${t(locale, 'readme.related-challenges')}</h3>${quizNoToBadges(info.related, quizzes, locale, true)}` : '')
       + '<!--info-footer-end-->',
     )
 
@@ -145,7 +145,7 @@ async function insertInfoReadme(filepath: string, quiz: Quiz, locale: SupportedL
   await fs.writeFile(filepath, text, 'utf-8')
 }
 
-async function updateIndexREADME(quizes: Quiz[]) {
+async function updateIndexREADME(quizzes: Quiz[]) {
   // update index README
   for (const locale of supportedLocales) {
     const filepath = path.resolve(__dirname, '..', f('README', locale, 'md'))
@@ -154,11 +154,11 @@ async function updateIndexREADME(quizes: Quiz[]) {
     let prev = ''
 
     // difficulty
-    const quizesByDifficulty = [...quizes].sort((a, b) => DifficultyRank.indexOf(a.difficulty) - DifficultyRank.indexOf(b.difficulty))
+    const quizzesByDifficulty = [...quizzes].sort((a, b) => DifficultyRank.indexOf(a.difficulty) - DifficultyRank.indexOf(b.difficulty))
 
-    for (const quiz of quizesByDifficulty) {
+    for (const quiz of quizzesByDifficulty) {
       if (prev !== quiz.difficulty)
-        challengesREADME += `${prev ? '<br><br>' : ''}${toDifficultyBadgeInverted(quiz.difficulty, locale, quizesByDifficulty.filter(q => q.difficulty === quiz.difficulty).length)}<br>`
+        challengesREADME += `${prev ? '<br><br>' : ''}${toDifficultyBadgeInverted(quiz.difficulty, locale, quizzesByDifficulty.filter(q => q.difficulty === quiz.difficulty).length)}<br>`
 
       challengesREADME += quizToBadge(quiz, locale)
 
@@ -167,10 +167,10 @@ async function updateIndexREADME(quizes: Quiz[]) {
 
     // by tags
     challengesREADME += `<br><details><summary>${toDetailsInnerText('by-tags', locale)}</summary><br><table><tbody>`
-    const tags = getAllTags(quizes, locale)
+    const tags = getAllTags(quizzes, locale)
     for (const tag of tags) {
       challengesREADME += `<tr><td>${toBadge('', `#${tag}`, '999')}</td><td>`
-      getQuizesByTag(quizesByDifficulty, locale, tag)
+      getQuizzesByTag(quizzesByDifficulty, locale, tag)
         .forEach((quiz) => {
           challengesREADME += quizToBadge(quiz, locale)
         })
@@ -182,9 +182,9 @@ async function updateIndexREADME(quizes: Quiz[]) {
     // by plain text
     prev = ''
     challengesREADME += `<br><details><summary>${toDetailsInnerText('by-plain-text', locale)}</summary><br>`
-    for (const quiz of quizesByDifficulty) {
+    for (const quiz of quizzesByDifficulty) {
       if (prev !== quiz.difficulty)
-        challengesREADME += `${prev ? '</ul>' : ''}<h3>${toDifficultyPlainText(quiz.difficulty, locale, quizesByDifficulty.filter(q => q.difficulty === quiz.difficulty).length)}</h3><ul>`
+        challengesREADME += `${prev ? '</ul>' : ''}<h3>${toDifficultyPlainText(quiz.difficulty, locale, quizzesByDifficulty.filter(q => q.difficulty === quiz.difficulty).length)}</h3><ul>`
       challengesREADME += `<li>${quizToBadge(quiz, locale, false, false)}</li>`
       prev = quiz.difficulty
     }
@@ -199,11 +199,11 @@ async function updateIndexREADME(quizes: Quiz[]) {
   }
 }
 
-async function updateQuestionsREADME(quizes: Quiz[]) {
+async function updateQuestionsREADME(quizzes: Quiz[]) {
   const questionsDir = path.resolve(__dirname, '../questions')
 
   // update each questions' readme
-  for (const quiz of quizes) {
+  for (const quiz of quizzes) {
     for (const locale of supportedLocales) {
       await insertInfoReadme(
         path.join(
@@ -213,26 +213,26 @@ async function updateQuestionsREADME(quizes: Quiz[]) {
         ),
         quiz,
         locale,
-        quizes,
+        quizzes,
       )
     }
   }
 }
 
 export async function updateREADMEs(type?: 'quiz' | 'index') {
-  const quizes = await loadQuizes()
-  quizes.sort((a, b) => a.no - b.no)
+  const quizzes = await loadQuizzes()
+  quizzes.sort((a, b) => a.no - b.no)
 
   if (type === 'quiz') {
-    await updateQuestionsREADME(quizes)
+    await updateQuestionsREADME(quizzes)
   }
   else if (type === 'index') {
-    await updateIndexREADME(quizes)
+    await updateIndexREADME(quizzes)
   }
   else {
     await Promise.all([
-      updateIndexREADME(quizes),
-      updateQuestionsREADME(quizes),
+      updateIndexREADME(quizzes),
+      updateQuestionsREADME(quizzes),
     ])
   }
 }
