@@ -91,7 +91,7 @@ function getAllTags(quizzes: Quiz[], locale: string) {
   for (const quiz of quizzes) {
     const info = resolveInfo(quiz, locale)
     for (const tag of (info?.tags || []))
-      set.add(tag as string)
+      set.add(tag)
   }
   return Array.from(set).sort()
 }

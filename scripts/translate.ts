@@ -53,8 +53,7 @@ export async function translateMarkdown(code: string, from: SupportedLocale, to:
   if (!text)
     return
 
-  const result = (text as string)
-    .replace(/__\s*?(\d+?)\s*?__/g, (_, i) => codeBlocks[+i])
+  const result = text.replace(/__\s*?(\d+?)\s*?__/g, (_, i) => codeBlocks[+i])
 
   return result
 }
