@@ -5,7 +5,7 @@ import fs from 'fs-extra'
 import c from 'ansis'
 import prompts from 'prompts'
 import { formatToCode } from './actions/utils/formatToCode'
-import { loadQuizes, resolveInfo } from './loader'
+import { loadQuizzes, resolveInfo } from './loader'
 import { supportedLocales } from './locales'
 import { getQuestionFullName } from './actions/issue-pr'
 import type { QuizMetaInfo } from './types'
@@ -32,14 +32,14 @@ function calculateFileHash(filePathFull: string): Promise<string> {
   })
 }
 
-async function takeSnapshot(quizesPath: string) {
+async function takeSnapshot(quizzesPath: string) {
   let snapshot: Snapshot = {}
 
-  const files = fs.readdirSync(quizesPath)
+  const files = fs.readdirSync(quizzesPath)
 
   for (const file of files) {
     // Might be a file, or a folder
-    const fPath = path.join(quizesPath, file)
+    const fPath = path.join(quizzesPath, file)
     const fStats = fs.statSync(fPath)
 
     if (fStats.isDirectory()) {
@@ -142,10 +142,10 @@ async function generatePlayground() {
     await fs.ensureDir(playgroundPath)
   }
 
-  const quizes = await loadQuizes()
-  const incomingQuizesCache: Snapshot = {}
+  const quizzes = await loadQuizzes()
+  const incomingQuizzesCache: Snapshot = {}
 
-  for (const quiz of quizes) {
+  for (const quiz of quizzes) {
     const { difficulty, title } = resolveInfo(quiz, locale) as QuizMetaInfo & { difficulty: string }
     const code = formatToCode(quiz, locale)
 
@@ -154,22 +154,22 @@ async function generatePlayground() {
       continue
     }
 
-    const quizesPathByDifficulty = path.join(playgroundPath, difficulty)
+    const quizzesPathByDifficulty = path.join(playgroundPath, difficulty)
 
     const quizFileName = `${getQuestionFullName(quiz.no, difficulty, title)}.ts`
-    const quizPathFull = path.join(quizesPathByDifficulty, quizFileName)
+    const quizPathFull = path.join(quizzesPathByDifficulty, quizFileName)
 
     if (!keepChanges || (keepChanges && isQuizWritable(quizFileName, overridableFiles!, playgroundSnapshot!))) {
-      if (!fs.existsSync(quizesPathByDifficulty))
-        fs.mkdirSync(quizesPathByDifficulty)
+      if (!fs.existsSync(quizzesPathByDifficulty))
+        fs.mkdirSync(quizzesPathByDifficulty)
       await fs.writeFile(quizPathFull, code, 'utf-8')
-      incomingQuizesCache[quizFileName] = await calculateFileHash(quizPathFull)
+      incomingQuizzesCache[quizFileName] = await calculateFileHash(quizPathFull)
     }
   }
 
   fs.writeFile(playgroundCachePath, JSON.stringify({
     ...currentPlaygroundCache,
-    ...incomingQuizesCache,
+    ...incomingQuizzesCache,
   }))
 
   console.log()

@@ -5,7 +5,7 @@
 예시
 
 ```ts
-type trimed = TrimLeft<'  Hello World  '> // 기대되는 결과는 'Hello World  '입니다.
+type trimmed = TrimLeft<'  Hello World  '> // 기대되는 결과는 'Hello World  '입니다.
 ```
 
 

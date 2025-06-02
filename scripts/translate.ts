@@ -1,7 +1,7 @@
 import path from 'node:path'
 import fs from 'fs-extra'
 import { translate } from '@vitalets/google-translate-api'
-import { QUIZ_ROOT, loadQuizByNo, loadQuizes } from './loader'
+import { QUIZ_ROOT, loadQuizByNo, loadQuizzes } from './loader'
 import { resolveFilePath } from './utils/resolve'
 import type { Quiz } from './types'
 import type { SupportedLocale } from './locales'
@@ -59,10 +59,10 @@ export async function translateMarkdown(code: string, from: SupportedLocale, to:
   return result
 }
 
-export async function translateAllQuizes(from: SupportedLocale, to: SupportedLocale) {
-  const quizes = await loadQuizes()
+export async function translateAllQuizzes(from: SupportedLocale, to: SupportedLocale) {
+  const quizzes = await loadQuizzes()
 
-  for (const quiz of quizes) {
+  for (const quiz of quizzes) {
     if (quiz.readme[to] || !quiz.readme[from]) {
       console.log(`Skipped #${quiz.no}`)
       continue
