@@ -46,8 +46,8 @@ importers:
         specifier: ^2.4.9
         version: 2.4.9
       ansis:
-        specifier: ^3.12.0
-        version: 3.12.0
+        specifier: ^4.1.0
+        version: 4.1.0
       eslint:
         specifier: ^8.56.0
         version: 8.56.0
@@ -1177,8 +1177,8 @@ packages:
       color-convert: 2.0.1
     dev: true
 
-  /ansis@3.12.0:
-    resolution: {integrity: sha512-SxhlInpMkv9QCyI2yHyrhVrTF8dH93M/S86DT5f9brFgr92uJLOCg0RNmtx3YKWKcRmNAaU+gyUfHMdUiqxvFw==}
+  /ansis@4.1.0:
+    resolution: {integrity: sha512-BGcItUBWSMRgOCe+SVZJ+S7yTRG0eGt9cXAHev72yuGcY23hnLA7Bky5L/xLyPINoSN95geovfBkqoTlNZYa7w==}
     engines: {node: '>=14'}
     dev: true
 
