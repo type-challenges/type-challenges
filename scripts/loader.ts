@@ -105,7 +105,7 @@ export async function loadQuizByNo(no: number | string) {
 }
 
 export function resolveInfo(quiz: Quiz, locale: string = defaultLocale) {
-  const info = Object.assign({}, quiz.info[defaultLocale], quiz.info[locale])
+  const info = { ...quiz.info[defaultLocale], ...quiz.info[locale] }
   info.tags = quiz.info[locale]?.tags || quiz.info[defaultLocale]?.tags || []
   info.related = quiz.info[locale]?.related || quiz.info[defaultLocale]?.related || []
 
