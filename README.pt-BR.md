@@ -27,9 +27,9 @@
 
 Tipos de alta qualidade podem ajudar a melhorar a capacidade de manutenção dos projetos, evitando possíveis bugs.
 
-Existem várias bibliotecas incríveis de utilitários de tipos que podem impulsionar seus trabalhos com tipos, como [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility-types](https://github.com/piotrwitek/utility-types), [SimplyTyped](https://github.com/andnp/SimplyTyped), etc., que você já pode usar.
-
 Esse projeto tem como objetivo ajudar você a entender melhor como um sistema de tipos funciona, escrevendo seus próprios utilitários, ou apenas se divertindo com os desafios. Nós também tentamos criar uma comunidade onde você pode fazer perguntas e obter respostas de problemas reais - eles podem se tornar parte dos desafios!
+
+Você também pode usar algumas bibliotecas de utilitários de tipos existentes, como [type-fest](https://github.com/sindresorhus/type-fest). Existem também alguns pacotes obsoletos (não mantidos ativamente) que você pode consultar, como [utility-types](https://github.com/piotrwitek/utility-types), [ts-toolbelt](https://github.com/millsp/ts-toolbelt) e [SimplyTyped](https://github.com/andnp/SimplyTyped).
 
 ## Desafios
 
