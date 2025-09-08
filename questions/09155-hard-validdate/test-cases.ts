@@ -9,6 +9,7 @@ type cases = [
   Expect<Equal<ValidDate<'0132'>, false>>,
   Expect<Equal<ValidDate<'1301'>, false>>,
   Expect<Equal<ValidDate<'0123'>, true>>,
+  Expect<Equal<ValidDate<'0430'>, true>>,
   Expect<Equal<ValidDate<'01234'>, false>>,
   Expect<Equal<ValidDate<''>, false>>,
 ]

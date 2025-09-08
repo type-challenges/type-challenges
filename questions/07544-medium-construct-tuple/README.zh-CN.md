@@ -5,7 +5,7 @@
 例如
 
 ```ts
-type result = ConstructTuple<2> // 期望得到 [unknown, unkonwn]
+type result = ConstructTuple<2> // 期望得到 [unknown, unknown]
 ```
 
 

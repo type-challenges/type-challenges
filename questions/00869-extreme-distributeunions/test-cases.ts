@@ -25,32 +25,32 @@ type cases = [
   // objects
   Expect<
   Equal<
-  DistributeUnions<{ x: 'a' | 'b'; y: 'c' | 'd' }>,
-  { x: 'a'; y: 'c' } | { x: 'a'; y: 'd' } | { x: 'b'; y: 'c' } | { x: 'b'; y: 'd' }
+  DistributeUnions<{ x: 'a' | 'b', y: 'c' | 'd' }>,
+  { x: 'a', y: 'c' } | { x: 'a', y: 'd' } | { x: 'b', y: 'c' } | { x: 'b', y: 'd' }
   >
   >,
   Expect<
   Equal<
-  DistributeUnions<{ type: 'a'; value: number | string } | { type: 'b'; value: boolean }>,
-  | { type: 'a'; value: string }
-  | { type: 'a'; value: number }
-  | { type: 'b'; value: false }
-  | { type: 'b'; value: true }
+  DistributeUnions<{ type: 'a', value: number | string } | { type: 'b', value: boolean }>,
+  | { type: 'a', value: string }
+  | { type: 'a', value: number }
+  | { type: 'b', value: false }
+  | { type: 'b', value: true }
   >
   >,
   Expect<
   Equal<
   DistributeUnions<
-  | {
-    type: 'a'
-    option: { kind: 'none' } | { kind: 'some'; value: 'x' | 'y' }
-  }
-  | { type: 'b'; msg: string }
+    | {
+      type: 'a'
+      option: { kind: 'none' } | { kind: 'some', value: 'x' | 'y' }
+    }
+    | { type: 'b', msg: string }
   >,
-  | { type: 'b'; msg: string }
-  | { type: 'a'; option: { kind: 'none' } }
-  | { type: 'a'; option: { kind: 'some'; value: 'x' } }
-  | { type: 'a'; option: { kind: 'some'; value: 'y' } }
+  | { type: 'b', msg: string }
+  | { type: 'a', option: { kind: 'none' } }
+  | { type: 'a', option: { kind: 'some', value: 'x' } }
+  | { type: 'a', option: { kind: 'some', value: 'y' } }
   >
   >,
   // mixed structures:

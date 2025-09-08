@@ -15,7 +15,7 @@ const action: Action = async (github, context, core) => {
     const match = issue.title.match(/^(\d+) - /)
     if (match && match[1]) {
       const no = Number(match[1])
-      if (isNaN(no))
+      if (Number.isNaN(no))
         return
 
       const name = no.toString()

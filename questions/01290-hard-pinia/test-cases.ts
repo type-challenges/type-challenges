@@ -14,7 +14,7 @@ const store = defineStore({
       return this.num.toString()
     },
     parsedNum() {
-      return parseInt(this.stringifiedNum)
+      return Number.parseInt(this.stringifiedNum)
     },
   },
   actions: {

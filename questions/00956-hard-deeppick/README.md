@@ -6,8 +6,7 @@ A type takes two arguments.
 
 For example:
 
-```
-
+```ts
 type obj = {
   name: 'hoge', 
   age: 20,
