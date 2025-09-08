@@ -15,4 +15,5 @@ type cases = [
   Expect<Equal<All<[unknown], unknown>, true>>,
   Expect<Equal<All<[any], unknown>, false>>,
   Expect<Equal<All<[unknown], any>, false>>,
+  Expect<Equal<All<[1, 1, 2], 1 | 2>, false>>,
 ]

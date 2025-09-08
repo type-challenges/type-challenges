@@ -2,7 +2,7 @@ difficulty: extreme
 title: JSON Parser
 tags:
   - template-literal
-  - json
+  - JSON
 author:
   github: hydrati
   name: Hydration

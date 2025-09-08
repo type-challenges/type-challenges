@@ -6,6 +6,7 @@ type cases = [
   Expect<Equal<Square<3>, 9>>,
   Expect<Equal<Square<20>, 400>>,
   Expect<Equal<Square<100>, 10000>>,
+  Expect<Equal<Square<101>, 10201>>,
 
   // Negative numbers
   Expect<Equal<Square<-2>, 4>>,

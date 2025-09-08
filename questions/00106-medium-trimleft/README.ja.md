@@ -5,7 +5,7 @@
 例えば
 
 ```ts
-type trimed = TrimLeft<'  Hello World  '> // expected to be 'Hello World  '
+type trimmed = TrimLeft<'  Hello World  '> // expected to be 'Hello World  '
 ```
 
 

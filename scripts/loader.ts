@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 import fs from 'fs-extra'
 import fg from 'fast-glob'
 import YAML from 'js-yaml'
@@ -67,17 +67,17 @@ export function loadInfo(s: string): Partial<QuizMetaInfo> | undefined {
 
 export const QUIZ_ROOT = path.resolve(__dirname, '../questions')
 
-export async function loadQuizes(): Promise<Quiz[]> {
+export async function loadQuizzes(): Promise<Quiz[]> {
   const folders = await fg('{0..9}*-*', {
     onlyDirectories: true,
     cwd: QUIZ_ROOT,
   })
 
-  const quizes = await Promise.all(
+  const quizzes = await Promise.all(
     folders.map(async dir => loadQuiz(dir)),
   )
 
-  return quizes
+  return quizzes
 }
 
 export async function loadQuiz(dir: string): Promise<Quiz> {
@@ -105,7 +105,7 @@ export async function loadQuizByNo(no: number | string) {
 }
 
 export function resolveInfo(quiz: Quiz, locale: string = defaultLocale) {
-  const info = Object.assign({}, quiz.info[defaultLocale], quiz.info[locale])
+  const info = { ...quiz.info[defaultLocale], ...quiz.info[locale] }
   info.tags = quiz.info[locale]?.tags || quiz.info[defaultLocale]?.tags || []
   info.related = quiz.info[locale]?.related || quiz.info[defaultLocale]?.related || []
 

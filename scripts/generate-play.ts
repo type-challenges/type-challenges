@@ -1,11 +1,11 @@
-import path from 'path'
-import { argv } from 'process'
-import crypto from 'crypto'
+import path from 'node:path'
+import process from 'node:process'
+import crypto from 'node:crypto'
 import fs from 'fs-extra'
-import c from 'picocolors'
+import c from 'ansis'
 import prompts from 'prompts'
 import { formatToCode } from './actions/utils/formatToCode'
-import { loadQuizes, resolveInfo } from './loader'
+import { loadQuizzes, resolveInfo } from './loader'
 import { supportedLocales } from './locales'
 import { getQuestionFullName } from './actions/issue-pr'
 import type { QuizMetaInfo } from './types'
@@ -32,14 +32,14 @@ function calculateFileHash(filePathFull: string): Promise<string> {
   })
 }
 
-async function takeSnapshot(quizesPath: string) {
+async function takeSnapshot(quizzesPath: string) {
   let snapshot: Snapshot = {}
 
-  const files = fs.readdirSync(quizesPath)
+  const files = fs.readdirSync(quizzesPath)
 
   for (const file of files) {
     // Might be a file, or a folder
-    const fPath = path.join(quizesPath, file)
+    const fPath = path.join(quizzesPath, file)
     const fStats = fs.statSync(fPath)
 
     if (fStats.isDirectory()) {
@@ -66,7 +66,7 @@ function readPlaygroundCache(playgroundCachePath: string): Snapshot {
   }
   catch (err) {
     console.log(c.red('Playground cache corrupted. '
-      + 'Cannot generate playground without keeping your changes intact'))
+    + 'Cannot generate playground without keeping your changes intact'))
     console.log(c.cyan('Please ensure you have run this: "pnpm generate"'))
     process.exit(1)
   }
@@ -94,17 +94,17 @@ async function generatePlayground() {
   const playgroundPath = path.join(__dirname, '../playground')
   const playgroundCachePath = path.join(__dirname, '../.playgroundcache')
 
-  let locale = supportedLocales.find(locale => locale === argv[2])!
+  let locale = supportedLocales.find(locale => locale === process.argv[2])!
 
-  console.log(c.bold(c.cyan('Generating local playground...\n')))
+  console.log(c.bold.cyan('Generating local playground...\n'))
 
   let overridableFiles: Snapshot
   let keepChanges = false
   const currentPlaygroundCache = readPlaygroundCache(playgroundCachePath)
   let playgroundSnapshot: Snapshot
 
-  if (argv.length === 3 && (argv[2] === '--keep-changes' || argv[2] === '-K')) {
-    console.log(c.bold(c.cyan('We will keep your chanegs while generating.\n')))
+  if (process.argv.length === 3 && (process.argv[2] === '--keep-changes' || process.argv[2] === '-K')) {
+    console.log(c.bold.cyan('We will keep your changes while generating.\n'))
     keepChanges = true
 
     playgroundSnapshot = await takeSnapshot(playgroundPath)
@@ -142,38 +142,38 @@ async function generatePlayground() {
     await fs.ensureDir(playgroundPath)
   }
 
-  const quizes = await loadQuizes()
-  const incomingQuizesCache: Snapshot = {}
+  const quizzes = await loadQuizzes()
+  const incomingQuizzesCache: Snapshot = {}
 
-  for (const quiz of quizes) {
+  for (const quiz of quizzes) {
     const { difficulty, title } = resolveInfo(quiz, locale) as QuizMetaInfo & { difficulty: string }
     const code = formatToCode(quiz, locale)
 
     if (difficulty === undefined || title === undefined) {
-      console.log(c.yellow(`${quiz.no} has no ${locale.toUpperCase()} version. Skipping`))
+      console.log(c.yellow`${quiz.no} has no ${locale.toUpperCase()} version. Skipping`)
       continue
     }
 
-    const quizesPathByDifficulty = path.join(playgroundPath, difficulty)
+    const quizzesPathByDifficulty = path.join(playgroundPath, difficulty)
 
     const quizFileName = `${getQuestionFullName(quiz.no, difficulty, title)}.ts`
-    const quizPathFull = path.join(quizesPathByDifficulty, quizFileName)
+    const quizPathFull = path.join(quizzesPathByDifficulty, quizFileName)
 
     if (!keepChanges || (keepChanges && isQuizWritable(quizFileName, overridableFiles!, playgroundSnapshot!))) {
-      if (!fs.existsSync(quizesPathByDifficulty))
-        fs.mkdirSync(quizesPathByDifficulty)
+      if (!fs.existsSync(quizzesPathByDifficulty))
+        fs.mkdirSync(quizzesPathByDifficulty)
       await fs.writeFile(quizPathFull, code, 'utf-8')
-      incomingQuizesCache[quizFileName] = await calculateFileHash(quizPathFull)
+      incomingQuizzesCache[quizFileName] = await calculateFileHash(quizPathFull)
     }
   }
 
   fs.writeFile(playgroundCachePath, JSON.stringify({
     ...currentPlaygroundCache,
-    ...incomingQuizesCache,
+    ...incomingQuizzesCache,
   }))
 
   console.log()
-  console.log(c.bold(c.green('Local playground generated at: ')) + c.dim(playgroundPath))
+  console.log(c.bold.green('Local playground generated at: ') + c.dim(playgroundPath))
   console.log()
 }
 

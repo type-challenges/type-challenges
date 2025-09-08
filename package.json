@@ -2,7 +2,7 @@
   "name": "type-challenges",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@7.13.0",
+  "packageManager": "pnpm@8.12.1",
   "author": "Anthony Fu <anthonyfu117@hotmail.com>",
   "license": "MIT",
   "repository": "https://github.com/antfu/type-challenges.git",
@@ -15,38 +15,24 @@
     "utils:release": "pnpm -C utils release"
   },
   "dependencies": {
-    "esno": "^0.16.3",
-    "fast-glob": "^3.2.11",
-    "fs-extra": "^10.1.0",
+    "esno": "^4.0.0",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0",
     "js-yaml": "^4.1.0",
-    "lz-string": "^1.4.4"
+    "lz-string": "^1.5.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.25.1",
+    "@antfu/eslint-config": "^2.6.0",
     "@type-challenges/utils": "workspace:*",
-    "@types/fs-extra": "^9.0.13",
-    "@types/js-yaml": "^4.0.5",
-    "@types/lz-string": "^1.3.34",
-    "@types/node": "^18.0.0",
-    "@types/prompts": "^2.4.2",
-    "eslint": "^8.18.0",
-    "picocolors": "^1.0.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/js-yaml": "^4.0.9",
+    "@types/lz-string": "^1.5.0",
+    "@types/node": "^20.10.5",
+    "@types/prompts": "^2.4.9",
+    "ansis": "^4.1.0",
+    "eslint": "^8.56.0",
     "prompts": "^2.4.2",
-    "typescript": "^4.7.4",
+    "typescript": "^5.3.3",
     "utility-types": "^3.10.0"
-  },
-  "eslintConfig": {
-    "extends": "@antfu/eslint-config-ts",
-    "rules": {
-      "import/first": "off",
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/ban-ts-comment": "off",
-      "no-use-before-define": "off",
-      "no-unused-expressions": "off",
-      "prefer-const": "off",
-      "no-alert": "off",
-      "@typescript-eslint/consistent-type-definitions": "off"
-    }
   }
 }
