@@ -81,6 +81,7 @@ You can also use some existing type utility libraries such as [type-fest](https:
 - [Type Challenges Solutions](https://github.com/ghaiklor/type-challenges-solutions)
 - [Type Gymnastics](https://github.com/g-plane/type-gymnastics)
 - [TypeType Examples](https://github.com/mistlog/typetype-examples)
+- [TypeScriptPro Solutions](https://typescriptpro.com/challenges)
 
 ### Books
 
