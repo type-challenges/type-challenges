@@ -33,4 +33,8 @@ type cases = [
   Expect<Equal<Comparator<9007199254740992, 9007199254740991>, Comparison.Greater>>,
   Expect<Equal<Comparator<-9007199254740992, -9007199254740991>, Comparison.Lower>>,
   Expect<Equal<Comparator<-9007199254740991, -9007199254740992>, Comparison.Greater>>,
+  Expect<Equal<Comparator<3.1415, 3.1415>, Comparison.Equal>>,
+  Expect<Equal<Comparator<3.1415, 3.1414>, Comparison.Greater>>,
+  Expect<Equal<Comparator<0, 3.1414>, Comparison.Lower>>,
+  Expect<Equal<Comparator<31.415, 3.1415>, Comparison.Greater>>,
 ]

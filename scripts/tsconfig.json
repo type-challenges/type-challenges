@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "module": "esnext",
     "target": "es2017",
     "lib": ["ESNext"],
-    "strict": true,
-    "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "skipLibCheck": true,
+    "allowJs": true,
+    "strict": true,
+    "noImplicitReturns": true,
     "noUnusedLocals": false,
     "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "allowJs": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "exclude": ["node_modules", "dist"]
 }

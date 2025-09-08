@@ -5,7 +5,7 @@ Implement `TrimRight<T>` which takes an exact string type and returns a new stri
 For example:
 
 ```ts
-type Trimed = TrimRight<'   Hello World    '> // expected to be '   Hello World'
+type Trimmed = TrimRight<'   Hello World    '> // expected to be '   Hello World'
 ```
 
 

@@ -14,7 +14,7 @@ class A {
   }
 }
 
-type publicKyes = ClassPublicKeys<A> // 'str' | 'getNum'
+type publicKeys = ClassPublicKeys<A> // 'str' | 'getNum'
 ```
 
 

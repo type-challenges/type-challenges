@@ -6,4 +6,5 @@ type cases = [
   Expect<Equal<Join<['2', '2', '2'], 1>, '21212'>>,
   Expect<Equal<Join<['o'], 'u'>, 'o'>>,
   Expect<Equal<Join<[], 'u'>, ''>>,
+  Expect<Equal<Join<['1', '1', '1']>, '1,1,1'>>,
 ]
