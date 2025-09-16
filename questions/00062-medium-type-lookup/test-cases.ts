@@ -17,3 +17,6 @@ type cases = [
   Expect<Equal<LookUp<Animal, 'dog'>, Dog>>,
   Expect<Equal<LookUp<Animal, 'cat'>, Cat>>,
 ]
+
+// @ts-expect-error
+type error = LookUp<Animal, 'Horse'>;
