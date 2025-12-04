@@ -1,0 +1,1 @@
+type KeyTypeFromProps<T> = any
