@@ -1,12 +1,14 @@
 ---
 name: Answers
 about: Share answers/solutions to a question
-title: "no - "
+title: "[Challenge Number] - [Challenge Name]"
 labels: answer, en
 ---
 
 <!--
-Notes: 
+⚠️ IMPORTANT: Before submitting your solution, please:
+1. Replace the title with the actual challenge number and name (e.g., "13 - Hello World")
+2. Search for existing solutions to avoid duplicates: https://github.com/type-challenges/type-challenges/issues?q=is%3Aissue+label%3Aanswer
 
 🎉 Congrats on solving the challenge and we are happy to see you'd like to share your solutions!
 
