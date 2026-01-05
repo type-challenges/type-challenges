@@ -1,12 +1,14 @@
 ---
 name: 문제풀이
 about: 풀이 공유하기/문제의 풀이
-title: "no - "
+title: "[문제 번호] - [문제 이름]"
 labels: answer, ko
 ---
 
 <!--
-Notes: 
+⚠️ 중요: 풀이를 제출하기 전에 다음을 확인하세요:
+1. 제목을 실제 문제 번호와 이름으로 변경하세요 (예: "13 - Hello World")
+2. 중복을 피하기 위해 기존 풀이를 검색하세요: https://github.com/type-challenges/type-challenges/issues?q=is%3Aissue+label%3Aanswer
 
 🎉 문제해결을 축하합니다!
 
