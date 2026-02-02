@@ -1,0 +1,1 @@
+type Collapse<T> = any
