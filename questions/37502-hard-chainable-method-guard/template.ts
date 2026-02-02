@@ -1,0 +1,1 @@
+type ChainableMethodGuard<CLASS> = any
