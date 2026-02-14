@@ -1,0 +1,1 @@
+type ReducedNesting<T> = any
