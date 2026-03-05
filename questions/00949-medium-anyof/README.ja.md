@@ -1,6 +1,6 @@
 <!--info-header-start--><h1>AnyOf <img src="https://img.shields.io/badge/-%E4%B8%AD%E7%B4%9A-d9901a" alt="中級"/> <img src="https://img.shields.io/badge/-%23array-999" alt="#array"/></h1><blockquote><p>by null <a href="https://github.com/kynefuk" target="_blank">@kynefuk</a></p></blockquote><p><a href="https://tsch.js.org/949/play/ja" target="_blank"><img src="https://img.shields.io/badge/-%E6%8C%91%E6%88%A6%E3%81%99%E3%82%8B-3178c6?logo=typescript&logoColor=white" alt="挑戦する"/></a> &nbsp;&nbsp;&nbsp;<a href="./README.md" target="_blank"><img src="https://img.shields.io/badge/-English-gray" alt="English"/></a>  <a href="./README.zh-CN.md" target="_blank"><img src="https://img.shields.io/badge/-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-gray" alt="简体中文"/></a>  <a href="./README.ko.md" target="_blank"><img src="https://img.shields.io/badge/-%ED%95%9C%EA%B5%AD%EC%96%B4-gray" alt="한국어"/></a> </p><!--info-header-end-->
 
-Pythonの `any` 関数のような型を実装してください。実装する型は配列を受け取り、その配列のいずれかの要素が真ならば `true` を返します。なお、受け取った配列が空配列の場合は `false` を返します。
+タプルに少なくとも1つの非空型が含まれている場合に`true`を返し、それ以外の場合は`false`を返す型レベルの`AnyOf<T>`を実装してください。空であることの定義は、JavaScriptのランタイム動作とは独立して静的に（`false`、0、''、[]、{}）定義されます。
 
 例えば:
 
