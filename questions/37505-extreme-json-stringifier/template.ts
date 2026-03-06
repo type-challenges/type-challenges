@@ -1,0 +1,1 @@
+type Stringify<T> = any
