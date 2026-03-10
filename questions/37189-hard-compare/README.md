@@ -1,0 +1,1 @@
+`Compare` takes two number types `T` and `U`. If `T` is greater than `U`, return `1`; if `U` is greater than `T`, return `-1`. If they are equal, return `0`. If `T` or `U` is type `number`, return `-1 | 0 | 1`.
