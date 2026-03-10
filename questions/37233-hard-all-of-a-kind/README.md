@@ -1,0 +1,1 @@
+Implement the `IsAllOfAKind` type. It receives an array type and a string union and determines whether or not the given array type includes exactly one element of each literal type of the string union.
