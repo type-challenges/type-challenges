@@ -1,0 +1,1 @@
+type DistinctUnions<T> = any
