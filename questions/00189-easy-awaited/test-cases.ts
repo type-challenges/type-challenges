@@ -5,6 +5,7 @@ type Y = Promise<{ field: number }>
 type Z = Promise<Promise<string | number>>
 type Z1 = Promise<Promise<Promise<string | boolean>>>
 type T = { then: (onfulfilled: (arg: number) => any) => any }
+type T1 = { then: (onfulfilled: (arg: T) => any) => any }
 
 type cases = [
   Expect<Equal<MyAwaited<X>, string>>,
@@ -12,4 +13,5 @@ type cases = [
   Expect<Equal<MyAwaited<Z>, string | number>>,
   Expect<Equal<MyAwaited<Z1>, string | boolean>>,
   Expect<Equal<MyAwaited<T>, number>>,
+  Expect<Equal<MyAwaited<T1>, number>>,
 ]
