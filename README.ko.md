@@ -21,7 +21,9 @@
 
 타입을 잘 선언하면 잠재적인 버그를 피할 수 있고 프로젝트의 유지보수를 향상시킬 수 있습니다. 
 
-타입을 잘 다듬어 줄 수 있는 좋은 유틸리티 라이브러리들이 있습니다.([ts-toolbelt](https://github.com/millsp/ts-toolbelt), [utility-types](https://github.com/piotrwitek/utility-types), [SimplyTyped](https://github.com/andnp/SimplyTyped), 등등). 이중 이미 사용하고 있는 라이브러리들도 있을 수 있습니다.
+이 프로젝트는 타입 시스템이 어떻게 작동하는지 이해하고, 자신의 유틸리티를 작성해보거나 챌린지를 재미있게 해보는 것을 목표로 하고 있습니다. 또한 현업에서 마주하게되는 질문과 해답을 위한 커뮤니티를 만들기 위한 목적도 있습니다! 이 또한 챌린지의 한 부분이 될 수 있겠죠!
+
+또한 [type-fest](https://github.com/sindresorhus/type-fest)와 같은 기존 타입 유틸리티 라이브러리를 사용할 수도 있습니다. 그 밖에도 이미 활발히 유지 관리되지 않는 [utility-types](https://github.com/piotrwitek/utility-types), [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [SimplyTyped](https://github.com/andnp/SimplyTyped)와 같은 패키지를 참고할 수 있습니다.
 
 이 프로젝트는 타입 시스템이 어떻게 작동하는지 이해하고, 자신의 유틸리티를 작성해보거나 챌린지를 재미있게 해보는 것을 목표로 하고 있습니다. 또한 현업에서 마주하게되는 질문과 해답을 위한 커뮤니티를 만들기 위한 목적도 있습니다! 이 또한 챌린지의 한 부분이 될 수 있겠죠!
 
