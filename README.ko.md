@@ -25,8 +25,6 @@
 
 또한 [type-fest](https://github.com/sindresorhus/type-fest)와 같은 기존 타입 유틸리티 라이브러리를 사용할 수도 있습니다. 그 밖에도 이미 활발히 유지 관리되지 않는 [utility-types](https://github.com/piotrwitek/utility-types), [ts-toolbelt](https://github.com/millsp/ts-toolbelt), [SimplyTyped](https://github.com/andnp/SimplyTyped)와 같은 패키지를 참고할 수 있습니다.
 
-이 프로젝트는 타입 시스템이 어떻게 작동하는지 이해하고, 자신의 유틸리티를 작성해보거나 챌린지를 재미있게 해보는 것을 목표로 하고 있습니다. 또한 현업에서 마주하게되는 질문과 해답을 위한 커뮤니티를 만들기 위한 목적도 있습니다! 이 또한 챌린지의 한 부분이 될 수 있겠죠!
-
 ## Challenges
 
 > 배지를 클릭해서 챌린지의 자세한 내용을 확인해보세요.
