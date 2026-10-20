@@ -1,4 +1,5 @@
 import type { Equal, Expect } from '@type-challenges/utils'
+import type { MyReturnType } from './template'
 
 type cases = [
   Expect<Equal<string, MyReturnType<() => string>>>,
